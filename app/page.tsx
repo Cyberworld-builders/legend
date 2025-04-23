@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import ChatWidget from '../components/ChatWidget';
 
 export default function Home() {
   return (
@@ -129,6 +130,7 @@ export default function Home() {
       >
         [ email ]
       </a>
+      <ChatWidget />
     </div>
   );
 }
