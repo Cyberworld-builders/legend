@@ -62,6 +62,15 @@ const CheckoutForm = () => {
 
   return (
     <>
+      <div className="flex justify-center mb-4">
+        <Link href="/">
+          <img
+            src="/icons/favicon.ico"
+            alt="CyberWorld Logo"
+            className="w-12 h-12 rounded-full"
+          />
+        </Link>
+      </div>
       <h1 className="text-4xl mb-6 tracking-wider uppercase">CyberWorld Payment</h1>
       <div className="bg-[#2a2a2a] p-6 rounded-lg border-2 border-[#00ff00] shadow-[0_0_10px_#00ff00,0_0_20px_#00ff00] w-full max-w-sm">
         <div className="mb-3 text-xs text-[#00ff00]/70">
