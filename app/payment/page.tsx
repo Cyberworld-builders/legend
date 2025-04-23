@@ -79,8 +79,7 @@ const CheckoutForm = () => {
                       fontFamily: '"Courier New", monospace',
                       fontSize: '14px',
                       '::placeholder': {
-                        color: '#00ff00',
-                        opacity: 0.5,
+                        color: 'rgba(0, 255, 0, 0.5)',
                       },
                     },
                     invalid: {
