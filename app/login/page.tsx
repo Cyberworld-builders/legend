@@ -27,6 +27,15 @@ export default function Login() {
 
   return (
     <>
+      <div className="flex justify-center mb-4">
+        <Link href="/">
+          <img
+            src="/icons/favicon.ico"
+            alt="CyberWorld Logo"
+            className="w-12 h-12 rounded-full"
+          />
+        </Link>
+      </div>
       <h1 className="text-4xl mb-8 tracking-wider">CyberWorld Login</h1>
       <div className="bg-[#2a2a2a] p-8 rounded-lg border-2 border-[#00ff00] shadow-[0_0_10px_#00ff00,0_0_20px_#00ff00] w-full max-w-md">
         <div className="mb-4 text-sm text-[#00ff00]/70">
