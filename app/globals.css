@@ -1,0 +1,24 @@
+@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom styles for CyberWorld aesthetic */
+body {
+  background-color: #1a1a1a;
+  color: #00ff00;
+  font-family: 'Courier New', monospace;
+}
+
+/* Reset browser defaults for inputs */
+input {
+  background-color: #1a1a1a;
+  color: #00ff00;
+  font-family: 'Courier New', monospace;
+}
+
+/* Style placeholders */
+input::placeholder {
+  color: #00ff00;
+  opacity: 0.5;
+}
