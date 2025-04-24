@@ -5,6 +5,7 @@ import { auth } from '../../lib/firebase';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import Link from 'next/link';
 import Image from 'next/image';
+import ChatWidget from '../../components/ChatWidget';
 export default function Login() {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
@@ -81,6 +82,7 @@ export default function Login() {
           </Link>
         </div>
       </div>
+      <ChatWidget />
     </>
   );
 }

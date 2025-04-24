@@ -5,6 +5,7 @@ import { loadStripe } from '@stripe/stripe-js';
 import { Elements, CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import Link from 'next/link';
 import Image from 'next/image';
+import ChatWidget from '../../components/ChatWidget';
 // Load Stripe with your publishable key
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!);
 
@@ -116,6 +117,7 @@ const CheckoutForm = () => {
           </Link>
         </div>
       </div>
+      <ChatWidget />
     </>
   );
 };
