@@ -46,7 +46,7 @@ const ChatWidget = () => {
       } else {
         setMessages((prev) => [...prev, { role: 'bot', content: data.response }]);
       }
-    } catch (error) {
+    } catch {
       setMessages((prev) => [...prev, { role: 'bot', content: 'Sorry, something went wrong.' }]);
     }
   };

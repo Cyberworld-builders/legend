@@ -4,7 +4,7 @@ import { useState, FormEvent } from 'react';
 import { loadStripe } from '@stripe/stripe-js';
 import { Elements, CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import Link from 'next/link';
-
+import Image from 'next/image';
 // Load Stripe with your publishable key
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!);
 
@@ -64,7 +64,7 @@ const CheckoutForm = () => {
     <>
       <div className="flex justify-center mb-4">
         <Link href="/">
-          <img
+          <Image
             src="/icons/favicon.ico"
             alt="CyberWorld Logo"
             className="w-12 h-12 rounded-full"

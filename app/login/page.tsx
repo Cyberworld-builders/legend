@@ -4,7 +4,7 @@ import { useState, FormEvent } from 'react';
 import { auth } from '../../lib/firebase';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import Link from 'next/link';
-
+import Image from 'next/image';
 export default function Login() {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
@@ -29,10 +29,12 @@ export default function Login() {
     <>
       <div className="flex justify-center mb-4">
         <Link href="/">
-          <img
+          <Image
             src="/icons/favicon.ico"
             alt="CyberWorld Logo"
             className="w-12 h-12 rounded-full"
+            width={48}
+            height={48}
           />
         </Link>
       </div>

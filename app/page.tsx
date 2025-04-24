@@ -1,14 +1,16 @@
 import Link from 'next/link';
 import ChatWidget from '../components/ChatWidget';
-
+import Image from 'next/image';
 export default function Home() {
   return (
     <div className="text-center">
-      <img
+      <Image
         src="/images/logo.png"
         alt="CyberWorld Logo"
         className="mx-auto mb-4"
         style={{ maxWidth: '250px' }}
+        width={250}
+        height={250}
       />
       <p className="text-lg mb-8 text-[#00ff00]/70">
         Welcome to the CyberWorld ecosystem.
@@ -90,7 +92,13 @@ export default function Home() {
           rel="noopener noreferrer"
           className="text-[#00ff00] hover:text-[#00cc00] transition"
         >
-          <img src="/images/x-icon.png" alt="X" className="w-6 h-6" />
+          <Image
+            src="/images/x-icon.png"
+            alt="X"
+            className="w-6 h-6"
+            width={24}
+            height={24}
+          />
         </a>
         <a
           href="https://www.upwork.com/freelancers/jaylongcyberworld"
