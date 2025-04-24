@@ -12,8 +12,9 @@ export default function Home() {
         width={250}
         height={250}
       />
-      <p className="text-lg mb-8 text-[#00ff00]/70">
+<p className="text-lg mb-8 text-[#00ff00]/70">
         Welcome to the CyberWorld ecosystem.
+
       </p>
       <div className="flex justify-center gap-4 mb-12">
         <Link
@@ -28,7 +29,30 @@ export default function Home() {
         >
           Signup
         </Link>
+
       </div>
+      <div className="flex justify-center gap-4 mb-12">       
+      <Link
+          href="/payment"
+          className="inline-block px-3 py-1 bg-transparent border border-[#00ff00] text-[#00ff00] rounded-sm hover:bg-[#00ff00]/20 hover:text-[#00cc00] transition uppercase text-sm"
+        >
+          Donate $10
+        </Link>
+      </div>
+
+
+      
+      <p className="text-xl mb-2">Jay Long</p>
+      <p className="text-sm text-[#00ff00]/70">CyberWorld Builders,Inc.</p>
+      <a
+        href="mailto:contact@cyberworldbuilders.com"
+        className="text-sm text-[#00ff00] hover:underline mt-2 block"
+      >
+        [ email ]
+      </a>
+
+      <div className="flex justify-center gap-4 mb-12"></div>
+
       <div className="flex justify-center gap-6 mb-8">
         <a
           href="https://github.com/CyberWorld-builders"
@@ -130,14 +154,11 @@ export default function Home() {
           </svg>
         </a>
       </div>
-      <p className="text-xl mb-2">Jay Long</p>
-      <p className="text-sm text-[#00ff00]/70">CyberWorld Builders,Inc.</p>
-      <a
-        href="mailto:contact@cyberworldbuilders.com"
-        className="text-sm text-[#00ff00] hover:underline mt-2 block"
-      >
-        [ email ]
-      </a>
+
+
+
+
+
       <ChatWidget />
     </div>
   );
