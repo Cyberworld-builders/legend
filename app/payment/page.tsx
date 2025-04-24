@@ -77,7 +77,7 @@ const CheckoutForm = () => {
       <h1 className="text-4xl mb-6 tracking-wider uppercase">CyberWorld Payment</h1>
       <div className="bg-[#2a2a2a] p-6 rounded-lg border-2 border-[#00ff00] shadow-[0_0_10px_#00ff00,0_0_20px_#00ff00] w-full max-w-sm">
         <div className="mb-3 text-xs text-[#00ff00]/70">
-          Enter your payment details to join CyberWorld.
+          Use your card info to donate $10 to CyberWorld Builders with Stripe.
         </div>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
