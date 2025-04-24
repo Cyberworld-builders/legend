@@ -69,6 +69,8 @@ const CheckoutForm = () => {
             src="/icons/favicon.ico"
             alt="CyberWorld Logo"
             className="w-12 h-12 rounded-full"
+            width={48}
+            height={48}
           />
         </Link>
       </div>
