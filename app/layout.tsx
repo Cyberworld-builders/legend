@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import '../app/globals.css';
+import { Analytics } from '@vercel/analytics/next';
 
 export const metadata: Metadata = {
   title: 'CyberWorld Builders',
@@ -27,6 +28,7 @@ export default function RootLayout({
     <html lang="en">
       <body className="flex flex-col items-center justify-center min-h-screen bg-[#1a1a1a] text-[#00ff00] font-mono">
         {children}
+        <Analytics />
       </body>
     </html>
   );
