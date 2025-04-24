@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 import '../app/globals.css';
 
 export const metadata: Metadata = {
-  title: 'CyberWorld Auth',
-  description: 'Authentication for CyberWorld ecosystem',
+  title: 'CyberWorld Builders',
+  description: 'Software engineering, services, consulting, and more.',
   icons: {
     icon: [
       { url: '/icons/favicon.ico', type: 'image/x-icon' },
