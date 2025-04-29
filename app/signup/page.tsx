@@ -5,22 +5,40 @@ import { auth } from '../../lib/firebase';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import ChatWidget from '../../components/ChatWidget';
+
 export default function Signup() {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
+  const router = useRouter();
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setError(null);
     setLoading(true);
     try {
-      await createUserWithEmailAndPassword(auth, email, password);
-      alert('Signup successful!');
-    } catch (err: unknown) {
-      setError(err instanceof Error ? err.message : 'An error occurred');
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+
+      // Send webhook to Make.com after successful signup
+      await fetch(process.env.NEXT_PUBLIC_MAKE_COM_WEBHOOK_URL as string, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          userEmail: userCredential.user.email,
+          signupTime: new Date().toISOString(),
+        }),
+      });
+
+      router.push('/login'); // Redirect to login page after signup
+    } catch (err) {
+      if (err instanceof Error) {
+        setError(err.message);
+      } else {
+        setError('An unexpected error occurred');
+      }
     } finally {
       setLoading(false);
     }
