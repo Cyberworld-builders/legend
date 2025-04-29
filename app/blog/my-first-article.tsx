@@ -1,31 +1,35 @@
 import Article from '../../components/Article';
 
 const markdownContent = `
-# My First CyberWorld Article
+# My First Article
 
-Welcome to my first blog post on CyberWorld! I'm excited to share my journey as a builder in this futuristic tech platform.
+Welcome to my first blog post! This is an example of how to structure your blog posts.
 
-## What is CyberWorld?
+## Getting Started
 
-CyberWorld is a digital ecosystem for builders, creators, and innovators. It offers tools for:
+Here are some tips for writing great blog posts:
 
-- Authentication
-- Payments
-- And more!
+- Use clear headings
+- Break up text with lists
+- Include code examples when relevant
+- Add images to illustrate points
 
-## Why I Joined
+## Code Example
 
-I joined CyberWorld to leverage its powerful tools for my projects. The platform's focus on innovation makes it the perfect place for creators like me.
+\`\`\`typescript
+const greeting = "Hello, World!";
+console.log(greeting);
+\`\`\`
 
-### My Goals
+## Conclusion
 
-- Build innovative apps.
-- Connect with other creators.
-- Share my knowledge through this blog.
-
-Check out my profiles on [GitHub](https://github.com/CyberWorld-builders) and [X](https://x.com/cyberbuilders) for more updates!
+Thanks for reading! Stay tuned for more articles.
 `;
 
 export default function BlogPost() {
-  return <Article content={markdownContent} />;
+  return {
+    props: {
+      content: markdownContent
+    }
+  };
 }

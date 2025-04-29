@@ -21,7 +21,7 @@ export async function generateStaticParams() {
 }
 
 export default async function BlogPost({ params }: BlogPostProps) {
-  const { slug } = params;
+  const { slug } = await params;
 
   try {
     const postModule = await import(`../${slug}`);
@@ -32,13 +32,16 @@ export default async function BlogPost({ params }: BlogPostProps) {
       notFound();
     }
 
-    const postContent = PostComponent();
-    if (!postContent || !postContent.props || !postContent.props.children) {
+    const postContent = await PostComponent();
+    if (!postContent || !postContent.props) {
       console.error(`Invalid blog post content structure for slug: ${slug}`);
       notFound();
     }
 
-    const markdownContent = postContent.props.children.props?.content;
+    // Handle both direct content and nested content structures
+    const markdownContent = postContent.props.content || 
+                          (postContent.props.children?.props?.content);
+
     if (!markdownContent) {
       console.error(`No markdown content found for slug: ${slug}`);
       notFound();
