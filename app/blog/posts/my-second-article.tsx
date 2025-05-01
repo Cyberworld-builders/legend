@@ -1,9 +1,9 @@
-import Article from '../../components/Article';
+import Article from '@/components/Article';
 
 const markdownContent = `
-# My First Article
+# My Second Article
 
-Welcome to my first blog post! This is an example of how to structure your blog posts.
+Welcome to my second blog post! This is an example of how to structure your blog posts.
 
 ## Getting Started
 

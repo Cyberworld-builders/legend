@@ -1,5 +1,5 @@
 import { notFound } from 'next/navigation';
-import Article from '../../../components/Article';
+import Article from '@/components/Article';
 
 interface BlogPostProps {
   params: {
@@ -10,7 +10,7 @@ interface BlogPostProps {
 export async function generateStaticParams() {
   const fs = await import('fs');
   const path = await import('path');
-  const postsDirectory = path.join(process.cwd(), 'app/blog');
+  const postsDirectory = path.join(process.cwd(), 'app/blog/posts');
   const filenames = fs.readdirSync(postsDirectory);
 
   return filenames
@@ -24,7 +24,7 @@ export default async function BlogPost({ params }: BlogPostProps) {
   const { slug } = await params;
 
   try {
-    const postModule = await import(`../${slug}`);
+    const postModule = await import(`../posts/${slug}`);
     const PostComponent = postModule.default;
     
     if (!PostComponent || typeof PostComponent !== 'function') {
@@ -47,14 +47,9 @@ export default async function BlogPost({ params }: BlogPostProps) {
       notFound();
     }
 
-    return (
-      <div className="min-h-screen flex flex-col items-center py-8">
-        <h1 className="text-3xl font-bold uppercase mb-8">Blog</h1>
-        <Article content={markdownContent} />
-      </div>
-    );
+    return <Article content={markdownContent} />;
   } catch (error) {
-    console.error(`Error loading blog post ${slug}:`, error);
+    console.error(`Error loading blog post for slug: ${slug}`, error);
     notFound();
   }
 }
