@@ -31,11 +31,21 @@ export default function Home() {
         </Link>
 
       </div>
-      <div className="flex justify-center gap-4 mb-12">       
-      <Link
-          href="/payment"
-          className="inline-block px-3 py-1 bg-transparent border border-[#00ff00] text-[#00ff00] rounded-sm hover:bg-[#00ff00]/20 hover:text-[#00cc00] transition uppercase text-sm"
+
+      <div className="flex justify-center gap-4 mb-12">
+        <Link
+          href="/blog"
+          className="text-sm text-[#00ff00] hover:underline mt-2 block uppercase"
         >
+          [ blog ]
+        </Link>
+      </div>
+
+      <div className="flex justify-center gap-4 mb-12">       
+          <Link
+            href="/payment"
+            className="inline-block px-3 py-1 bg-transparent border border-[#00ff00] text-[#00ff00] rounded-sm hover:bg-[#00ff00]/20 hover:text-[#00cc00] transition uppercase text-sm"
+          >
           Donate $10
         </Link>
       </div>
@@ -50,6 +60,8 @@ export default function Home() {
       >
         [ email ]
       </a>
+
+
 
       <div className="flex justify-center gap-4 mb-12"></div>
 
