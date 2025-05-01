@@ -2,6 +2,8 @@ import { notFound } from 'next/navigation';
 import Article from '@/components/Article';
 import Link from 'next/link';
 import Image from 'next/image';
+import { promises as fs } from 'fs';
+import path from 'path';
 
 interface BlogPostProps {
   params: {
@@ -9,21 +11,46 @@ interface BlogPostProps {
   };
 }
 
-export async function generateStaticParams() {
-  const fs = await import('fs');
-  const path = await import('path');
+async function getAllPosts() {
   const postsDirectory = path.join(process.cwd(), 'app/blog/posts');
-  const filenames = fs.readdirSync(postsDirectory);
+  const filenames = await fs.readdir(postsDirectory);
 
   return filenames
-    .filter((filename) => filename.endsWith('.tsx') && filename !== 'template.tsx')
+    .filter((filename) => 
+      filename.endsWith('.tsx') && 
+      filename !== 'template.tsx' &&
+      !filename.startsWith('[')
+    )
     .map((filename) => ({
       slug: filename.replace(/\.tsx$/, ''),
-    }));
+      title: filename
+        .replace(/\.tsx$/, '')
+        .replace(/-/g, ' ')
+        .split(' ')
+        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(' '),
+    }))
+    .sort((a, b) => b.title.localeCompare(a.title));
+}
+
+export async function generateStaticParams() {
+  const posts = await getAllPosts();
+  return posts.map((post) => ({
+    slug: post.slug,
+  }));
 }
 
 export default async function BlogPost({ params }: BlogPostProps) {
   const { slug } = await params;
+  const allPosts = await getAllPosts();
+  const currentIndex = allPosts.findIndex(post => post.slug === slug);
+  
+  if (currentIndex === -1) {
+    notFound();
+  }
+
+  const prevPost = currentIndex < allPosts.length - 1 ? allPosts[currentIndex + 1] : null;
+  const nextPost = currentIndex > 0 ? allPosts[currentIndex - 1] : null;
 
   try {
     const postModule = await import(`../posts/${slug}`);
@@ -71,6 +98,26 @@ export default async function BlogPost({ params }: BlogPostProps) {
           </Link>
         </div>
         <Article content={markdownContent} />
+        
+        {/* Post Navigation */}
+        <div className="mt-8 flex justify-between w-full max-w-2xl">
+          {prevPost && (
+            <Link
+              href={`/blog/${prevPost.slug}`}
+              className="text-[#00ff00] hover:text-[#00cc00] hover:underline"
+            >
+              ← {prevPost.title}
+            </Link>
+          )}
+          {nextPost && (
+            <Link
+              href={`/blog/${nextPost.slug}`}
+              className="text-[#00ff00] hover:text-[#00cc00] hover:underline"
+            >
+              {nextPost.title} →
+            </Link>
+          )}
+        </div>
       </div>
     );
   } catch (error) {
