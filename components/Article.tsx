@@ -1,53 +1,61 @@
+import React from 'react';
 import ReactMarkdown from 'react-markdown';
-import remarkGfm from 'remark-gfm';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import type { Components } from 'react-markdown';
 
 interface ArticleProps {
   content: string;
 }
 
-const Article = ({ content }: ArticleProps) => {
+export default function Article({ content }: ArticleProps) {
+  const components: Components = {
+    h1: (props) => <h1 className="text-3xl font-bold mb-4" {...props} />,
+    h2: (props) => <h2 className="text-2xl font-bold mb-3" {...props} />,
+    h3: (props) => <h3 className="text-xl font-bold mb-2" {...props} />,
+    p: (props) => <p className="mb-4" {...props} />,
+    ul: (props) => <ul className="list-disc pl-6 mb-4" {...props} />,
+    ol: (props) => <ol className="list-decimal pl-6 mb-4" {...props} />,
+    li: (props) => <li className="mb-1" {...props} />,
+    blockquote: (props) => (
+      <blockquote className="border-l-4 border-[#00ff00] pl-4 italic mb-4" {...props} />
+    ),
+    code: (props) => {
+      const { className, children } = props;
+      const match = /language-(\w+)/.exec(className || '');
+      const isInline = !className;
+      return !isInline && match ? (
+        <SyntaxHighlighter
+          style={vscDarkPlus}
+          language={match[1]}
+          PreTag="div"
+        >
+          {String(children).replace(/\n$/, '')}
+        </SyntaxHighlighter>
+      ) : (
+        <code className="bg-[#2a2a2a] px-1 py-0.5 rounded">
+          {children}
+        </code>
+      );
+    },
+    table: (props) => (
+      <div className="overflow-x-auto">
+        <table className="min-w-full border-collapse mb-4" {...props} />
+      </div>
+    ),
+    th: (props) => (
+      <th className="border border-[#00ff00] px-4 py-2 text-left" {...props} />
+    ),
+    td: (props) => (
+      <td className="border border-[#00ff00] px-4 py-2" {...props} />
+    ),
+  };
+
   return (
-    <div className="prose prose-invert max-w-none px-4">
-      <ReactMarkdown
-        remarkPlugins={[remarkGfm]}
-        components={{
-          h1: ({ node, ...props }) => (
-            <h1 className="text-3xl font-bold mb-4 uppercase" {...props} />
-          ),
-          h2: ({ node, ...props }) => (
-            <h2 className="text-2xl font-bold mb-3 uppercase" {...props} />
-          ),
-          h3: ({ node, ...props }) => (
-            <h3 className="text-xl font-bold mb-2 uppercase" {...props} />
-          ),
-          p: ({ node, ...props }) => <p className="mb-4" {...props} />,
-          ul: ({ node, ...props }) => (
-            <ul className="list-disc list-inside mb-4" {...props} />
-          ),
-          ol: ({ node, ...props }) => (
-            <ol className="list-decimal list-inside mb-4" {...props} />
-          ),
-          li: ({ node, ...props }) => <li className="mb-1" {...props} />,
-          a: ({ node, ...props }) => (
-            <a
-              className="text-[#00ff00] hover:text-[#00cc00] hover:underline"
-              target="_blank"
-              rel="noopener noreferrer"
-              {...props}
-            />
-          ),
-          code: ({ node, ...props }) => (
-            <code className="bg-[#1a1a1a] text-[#00ff00] p-1 rounded" {...props} />
-          ),
-          pre: ({ node, ...props }) => (
-            <pre className="bg-[#1a1a1a] text-[#00ff00] p-4 rounded mb-4 overflow-x-auto" {...props} />
-          ),
-        }}
-      >
+    <div className="prose prose-invert max-w-none">
+      <ReactMarkdown components={components}>
         {content}
       </ReactMarkdown>
     </div>
   );
-};
-
-export default Article;
+}

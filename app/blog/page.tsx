@@ -6,13 +6,14 @@ import Image from 'next/image';
 const POSTS_PER_PAGE = 5;
 
 interface BlogIndexProps {
-  searchParams: {
+  searchParams: Promise<{
     page?: string;
-  };
+  }>;
 }
 
 export default async function BlogIndex({ searchParams }: BlogIndexProps) {
-  const currentPage = Number(searchParams.page) || 1;
+  const { page } = await searchParams;
+  const currentPage = Number(page) || 1;
   const postsDirectory = path.join(process.cwd(), 'app/blog/posts');
   const filenames = await fs.readdir(postsDirectory);
 

@@ -6,9 +6,9 @@ import { promises as fs } from 'fs';
 import path from 'path';
 
 interface BlogPostProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 async function getAllPosts() {

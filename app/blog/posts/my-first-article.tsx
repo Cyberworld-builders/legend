@@ -1,5 +1,3 @@
-import Article from '@/components/Article';
-
 const markdownContent = `
 # My First Article
 
