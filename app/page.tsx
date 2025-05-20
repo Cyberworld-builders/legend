@@ -46,7 +46,7 @@ export default function Home() {
 
       
       <p className="text-xl mb-2">Jay Long</p>
-      <p className="text-sm text-[#00ff00]/70">CyberWorld Builders,Inc.</p>
+      <p className="text-sm text-[#00ff00]/70">CyberWorl Builders,Inc.</p>
       <a
         href="mailto:contact@cyberworldbuilders.com"
         className="text-sm text-[#00ff00] hover:underline mt-2 block"
