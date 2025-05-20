@@ -130,7 +130,7 @@ export default function Home() {
           />
         </a>
         <a
-          href="https://facebook.com/cyberworld"
+          href="https://www.facebook.com/cyberworldbuilders"
           target="_blank"
           rel="noopener noreferrer"
           className="text-[#00ff00] hover:text-[#00cc00] transition"
