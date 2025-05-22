@@ -116,6 +116,22 @@ export default function Home() {
             </svg>
         </a>
         <a
+          href="https://youtube.com/@cyberbuilders"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-[#00ff00] hover:text-[#00cc00] transition"
+        >
+          <svg
+            className="w-6 h-6"
+            viewBox="0 0 48 48"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path d="M43.2 12.4C42.9 11.3 42.3 10.3 41.5 9.5C40.7 8.7 39.7 8.1 38.6 7.8C35.5 7 24 7 24 7C24 7 12.5 7 9.4 7.8C8.3 8.1 7.3 8.7 6.5 9.5C5.7 10.3 5.1 11.3 4.8 12.4C4 15.5 4 23 4 23C4 23 4 30.5 4.8 33.6C5.1 34.7 5.7 35.7 6.5 36.5C7.3 37.3 8.3 37.9 9.4 38.2C12.5 39 24 39 24 39C24 39 35.5 39 38.6 38.2C39.7 37.9 40.7 37.3 41.5 36.5C42.3 35.7 42.9 34.7 43.2 33.6C44 30.5 44 23 44 23C44 23 44 15.5 43.2 12.4Z" fill="#A6E102"/>
+            <path d="M20 30L31 23L20 16V30Z" fill="#181818"/>
+          </svg>
+        </a>
+        <a
           href="https://x.com/cyberbuilders"
           target="_blank"
           rel="noopener noreferrer"
