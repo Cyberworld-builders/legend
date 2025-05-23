@@ -16,21 +16,7 @@ export default function Home() {
         Welcome to the CyberWorld ecosystem.
 
       </p>
-      <div className="flex justify-center gap-4 mb-12">
-        <Link
-          href="/login"
-          className="px-6 py-2 bg-[#00ff00] text-[#1a1a1a] font-bold rounded hover:bg-[#00cc00] transition"
-        >
-          Login
-        </Link>
-        <Link
-          href="/signup"
-          className="px-6 py-2 bg-transparent border-2 border-[#00ff00] text-[#00ff00] font-bold rounded hover:bg-[#00ff00] hover:text-[#1a1a1a] transition"
-        >
-          Signup
-        </Link>
-
-      </div>
+      
 
       <div className="flex justify-center gap-4 mb-12">
         <Link
