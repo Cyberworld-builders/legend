@@ -1,4 +1,3 @@
-const markdownContent = `
 # The Last Cycle: Why Founder-Engineer Partnerships Are Nearing Their End
 
 ## The Final Cycle of Founder-Engineer Collaboration
@@ -75,13 +74,3 @@ This aligns with the concept of an AI singularity—a point where technology res
 We’re on a speeding bullet train to a launch pad, where a rocket is fueling up for takeoff. This rocket represents the rapid advancement of AI, propelling us toward a future where dependency on human engineers diminishes. We’re approaching escape velocity—a point where most software development tasks can be handled by AI, enabling founders to ship and maintain products without traditional engineering support.
 
 This isn’t a reason to wait—it’s a call to action. Partner with the right people, embrace the tools, and build relentlessly. Those who wait for AI to “arrive” will be outpaced by those who’ve been leveraging it all along. For engineers, this means founding your own ventures and creating novel solutions. For founders, it means learning from your technical partners and preparing to navigate a future where AI is your primary tool.
-
-`;
-
-export default function BlogPost() {
-  return {
-    props: {
-      content: markdownContent
-    }
-  };
-}

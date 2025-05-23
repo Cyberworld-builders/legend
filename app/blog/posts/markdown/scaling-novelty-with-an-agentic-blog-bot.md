@@ -1,4 +1,3 @@
-const markdownContent = `
 # Scaling Novelty with an Agentic Blog Bot
 
 ## From Blog to Bots: Crafting a Digital Legacy with AI
@@ -63,12 +62,3 @@ These tasks are achievable and will set the stage for the chatbot’s developmen
 Ultimately, I want to create tools that amplify human creativity, not replace it. My blog and chatbot are steps toward building a digital legacy—a system that captures my ideas, shares them with others, and inspires new possibilities. Whether it’s solving technical problems, crafting stories, or exploring philosophical questions, I believe AI can enhance our ability to create value.
 
 This journey is about more than technology. It’s about leaving something meaningful behind, whether for my audience, my collaborators, or future generations. By combining personal expression with AI’s power, I’m betting on a future where creativity thrives at an unprecedented scale.
-`;
-
-export default function BlogPost() {
-  return {
-    props: {
-      content: markdownContent
-    }
-  };
-}
