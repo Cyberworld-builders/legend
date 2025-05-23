@@ -52,10 +52,12 @@ export default function Article({ content }: ArticleProps) {
   };
 
   return (
-    <div className="prose prose-invert max-w-none">
-      <ReactMarkdown components={components}>
-        {content}
-      </ReactMarkdown>
+    <div className="px-4 sm:px-6 md:px-8 max-w-3xl mx-auto">
+      <div className="prose prose-invert max-w-none">
+        <ReactMarkdown components={components}>
+          {content}
+        </ReactMarkdown>
+      </div>
     </div>
   );
 }
