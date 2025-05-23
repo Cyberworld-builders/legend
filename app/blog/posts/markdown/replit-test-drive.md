@@ -1,4 +1,3 @@
-const markdownContent = `
 # Exploring No-Code Development with Replit: A Professional Analysis
 
 Recently, I experimented with Replit to develop a simple to-do application, leveraging its no-code capabilities to understand its potential for founders and developers. This article provides a structured analysis of the Replit experience, the strategic implications of no-code platforms, and considerations for integrating them into professional development workflows.
@@ -76,13 +75,3 @@ Addressing these questions will guide strategic decisions about adopting no-code
 ## Conclusion
 
 Replit’s no-code capabilities empower founders to build functional applications quickly and affordably, while challenging developers to rethink traditional approaches. By strategically leveraging no-code platforms for routine tasks and reserving custom development for complex needs, organizations can optimize efficiency and scalability. As no-code ecosystems evolve, developers must remain open to AI-driven tools, integrating them thoughtfully to enhance productivity. Future exploration will focus on AI-assisted development tools for professional engineers, ensuring alignment with founder needs and industry trends.
-
-`;
-
-export default function BlogPost() {
-  return {
-    props: {
-      content: markdownContent
-    }
-  };
-}

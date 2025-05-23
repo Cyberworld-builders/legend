@@ -12,19 +12,18 @@ interface BlogPostProps {
 }
 
 async function getAllPosts() {
-  const postsDirectory = path.join(process.cwd(), 'app/blog/posts');
+  const postsDirectory = path.join(process.cwd(), 'app/blog/posts/markdown');
   const filenames = await fs.readdir(postsDirectory);
 
   return filenames
     .filter((filename) => 
-      filename.endsWith('.tsx') && 
-      filename !== 'template.tsx' &&
-      !filename.startsWith('[')
+      filename.endsWith('.md') &&
+      !filename.startsWith('.')
     )
     .map((filename) => ({
-      slug: filename.replace(/\.tsx$/, ''),
+      slug: filename.replace(/\.md$/, ''),
       title: filename
-        .replace(/\.tsx$/, '')
+        .replace(/\.md$/, '')
         .replace(/-/g, ' ')
         .split(' ')
         .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
@@ -53,24 +52,9 @@ export default async function BlogPost({ params }: BlogPostProps) {
   const nextPost = currentIndex > 0 ? allPosts[currentIndex - 1] : null;
 
   try {
-    const postModule = await import(`../posts/${slug}`);
-    const PostComponent = postModule.default;
+    const markdownPath = path.join(process.cwd(), `app/blog/posts/markdown/${slug}.md`);
+    const markdownContent = await fs.readFile(markdownPath, 'utf8');
     
-    if (!PostComponent || typeof PostComponent !== 'function') {
-      console.error(`Invalid blog post component for slug: ${slug}`);
-      notFound();
-    }
-
-    const postContent = await PostComponent();
-    if (!postContent || !postContent.props) {
-      console.error(`Invalid blog post content structure for slug: ${slug}`);
-      notFound();
-    }
-
-    // Handle both direct content and nested content structures
-    const markdownContent = postContent.props.content || 
-                          (postContent.props.children?.props?.content);
-
     if (!markdownContent) {
       console.error(`No markdown content found for slug: ${slug}`);
       notFound();

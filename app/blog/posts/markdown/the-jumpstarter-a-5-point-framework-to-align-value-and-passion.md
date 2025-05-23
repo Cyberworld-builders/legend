@@ -1,4 +1,3 @@
-const markdownContent = `
 # The Jumpstarter: A 5-Point Framework to Align Value and Passion
 
 > *Or... How the alignment of what you desire with what makes you valuable can drastically increase productivity.*
@@ -48,13 +47,3 @@ Too many people give up, go back to the factory, stack boxes, and sell hours of 
 
 ### Final Thoughts: The Jumpstarter
 I’m calling this the **Jumpstarter** for now (though **Kickstarter** is still in the running). It’s not just a productivity tool—it’s a way to capture the value of lost time, turn my rambling into something useful, and stay honest with myself. By asking the same five questions every day, I trigger creative tangents, evaluate my work, and keep my dreams alive without losing sight of reality. It’s a small daily practice with big potential.
-
-`;
-
-export default function BlogPost() {
-  return {
-    props: {
-      content: markdownContent
-    }
-  };
-}
