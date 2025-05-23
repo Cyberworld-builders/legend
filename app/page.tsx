@@ -13,7 +13,7 @@ export default function Home() {
         height={250}
       />
 <p className="text-lg mb-8 text-[#00ff00]/70">
-        Welcome to the CyberWorld ecosystem.
+        Creation is the remedy for emptiness.
 
       </p>
       
