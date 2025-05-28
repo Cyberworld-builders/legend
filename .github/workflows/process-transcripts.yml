@@ -1,0 +1,53 @@
+name: Process Voice Memo Transcripts
+on:
+  workflow_dispatch: # Allows manual triggering via gh cli
+    inputs:
+      issue_id:
+        description: 'GitHub Issue ID to process'
+        required: true
+        type: string
+
+# Usage
+# BRANCH=$(git branch --show-current) # Get the current branch name (e.g. main)     
+# gh workflow run process-transcripts --ref $BRANCH -f issue_id=123
+
+jobs:
+  process-transcript:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Process Issue
+        run: |
+          echo "Processing GitHub Issue ID: ${{ inputs.issue_id }}"
+          # Add your transcript processing logic here
+          # You can use the issue ID to fetch specific issue data or transcripts
+
+  # access-chromadb:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout Repository
+  #       uses: actions/checkout@v4
+
+  #     - name: Install jq
+  #       run: sudo apt-get install -y jq
+
+  #     - name: Get Keycloak Token
+  #       run: |
+  #         RESPONSE=$(curl -s -X POST https://${{ vars.KC_DOMAIN }}/realms/chromadb-realm/protocol/openid-connect/token \
+  #           -H "Content-Type: application/x-www-form-urlencoded" \
+  #           --data-urlencode "client_id=chromadb-client" \
+  #           --data-urlencode "client_secret=${{ secrets.KC_CLIENT_SECRET }}" \
+  #           --data-urlencode "grant_type=client_credentials" \
+  #           --data-urlencode "scope=openid")
+  #         TOKEN=$(echo $RESPONSE | jq -r '.access_token')
+  #         if [ -z "$TOKEN" ]; then
+  #           echo "Failed to obtain token. Response: $RESPONSE"
+  #           exit 1
+  #         fi
+  #         echo "TOKEN=$TOKEN" >> $GITHUB_ENV
+
+      # - name: Access ChromaDB Heartbeat
+      #   run: |
+      #     curl -H "Authorization: Bearer ${{ env.TOKEN }}" https://${{ vars.CHROMA_DOMAIN }}/api/v2/heartbeat
