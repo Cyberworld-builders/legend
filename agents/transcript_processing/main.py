@@ -4,19 +4,21 @@ import subprocess
 from github import Github
 from openai import OpenAI
 from dotenv import load_dotenv
+from langchain.embeddings import OpenAIEmbeddings
+from langchain.vectorstores import Chroma
+from sklearn.cluster import KMeans
+import numpy as np
+from typing import List, Dict, Tuple
 
-# Load .env file if it exists (for local development)
+# Load .env file
 load_dotenv()
 
 def get_github_token():
     """
     Get GitHub token from environment or GitHub CLI
     """
-    # First try environment variable (works in both pipeline and local with .env)
     github_token = os.environ.get("GITHUB_TOKEN")
-    
     if not github_token:
-        # Try to get token from GitHub CLI (local development)
         try:
             result = subprocess.run(
                 ["gh", "auth", "token"], 
@@ -28,18 +30,14 @@ def get_github_token():
             print("Using GitHub CLI credentials")
         except (subprocess.CalledProcessError, FileNotFoundError):
             raise ValueError("GITHUB_TOKEN not found in environment and GitHub CLI not available")
-    
     return github_token
 
 def get_repository_name():
     """
     Get repository name from environment or git remote
     """
-    # First try environment variable (pipeline)
     repository = os.environ.get("GITHUB_REPOSITORY")
-    
     if not repository:
-        # Try to get from git remote (local development)
         try:
             result = subprocess.run(
                 ["git", "remote", "get-url", "origin"], 
@@ -48,120 +46,216 @@ def get_repository_name():
                 check=True
             )
             remote_url = result.stdout.strip()
-            # Extract owner/repo from URL (handles both SSH and HTTPS)
             if "github.com" in remote_url:
                 if remote_url.startswith("git@"):
-                    # SSH format: git@github.com:owner/repo.git
                     repository = remote_url.split(":")[-1].replace(".git", "")
                 else:
-                    # HTTPS format: https://github.com/owner/repo.git
                     repository = "/".join(remote_url.split("/")[-2:]).replace(".git", "")
             print(f"Detected repository from git remote: {repository}")
         except (subprocess.CalledProcessError, FileNotFoundError):
             raise ValueError("GITHUB_REPOSITORY not found in environment and git remote not available")
-    
     return repository
 
 def get_issue_details(issue_id: str):
     """
-    Retrieves GitHub issue details using credentials from GitHub Actions environment or local setup
-    
-    Args:
-        issue_id: The ID of the GitHub issue to retrieve
-        
-    Returns:
-        dict containing issue title, body, and comments
+    Retrieves GitHub issue details using credentials
     """
-    # Get GitHub token
     github_token = get_github_token()
-    
-    # Get repository info
     repository = get_repository_name()
-
-    # Initialize GitHub client
     g = Github(github_token)
-    
-    # Get repository object
     repo = g.get_repo(repository)
     
     try:
-        # Get issue by ID
         issue = repo.get_issue(number=int(issue_id))
-        
-        # Collect issue details
         issue_data = {
             "title": issue.title,
             "body": issue.body,
             "comments": [comment.body for comment in issue.get_comments()]
         }
-        
         return issue_data
-        
     except Exception as e:
         raise Exception(f"Error retrieving issue {issue_id}: {str(e)}")
 
+def clean_transcript(client: OpenAI, transcript: str) -> str:
+    """
+    Clean a single transcript using OpenAI API
+    """
+    cleanup_prompt = """
+    You are a helpful assistant that cleans up voice memo transcripts for errors, relevance, and redundancy. 
+    Remove any vocal ticks, filler words, and non-essential content. 
+    Correct misinterpreted technology terms, company names, and acronyms using context.
+    Eliminate content related to talking to animals or other drivers.
+    Remove redundant statements, keeping the most recent instance.
+    """
+    
+    try:
+        response = client.chat.completions.create(
+            model="gpt-4o-mini",
+            messages=[
+                {"role": "system", "content": cleanup_prompt},
+                {"role": "user", "content": f"The voice memo transcript is: {transcript}"}
+            ]
+        )
+        return response.choices[0].message.content
+    except Exception as e:
+        print(f"Error cleaning transcript: {str(e)}")
+        return transcript  # Return original if cleaning fails
+
+def embed_transcripts(transcripts: List[str], collection_name: str) -> Tuple[Chroma, List[str]]:
+    """
+    Create embeddings for transcripts and store in ChromaDB
+    Returns: Chroma vector store and document IDs
+    """
+    # Initialize OpenAI embeddings
+    embeddings = OpenAIEmbeddings(openai_api_key=os.environ.get("OPENAI_API_KEY"))
+    
+    # Initialize ChromaDB (assumes persistent storage; adjust path as needed)
+    vector_store = Chroma(
+        collection_name=collection_name,
+        embedding_function=embeddings,
+        persist_directory="./chroma_db"  # Adjust path for your setup
+    )
+    
+    # Add transcripts to vector store
+    doc_ids = [f"transcript_{i}" for i in range(len(transcripts))]
+    vector_store.add_texts(texts=transcripts, ids=doc_ids)
+    
+    return vector_store, doc_ids
+
+def identify_topics(embeddings: np.ndarray, num_topics: int = 4) -> List[List[int]]:
+    """
+    Cluster embeddings to identify main topics
+    Returns: List of cluster indices for each transcript
+    """
+    kmeans = KMeans(n_clusters=num_topics, random_state=42)
+    cluster_labels = kmeans.fit_predict(embeddings)
+    
+    # Group indices by cluster
+    clusters = [[] for _ in range(num_topics)]
+    for idx, label in enumerate(cluster_labels):
+        clusters[label].append(idx)
+    
+    return clusters
+
+def generate_topic_name(transcripts: List[str], client: OpenAI) -> str:
+    """
+    Generate a concise topic name for a group of transcripts
+    """
+    combined_text = " ".join(transcripts[:3])  # Limit to avoid token overflow
+    prompt = f"""
+    Summarize the following text into a concise topic name (5-10 words):
+    {combined_text}
+    """
+    try:
+        response = client.chat.completions.create(
+            model="gpt-4o-mini",
+            messages=[{"role": "user", "content": prompt}]
+        )
+        return response.choices[0].message.content.strip()
+    except Exception as e:
+        print(f"Error generating topic name: {str(e)}")
+        return "Unnamed Topic"
+
+def generate_discussion_prompts(
+    transcripts: List[str],
+    vector_store: Chroma,
+    clusters: List[List[int]],
+    client: OpenAI
+) -> List[Dict]:
+    """
+    Generate discussion prompts for each topic
+    """
+    standard_prompt = """
+    Facilitate a focused discussion on the following topic using the provided context.
+    Encourage participants to explore key ideas, share insights, and consider implications.
+    Use the context to ground the conversation and avoid speculation.
+    """
+    
+    prompts = []
+    for cluster in clusters:
+        if not cluster:
+            continue  # Skip empty clusters
+        
+        # Get transcripts for this topic
+        topic_transcripts = [transcripts[idx] for idx in cluster]
+        
+        # Generate topic name
+        topic_name = generate_topic_name(topic_transcripts, client)
+        
+        # Retrieve relevant embeddings (search within cluster)
+        relevant_ids = [f"transcript_{idx}" for idx in cluster]
+        relevant_docs = vector_store.get(ids=relevant_ids)
+        
+        # Format prompt
+        prompt_data = {
+            "topic": topic_name,
+            "standard_prompt": standard_prompt,
+            "context": relevant_docs["documents"],
+            "ids": relevant_ids,
+            "historical_query": "Placeholder: Query historical embeddings for deeper context (to be implemented)"
+        }
+        prompts.append(prompt_data)
+    
+    return prompts
+
 def main():
-    # Get issue ID from workflow input or command line argument
+    # Get issue ID
     issue_id = os.environ.get("INPUT_ISSUE_ID")
     if not issue_id and len(os.sys.argv) > 1:
         issue_id = os.sys.argv[1]
         print(f"Using issue ID from command line: {issue_id}")
     
     if not issue_id:
-        raise ValueError("Issue ID not provided. Set INPUT_ISSUE_ID environment variable or pass as command line argument")
+        raise ValueError("Issue ID not provided")
     
     # Initialize OpenAI client
     openai_api_key = os.environ.get("OPENAI_API_KEY")
     if not openai_api_key:
-        raise ValueError("OPENAI_API_KEY not found in environment")
+        raise ValueError("OPENAI_API_KEY not found")
     
     client = OpenAI(api_key=openai_api_key)
-        
+    
     # Get issue details
     issue_details = get_issue_details(issue_id)
     print(f"Retrieved issue details for #{issue_id}")
     print(f"Title: {issue_details['title']}")
     print(f"Number of comments: {len(issue_details['comments'])}")
-
-    # Each comment is a voice memo. We need to loop through all of them and send them to the OpenAI API to be processed for errors, relevance and redundancy using a carefully crafted prompt.
-    comments = [issue_details['comments'][0]] if issue_details['comments'] else []
+    
+    # Clean transcripts
+    comments = issue_details['comments']
+    cleaned_transcripts = []
     for i, comment in enumerate(comments):
         print(f"Processing comment {i+1}: {comment[:50]}...")
-
-        cleanup_prompt = """
-        You are a helpful assistant that cleans up voice memo transcripts for errors, relevance, and redundancy. 
-        Remove any vocal ticks, filler words, and any other non-essential content. 
-        The transcription often fails to interpret technology terms, company names, and acronyms, so
-        use the context of the entire conversation in order to interpret and correct these.
-        Typically, when these memos are recorded, I am either walking the dog or driving. 
-        Eliminate any content that that is obviously me talking to the dog, other animals, or other drivers.
-        I also often repeat myself, so if I say something twice, remove the first instance.
-        """
-
-        try:
-            start_time = time.time()
-            print(f"Sending request to OpenAI for comment {i+1}...")
-            
-            # Send the comment to the OpenAI API
-            response = client.chat.completions.create(
-                model="gpt-4o-mini",
-                messages=[{
-                    "role": "system", 
-                    "content": cleanup_prompt
-                }, {
-                    "role": "user", 
-                    "content": f"The voice memo transcript is: {comment}"
-                }]
-            )
-            
-            end_time = time.time()
-            duration = end_time - start_time
-            print(f"Response received in {duration:.2f} seconds")
-            print(f"Cleaned up comment {i+1}: {response.choices[0].message.content}")
-            
-        except Exception as e:
-            print(f"Error processing comment {i+1}: {str(e)}")
-            continue
+        cleaned = clean_transcript(client, comment)
+        cleaned_transcripts.append(cleaned)
+        print(f"Cleaned comment {i+1}: {cleaned[:50]}...")
+    
+    # Embed transcripts
+    collection_name = f"issue_{issue_id}_transcripts"
+    vector_store, doc_ids = embed_transcripts(cleaned_transcripts, collection_name)
+    print(f"Stored {len(doc_ids)} transcripts in ChromaDB")
+    
+    # Get embeddings for clustering
+    embeddings = vector_store._collection.get(include=["embeddings"])["embeddings"]
+    embeddings = np.array(embeddings)
+    
+    # Identify topics
+    clusters = identify_topics(embeddings, num_topics=4)
+    print(f"Identified {len([c for c in clusters if c])} topics")
+    
+    # Generate discussion prompts
+    prompts = generate_discussion_prompts(cleaned_transcripts, vector_store, clusters, client)
+    
+    # Output prompts
+    for i, prompt in enumerate(prompts):
+        print(f"\nDiscussion Prompt {i+1}:")
+        print(f"Topic: {prompt['topic']}")
+        print(f"Standard Prompt: {prompt['standard_prompt']}")
+        print("Context (Transcripts):")
+        for doc in prompt['context']:
+            print(f"- {doc[:100]}...")
+        print(f"Document IDs: {prompt['ids']}")
+        print(f"Historical Query: {prompt['historical_query']}")
 
 if __name__ == "__main__":
     main()
