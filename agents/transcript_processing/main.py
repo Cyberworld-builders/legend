@@ -65,7 +65,7 @@ def main():
     print(f"Number of comments: {len(issue_details['comments'])}")
 
     # Each comment is a voice memo. We need to loop through all of them and send them to the OpenAI API to be processed for errors, relevance and redundancy using a carefully crafted prompt.
-    comments = issue_details['comments'] if issue_details['comments'] else []
+    comments = [issue_details['comments'][0]] if issue_details['comments'] else []
     for i, comment in enumerate(comments):
         print(f"Processing comment {i+1}: {comment[:50]}...")
 
