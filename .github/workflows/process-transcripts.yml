@@ -18,11 +18,23 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v3
 
-      - name: Process Issue
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Install dependencies
+        working-directory: agents/transcript_processing
         run: |
-          echo "Processing GitHub Issue ID: ${{ inputs.issue_id }}"
-          # Add your transcript processing logic here
-          # You can use the issue ID to fetch specific issue data or transcripts
+          pip install -r requirements.txt
+
+      - name: Process Issue
+        working-directory: agents/transcript_processing
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          INPUT_ISSUE_ID: ${{ inputs.issue_id }}
+        run: |
+          python main.py
 
   # access-chromadb:
   #   runs-on: ubuntu-latest
