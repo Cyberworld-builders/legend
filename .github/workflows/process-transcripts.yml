@@ -33,6 +33,9 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          KC_DOMAIN: ${{ vars.KC_DOMAIN }}
+          KC_CLIENT_SECRET: ${{ secrets.KC_CLIENT_SECRET }}
+          CHROMA_DOMAIN: ${{ vars.CHROMA_DOMAIN }}
           INPUT_ISSUE_ID: ${{ inputs.issue_id }}
         run: |
           python main.py
