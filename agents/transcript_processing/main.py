@@ -1,6 +1,7 @@
 import os
 import time
 import subprocess
+import requests
 from github import Github
 from openai import OpenAI
 from dotenv import load_dotenv
@@ -8,10 +9,41 @@ from langchain.embeddings import OpenAIEmbeddings
 from langchain.vectorstores import Chroma
 from sklearn.cluster import KMeans
 import numpy as np
-from typing import List, Dict, Tuple
+from typing import List, Dict, Tuple, Optional
+import chromadb
+from chromadb.config import Settings
 
 # Load .env file
 load_dotenv()
+
+def get_keycloak_token() -> Optional[str]:
+    """
+    Get Keycloak token for ChromaDB authentication
+    Returns None if not configured for remote ChromaDB
+    """
+    kc_domain = os.environ.get("KC_DOMAIN")
+    kc_client_secret = os.environ.get("KC_CLIENT_SECRET")
+    
+    if not kc_domain or not kc_client_secret:
+        return None
+    
+    try:
+        response = requests.post(
+            f"https://{kc_domain}/realms/chromadb-realm/protocol/openid-connect/token",
+            headers={"Content-Type": "application/x-www-form-urlencoded"},
+            data={
+                "client_id": "chromadb-client",
+                "client_secret": kc_client_secret,
+                "grant_type": "client_credentials",
+                "scope": "openid"
+            }
+        )
+        response.raise_for_status()
+        token_data = response.json()
+        return token_data.get("access_token")
+    except Exception as e:
+        print(f"Error getting Keycloak token: {str(e)}")
+        return None
 
 def get_github_token():
     """
@@ -101,6 +133,38 @@ def clean_transcript(client: OpenAI, transcript: str) -> str:
         print(f"Error cleaning transcript: {str(e)}")
         return transcript  # Return original if cleaning fails
 
+def create_chroma_client() -> chromadb.Client:
+    """
+    Create ChromaDB client - either remote (with auth) or local
+    """
+    chroma_domain = os.environ.get("CHROMA_DOMAIN")
+    auth_token = get_keycloak_token()
+    
+    if chroma_domain and auth_token:
+        # Use remote ChromaDB with authentication
+        print(f"Connecting to remote ChromaDB at {chroma_domain}")
+        client = chromadb.HttpClient(
+            host=chroma_domain,
+            port=443,  # HTTPS
+            ssl=True,
+            headers={"Authorization": f"Bearer {auth_token}"}
+        )
+        
+        # Test connection
+        try:
+            client.heartbeat()
+            print("Successfully connected to remote ChromaDB")
+        except Exception as e:
+            print(f"Failed to connect to remote ChromaDB: {str(e)}")
+            print("Falling back to local ChromaDB")
+            client = chromadb.PersistentClient(path="./chroma_db")
+    else:
+        # Use local ChromaDB
+        print("Using local ChromaDB")
+        client = chromadb.PersistentClient(path="./chroma_db")
+    
+    return client
+
 def embed_transcripts(transcripts: List[str], collection_name: str) -> Tuple[Chroma, List[str]]:
     """
     Create embeddings for transcripts and store in ChromaDB
@@ -109,11 +173,14 @@ def embed_transcripts(transcripts: List[str], collection_name: str) -> Tuple[Chr
     # Initialize OpenAI embeddings
     embeddings = OpenAIEmbeddings(openai_api_key=os.environ.get("OPENAI_API_KEY"))
     
-    # Initialize ChromaDB (assumes persistent storage; adjust path as needed)
+    # Create ChromaDB client
+    chroma_client = create_chroma_client()
+    
+    # Initialize Langchain ChromaDB wrapper
     vector_store = Chroma(
+        client=chroma_client,
         collection_name=collection_name,
-        embedding_function=embeddings,
-        persist_directory="./chroma_db"  # Adjust path for your setup
+        embedding_function=embeddings
     )
     
     # Add transcripts to vector store
