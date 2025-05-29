@@ -335,5 +335,44 @@ def main():
         print(f"Document IDs: {prompt['ids']}")
         print(f"Historical Query: {prompt['historical_query']}")
 
+    # Create GitHub issue for each discussion prompt
+    github_token = get_github_token()
+    repository = get_repository_name()
+    g = Github(github_token)
+    repo = g.get_repo(repository)
+    
+    created_issues = []
+    for i, prompt in enumerate(prompts):
+        try:
+            # Format issue description with all prompt details
+            description = f"""
+Topic: {prompt['topic']}
+
+Discussion Prompt: {prompt['standard_prompt']}
+
+Historical Context Query: {prompt['historical_query']}
+
+Relevant Transcript Excerpts:
+{chr(10).join(f'- {doc[:500]}...' for doc in prompt['context'])}
+
+Reference Document IDs: {', '.join(prompt['ids'])}
+
+Generated from parent issue #{issue_id}
+"""
+            
+            # Create issue
+            issue = repo.create_issue(
+                title=f"Discussion Topic: {prompt['topic']}",
+                body=description,
+                labels=['transcript-topic']
+            )
+            created_issues.append(issue.number)
+            print(f"Created issue #{issue.number} for topic {i+1}")
+            
+        except Exception as e:
+            print(f"Error creating issue for topic {i+1}: {str(e)}")
+    
+    print(f"\nCreated {len(created_issues)} discussion topic issues: {created_issues}")
+
 if __name__ == "__main__":
     main()
