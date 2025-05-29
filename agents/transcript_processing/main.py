@@ -5,8 +5,8 @@ import requests
 from github import Github
 from openai import OpenAI
 from dotenv import load_dotenv
-from langchain.embeddings import OpenAIEmbeddings
-from langchain.vectorstores import Chroma
+from langchain_openai import OpenAIEmbeddings
+from langchain_community.vectorstores import Chroma
 from sklearn.cluster import KMeans
 import numpy as np
 from typing import List, Dict, Tuple, Optional
@@ -141,29 +141,23 @@ def create_chroma_client() -> chromadb.Client:
     auth_token = get_keycloak_token()
     
     if chroma_domain and auth_token:
-        # Use remote ChromaDB with authentication
-        print(f"Connecting to remote ChromaDB at {chroma_domain}")
-        client = chromadb.HttpClient(
-            host=chroma_domain,
-            port=443,  # HTTPS
-            ssl=True,
-            headers={"Authorization": f"Bearer {auth_token}"}
-        )
-        
-        # Test connection
+        print(f"Attempting to connect to remote ChromaDB at {chroma_domain}")
         try:
+            client = chromadb.HttpClient(
+                host=chroma_domain,
+                port=443,
+                ssl=True,
+                headers={"Authorization": f"Bearer {auth_token}"}
+            )
             client.heartbeat()
             print("Successfully connected to remote ChromaDB")
+            return client
         except Exception as e:
             print(f"Failed to connect to remote ChromaDB: {str(e)}")
             print("Falling back to local ChromaDB")
-            client = chromadb.PersistentClient(path="./chroma_db")
-    else:
-        # Use local ChromaDB
-        print("Using local ChromaDB")
-        client = chromadb.PersistentClient(path="./chroma_db")
     
-    return client
+    print("Using local ChromaDB")
+    return chromadb.PersistentClient(path="./chroma_db")
 
 def embed_transcripts(transcripts: List[str], collection_name: str) -> Tuple[Chroma, List[str]]:
     """
@@ -176,7 +170,16 @@ def embed_transcripts(transcripts: List[str], collection_name: str) -> Tuple[Chr
     # Create ChromaDB client
     chroma_client = create_chroma_client()
     
-    # Initialize Langchain ChromaDB wrapper
+    # Check if collection exists and delete if necessary
+    try:
+        collections = chroma_client.list_collections()
+        if collection_name in [c.name for c in collections]:
+            print(f"Collection {collection_name} exists, deleting to avoid conflicts")
+            chroma_client.delete_collection(collection_name)
+    except Exception as e:
+        print(f"Error checking collections: {str(e)}")
+    
+    # Initialize LangChain ChromaDB wrapper
     vector_store = Chroma(
         client=chroma_client,
         collection_name=collection_name,
@@ -194,6 +197,10 @@ def identify_topics(embeddings: np.ndarray, num_topics: int = 4) -> List[List[in
     Cluster embeddings to identify main topics
     Returns: List of cluster indices for each transcript
     """
+    if len(embeddings) < num_topics:
+        print(f"Warning: Fewer transcripts ({len(embeddings)}) than requested topics ({num_topics}). Reducing topics.")
+        num_topics = max(1, len(embeddings))
+    
     kmeans = KMeans(n_clusters=num_topics, random_state=42)
     cluster_labels = kmeans.fit_predict(embeddings)
     
@@ -296,6 +303,10 @@ def main():
         cleaned = clean_transcript(client, comment)
         cleaned_transcripts.append(cleaned)
         print(f"Cleaned comment {i+1}: {cleaned[:50]}...")
+    
+    if not cleaned_transcripts:
+        print("No transcripts to process")
+        return
     
     # Embed transcripts
     collection_name = f"issue_{issue_id}_transcripts"
