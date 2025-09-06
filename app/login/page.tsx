@@ -1,11 +1,11 @@
 "use client";
 
 import { useState, FormEvent } from 'react';
-import { auth } from '../../lib/firebase';
-import { signInWithEmailAndPassword } from 'firebase/auth';
+import { signIn } from '@/lib/supabase';
 import Link from 'next/link';
 import Image from 'next/image';
 import ChatWidget from '../../components/ChatWidget';
+
 export default function Login() {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
@@ -17,8 +17,12 @@ export default function Login() {
     setError(null);
     setLoading(true);
     try {
-      await signInWithEmailAndPassword(auth, email, password);
-      alert('Login successful!');
+      const { error } = await signIn(email, password);
+      if (error) {
+        setError(error.message);
+      } else {
+        alert('Login successful!');
+      }
     } catch (err: unknown) {
       setError(err instanceof Error ? err.message : 'An error occurred');
     } finally {
