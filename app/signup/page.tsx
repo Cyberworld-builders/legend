@@ -1,8 +1,7 @@
 "use client";
 
 import { useState, FormEvent } from 'react';
-import { auth } from '../../lib/firebase';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { signUp } from '@/lib/supabase';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
@@ -13,26 +12,32 @@ export default function Signup() {
   const [password, setPassword] = useState<string>('');
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
+  const [message, setMessage] = useState<string | null>(null);
   const router = useRouter();
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setError(null);
+    setMessage(null);
     setLoading(true);
     try {
-      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-
-      // Send webhook to Make.com after successful signup
-      await fetch(process.env.NEXT_PUBLIC_MAKE_COM_WEBHOOK_URL as string, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          userEmail: userCredential.user.email,
-          signupTime: new Date().toISOString(),
-        }),
-      });
-
-      router.push('/login'); // Redirect to login page after signup
+      const { error } = await signUp(email, password);
+      if (error) {
+        setError(error.message);
+      } else {
+        setMessage('Check your email for a confirmation link!');
+        // Send webhook to Make.com after successful signup
+        await fetch(process.env.NEXT_PUBLIC_MAKE_COM_WEBHOOK_URL as string, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            userEmail: email,
+            signupTime: new Date().toISOString(),
+          }),
+        });
+        // Optionally redirect after a short delay
+        setTimeout(() => router.push('/login'), 2000);
+      }
     } catch (err) {
       if (err instanceof Error) {
         setError(err.message);
@@ -85,6 +90,9 @@ export default function Signup() {
           </div>
           {error && (
             <div className="mb-4 text-red-500 text-sm">{error}</div>
+          )}
+          {message && (
+            <div className="mb-4 text-green-500 text-sm">{message}</div>
           )}
           <button
             type="submit"

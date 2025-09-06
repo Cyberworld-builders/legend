@@ -1,0 +1,37 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports: []  # Remove public port exposure to prevent direct access
+    environment:
+      - NODE_ENV=production
+      - PORT=3001
+      - NEXT_PUBLIC_SUPABASE_URL=${NEXT_PUBLIC_SUPABASE_URL:-your_supabase_url}
+      - NEXT_PUBLIC_SUPABASE_ANON_KEY=${NEXT_PUBLIC_SUPABASE_ANON_KEY:-your_supabase_anon_key}
+      - NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=${NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY:-pk_test_your_publishable_key}
+      - STRIPE_SECRET_KEY=${STRIPE_SECRET_KEY:-sk_test_your_secret_key}
+      - OPENAI_API_KEY=${OPENAI_API_KEY:-your-openai-api-key}
+      - NEXT_PUBLIC_MAKE_COM_WEBHOOK_URL=${NEXT_PUBLIC_MAKE_COM_WEBHOOK_URL:-https://hooks.make.com/webhooks/your-webhook-id}
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://0.0.0.0:3001/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    volumes:
+      - ./logs:/app/logs
+    networks:
+      - traefik-net
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.cyberworldbuilders.rule=Host(`cyberworldbuilders.dev`)
+      - traefik.http.routers.cyberworldbuilders.entrypoints=websecure
+      - traefik.http.routers.cyberworldbuilders.tls=true
+      - traefik.http.routers.cyberworldbuilders.tls.certresolver=letsencrypt
+      - traefik.http.services.cyberworldbuilders.loadbalancer.server.port=3001
+
+networks:
+  traefik-net:
+    external: true 
