@@ -7,7 +7,7 @@ services:
     environment:
       - NODE_ENV=production
       - PORT=3001
-      - NEXT_PUBLIC_SUPABASE_URL=${NEXT_PUBLIC_SUPABASE_URL:-your_supabase_url}
+      - NEXT_PUBLIC_SUPABASE_URL=${NEXT_PUBLIC_SUPABASE_URL:-https://placeholder.supabase.co}
       - NEXT_PUBLIC_SUPABASE_ANON_KEY=${NEXT_PUBLIC_SUPABASE_ANON_KEY:-your_supabase_anon_key}
       - NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=${NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY:-pk_test_your_publishable_key}
       - STRIPE_SECRET_KEY=${STRIPE_SECRET_KEY:-sk_test_your_secret_key}

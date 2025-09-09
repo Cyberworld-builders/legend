@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import ChatWidget from '../components/ChatWidget';
 import Image from 'next/image';
 export default function Home() {
@@ -18,19 +17,6 @@ export default function Home() {
       </p>
       
 
-      {/* <div className="flex justify-center gap-4 mb-12">
-        <Link
-          href="/blog"
-          className="text-sm text-[#00ff00] hover:underline mt-2 block uppercase"
-        >
-          [ blog ]
-        </Link>
-      </div> */}
-
-      
-
-
-      
       <p className="text-xl mb-2">Jay Long</p>
       <p className="text-sm text-[#00ff00]/70">CyberWorld Builders, Inc.</p>
       <a
