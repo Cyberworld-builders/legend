@@ -2,10 +2,10 @@ services:
   app:
     build:
       context: .
-      dockerfile: Dockerfile.dev
+      dockerfile: Dockerfile
     ports: []  # Remove public port exposure to prevent direct access
     environment:
-      - NODE_ENV=development
+      - NODE_ENV=production
       - PORT=3001
       - NEXT_PUBLIC_SUPABASE_URL=${NEXT_PUBLIC_SUPABASE_URL:-your_supabase_url}
       - NEXT_PUBLIC_SUPABASE_ANON_KEY=${NEXT_PUBLIC_SUPABASE_ANON_KEY:-your_supabase_anon_key}
@@ -21,9 +21,6 @@ services:
       retries: 3
       start_period: 40s
     volumes:
-      - .:/app
-      - /app/node_modules
-      - /app/.next
       - ./logs:/app/logs
     networks:
       - traefik-net

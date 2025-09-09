@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import ChatWidget from '../components/ChatWidget';
 import Image from 'next/image';
 export default function Home() {
@@ -17,14 +18,14 @@ export default function Home() {
       </p>
       
 
-      {/* <div className="flex justify-center gap-4 mb-12">
+      <div className="flex justify-center gap-4 mb-12">
         <Link
           href="/blog"
           className="text-sm text-[#00ff00] hover:underline mt-2 block uppercase"
         >
           [ blog ]
         </Link>
-      </div> */}
+      </div>
 
       
 
