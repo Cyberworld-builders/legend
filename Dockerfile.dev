@@ -1,0 +1,24 @@
+FROM node:18-alpine
+
+WORKDIR /app
+
+# Install dependencies
+RUN apk add --no-cache libc6-compat
+COPY package.json package-lock.json* ./
+RUN npm ci
+
+# Copy source code
+COPY . .
+
+# Set environment variables
+ENV NEXT_TELEMETRY_DISABLED 1
+ENV NEXT_PUBLIC_SUPABASE_URL=https://placeholder.supabase.co
+ENV NEXT_PUBLIC_SUPABASE_ANON_KEY=placeholder_key
+ENV NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=pk_test_placeholder
+ENV STRIPE_SECRET_KEY=sk_test_placeholder
+ENV OPENAI_API_KEY=placeholder_key
+ENV NEXT_PUBLIC_MAKE_COM_WEBHOOK_URL=https://hooks.make.com/webhooks/placeholder
+
+EXPOSE 3001
+
+CMD ["npm", "run", "dev"]

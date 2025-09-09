@@ -3,6 +3,7 @@ import Image from 'next/image';
 export default function Home() {
   return (
     <div className="text-center">
+      {/* Hot reload test - this should appear immediately */}
       <Image
         src="/images/logo.png"
         alt="CyberWorld Logo"
