@@ -22,8 +22,12 @@ unzip awscliv2.zip
 curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
 apt-get install -y nodejs
 
-# Install nginx
-apt-get install -y nginx
+# Install Traefik
+curl -fsSL https://github.com/traefik/traefik/releases/latest/download/traefik_v2.10.7_linux_amd64.tar.gz -o traefik.tar.gz
+tar -xzf traefik.tar.gz
+mv traefik /usr/local/bin/
+chmod +x /usr/local/bin/traefik
+rm traefik.tar.gz
 
 # Create application directory
 mkdir -p /home/ubuntu/app
@@ -41,34 +45,87 @@ NODE_ENV=production
 PORT=3000
 EOF
 
-# Configure nginx as reverse proxy
-cat > /etc/nginx/sites-available/${project_name} << EOF
-server {
-    listen 80;
-    server_name _;
+# Create Traefik configuration directory
+mkdir -p /etc/traefik
 
-    location / {
-        proxy_pass http://localhost:3000;
-        proxy_http_version 1.1;
-        proxy_set_header Upgrade \$http_upgrade;
-        proxy_set_header Connection 'upgrade';
-        proxy_set_header Host \$host;
-        proxy_set_header X-Real-IP \$remote_addr;
-        proxy_set_header X-Forwarded-For \$proxy_add_x_forwarded_for;
-        proxy_set_header X-Forwarded-Proto \$scheme;
-        proxy_cache_bypass \$http_upgrade;
-    }
-}
+# Create Traefik log directory
+mkdir -p /var/log/traefik
+
+# Configure Traefik
+cat > /etc/traefik/traefik.yml << EOF
+api:
+  dashboard: true
+  insecure: true
+
+entryPoints:
+  web:
+    address: ":80"
+  websecure:
+    address: ":443"
+
+providers:
+  file:
+    filename: /etc/traefik/dynamic.yml
+    watch: true
+
+log:
+  level: INFO
+  filePath: "/var/log/traefik/traefik.log"
+
+accessLog:
+  filePath: "/var/log/traefik/access.log"
+
+certificatesResolvers:
+  letsencrypt:
+    acme:
+      email: admin@${project_name}.com
+      storage: /etc/traefik/acme.json
+      httpChallenge:
+        entryPoint: web
 EOF
 
-# Enable the site
-ln -s /etc/nginx/sites-available/${project_name} /etc/nginx/sites-enabled/
-rm -f /etc/nginx/sites-enabled/default
+# Create dynamic configuration for Traefik
+cat > /etc/traefik/dynamic.yml << EOF
+http:
+  routers:
+    blog:
+      rule: "Host(\`\`)"
+      service: blog-service
+      entryPoints:
+        - web
 
-# Test and reload nginx
-nginx -t
-systemctl reload nginx
-systemctl enable nginx
+  services:
+    blog-service:
+      loadBalancer:
+        servers:
+          - url: "http://localhost:3000"
+EOF
+
+# Create Traefik systemd service
+cat > /etc/systemd/system/traefik.service << EOF
+[Unit]
+Description=Traefik HTTP reverse proxy and load balancer
+After=network.target
+
+[Service]
+Type=simple
+User=root
+ExecStart=/usr/local/bin/traefik --configfile=/etc/traefik/traefik.yml
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
+EOF
+
+# Create acme.json file for Let's Encrypt certificates
+touch /etc/traefik/acme.json
+chmod 600 /etc/traefik/acme.json
+
+# Enable and start Traefik
+systemctl daemon-reload
+systemctl enable traefik
+systemctl start traefik
 
 # Install CloudWatch agent
 wget https://s3.amazonaws.com/amazoncloudwatch-agent/ubuntu/amd64/latest/amazon-cloudwatch-agent.deb
@@ -82,13 +139,13 @@ cat > /opt/aws/amazon-cloudwatch-agent/etc/amazon-cloudwatch-agent.json << EOF
             "files": {
                 "collect_list": [
                     {
-                        "file_path": "/var/log/nginx/access.log",
-                        "log_group_name": "/aws/ec2/${project_name}/nginx/access",
+                        "file_path": "/var/log/traefik/access.log",
+                        "log_group_name": "/aws/ec2/${project_name}/traefik/access",
                         "log_stream_name": "{instance_id}"
                     },
                     {
-                        "file_path": "/var/log/nginx/error.log",
-                        "log_group_name": "/aws/ec2/${project_name}/nginx/error",
+                        "file_path": "/var/log/traefik/error.log",
+                        "log_group_name": "/aws/ec2/${project_name}/traefik/error",
                         "log_stream_name": "{instance_id}"
                     }
                 ]

@@ -1,0 +1,19 @@
+# Copy this file to terraform.tfvars and customize the values
+
+# AWS Configuration
+aws_region = "us-east-1"
+
+# Project Configuration
+project_name = "legend-blog"
+environment  = "production"
+
+# EC2 Configuration
+instance_type = "t3.micro"
+
+# Security Configuration
+# Restrict these to your specific IP ranges in production
+allowed_cidr_blocks = ["0.0.0.0/0"]
+
+# Domain Configuration (optional)
+# If you have a domain, uncomment and set this
+# domain_name = "your-domain.com"

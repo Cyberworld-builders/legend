@@ -40,6 +40,15 @@ resource "aws_security_group" "blog_sg" {
     cidr_blocks = var.allowed_cidr_blocks
   }
 
+  # Traefik dashboard (restrict this to your IP in production)
+  ingress {
+    description = "Traefik Dashboard"
+    from_port   = 8080
+    to_port     = 8080
+    protocol    = "tcp"
+    cidr_blocks = var.allowed_cidr_blocks
+  }
+
   # All outbound traffic
   egress {
     description = "All outbound traffic"

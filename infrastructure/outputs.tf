@@ -8,9 +8,9 @@ output "ec2_instance_public_ip" {
   value       = aws_eip.blog_eip.public_ip
 }
 
-output "ec2_instance_public_dns" {
-  description = "Public DNS name of the EC2 instance"
-  value       = aws_instance.blog_instance.public_dns
+output "ec2_instance_private_ip" {
+  description = "Private IP address of the EC2 instance"
+  value       = aws_instance.blog_instance.private_ip
 }
 
 output "s3_bucket_name" {
@@ -43,9 +43,14 @@ output "iam_role_arn" {
   value       = aws_iam_role.ec2_role.arn
 }
 
-output "security_group_id" {
-  description = "ID of the security group"
-  value       = aws_security_group.blog_sg.id
+output "iam_instance_profile_name" {
+  description = "Name of the IAM instance profile"
+  value       = aws_iam_instance_profile.ec2_profile.name
+}
+
+output "traefik_dashboard_url" {
+  description = "URL to access the Traefik dashboard"
+  value       = "http://${aws_eip.blog_eip.public_ip}:8080"
 }
 
 output "blog_url" {
@@ -53,7 +58,7 @@ output "blog_url" {
   value       = "http://${aws_eip.blog_eip.public_ip}"
 }
 
-output "ssh_command" {
-  description = "SSH command to connect to the instance"
+output "ssh_connection_command" {
+  description = "SSH command to connect to the EC2 instance"
   value       = "ssh -i ~/.ssh/id_rsa ubuntu@${aws_eip.blog_eip.public_ip}"
 }
