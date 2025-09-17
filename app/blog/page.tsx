@@ -3,8 +3,28 @@ import Link from 'next/link';
 import { promises as fs } from 'fs';
 import path from 'path';
 import Image from 'next/image';
+import type { Metadata } from 'next';
 
 const POSTS_PER_PAGE = 5;
+
+export const metadata: Metadata = {
+  title: 'Blog - Software Engineering Insights & Technical Articles',
+  description: 'Read the latest insights on software engineering, web development, AWS solutions, and SaaS development from CyberWorld Builders. Technical articles and industry perspectives.',
+  openGraph: {
+    title: 'Blog - Software Engineering Insights & Technical Articles',
+    description: 'Read the latest insights on software engineering, web development, AWS solutions, and SaaS development from CyberWorld Builders.',
+    url: 'https://cyberworldbuilders.com/blog',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Blog - Software Engineering Insights & Technical Articles',
+    description: 'Read the latest insights on software engineering, web development, AWS solutions, and SaaS development from CyberWorld Builders.',
+  },
+  alternates: {
+    canonical: 'https://cyberworldbuilders.com/blog',
+  },
+};
 
 interface BlogIndexProps {
   searchParams: Promise<{
@@ -18,21 +38,30 @@ export default async function BlogIndex({ searchParams }: BlogIndexProps) {
   const postsDirectory = path.join(process.cwd(), 'app/blog/posts/markdown');
   const filenames = await fs.readdir(postsDirectory);
 
-  const allPosts = filenames
-    .filter((filename) => 
-      filename.endsWith('.md') &&
-      !filename.startsWith('.')
-    )
-    .map((filename) => ({
-      slug: filename.replace(/\.md$/, ''),
-      title: filename
-        .replace(/\.md$/, '')
-        .replace(/-/g, ' ')
-        .split(' ')
-        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-        .join(' '),
-    }))
-    .sort((a, b) => b.title.localeCompare(a.title));
+  const allPosts = await Promise.all(
+    filenames
+      .filter((filename) => 
+        filename.endsWith('.md') &&
+        !filename.startsWith('.')
+      )
+      .map(async (filename) => {
+        const filePath = path.join(postsDirectory, filename);
+        const stats = await fs.stat(filePath);
+        return {
+          slug: filename.replace(/\.md$/, ''),
+          title: filename
+            .replace(/\.md$/, '')
+            .replace(/-/g, ' ')
+            .split(' ')
+            .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+            .join(' '),
+          mtime: stats.mtime,
+        };
+      })
+  );
+
+  // Sort by modification date (most recent first)
+  allPosts.sort((a, b) => b.mtime.getTime() - a.mtime.getTime());
 
   const totalPages = Math.ceil(allPosts.length / POSTS_PER_PAGE);
   const startIndex = (currentPage - 1) * POSTS_PER_PAGE;
