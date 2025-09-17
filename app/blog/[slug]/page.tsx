@@ -15,21 +15,30 @@ async function getAllPosts() {
   const postsDirectory = path.join(process.cwd(), 'app/blog/posts/markdown');
   const filenames = await fs.readdir(postsDirectory);
 
-  return filenames
-    .filter((filename) => 
-      filename.endsWith('.md') &&
-      !filename.startsWith('.')
-    )
-    .map((filename) => ({
-      slug: filename.replace(/\.md$/, ''),
-      title: filename
-        .replace(/\.md$/, '')
-        .replace(/-/g, ' ')
-        .split(' ')
-        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-        .join(' '),
-    }))
-    .sort((a, b) => b.title.localeCompare(a.title));
+  const allPosts = await Promise.all(
+    filenames
+      .filter((filename) => 
+        filename.endsWith('.md') &&
+        !filename.startsWith('.')
+      )
+      .map(async (filename) => {
+        const filePath = path.join(postsDirectory, filename);
+        const stats = await fs.stat(filePath);
+        return {
+          slug: filename.replace(/\.md$/, ''),
+          title: filename
+            .replace(/\.md$/, '')
+            .replace(/-/g, ' ')
+            .split(' ')
+            .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+            .join(' '),
+          mtime: stats.mtime,
+        };
+      })
+  );
+
+  // Sort by modification date (most recent first)
+  return allPosts.sort((a, b) => b.mtime.getTime() - a.mtime.getTime());
 }
 
 export async function generateStaticParams() {
@@ -48,8 +57,8 @@ export default async function BlogPost({ params }: BlogPostProps) {
     notFound();
   }
 
-  const prevPost = currentIndex < allPosts.length - 1 ? allPosts[currentIndex + 1] : null;
-  const nextPost = currentIndex > 0 ? allPosts[currentIndex - 1] : null;
+  const prevPost = currentIndex > 0 ? allPosts[currentIndex - 1] : null;
+  const nextPost = currentIndex < allPosts.length - 1 ? allPosts[currentIndex + 1] : null;
 
   try {
     const markdownPath = path.join(process.cwd(), `app/blog/posts/markdown/${slug}.md`);
