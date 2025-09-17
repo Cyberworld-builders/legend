@@ -3,8 +3,28 @@ import Link from 'next/link';
 import { promises as fs } from 'fs';
 import path from 'path';
 import Image from 'next/image';
+import type { Metadata } from 'next';
 
 const POSTS_PER_PAGE = 5;
+
+export const metadata: Metadata = {
+  title: 'Blog - Software Engineering Insights & Technical Articles',
+  description: 'Read the latest insights on software engineering, web development, AWS solutions, and SaaS development from CyberWorld Builders. Technical articles and industry perspectives.',
+  openGraph: {
+    title: 'Blog - Software Engineering Insights & Technical Articles',
+    description: 'Read the latest insights on software engineering, web development, AWS solutions, and SaaS development from CyberWorld Builders.',
+    url: 'https://cyberworldbuilders.com/blog',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Blog - Software Engineering Insights & Technical Articles',
+    description: 'Read the latest insights on software engineering, web development, AWS solutions, and SaaS development from CyberWorld Builders.',
+  },
+  alternates: {
+    canonical: 'https://cyberworldbuilders.com/blog',
+  },
+};
 
 interface BlogIndexProps {
   searchParams: Promise<{

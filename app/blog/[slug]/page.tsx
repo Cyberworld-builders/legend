@@ -4,11 +4,71 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { promises as fs } from 'fs';
 import path from 'path';
+import type { Metadata } from 'next';
 
 interface BlogPostProps {
   params: Promise<{
     slug: string;
   }>;
+}
+
+export async function generateMetadata({ params }: BlogPostProps): Promise<Metadata> {
+  const { slug } = await params;
+  
+  try {
+    const markdownPath = path.join(process.cwd(), `app/blog/posts/markdown/${slug}.md`);
+    const markdownContent = await fs.readFile(markdownPath, 'utf8');
+    
+    // Extract title from first H1 or use slug
+    const titleMatch = markdownContent.match(/^#\s+(.+)$/m);
+    const title = titleMatch ? titleMatch[1] : slug.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+    
+    // Extract description from first paragraph or create one
+    const descriptionMatch = markdownContent.match(/^##\s+Overview\s*\n\n([\s\S]+?)(?:\n\n|$)/) || 
+                           markdownContent.match(/^([\s\S]+?)(?:\n\n|$)/);
+    const description = descriptionMatch ? 
+      descriptionMatch[1].replace(/\n/g, ' ').substring(0, 160) + '...' :
+      `Read about ${title} - Software engineering insights and technical articles from CyberWorld Builders.`;
+    
+    const url = `https://cyberworldbuilders.com/blog/${slug}`;
+    
+    return {
+      title,
+      description,
+      openGraph: {
+        title,
+        description,
+        url,
+        type: 'article',
+        publishedTime: new Date().toISOString(),
+        authors: ['Jay Long'],
+        siteName: 'CyberWorld Builders',
+        images: [
+          {
+            url: 'https://cyberworldbuilders.com/images/logo.png',
+            width: 1200,
+            height: 630,
+            alt: title,
+          },
+        ],
+      },
+      twitter: {
+        card: 'summary_large_image',
+        title,
+        description,
+        images: ['https://cyberworldbuilders.com/images/logo.png'],
+      },
+      alternates: {
+        canonical: url,
+      },
+    };
+  } catch (error) {
+    console.error(`Error generating metadata for ${slug}:`, error);
+    return {
+      title: 'Blog Post',
+      description: 'Software engineering insights and technical articles from CyberWorld Builders.',
+    };
+  }
 }
 
 async function getAllPosts() {

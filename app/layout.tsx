@@ -4,8 +4,50 @@ import { Analytics } from '@vercel/analytics/next';
 import { AuthProvider } from '@/lib/auth-context';
 
 export const metadata: Metadata = {
-  title: 'CyberWorld Builders',
-  description: 'Software engineering, services, consulting, and more.',
+  title: {
+    default: 'CyberWorld Builders - Software Engineering & Consulting Services',
+    template: '%s | CyberWorld Builders'
+  },
+  description: 'Professional software engineering services, web development consulting, and AWS solutions. Expert freelance developer specializing in SaaS development and modern web technologies.',
+  keywords: ['software engineering', 'web development', 'consulting', 'AWS', 'SaaS development', 'freelance developer', 'cyberworld builders'],
+  authors: [{ name: 'Jay Long', url: 'https://cyberworldbuilders.dev' }],
+  creator: 'Jay Long',
+  publisher: 'CyberWorld Builders',
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: 'https://cyberworldbuilders.com',
+    siteName: 'CyberWorld Builders',
+    title: 'CyberWorld Builders - Software Engineering & Consulting Services',
+    description: 'Professional software engineering services, web development consulting, and AWS solutions. Expert freelance developer specializing in SaaS development and modern web technologies.',
+    images: [
+      {
+        url: 'https://cyberworldbuilders.com/images/logo.png',
+        width: 1200,
+        height: 630,
+        alt: 'CyberWorld Builders Logo',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    site: '@cyberbuilders',
+    creator: '@cyberbuilders',
+    title: 'CyberWorld Builders - Software Engineering & Consulting Services',
+    description: 'Professional software engineering services, web development consulting, and AWS solutions.',
+    images: ['https://cyberworldbuilders.com/images/logo.png'],
+  },
   icons: {
     icon: [
       { url: '/icons/favicon.ico', type: 'image/x-icon' },
@@ -18,6 +60,9 @@ export const metadata: Metadata = {
     ],
   },
   manifest: '/manifest.json',
+  alternates: {
+    canonical: 'https://cyberworldbuilders.com',
+  },
 };
 
 export default function RootLayout({
@@ -38,6 +83,93 @@ export default function RootLayout({
               gtag('js', new Date());
               gtag('config', 'G-NF9SF0PSM9');
             `,
+          }}
+        />
+        
+        {/* Structured Data - Organization */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "name": "CyberWorld Builders",
+              "alternateName": "CyberWorld Builders, Inc.",
+              "url": "https://cyberworldbuilders.com",
+              "logo": "https://cyberworldbuilders.com/images/logo.png",
+              "description": "Professional software engineering services, web development consulting, and AWS solutions.",
+              "founder": {
+                "@type": "Person",
+                "name": "Jay Long",
+                "email": "contact@cyberworldbuilders.com",
+                "url": "https://cyberworldbuilders.com"
+              },
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "",
+                "contactType": "customer service",
+                "email": "contact@cyberworldbuilders.com",
+                "availableLanguage": "English"
+              },
+              "sameAs": [
+                "https://github.com/CyberWorld-builders",
+                "https://youtube.com/@cyberbuilders",
+                "https://x.com/cyberbuilders",
+                "https://www.facebook.com/cyberworldbuilders",
+                "https://www.upwork.com/freelancers/jaylongcyberworld"
+              ],
+              "address": {
+                "@type": "PostalAddress",
+                "addressCountry": "US"
+              },
+              "serviceArea": {
+                "@type": "GeoCircle",
+                "geoMidpoint": {
+                  "@type": "GeoCoordinates",
+                  "latitude": 39.8283,
+                  "longitude": -98.5795
+                },
+                "geoRadius": "5000000"
+              },
+              "hasOfferCatalog": {
+                "@type": "OfferCatalog",
+                "name": "Software Engineering Services",
+                "itemListElement": [
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "Software Engineering",
+                      "description": "Custom software development and engineering solutions"
+                    }
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "Web Development Consulting",
+                      "description": "Professional web development and consulting services"
+                    }
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "AWS Solutions",
+                      "description": "Amazon Web Services implementation and optimization"
+                    }
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "SaaS Development",
+                      "description": "Software as a Service application development"
+                    }
+                  }
+                ]
+              }
+            })
           }}
         />
       </head>
