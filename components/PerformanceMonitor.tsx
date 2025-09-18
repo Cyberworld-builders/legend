@@ -2,6 +2,13 @@
 
 import { useEffect } from 'react';
 
+// Extend Window interface to include gtag
+declare global {
+  interface Window {
+    gtag?: (command: string, targetId: string, config?: Record<string, unknown>) => void;
+  }
+}
+
 export default function PerformanceMonitor() {
   useEffect(() => {
     // Only run in production
@@ -11,13 +18,14 @@ export default function PerformanceMonitor() {
     const observer = new PerformanceObserver((list) => {
       for (const entry of list.getEntries()) {
         // Log to console for debugging (remove in production)
-        console.log('Performance metric:', entry.name, entry.value);
+        const value = 'value' in entry ? (entry.value as number) : 0;
+        console.log('Performance metric:', entry.name, value);
         
         // Send to analytics (you can integrate with your analytics service)
         if (typeof window !== 'undefined' && window.gtag) {
-          window.gtag('event', 'web_vitals', {
+          window.gtag!('event', 'web_vitals', {
             name: entry.name,
-            value: Math.round(entry.value),
+            value: Math.round(value),
             event_category: 'Web Vitals',
             event_label: entry.name,
             non_interaction: true,
@@ -38,8 +46,8 @@ export default function PerformanceMonitor() {
           // Log key metrics
           const metrics = {
             'TTFB': navEntry.responseStart - navEntry.requestStart,
-            'DOM Content Loaded': navEntry.domContentLoadedEventEnd - navEntry.navigationStart,
-            'Page Load': navEntry.loadEventEnd - navEntry.navigationStart,
+            'DOM Content Loaded': navEntry.domContentLoadedEventEnd - navEntry.fetchStart,
+            'Page Load': navEntry.loadEventEnd - navEntry.fetchStart,
           };
 
           console.log('Navigation metrics:', metrics);
@@ -47,7 +55,7 @@ export default function PerformanceMonitor() {
           // Send to analytics
           if (typeof window !== 'undefined' && window.gtag) {
             Object.entries(metrics).forEach(([name, value]) => {
-              window.gtag('event', 'navigation_timing', {
+              window.gtag!('event', 'navigation_timing', {
                 name,
                 value: Math.round(value),
                 event_category: 'Performance',
