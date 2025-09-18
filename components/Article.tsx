@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import type { Components } from 'react-markdown';
@@ -77,7 +78,10 @@ export default function Article({ content, currentSlug }: ArticleProps) {
   return (
     <div className="px-4 sm:px-6 md:px-8 max-w-3xl mx-auto">
       <div className="prose prose-invert max-w-none">
-        <ReactMarkdown components={components}>
+        <ReactMarkdown 
+          components={components}
+          remarkPlugins={[remarkGfm]}
+        >
           {enhancedContent}
         </ReactMarkdown>
       </div>
