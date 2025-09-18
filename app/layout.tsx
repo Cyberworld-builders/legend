@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import '../app/globals.css';
 import { Analytics } from '@vercel/analytics/next';
 import { AuthProvider } from '@/lib/auth-context';
+import PerformanceMonitor from '@/components/PerformanceMonitor';
 
 export const metadata: Metadata = {
   title: {
@@ -73,6 +74,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        {/* Preload fonts for better performance */}
+        <link rel="preload" href="/fonts/courier-new.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        <link rel="preload" href="/fonts/ubuntu-mono.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        
         {/* Google tag (gtag.js) */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-NF9SF0PSM9"></script>
         <script
@@ -178,6 +183,7 @@ export default function RootLayout({
           {children}
         </AuthProvider>
         <Analytics />
+        <PerformanceMonitor />
       </body>
     </html>
   );

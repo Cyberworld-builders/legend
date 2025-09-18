@@ -3,18 +3,25 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Optimized font loading for rebel hacker vibe */
+@font-face {
+  font-family: 'Courier New';
+  font-display: swap;
+  src: local('Courier New'), local('CourierNew');
+}
+
 /* Custom styles for CyberWorld aesthetic */
 body {
   background-color: #1a1a1a;
   color: #00ff00;
-  font-family: 'Courier New', monospace;
+  font-family: 'Courier New', 'Ubuntu Mono', 'Consolas', 'Monaco', monospace;
 }
 
 /* Reset browser defaults for inputs */
 input {
   background-color: #1a1a1a;
   color: #00ff00;
-  font-family: 'Courier New', monospace;
+  font-family: 'Courier New', 'Ubuntu Mono', 'Consolas', 'Monaco', monospace;
 }
 
 /* Style placeholders */

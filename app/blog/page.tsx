@@ -80,6 +80,7 @@ export default async function BlogIndex({ searchParams }: BlogIndexProps) {
             className="w-12 h-12 rounded-full"
             width={48}
             height={48}
+            loading="lazy"
           />
         </Link>
       </div>

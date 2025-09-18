@@ -153,15 +153,8 @@ export default async function BlogPost({ params }: BlogPostProps) {
               className="w-12 h-12 rounded-full"
               width={48}
               height={48}
+              loading="lazy"
             />
-          </Link>
-        </div>
-        <div className="mb-4">
-          <Link 
-            href="/blog"
-            className="text-[#00ff00] hover:text-[#00cc00] hover:underline text-lg uppercase"
-          >
-            ← Back to Blog
           </Link>
         </div>
         
