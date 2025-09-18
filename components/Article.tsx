@@ -3,12 +3,16 @@ import ReactMarkdown from 'react-markdown';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import type { Components } from 'react-markdown';
+import { addInternalLinks } from '@/lib/content-utils';
 
 interface ArticleProps {
   content: string;
+  currentSlug?: string;
 }
 
-export default function Article({ content }: ArticleProps) {
+export default function Article({ content, currentSlug }: ArticleProps) {
+  // Add internal links to content if currentSlug is provided
+  const enhancedContent = currentSlug ? addInternalLinks(content, currentSlug) : content;
   const components: Components = {
     h1: (props) => <h1 className="text-4xl font-bold mb-6 text-[#00ff00]" {...props} />,
     h2: (props) => <h2 className="text-2xl font-bold mb-4 text-[#00ff00]" {...props} />,
@@ -60,7 +64,7 @@ export default function Article({ content }: ArticleProps) {
     <div className="px-4 sm:px-6 md:px-8 max-w-3xl mx-auto">
       <div className="prose prose-invert max-w-none">
         <ReactMarkdown components={components}>
-          {content}
+          {enhancedContent}
         </ReactMarkdown>
       </div>
     </div>

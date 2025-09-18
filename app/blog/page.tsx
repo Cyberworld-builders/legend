@@ -4,6 +4,7 @@ import { promises as fs } from 'fs';
 import path from 'path';
 import Image from 'next/image';
 import Breadcrumb from '@/components/Breadcrumb';
+import TopicClusters from '@/components/TopicClusters';
 import type { Metadata } from 'next';
 
 const POSTS_PER_PAGE = 5;
@@ -105,6 +106,12 @@ export default async function BlogIndex({ searchParams }: BlogIndexProps) {
           </div>
         ))}
       </div>
+      
+      {/* Topic Clusters */}
+      <div className="w-full max-w-4xl">
+        <TopicClusters allPosts={allPosts} />
+      </div>
+      
       {totalPages > 1 && (
         <div className="flex gap-4 mt-8">
           {currentPage > 1 && (

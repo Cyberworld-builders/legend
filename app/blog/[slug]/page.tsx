@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation';
 import Article from '@/components/Article';
 import Breadcrumb from '@/components/Breadcrumb';
+import RelatedPosts from '@/components/RelatedPosts';
 import Link from 'next/link';
 import Image from 'next/image';
 import { promises as fs } from 'fs';
@@ -167,7 +168,12 @@ export default async function BlogPost({ params }: BlogPostProps) {
           />
         </div>
         
-        <Article content={markdownContent} />
+        <Article content={markdownContent} currentSlug={slug} />
+        
+        {/* Related Posts */}
+        <div className="w-full max-w-3xl">
+          <RelatedPosts currentSlug={slug} allPosts={allPosts} />
+        </div>
         
         {/* Post Navigation */}
         <div className="mt-8 flex justify-between w-full max-w-2xl">
