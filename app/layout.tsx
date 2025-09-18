@@ -3,6 +3,7 @@ import '../app/globals.css';
 import { Analytics } from '@vercel/analytics/next';
 import { AuthProvider } from '@/lib/auth-context';
 import PerformanceMonitor from '@/components/PerformanceMonitor';
+import AuthorSchema from '@/components/AuthorSchema';
 
 export const metadata: Metadata = {
   title: {
@@ -77,6 +78,33 @@ export default function RootLayout({
         {/* Preload fonts for better performance */}
         <link rel="preload" href="/fonts/courier-new.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
         <link rel="preload" href="/fonts/ubuntu-mono.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        
+        {/* WebSite Schema with Search Action */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              "name": "CyberWorld Builders",
+              "url": "https://cyberworldbuilders.com",
+              "description": "Professional software engineering services, web development consulting, and AWS solutions.",
+              "potentialAction": {
+                "@type": "SearchAction",
+                "target": {
+                  "@type": "EntryPoint",
+                  "urlTemplate": "https://cyberworldbuilders.com/blog?search={search_term_string}"
+                },
+                "query-input": "required name=search_term_string"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "CyberWorld Builders",
+                "url": "https://cyberworldbuilders.com"
+              }
+            })
+          }}
+        />
         
         {/* Google tag (gtag.js) */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-NF9SF0PSM9"></script>
@@ -184,6 +212,7 @@ export default function RootLayout({
         </AuthProvider>
         <Analytics />
         <PerformanceMonitor />
+        <AuthorSchema />
       </body>
     </html>
   );
