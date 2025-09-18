@@ -26,6 +26,20 @@ export default function Article({ content, currentSlug }: ArticleProps) {
     li: (props) => <li className="mb-1" {...props} />,
     strong: (props) => <strong className="font-bold text-[#00ff00]" {...props} />,
     em: (props) => <em className="italic" {...props} />,
+    a: (props) => {
+      const { href, ...restProps } = props;
+      const isExternal = href && (href.startsWith('http') || href.startsWith('//'));
+      
+      return (
+        <a 
+          className="text-[#00ff00] hover:text-[#00cc00] hover:underline transition-colors" 
+          href={href}
+          target={isExternal ? "_blank" : undefined}
+          rel={isExternal ? "noopener noreferrer" : undefined}
+          {...restProps} 
+        />
+      );
+    },
     blockquote: (props) => (
       <blockquote className="border-l-4 border-[#00ff00] pl-4 italic mb-4" {...props} />
     ),

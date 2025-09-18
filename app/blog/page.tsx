@@ -5,6 +5,7 @@ import path from 'path';
 import Image from 'next/image';
 import Breadcrumb from '@/components/Breadcrumb';
 import TopicClusters from '@/components/TopicClusters';
+import SimpleSocialShare from '@/components/SimpleSocialShare';
 import type { Metadata } from 'next';
 
 const POSTS_PER_PAGE = 5;
@@ -94,6 +95,15 @@ export default async function BlogIndex({ searchParams }: BlogIndexProps) {
       </div>
       
       <h1 className="text-4xl font-bold mb-8">Blog</h1>
+      
+      {/* Blog Sharing */}
+      <div className="w-full max-w-2xl mb-6">
+        <SimpleSocialShare 
+          url="https://cyberworldbuilders.com/blog"
+          title="Software Engineering Insights & Technical Articles"
+        />
+      </div>
+      
       <div className="w-full max-w-2xl">
         {posts.map((post) => (
           <div key={post.slug} className="mb-6">

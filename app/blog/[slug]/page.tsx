@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation';
 import Article from '@/components/Article';
 import Breadcrumb from '@/components/Breadcrumb';
 import RelatedPosts from '@/components/RelatedPosts';
+import SocialShare from '@/components/SocialShare';
 import Link from 'next/link';
 import Image from 'next/image';
 import { promises as fs } from 'fs';
@@ -134,6 +135,13 @@ export default async function BlogPost({ params }: BlogPostProps) {
     // Extract title for breadcrumb
     const titleMatch = markdownContent.match(/^#\s+(.+)$/m);
     const title = titleMatch ? titleMatch[1] : slug.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+    
+    // Extract description for social sharing
+    const descriptionMatch = markdownContent.match(/^##\s+Overview\s*\n\n([\s\S]+?)(?:\n\n|$)/) || 
+                           markdownContent.match(/^([\s\S]+?)(?:\n\n|$)/);
+    const description = descriptionMatch ? 
+      descriptionMatch[1].replace(/\n/g, ' ').substring(0, 160) + '...' :
+      `Read about ${title} - Software engineering insights and technical articles from CyberWorld Builders.`;
 
     return (
       <div className="min-h-screen flex flex-col items-center py-8">
@@ -169,6 +177,15 @@ export default async function BlogPost({ params }: BlogPostProps) {
         </div>
         
         <Article content={markdownContent} currentSlug={slug} />
+        
+        {/* Social Sharing */}
+        <div className="w-full max-w-3xl">
+          <SocialShare 
+            url={`https://cyberworldbuilders.com/blog/${slug}`}
+            title={title}
+            description={description}
+          />
+        </div>
         
         {/* Related Posts */}
         <div className="w-full max-w-3xl">
