@@ -47,7 +47,11 @@ const findRelatedPosts = (currentSlug: string, allPosts: Post[]): Post[] => {
       return b.mtime.getTime() - a.mtime.getTime();
     })
     .slice(0, 3) // Return top 3 related posts
-    .map(({ score: _, ...post }) => post); // Remove score from final result
+    .map(post => {
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      const { score, ...postWithoutScore } = post;
+      return postWithoutScore;
+    }); // Remove score from final result
 };
 
 export default function RelatedPosts({ currentSlug, allPosts }: RelatedPostsProps) {
