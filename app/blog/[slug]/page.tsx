@@ -168,6 +168,53 @@ export default async function BlogPost({ params }: BlogPostProps) {
             ]} 
           />
         </div>
+
+        {/* Article Schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Article",
+              "headline": title || slug.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()),
+              "description": description,
+              "image": "https://cyberworldbuilders.com/images/logo.png",
+              "author": {
+                "@type": "Person",
+                "name": "Jay Long",
+                "url": "https://cyberworldbuilders.com",
+                "sameAs": [
+                  "https://github.com/CyberWorld-builders",
+                  "https://youtube.com/@cyberbuilders",
+                  "https://x.com/cyberbuilders",
+                  "https://www.facebook.com/cyberworldbuilders",
+                  "https://www.upwork.com/freelancers/jaylongcyberworld"
+                ]
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "CyberWorld Builders",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://cyberworldbuilders.com/images/logo.png",
+                  "width": 250,
+                  "height": 250
+                }
+              },
+              "datePublished": new Date().toISOString(),
+              "dateModified": new Date().toISOString(),
+              "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": `https://cyberworldbuilders.com/blog/${slug}`
+              },
+              "url": `https://cyberworldbuilders.com/blog/${slug}`,
+              "articleSection": "Technology",
+              "keywords": ["software engineering", "web development", "AWS", "SaaS development", "technology"],
+              "wordCount": markdownContent.split(' ').length,
+              "inLanguage": "en-US"
+            })
+          }}
+        />
         
         <Article content={markdownContent} currentSlug={slug} />
         
