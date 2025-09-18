@@ -10,13 +10,18 @@ interface ArticleProps {
 
 export default function Article({ content }: ArticleProps) {
   const components: Components = {
-    h1: (props) => <h1 className="text-3xl font-bold mb-4" {...props} />,
-    h2: (props) => <h2 className="text-2xl font-bold mb-3" {...props} />,
-    h3: (props) => <h3 className="text-xl font-bold mb-2" {...props} />,
-    p: (props) => <p className="mb-4" {...props} />,
-    ul: (props) => <ul className="list-disc pl-6 mb-4" {...props} />,
-    ol: (props) => <ol className="list-decimal pl-6 mb-4" {...props} />,
+    h1: (props) => <h1 className="text-4xl font-bold mb-6 text-[#00ff00]" {...props} />,
+    h2: (props) => <h2 className="text-2xl font-bold mb-4 text-[#00ff00]" {...props} />,
+    h3: (props) => <h3 className="text-xl font-bold mb-3 text-[#00ff00]" {...props} />,
+    h4: (props) => <h4 className="text-lg font-bold mb-2 text-[#00ff00]" {...props} />,
+    h5: (props) => <h5 className="text-base font-bold mb-2 text-[#00ff00]" {...props} />,
+    h6: (props) => <h6 className="text-sm font-bold mb-2 text-[#00ff00]" {...props} />,
+    p: (props) => <p className="mb-4 leading-relaxed" {...props} />,
+    ul: (props) => <ul className="list-disc pl-6 mb-4 space-y-1" {...props} />,
+    ol: (props) => <ol className="list-decimal pl-6 mb-4 space-y-1" {...props} />,
     li: (props) => <li className="mb-1" {...props} />,
+    strong: (props) => <strong className="font-bold text-[#00ff00]" {...props} />,
+    em: (props) => <em className="italic" {...props} />,
     blockquote: (props) => (
       <blockquote className="border-l-4 border-[#00ff00] pl-4 italic mb-4" {...props} />
     ),

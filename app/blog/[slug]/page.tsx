@@ -1,5 +1,6 @@
 import { notFound } from 'next/navigation';
 import Article from '@/components/Article';
+import Breadcrumb from '@/components/Breadcrumb';
 import Link from 'next/link';
 import Image from 'next/image';
 import { promises as fs } from 'fs';
@@ -129,13 +130,17 @@ export default async function BlogPost({ params }: BlogPostProps) {
       notFound();
     }
 
+    // Extract title for breadcrumb
+    const titleMatch = markdownContent.match(/^#\s+(.+)$/m);
+    const title = titleMatch ? titleMatch[1] : slug.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+
     return (
       <div className="min-h-screen flex flex-col items-center py-8">
         <div className="flex justify-center mb-4">
           <Link href="/">
             <Image
               src="/icons/favicon.ico"
-              alt="CyberWorld Logo"
+              alt="CyberWorld Builders - Software Engineering & Consulting Services"
               className="w-12 h-12 rounded-full"
               width={48}
               height={48}
@@ -150,6 +155,18 @@ export default async function BlogPost({ params }: BlogPostProps) {
             ← Back to Blog
           </Link>
         </div>
+        
+        {/* Breadcrumb Navigation */}
+        <div className="w-full max-w-3xl mb-6">
+          <Breadcrumb 
+            items={[
+              { label: 'Home', href: '/' },
+              { label: 'Blog', href: '/blog' },
+              { label: title || slug.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()) }
+            ]} 
+          />
+        </div>
+        
         <Article content={markdownContent} />
         
         {/* Post Navigation */}

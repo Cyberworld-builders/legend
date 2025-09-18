@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { promises as fs } from 'fs';
 import path from 'path';
 import Image from 'next/image';
+import Breadcrumb from '@/components/Breadcrumb';
 import type { Metadata } from 'next';
 
 const POSTS_PER_PAGE = 5;
@@ -73,13 +74,24 @@ export default async function BlogIndex({ searchParams }: BlogIndexProps) {
         <Link href="/">
           <Image
             src="/icons/favicon.ico"
-            alt="CyberWorld Logo"
+            alt="CyberWorld Builders - Software Engineering & Consulting Services"
             className="w-12 h-12 rounded-full"
             width={48}
             height={48}
           />
         </Link>
       </div>
+      
+      {/* Breadcrumb Navigation */}
+      <div className="w-full max-w-2xl mb-6">
+        <Breadcrumb 
+          items={[
+            { label: 'Home', href: '/' },
+            { label: 'Blog' }
+          ]} 
+        />
+      </div>
+      
       <h1 className="text-4xl font-bold mb-8">Blog</h1>
       <div className="w-full max-w-2xl">
         {posts.map((post) => (
