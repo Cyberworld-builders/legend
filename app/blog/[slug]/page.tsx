@@ -1,5 +1,8 @@
 import { notFound } from 'next/navigation';
 import Article from '@/components/Article';
+import Breadcrumb from '@/components/Breadcrumb';
+import RelatedPosts from '@/components/RelatedPosts';
+import SocialShare from '@/components/SocialShare';
 import Link from 'next/link';
 import Image from 'next/image';
 import { promises as fs } from 'fs';
@@ -129,28 +132,105 @@ export default async function BlogPost({ params }: BlogPostProps) {
       notFound();
     }
 
+    // Extract title for breadcrumb
+    const titleMatch = markdownContent.match(/^#\s+(.+)$/m);
+    const title = titleMatch ? titleMatch[1] : slug.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+    
+    // Extract description for social sharing
+    const descriptionMatch = markdownContent.match(/^##\s+Overview\s*\n\n([\s\S]+?)(?:\n\n|$)/) || 
+                           markdownContent.match(/^([\s\S]+?)(?:\n\n|$)/);
+    const description = descriptionMatch ? 
+      descriptionMatch[1].replace(/\n/g, ' ').substring(0, 160) + '...' :
+      `Read about ${title} - Software engineering insights and technical articles from CyberWorld Builders.`;
+
     return (
       <div className="min-h-screen flex flex-col items-center py-8">
         <div className="flex justify-center mb-4">
           <Link href="/">
             <Image
               src="/icons/favicon.ico"
-              alt="CyberWorld Logo"
+              alt="CyberWorld Builders - Software Engineering & Consulting Services"
               className="w-12 h-12 rounded-full"
               width={48}
               height={48}
+              loading="lazy"
             />
           </Link>
         </div>
-        <div className="mb-4">
-          <Link 
-            href="/blog"
-            className="text-[#00ff00] hover:text-[#00cc00] hover:underline text-lg uppercase"
-          >
-            ← Back to Blog
-          </Link>
+        
+        {/* Breadcrumb Navigation */}
+        <div className="w-full max-w-3xl mb-6">
+          <Breadcrumb 
+            items={[
+              { label: 'Home', href: '/' },
+              { label: 'Blog', href: '/blog' },
+              { label: title || slug.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()) }
+            ]} 
+          />
         </div>
-        <Article content={markdownContent} />
+
+        {/* Article Schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Article",
+              "headline": title || slug.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()),
+              "description": description,
+              "image": "https://cyberworldbuilders.com/images/logo.png",
+              "author": {
+                "@type": "Person",
+                "name": "Jay Long",
+                "url": "https://cyberworldbuilders.com",
+                "sameAs": [
+                  "https://github.com/CyberWorld-builders",
+                  "https://youtube.com/@cyberbuilders",
+                  "https://x.com/cyberbuilders",
+                  "https://www.facebook.com/cyberworldbuilders",
+                  "https://www.upwork.com/freelancers/jaylongcyberworld"
+                ]
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "CyberWorld Builders",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://cyberworldbuilders.com/images/logo.png",
+                  "width": 250,
+                  "height": 250
+                }
+              },
+              "datePublished": new Date().toISOString(),
+              "dateModified": new Date().toISOString(),
+              "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": `https://cyberworldbuilders.com/blog/${slug}`
+              },
+              "url": `https://cyberworldbuilders.com/blog/${slug}`,
+              "articleSection": "Technology",
+              "keywords": ["software engineering", "web development", "AWS", "SaaS development", "technology"],
+              "wordCount": markdownContent.split(' ').length,
+              "inLanguage": "en-US"
+            })
+          }}
+        />
+        
+        <Article content={markdownContent} currentSlug={slug} />
+        
+        {/* Social Sharing */}
+        <div className="w-full max-w-3xl">
+          <SocialShare 
+            url={`https://cyberworldbuilders.com/blog/${slug}`}
+            title={title}
+            description={description}
+          />
+        </div>
+        
+        {/* Related Posts */}
+        <div className="w-full max-w-3xl">
+          <RelatedPosts currentSlug={slug} allPosts={allPosts} />
+        </div>
         
         {/* Post Navigation */}
         <div className="mt-8 flex justify-between w-full max-w-2xl">

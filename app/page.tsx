@@ -6,11 +6,14 @@ export default function Home() {
     <div className="text-center">
       <Image
         src="/images/logo.png"
-        alt="CyberWorld Logo"
+        alt="CyberWorld Builders - Software Engineering & Consulting Services Logo"
         className="mx-auto mb-4"
         style={{ maxWidth: '250px' }}
         width={250}
         height={250}
+        priority
+        placeholder="blur"
+        blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
       />
 <p className="text-lg mb-8 text-[#00ff00]/70">
         Creation is the remedy for emptiness.
@@ -43,12 +46,14 @@ export default function Home() {
           target="_blank"
           rel="noopener noreferrer"
           className="text-[#00ff00] hover:text-[#00cc00] transition"
+          aria-label="Follow CyberWorld Builders on GitHub"
         >
           <svg
             className="w-6 h-6"
             viewBox="0 0 48 48"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
             >
               <g clipPath="url(#clip0_128_2)">
                   <rect width="48" height="48" fill="none" />
@@ -99,12 +104,14 @@ export default function Home() {
           target="_blank"
           rel="noopener noreferrer"
           className="text-[#00ff00] hover:text-[#00cc00] transition"
+          aria-label="Subscribe to CyberWorld Builders on YouTube"
         >
           <svg
             className="w-6 h-6"
             viewBox="0 0 48 48"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
           >
             <path d="M43.2 12.4C42.9 11.3 42.3 10.3 41.5 9.5C40.7 8.7 39.7 8.1 38.6 7.8C35.5 7 24 7 24 7C24 7 12.5 7 9.4 7.8C8.3 8.1 7.3 8.7 6.5 9.5C5.7 10.3 5.1 11.3 4.8 12.4C4 15.5 4 23 4 23C4 23 4 30.5 4.8 33.6C5.1 34.7 5.7 35.7 6.5 36.5C7.3 37.3 8.3 37.9 9.4 38.2C12.5 39 24 39 24 39C24 39 35.5 39 38.6 38.2C39.7 37.9 40.7 37.3 41.5 36.5C42.3 35.7 42.9 34.7 43.2 33.6C44 30.5 44 23 44 23C44 23 44 15.5 43.2 12.4Z" fill="#A6E102"/>
             <path d="M20 30L31 23L20 16V30Z" fill="#181818"/>
@@ -115,13 +122,15 @@ export default function Home() {
           target="_blank"
           rel="noopener noreferrer"
           className="text-[#00ff00] hover:text-[#00cc00] transition"
+          aria-label="Follow CyberWorld Builders on X (formerly Twitter)"
         >
           <Image
             src="/images/x-icon.png"
-            alt="X"
+            alt="Follow CyberWorld Builders on X (formerly Twitter)"
             className="w-6 h-6"
             width={24}
             height={24}
+            loading="lazy"
           />
         </a>
         <a
@@ -129,12 +138,14 @@ export default function Home() {
           target="_blank"
           rel="noopener noreferrer"
           className="text-[#00ff00] hover:text-[#00cc00] transition"
+          aria-label="Follow CyberWorld Builders on Facebook"
         >
           <svg
             className="w-6 h-6"
             viewBox="0 0 48 48"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
           >
             <path
               d="M48 24C48 10.7452 37.2548 0 24 0C10.7452 0 0 10.7452 0 24C0 35.9789 8.77641 45.908 20.25 47.7084V30.9375H14.1562V24H20.25V18.7125C20.25 12.6975 23.8331 9.375 29.3152 9.375C31.9402 9.375 34.6875 9.84375 34.6875 9.84375V15.75H31.6613C28.68 15.75 27.75 17.6002 27.75 19.5V24H34.4062L33.3422 30.9375H27.75V47.7084C39.2236 45.908 48 35.9789 48 24Z"
@@ -147,12 +158,14 @@ export default function Home() {
           target="_blank"
           rel="noopener noreferrer"
           className="text-[#00ff00] hover:text-[#00cc00] transition"
+          aria-label="Hire Jay Long on Upwork for software engineering services"
         >
           <svg
           className="w-6 h-6"
           viewBox="0 0 48 47"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true"
           >
             <g clipPath="url(#clip0_128_13)">
                 <path

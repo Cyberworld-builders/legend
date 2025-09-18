@@ -3,6 +3,9 @@ import Link from 'next/link';
 import { promises as fs } from 'fs';
 import path from 'path';
 import Image from 'next/image';
+import Breadcrumb from '@/components/Breadcrumb';
+import TopicClusters from '@/components/TopicClusters';
+import SimpleSocialShare from '@/components/SimpleSocialShare';
 import type { Metadata } from 'next';
 
 const POSTS_PER_PAGE = 5;
@@ -73,14 +76,35 @@ export default async function BlogIndex({ searchParams }: BlogIndexProps) {
         <Link href="/">
           <Image
             src="/icons/favicon.ico"
-            alt="CyberWorld Logo"
+            alt="CyberWorld Builders - Software Engineering & Consulting Services"
             className="w-12 h-12 rounded-full"
             width={48}
             height={48}
+            loading="lazy"
           />
         </Link>
       </div>
+      
+      {/* Breadcrumb Navigation */}
+      <div className="w-full max-w-2xl mb-6">
+        <Breadcrumb 
+          items={[
+            { label: 'Home', href: '/' },
+            { label: 'Blog' }
+          ]} 
+        />
+      </div>
+      
       <h1 className="text-4xl font-bold mb-8">Blog</h1>
+      
+      {/* Blog Sharing */}
+      <div className="w-full max-w-2xl mb-6">
+        <SimpleSocialShare 
+          url="https://cyberworldbuilders.com/blog"
+          title="Software Engineering Insights & Technical Articles"
+        />
+      </div>
+      
       <div className="w-full max-w-2xl">
         {posts.map((post) => (
           <div key={post.slug} className="mb-6">
@@ -93,6 +117,12 @@ export default async function BlogIndex({ searchParams }: BlogIndexProps) {
           </div>
         ))}
       </div>
+      
+      {/* Topic Clusters */}
+      <div className="w-full max-w-4xl">
+        <TopicClusters allPosts={allPosts} />
+      </div>
+      
       {totalPages > 1 && (
         <div className="flex gap-4 mt-8">
           {currentPage > 1 && (
