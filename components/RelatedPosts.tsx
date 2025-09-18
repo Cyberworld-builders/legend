@@ -1,6 +1,4 @@
 import Link from 'next/link';
-import { promises as fs } from 'fs';
-import path from 'path';
 
 interface Post {
   slug: string;
@@ -49,7 +47,7 @@ const findRelatedPosts = (currentSlug: string, allPosts: Post[]): Post[] => {
       return b.mtime.getTime() - a.mtime.getTime();
     })
     .slice(0, 3) // Return top 3 related posts
-    .map(({ score, ...post }) => post); // Remove score from final result
+    .map(({ score: _, ...post }) => post); // Remove score from final result
 };
 
 export default function RelatedPosts({ currentSlug, allPosts }: RelatedPostsProps) {

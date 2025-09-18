@@ -4,6 +4,7 @@ import { Analytics } from '@vercel/analytics/next';
 import { AuthProvider } from '@/lib/auth-context';
 import PerformanceMonitor from '@/components/PerformanceMonitor';
 import AuthorSchema from '@/components/AuthorSchema';
+import Script from 'next/script';
 
 export const metadata: Metadata = {
   title: {
@@ -107,17 +108,18 @@ export default function RootLayout({
         />
         
         {/* Google tag (gtag.js) */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-NF9SF0PSM9"></script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-NF9SF0PSM9');
-            `,
-          }}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-NF9SF0PSM9"
+          strategy="afterInteractive"
         />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-NF9SF0PSM9');
+          `}
+        </Script>
         
         {/* Structured Data - Organization */}
         <script
