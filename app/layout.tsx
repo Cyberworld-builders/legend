@@ -4,6 +4,7 @@ import { Analytics } from '@vercel/analytics/next';
 import { AuthProvider } from '@/lib/auth-context';
 import PerformanceMonitor from '@/components/PerformanceMonitor';
 import AuthorSchema from '@/components/AuthorSchema';
+import GoogleAnalytics from '@/components/GoogleAnalytics';
 
 export const metadata: Metadata = {
   title: {
@@ -106,7 +107,7 @@ export default function RootLayout({
           }}
         />
         
-        {/* Google tag (gtag.js) */}
+        {/* Google tag (gtag.js) - Content-focused tracking */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-NF9SF0PSM9"></script>
         <script
           dangerouslySetInnerHTML={{
@@ -114,7 +115,15 @@ export default function RootLayout({
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
-              gtag('config', 'G-NF9SF0PSM9');
+              gtag('config', 'G-NF9SF0PSM9', {
+                // Focus on content engagement, not e-commerce
+                send_page_view: true,
+                // Custom parameters for content tracking
+                custom_map: {
+                  'custom_parameter_1': 'content_type',
+                  'custom_parameter_2': 'blog_category'
+                }
+              });
             `,
           }}
         />
@@ -211,6 +220,7 @@ export default function RootLayout({
           {children}
         </AuthProvider>
         <Analytics />
+        <GoogleAnalytics />
         <PerformanceMonitor />
         <AuthorSchema />
       </body>

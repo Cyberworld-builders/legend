@@ -2,6 +2,13 @@
 
 import { useState } from 'react';
 
+// Extend Window interface to include tracking functions
+declare global {
+  interface Window {
+    trackSocialShare?: (platform: string, content_type: string) => void;
+  }
+}
+
 interface SocialShareProps {
   url: string;
   title: string;
@@ -22,8 +29,20 @@ export default function SocialShare({ url, title, description }: SocialShareProp
       await navigator.clipboard.writeText(url);
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
+      
+      // Track copy link action
+      if (typeof window !== 'undefined' && window.trackSocialShare) {
+        window.trackSocialShare('copy_link', 'blog_post');
+      }
     } catch (err) {
       console.error('Failed to copy link:', err);
+    }
+  };
+
+  const handleSocialShare = (platform: string) => {
+    // Track social sharing
+    if (typeof window !== 'undefined' && window.trackSocialShare) {
+      window.trackSocialShare(platform, 'blog_post');
     }
   };
 
@@ -80,6 +99,7 @@ export default function SocialShare({ url, title, description }: SocialShareProp
             href={button.url}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => handleSocialShare(button.name.toLowerCase())}
             className={`flex items-center gap-2 px-4 py-2 rounded-lg border border-[#00ff00]/20 text-[#00ff00] hover:bg-[#00ff00]/10 ${button.color} transition-all duration-200 hover:scale-105`}
             aria-label={`Share on ${button.name}`}
           >
