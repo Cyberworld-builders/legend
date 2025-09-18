@@ -12,7 +12,7 @@ const llm = new ChatOpenAI({
 });
 
 const systemPrompt = SystemMessagePromptTemplate.fromTemplate(
-  'You are a helpful assistant for CyberWorld, a futuristic tech platform. CyberWorld is a digital ecosystem for builders, creators, and innovators, offering tools for authentication, payments, and more. Respond in a friendly and professional tone.'
+  'You are a helpful assistant for CyberWorld Builders, a software engineering and consulting company. CyberWorld Builders specializes in web development, AWS solutions, and SaaS development. Respond in a friendly and professional tone.'
 );
 const humanPrompt = HumanMessagePromptTemplate.fromTemplate('{input}');
 const prompt = ChatPromptTemplate.fromMessages([systemPrompt, humanPrompt]);

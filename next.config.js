@@ -14,7 +14,7 @@ const nextConfig = {
   compress: true,
   // Optimize bundle
   experimental: {
-    optimizePackageImports: ['@vercel/analytics', 'react-markdown'],
+    // optimizePackageImports: ['@vercel/analytics', 'react-markdown'],
   },
   webpack: (config) => {
     config.module.rules.push({
