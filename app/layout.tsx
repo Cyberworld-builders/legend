@@ -5,6 +5,7 @@ import { AuthProvider } from '@/lib/auth-context';
 import PerformanceMonitor from '@/components/PerformanceMonitor';
 import AuthorSchema from '@/components/AuthorSchema';
 import GoogleAnalytics from '@/components/GoogleAnalytics';
+import FAQSchema from '@/components/FAQSchema';
 
 export const metadata: Metadata = {
   title: {
@@ -223,6 +224,7 @@ export default function RootLayout({
         <GoogleAnalytics />
         <PerformanceMonitor />
         <AuthorSchema />
+        <FAQSchema />
       </body>
     </html>
   );
