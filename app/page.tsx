@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import ChatWidget from '../components/ChatWidget';
+import FAQ from '../components/FAQ';
 import Image from 'next/image';
 export default function Home() {
   return (
@@ -189,6 +190,11 @@ export default function Home() {
 
 
 
+
+      {/* FAQ Section */}
+      <div className="mt-16 mb-8">
+        <FAQ />
+      </div>
 
       <ChatWidget />
     </div>
