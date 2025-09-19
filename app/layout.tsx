@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Script from 'next/script';
 import '../app/globals.css';
 import { Analytics } from '@vercel/analytics/next';
 import { AuthProvider } from '@/lib/auth-context';
@@ -109,8 +110,13 @@ export default function RootLayout({
         />
         
         {/* Google tag (gtag.js) - Content-focused tracking */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-NF9SF0PSM9"></script>
-        <script
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-NF9SF0PSM9"
+          strategy="afterInteractive"
+        />
+        <Script
+          id="google-analytics"
+          strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: `
               window.dataLayer = window.dataLayer || [];
