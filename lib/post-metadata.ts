@@ -61,6 +61,25 @@ export interface PostWithMetadata {
   };
 }
 
+export interface PostIndexEntry {
+  slug: string;
+  title: string;
+  publishedDate: string;
+  modifiedDate: string;
+  lastReviewedDate: string;
+  isDraft: boolean;
+  isFeatured: boolean;
+  priority: number;
+  category: string;
+  series: string;
+  topics: string[];
+  tags: string[];
+  keywords: string[];
+  wordCount: number;
+  fileSize: number;
+  fileModified: string;
+}
+
 // Default metadata values
 const DEFAULT_METADATA: Partial<PostMetadata> = {
   language: 'en-US',
@@ -332,40 +351,97 @@ export function parsePostMetadata(
  * Get all posts with metadata
  */
 export async function getAllPostsWithMetadata(): Promise<PostWithMetadata[]> {
-  // Since individual posts work, let's use a known list of posts and try to load each one
-  // This avoids the directory scanning issue while still being dynamic
-  const knownPosts = [
-    'building-an-effective-web-presence-for-professional-validation',
-    'building-drum-note-ai-powered-drum-transcription-kit-generation-and-hands-on-marketing-with-rendercom',
-    'early-adventures-in-freelance-web-development-lessons-from-the-wordpress-era',
-    'enhancing-seo-on-my-company-landing-site-with-ai-agents',
-    'example-with-frontmatter',
-    'intro-to-linux-how-i-stayed-in-the-dev-game-while-too-broke-to-buy-a-pc',
-    'my-first-steps-into-coding',
-    'my-first-tech-job-the-evolution-of-the-docworks-emr-system-2011-2013',
-    'replit-test-drive',
-    'revenant-hollow-integrating-technology-into-location-based-horror-experiences',
-    'scaling-novelty-with-an-agentic-blog-bot',
-    'the-jumpstarter-a-5-point-framework-to-align-value-and-passion',
-    'the-last-cycle-why-founder-engineer-partnerships-are-nearing-their-end',
-    'transitioning-from-cable-contracting-to-freelance-web-development-a-career-pivot',
-    'troubleshooting-n8n-workflows-integrated-with-supabase-vapi-and-lovable-for-ai-driven-sales-automation'
-  ];
+  // Load post index generated at build time
+  let postsFromIndex: PostIndexEntry[] = [];
   
-  console.log(`Processing ${knownPosts.length} known posts`);
+  try {
+    const { promises: fs } = await import('fs');
+    const path = await import('path');
+    
+    // Try to load the generated post index
+    const indexPath = path.join(process.cwd(), 'lib', 'post-index.json');
+    const indexContent = await fs.readFile(indexPath, 'utf8');
+    const postIndex = JSON.parse(indexContent);
+    postsFromIndex = postIndex.posts || [];
+    
+    console.log(`Loaded ${postsFromIndex.length} posts from index (generated: ${postIndex.generatedAt})`);
+  } catch (error) {
+    console.warn('Could not load post index, falling back to individual post loading:', error instanceof Error ? error.message : String(error));
+    
+    // Fallback to hardcoded list if index file is not available
+    const fallbackSlugs = [
+      'building-an-effective-web-presence-for-professional-validation',
+      'building-drum-note-ai-powered-drum-transcription-kit-generation-and-hands-on-marketing-with-rendercom',
+      'early-adventures-in-freelance-web-development-lessons-from-the-wordpress-era',
+      'enhancing-seo-on-my-company-landing-site-with-ai-agents',
+      'example-with-frontmatter',
+      'intro-to-linux-how-i-stayed-in-the-dev-game-while-too-broke-to-buy-a-pc',
+      'my-first-steps-into-coding',
+      'my-first-tech-job-the-evolution-of-the-docworks-emr-system-2011-2013',
+      'replit-test-drive',
+      'revenant-hollow-integrating-technology-into-location-based-horror-experiences',
+      'scaling-novelty-with-an-agentic-blog-bot',
+      'the-jumpstarter-a-5-point-framework-to-align-value-and-passion',
+      'the-last-cycle-why-founder-engineer-partnerships-are-nearing-their-end',
+      'transitioning-from-cable-contracting-to-freelance-web-development-a-career-pivot',
+      'troubleshooting-n8n-workflows-integrated-with-supabase-vapi-and-lovable-for-ai-driven-sales-automation'
+    ];
+    
+    // Convert fallback slugs to index format
+    postsFromIndex = fallbackSlugs.map(slug => ({
+      slug,
+      title: slug.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()),
+      publishedDate: new Date().toISOString(),
+      modifiedDate: new Date().toISOString(),
+      lastReviewedDate: new Date().toISOString(),
+      isDraft: false,
+      isFeatured: false,
+      priority: 5,
+      category: '',
+      series: '',
+      topics: [],
+      tags: [],
+      keywords: [],
+      wordCount: 0,
+      fileSize: 0,
+      fileModified: new Date().toISOString()
+    }));
+  }
+  
+  console.log(`Processing ${postsFromIndex.length} posts`);
   
   const allPosts = await Promise.all(
-    knownPosts.map(async (slug) => {
+    postsFromIndex.map(async (postMeta) => {
       try {
-        const post = await getPostWithMetadata(slug);
+        // Try to load the full post with content
+        const post = await getPostWithMetadata(postMeta.slug);
         if (post) {
-          return post;
+          // Use the metadata from the index as a fallback/override
+          return {
+            ...post,
+            metadata: {
+              ...post.metadata,
+              // Override with index metadata where available
+              publishedDate: new Date(postMeta.publishedDate),
+              modifiedDate: new Date(postMeta.modifiedDate),
+              lastReviewedDate: new Date(postMeta.lastReviewedDate),
+              isDraft: postMeta.isDraft,
+              isFeatured: postMeta.isFeatured,
+              priority: postMeta.priority,
+              category: postMeta.category || post.metadata.category,
+              series: postMeta.series || post.metadata.series,
+              topics: postMeta.topics.length > 0 ? postMeta.topics : post.metadata.topics,
+              tags: postMeta.tags.length > 0 ? postMeta.tags : post.metadata.tags,
+              keywords: postMeta.keywords.length > 0 ? postMeta.keywords : post.metadata.keywords,
+              wordCount: postMeta.wordCount || post.metadata.wordCount,
+            }
+          };
         } else {
-          console.warn(`Could not load post: ${slug}`);
+          console.warn(`Could not load post: ${postMeta.slug}`);
           return null;
         }
       } catch (error) {
-        console.error(`Error loading post ${slug}:`, error instanceof Error ? error.message : String(error));
+        console.error(`Error loading post ${postMeta.slug}:`, error instanceof Error ? error.message : String(error));
         return null;
       }
     })

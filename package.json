@@ -6,7 +6,8 @@
     "dev": "PORT=3001 next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "generate-post-index": "node scripts/generate-post-index.js"
   },
   "dependencies": {
     "@langchain/openai": "^0.5.6",
