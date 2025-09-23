@@ -109,7 +109,7 @@ export default async function BlogPost({ params }: BlogPostProps) {
   const title = metadata.title || slug.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
   const description = metadata.description || `Read about ${title} - Software engineering insights and technical articles from CyberWorld Builders.`;
 
-    return (
+  return (
       <div className="min-h-screen flex flex-col items-center py-8">
         <div className="flex justify-center mb-4">
           <Link href="/">
@@ -219,8 +219,4 @@ export default async function BlogPost({ params }: BlogPostProps) {
         </div>
       </div>
     );
-  } catch (error) {
-    console.error(`Error loading blog post for slug: ${slug}`, error);
-    notFound();
-  }
 }
