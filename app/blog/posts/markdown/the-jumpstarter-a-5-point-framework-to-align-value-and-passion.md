@@ -1,3 +1,50 @@
+---
+title: "The Jumpstarter: A 5-Point Framework to Align Value and Passion"
+description: "A productivity framework for daily stand-up reports focusing on Action, Progress, Challenge, Intuition, and Strategy. Designed to capture ideas during downtime and align personal desires with professional value creation."
+publishedDate: 2024-01-14
+modifiedDate: 2025-09-23
+lastReviewedDate: 2025-09-23
+keywords:
+  - productivity framework
+  - daily stand-up
+  - value alignment
+  - passion alignment
+  - creative flow
+  - idea capture
+  - downtime utilization
+  - voice memos
+  - transcription tools
+  - LLMs
+  - productivity systems
+  - goal setting
+  - self-reflection
+topics:
+  - Career & Professional Development
+tags:
+  - productivity
+  - framework
+  - daily-standup
+  - value-alignment
+  - passion
+  - creative-flow
+  - idea-capture
+  - downtime
+  - voice-memos
+  - transcription
+  - LLMs
+  - goal-setting
+  - self-reflection
+series: "Productivity & Frameworks"
+category: "Career"
+# socialImage: "/images/jumpstarter-framework-social.jpg"
+# headerImage: "/images/jumpstarter-framework-hero.jpg"
+isDraft: false
+isFeatured: false
+priority: 8
+canonicalUrl: "https://cyberworldbuilders.com/blog/the-jumpstarter-a-5-point-framework-to-align-value-and-passion"
+language: "en-US"
+---
+
 # The Jumpstarter: A 5-Point Framework to Align Value and Passion
 
 > *Or... How the alignment of what you desire with what makes you valuable can drastically increase productivity.*

@@ -1,3 +1,50 @@
+---
+title: "Enhancing SEO on My Company Landing Site with AI Agents"
+description: "A detailed exploration of implementing SEO improvements on a company landing site using AI agents like Cursor. Covers meta tags, breadcrumbs, social links, page speed optimization, schema markup, and building a developer-friendly blog architecture."
+publishedDate: 2024-01-12
+modifiedDate: 2025-09-23
+lastReviewedDate: 2025-09-23
+keywords:
+  - SEO optimization
+  - AI agents
+  - Cursor AI
+  - meta tags
+  - breadcrumbs
+  - social media integration
+  - page speed optimization
+  - schema markup
+  - blog architecture
+  - digital marketing
+  - search engine optimization
+  - AI-assisted development
+  - developer tools
+  - content strategy
+topics:
+  - Marketing & Business
+  - Development & Tools
+  - AI & Automation
+tags:
+  - SEO
+  - AI-agents
+  - digital-marketing
+  - blog-architecture
+  - meta-tags
+  - schema-markup
+  - page-speed
+  - social-media
+  - content-strategy
+  - AI-development
+series: "SEO & Marketing"
+category: "Marketing"
+# socialImage: "/images/seo-ai-agents-social.jpg"
+# headerImage: "/images/seo-ai-agents-hero.jpg"
+isDraft: false
+isFeatured: false
+priority: 6
+canonicalUrl: "https://cyberworldbuilders.com/blog/enhancing-seo-on-my-company-landing-site-with-ai-agents"
+language: "en-US"
+---
+
 # Enhancing SEO on My Company Landing Site with AI Agents
 
 ## Overview

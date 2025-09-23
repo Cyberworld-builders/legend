@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "generate-post-index": "node scripts/generate-post-index.js",
-    "prebuild": "echo 'Note: Run npm run generate-post-index manually if needed before building'"
+    "prebuild": "echo 'Note: Run npm run generate-post-index manually if needed before building'",
+    "seo": "npm run generate-post-index && npm run build"
   },
   "dependencies": {
     "@langchain/openai": "^0.5.6",
