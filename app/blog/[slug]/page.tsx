@@ -149,6 +149,48 @@ export default async function BlogPost({ params }: BlogPostProps) {
           </div>
         )}
 
+        {/* Article Meta Information */}
+        <div className="w-full max-w-3xl mb-6">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 px-4 sm:px-6 md:px-8">
+            <div className="flex items-center gap-4">
+              <div className="flex items-center gap-2">
+                <div className="w-8 h-8 bg-[#00ff00]/20 rounded-full flex items-center justify-center">
+                  <span className="text-[#00ff00] text-sm font-bold">JL</span>
+                </div>
+                <div>
+                  <p className="text-[#00ff00] font-medium">Jay Long</p>
+                  <p className="text-[#00ff00]/70 text-sm">Software Engineer & Founder</p>
+                </div>
+              </div>
+            </div>
+            <div className="flex flex-col sm:items-end gap-1">
+              <p className="text-[#00ff00]/70 text-sm">
+                Published {metadata.publishedDate ? 
+                  new Date(metadata.publishedDate).toLocaleDateString('en-US', { 
+                    year: 'numeric', 
+                    month: 'long', 
+                    day: 'numeric' 
+                  }) : 
+                  new Date(post.fileStats.ctime).toLocaleDateString('en-US', { 
+                    year: 'numeric', 
+                    month: 'long', 
+                    day: 'numeric' 
+                  })
+                }
+              </p>
+              {metadata.modifiedDate && metadata.modifiedDate !== metadata.publishedDate && (
+                <p className="text-[#00ff00]/50 text-xs">
+                  Updated {new Date(metadata.modifiedDate).toLocaleDateString('en-US', { 
+                    year: 'numeric', 
+                    month: 'long', 
+                    day: 'numeric' 
+                  })}
+                </p>
+              )}
+            </div>
+          </div>
+        </div>
+
         {/* Article Schema */}
         <script
           type="application/ld+json"

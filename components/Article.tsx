@@ -12,8 +12,8 @@ interface ArticleProps {
 }
 
 export default function Article({ content, currentSlug }: ArticleProps) {
-  // Add internal links to content if currentSlug is provided
-  const enhancedContent = currentSlug ? addInternalLinks(content, currentSlug) : content;
+  // Temporarily disable internal links to test basic markdown parsing
+  const enhancedContent = content; // currentSlug ? addInternalLinks(content, currentSlug) : content;
   const components: Components = {
     h1: (props) => <h1 className="text-4xl font-bold mb-6 text-[#00ff00]" {...props} />,
     h2: (props) => <h2 className="text-2xl font-bold mb-4 text-[#00ff00]" {...props} />,
