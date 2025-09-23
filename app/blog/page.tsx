@@ -4,7 +4,6 @@ import { promises as fs } from 'fs';
 import path from 'path';
 import Image from 'next/image';
 import Breadcrumb from '@/components/Breadcrumb';
-import TopicClusters from '@/components/TopicClusters';
 import SimpleSocialShare from '@/components/SimpleSocialShare';
 import type { Metadata } from 'next';
 
@@ -118,10 +117,10 @@ export default async function BlogIndex({ searchParams }: BlogIndexProps) {
         ))}
       </div>
       
-      {/* Topic Clusters */}
-      <div className="w-full max-w-4xl">
+      {/* Topic Clusters - Temporarily disabled for debugging */}
+      {/* <div className="w-full max-w-4xl">
         <TopicClusters allPosts={allPosts} />
-      </div>
+      </div> */}
       
       {totalPages > 1 && (
         <div className="flex gap-4 mt-8">
