@@ -359,7 +359,7 @@ export async function getAllPostsWithMetadata(): Promise<PostWithMetadata[]> {
       console.log(`Found posts directory at: ${dirPath}`);
       break;
     } catch (error) {
-      console.log(`Failed to read directory ${dirPath}:`, error.message);
+      console.log(`Failed to read directory ${dirPath}:`, error instanceof Error ? error.message : String(error));
       // Continue to next path
       continue;
     }
@@ -442,7 +442,7 @@ export async function getPostWithMetadata(slug: string): Promise<PostWithMetadat
         size: stats.size
       });
     } catch (error) {
-      console.log(`Failed to read file ${filePath}:`, error.message);
+      console.log(`Failed to read file ${filePath}:`, error instanceof Error ? error.message : String(error));
       // Continue to next path
       continue;
     }
