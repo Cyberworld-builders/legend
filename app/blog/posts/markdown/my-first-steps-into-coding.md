@@ -1,3 +1,44 @@
+---
+title: "My First Steps into Coding: A Biographical Journey"
+description: "A personal journey through the early days of coding, from learning HTML and CSS to building my first Flash website and transitioning into software development at a medical records startup."
+publishedDate: 2024-01-05
+modifiedDate: 2025-09-23
+lastReviewedDate: 2025-09-23
+keywords:
+  - coding journey
+  - HTML
+  - CSS
+  - Flash
+  - web development
+  - career transition
+  - self-directed learning
+  - programming
+  - software development
+  - biographical
+  - early career
+  - technology
+topics:
+  - Career & Professional Development
+tags:
+  - coding-journey
+  - web-development
+  - career-transition
+  - biographical
+  - early-career
+  - self-learning
+  - programming
+  - technology
+series: "Career Journey"
+category: "Career"
+# socialImage: "/images/coding-journey-social.jpg"
+# headerImage: "/images/coding-journey-hero.jpg"
+isDraft: false
+isFeatured: true
+priority: 7
+canonicalUrl: "https://cyberworldbuilders.com/blog/my-first-steps-into-coding"
+language: "en-US"
+---
+
 # My First Steps into Coding: A Biographical Journey
 
 ## Overview

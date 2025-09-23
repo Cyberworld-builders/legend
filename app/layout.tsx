@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import Script from 'next/script';
 import '../app/globals.css';
 import { Analytics } from '@vercel/analytics/next';
-import { AuthProvider } from '@/lib/auth-context';
 import PerformanceMonitor from '@/components/PerformanceMonitor';
 import AuthorSchema from '@/components/AuthorSchema';
 import GoogleAnalytics from '@/components/GoogleAnalytics';
@@ -78,9 +77,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        {/* Preload fonts for better performance */}
-        <link rel="preload" href="/fonts/courier-new.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
-        <link rel="preload" href="/fonts/ubuntu-mono.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        {/* Font preloads removed - fonts not available */}
         
         {/* WebSite Schema with Search Action */}
         <script
@@ -223,9 +220,7 @@ export default function RootLayout({
         />
       </head>
       <body className="flex flex-col items-center justify-center min-h-screen bg-[#1a1a1a] text-[#00ff00] font-mono">
-        <AuthProvider>
-          {children}
-        </AuthProvider>
+        {children}
         <Analytics />
         <GoogleAnalytics />
         <PerformanceMonitor />

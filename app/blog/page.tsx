@@ -4,8 +4,8 @@ import { promises as fs } from 'fs';
 import path from 'path';
 import Image from 'next/image';
 import Breadcrumb from '@/components/Breadcrumb';
-import TopicClusters from '@/components/TopicClusters';
 import SimpleSocialShare from '@/components/SimpleSocialShare';
+import TopicClusters from '@/components/TopicClusters';
 import type { Metadata } from 'next';
 
 const POSTS_PER_PAGE = 5;
@@ -96,6 +96,18 @@ export default async function BlogIndex({ searchParams }: BlogIndexProps) {
       </div>
       
       <h1 className="text-4xl font-bold mb-8">Blog</h1>
+      
+      {/* Blog Navigation */}
+      <div className="w-full max-w-2xl mb-6">
+        <div className="flex justify-center gap-4">
+          <Link
+            href="/blog/tags"
+            className="px-4 py-2 bg-[#00ff00]/10 border border-[#00ff00]/30 rounded-lg text-[#00ff00] hover:bg-[#00ff00]/20 hover:text-[#00ff00] transition-colors"
+          >
+            Browse by Tags
+          </Link>
+        </div>
+      </div>
       
       {/* Blog Sharing */}
       <div className="w-full max-w-2xl mb-6">

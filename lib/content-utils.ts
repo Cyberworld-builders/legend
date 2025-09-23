@@ -47,6 +47,16 @@ export const postReferences: PostReference[] = [
     slug: 'replit-test-drive',
     title: 'Replit Test Drive',
     keywords: ['Replit', 'development', 'tools', 'testing', 'programming', 'IDE']
+  },
+  {
+    slug: 'revenant-hollow-integrating-technology-into-location-based-horror-experiences',
+    title: 'Revenant Hollow: Integrating Technology into Location-Based Horror Experiences',
+    keywords: ['mixed reality', 'virtual reality', 'augmented reality', 'IoT', 'location-based entertainment', 'haunted houses', 'Halloween attractions', 'automation', 'robotics', 'theatrical attractions', 'interactive experiences', 'mobile integration', 'geolocation', 'scare props', 'augmented reality sports complex']
+  },
+  {
+    slug: 'my-first-steps-into-coding',
+    title: 'My First Steps into Coding: A Biographical Journey',
+    keywords: ['coding journey', 'HTML', 'CSS', 'Flash', 'web development', 'career transition', 'self-directed learning', 'programming', 'software development', 'biographical', 'early career', 'technology']
   }
 ];
 
@@ -67,17 +77,49 @@ export function addInternalLinks(content: string, currentSlug: string): string {
     
     // Find the best keyword match
     for (const keyword of post.keywords) {
-      const regex = new RegExp(`\\b${keyword}\\b`, 'gi');
+      // Escape special regex characters in the keyword
+      const escapedKeyword = keyword.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      
+      // Simple word boundary regex - we'll filter out matches inside links manually
+      const regex = new RegExp(`\\b${escapedKeyword}\\b`, 'gi');
       const matches = enhancedContent.match(regex);
       
       if (matches && matches.length > 0) {
-        // Only link the first occurrence of this keyword
-        enhancedContent = enhancedContent.replace(
-          regex,
-          `[${keyword}](/blog/${post.slug})`
-        );
-        linkedPosts.add(post.slug);
-        break; // Move to next post
+        // Check if the match is inside an existing markdown link
+        let matchIndex = 0;
+        let foundValidMatch = false;
+        
+        for (let i = 0; i < matches.length; i++) {
+          const match = matches[i];
+          const currentIndex = enhancedContent.indexOf(match, matchIndex);
+          
+          // Check if this match is inside a markdown link [text](url)
+          const beforeMatch = enhancedContent.substring(0, currentIndex);
+          
+          // Count unclosed brackets before the match
+          const openBrackets = (beforeMatch.match(/\[/g) || []).length;
+          const closeBrackets = (beforeMatch.match(/\]/g) || []).length;
+          const openParens = (beforeMatch.match(/\(/g) || []).length;
+          const closeParens = (beforeMatch.match(/\)/g) || []).length;
+          
+          // If we're inside a markdown link, skip this match
+          if (openBrackets > closeBrackets && openParens > closeParens) {
+            matchIndex = currentIndex + match.length;
+            continue;
+          }
+          
+          // This is a valid match, replace it
+          enhancedContent = enhancedContent.substring(0, currentIndex) + 
+                           `[${keyword}](/blog/${post.slug})` + 
+                           enhancedContent.substring(currentIndex + match.length);
+          foundValidMatch = true;
+          break;
+        }
+        
+        if (foundValidMatch) {
+          linkedPosts.add(post.slug);
+          break; // Move to next post
+        }
       }
     }
   }

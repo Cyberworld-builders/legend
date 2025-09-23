@@ -6,7 +6,65 @@ This document provides instructions for maintaining and updating the SEO feature
 
 ## 🔄 Periodic Maintenance Tasks
 
-### 1. Topic Clusters & Related Posts Analysis
+### 1. Post Metadata Management
+
+**When to Update:** Every time you add a new blog post or modify existing content
+
+**What Needs Updating:**
+- Frontmatter metadata in markdown files
+- Post dates (published, modified, last reviewed)
+- SEO metadata (title, description, keywords)
+- Content categorization (topics, tags, series)
+
+**How to Update:**
+
+#### Adding Frontmatter to New Posts
+```yaml
+---
+title: "Your Post Title"
+description: "SEO-friendly description for your post"
+publishedDate: 2024-01-15
+modifiedDate: 2024-01-15
+lastReviewedDate: 2024-01-15
+keywords:
+  - keyword1
+  - keyword2
+  - keyword3
+topics:
+  - AI & Automation
+  - Development & Tools
+tags:
+  - specific-tag
+  - another-tag
+series: "Optional Series Name"
+category: "Technology"
+socialImage: "/images/your-social-image.jpg"
+headerImage: "/images/your-header-image.jpg"
+isDraft: false
+isFeatured: false
+priority: 0
+canonicalUrl: "https://cyberworldbuilders.com/blog/your-post-slug"
+language: "en-US"
+---
+```
+
+#### Updating Existing Posts
+- **When modifying content**: Update `modifiedDate` and `lastReviewedDate`
+- **When reviewing for accuracy**: Update `lastReviewedDate`
+- **When optimizing SEO**: Update `keywords`, `description`, and `title`
+- **When changing categorization**: Update `topics`, `tags`, and `category`
+
+#### Date Management Best Practices
+- `publishedDate`: When the post was first published (never change after initial publication)
+- `modifiedDate`: When the content was last modified
+- `lastReviewedDate`: When the post was last reviewed for accuracy and relevance
+
+**Automation Ideas:**
+- Create a script to automatically update `lastReviewedDate` for posts older than 90 days
+- Implement a content review reminder system
+- Generate frontmatter templates for new posts
+
+### 2. Topic Clusters & Related Posts Analysis
 
 **When to Update:** Every time you add a new blog post
 
@@ -167,12 +225,17 @@ export default function AuthorSchema({
 - [ ] Check for new blog posts to categorize
 - [ ] Validate schema markup
 - [ ] Update internal linking keywords
+- [ ] Review and update post metadata (dates, keywords, topics)
+- [ ] Check for posts needing review (older than 90 days)
 
 ### Quarterly Tasks  
 - [ ] Review and update author schema
 - [ ] Analyze content performance
 - [ ] Update topic categories
 - [ ] Review and optimize internal linking
+- [ ] Update lastReviewedDate for all posts
+- [ ] Review and update post frontmatter for consistency
+- [ ] Audit post dates and ensure accuracy
 
 ### Annual Tasks
 - [ ] Complete SEO audit
@@ -187,6 +250,9 @@ export default function AuthorSchema({
 2. **Internal linking generator** - Automatically suggests internal links for new posts
 3. **Schema validator** - Checks all schema markup for errors
 4. **Performance monitor** - Tracks Core Web Vitals and alerts on issues
+5. **Metadata validator** - Checks frontmatter for completeness and accuracy
+6. **Content review reminder** - Identifies posts needing review based on lastReviewedDate
+7. **Frontmatter generator** - Creates frontmatter templates for new posts
 
 ### Tools to Consider
 - **Content analysis APIs** for automatic topic extraction

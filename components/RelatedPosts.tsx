@@ -1,9 +1,15 @@
 import Link from 'next/link';
+// import { getPostWithMetadata } from '@/lib/post-metadata';
 
 interface Post {
   slug: string;
   title: string;
   mtime: Date;
+  metadata?: {
+    topics?: string[];
+    tags?: string[];
+    category?: string;
+  };
 }
 
 interface RelatedPostsProps {
@@ -11,29 +17,37 @@ interface RelatedPostsProps {
   allPosts: Post[];
 }
 
-// Topic categorization based on content analysis
-const getPostTopics = (slug: string): string[] => {
-  const topicMap: { [key: string]: string[] } = {
-    'building-an-effective-web-presence-for-professional-validation': ['seo', 'marketing', 'professional-development', 'blogging'],
-    'scaling-novelty-with-an-agentic-blog-bot': ['ai', 'automation', 'blogging', 'technology'],
-    'troubleshooting-n8n-workflows-integrated-with-supabase-vapi-and-lovable-for-ai-driven-sales-automation': ['ai', 'automation', 'troubleshooting', 'workflows', 'supabase'],
-    'building-drum-note-ai-powered-drum-transcription-kit-generation-and-hands-on-marketing-with-rendercom': ['ai', 'marketing', 'music', 'automation'],
-    'my-first-tech-job-the-evolution-of-the-docworks-emr-system-2011-2013': ['career', 'healthcare', 'technology', 'experience'],
-    'the-jumpstarter-a-5-point-framework-to-align-value-and-passion': ['productivity', 'framework', 'career', 'personal-development'],
-    'the-last-cycle-why-founder-engineer-partnerships-are-nearing-their-end': ['business', 'partnerships', 'career', 'industry-trends'],
-    'replit-test-drive': ['development', 'tools', 'technology', 'testing']
+// Topic categorization based on frontmatter metadata
+const getPostTopics = (post: Post): string[] => {
+  if (post.metadata?.topics) {
+    return post.metadata.topics;
+  }
+  
+  // Fallback to legacy topic mapping for posts without frontmatter
+  const legacyTopicMap: { [key: string]: string[] } = {
+    'building-an-effective-web-presence-for-professional-validation': ['Marketing & Business', 'Career & Professional Development'],
+    'scaling-novelty-with-an-agentic-blog-bot': ['AI & Automation', 'Development & Tools'],
+    'troubleshooting-n8n-workflows-integrated-with-supabase-vapi-and-lovable-for-ai-driven-sales-automation': ['AI & Automation', 'Development & Tools'],
+    'building-drum-note-ai-powered-drum-transcription-kit-generation-and-hands-on-marketing-with-rendercom': ['AI & Automation', 'Marketing & Business'],
+    'my-first-tech-job-the-evolution-of-the-docworks-emr-system-2011-2013': ['Career & Professional Development', 'Development & Tools'],
+    'the-jumpstarter-a-5-point-framework-to-align-value-and-passion': ['Career & Professional Development'],
+    'the-last-cycle-why-founder-engineer-partnerships-are-nearing-their-end': ['Career & Professional Development', 'Marketing & Business'],
+    'replit-test-drive': ['Development & Tools']
   };
   
-  return topicMap[slug] || ['general'];
+  return legacyTopicMap[post.slug] || ['General'];
 };
 
 const findRelatedPosts = (currentSlug: string, allPosts: Post[]): Post[] => {
-  const currentTopics = getPostTopics(currentSlug);
+  const currentPost = allPosts.find(post => post.slug === currentSlug);
+  if (!currentPost) return [];
+  
+  const currentTopics = getPostTopics(currentPost);
   const otherPosts = allPosts.filter(post => post.slug !== currentSlug);
   
   // Score posts based on topic overlap
   const scoredPosts = otherPosts.map(post => {
-    const postTopics = getPostTopics(post.slug);
+    const postTopics = getPostTopics(post);
     const commonTopics = currentTopics.filter(topic => postTopics.includes(topic));
     const score = commonTopics.length;
     

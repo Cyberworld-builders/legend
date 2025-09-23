@@ -4,16 +4,16 @@ import remarkGfm from 'remark-gfm';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import type { Components } from 'react-markdown';
-import { addInternalLinks } from '@/lib/content-utils';
+// import { addInternalLinks } from '@/lib/content-utils';
 
 interface ArticleProps {
   content: string;
   currentSlug?: string;
 }
 
-export default function Article({ content, currentSlug }: ArticleProps) {
-  // Add internal links to content if currentSlug is provided
-  const enhancedContent = currentSlug ? addInternalLinks(content, currentSlug) : content;
+export default function Article({ content }: ArticleProps) {
+  // Temporarily disable internal links to test basic markdown parsing
+  const enhancedContent = content; // currentSlug ? addInternalLinks(content, currentSlug) : content;
   const components: Components = {
     h1: (props) => <h1 className="text-4xl font-bold mb-6 text-[#00ff00]" {...props} />,
     h2: (props) => <h2 className="text-2xl font-bold mb-4 text-[#00ff00]" {...props} />,

@@ -1,3 +1,52 @@
+---
+title: "Troubleshooting n8n Workflows Integrated with Supabase, Vapi, and Lovable for AI-Driven Sales Automation"
+description: "A real-time troubleshooting guide for complex AI-driven sales automation systems using n8n workflows, Supabase database, Vapi voice AI, and Lovable frontend. Covers foreign key errors, data loss recovery, and system stability issues."
+publishedDate: 2024-01-20
+modifiedDate: 2025-09-23
+lastReviewedDate: 2025-09-23
+keywords:
+  - n8n
+  - supabase
+  - vapi
+  - lovable
+  - AI automation
+  - sales automation
+  - workflow troubleshooting
+  - database errors
+  - foreign key constraints
+  - voice AI
+  - no-code
+  - low-code
+  - system recovery
+  - data loss
+  - automation debugging
+topics:
+  - Development & Tools
+  - AI & Automation
+tags:
+  - n8n
+  - supabase
+  - vapi
+  - lovable
+  - automation
+  - troubleshooting
+  - database
+  - AI
+  - sales
+  - workflow
+  - debugging
+  - system-recovery
+series: "Technical Troubleshooting"
+category: "Development"
+# socialImage: "/images/n8n-troubleshooting-social.jpg"
+# headerImage: "/images/n8n-troubleshooting-hero.jpg"
+isDraft: false
+isFeatured: false
+priority: 5
+canonicalUrl: "https://cyberworldbuilders.com/blog/troubleshooting-n8n-workflows-integrated-with-supabase-vapi-and-lovable-for-ai-driven-sales-automation"
+language: "en-US"
+---
+
 # Troubleshooting n8n Workflows Integrated with Supabase, Vapi, and Lovable for AI-Driven Sales Automation
 
 ## Overview

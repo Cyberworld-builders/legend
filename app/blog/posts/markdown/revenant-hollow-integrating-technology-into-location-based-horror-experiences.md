@@ -1,3 +1,50 @@
+---
+title: "Revenant Hollow: Integrating Technology into Location-Based Horror Experiences"
+description: "An interactive, location-based entertainment experience that incorporates mixed reality, IoT, and automation to enhance theatrical horror attractions and seasonal Halloween markets."
+publishedDate: 2024-01-15
+modifiedDate: 2025-09-23
+lastReviewedDate: 2025-09-23
+keywords:
+  - mixed reality
+  - virtual reality
+  - augmented reality
+  - IoT
+  - location-based entertainment
+  - haunted houses
+  - Halloween attractions
+  - automation
+  - robotics
+  - theatrical attractions
+  - interactive experiences
+  - mobile integration
+  - geolocation
+  - scare props
+  - augmented reality sports complex
+topics:
+  - AI & Automation
+  - Development & Tools
+tags:
+  - mixed-reality
+  - entertainment-tech
+  - IoT
+  - location-based
+  - horror
+  - seasonal-business
+  - mobile-apps
+  - automation
+  - theatrical
+  - startup
+series: "Entertainment Technology"
+category: "Technology"
+# socialImage: "/images/revenant-hollow-social.jpg"
+# headerImage: "/images/revenant-hollow-hero.jpg?v=20240923"
+isDraft: false
+isFeatured: true
+priority: 5
+canonicalUrl: "https://cyberworldbuilders.com/blog/revenant-hollow-integrating-technology-into-location-based-horror-experiences"
+language: "en-US"
+---
+
 # Revenant Hollow: Integrating Technology into Location-Based Horror Experiences
 
 ## Overview
