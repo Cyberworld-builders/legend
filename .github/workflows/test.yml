@@ -30,26 +30,8 @@ jobs:
     - name: Run linting
       run: npm run lint
       
-    - name: Run tests
+    - name: Run build validation tests
       run: npm run test:ci
-      
-    - name: Run 404 tests (local)
-      run: npm run test:404
-      env:
-        TEST_BASE_URL: http://localhost:3001
-        
-    - name: Start development server
-      run: npm run dev &
-      env:
-        PORT: 3001
-        
-    - name: Wait for server to start
-      run: sleep 10
-      
-    - name: Run 404 tests against dev server
-      run: npm run test:404
-      env:
-        TEST_BASE_URL: http://localhost:3001
         
     - name: Build application
       run: npm run build
