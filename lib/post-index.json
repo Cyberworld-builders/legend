@@ -1,7 +1,83 @@
 {
-  "generatedAt": "2025-09-23T17:17:45.646Z",
-  "count": 15,
+  "generatedAt": "2025-09-23T23:00:07.862Z",
+  "count": 17,
   "posts": [
+    {
+      "slug": "building-a-generative-framework-evolving-ai-coding-agents-and-human-ai-collaboration",
+      "title": "Building a Generative Framework: Evolving AI Coding Agents and Human-AI Collaboration",
+      "publishedDate": "2025-09-23T00:00:00.000Z",
+      "modifiedDate": "2025-09-23T00:00:00.000Z",
+      "lastReviewedDate": "2025-09-23T00:00:00.000Z",
+      "isDraft": false,
+      "isFeatured": true,
+      "priority": 9,
+      "category": "Technology",
+      "series": "",
+      "topics": [
+        "AI & Automation",
+        "Development & Tools"
+      ],
+      "tags": [
+        "generative-ai",
+        "coding-agents",
+        "ai-autonomy",
+        "human-ai-collaboration",
+        "software-frameworks"
+      ],
+      "keywords": [
+        "generative framework",
+        "coding agents",
+        "AI autonomy",
+        "human-AI collaboration",
+        "software development",
+        "LLM productivity",
+        "AI training data",
+        "heuristic for AI use",
+        "prompt engineering",
+        "agentic AI"
+      ],
+      "wordCount": 4089,
+      "fileSize": 24565,
+      "fileModified": "2025-09-23T22:18:34.318Z"
+    },
+    {
+      "slug": "the-power-of-flat-files-in-blogging-repurposing-coding-tools-for-content-creation-and-ai-optimization",
+      "title": "The Power of Flat Files in Blogging: Repurposing Coding Tools for Content Creation and AI Optimization",
+      "publishedDate": "2025-09-23T00:00:00.000Z",
+      "modifiedDate": "2025-09-23T00:00:00.000Z",
+      "lastReviewedDate": "2025-09-23T00:00:00.000Z",
+      "isDraft": false,
+      "isFeatured": true,
+      "priority": 8,
+      "category": "Technology",
+      "series": "",
+      "topics": [
+        "AI & Automation",
+        "Development & Tools"
+      ],
+      "tags": [
+        "flat-files",
+        "ai-blogging",
+        "generative-seo",
+        "coding-ide-repurpose",
+        "content-framework"
+      ],
+      "keywords": [
+        "flat files blogging",
+        "Jamstack Next.js",
+        "AI content creation",
+        "coding agents for blogging",
+        "generative search optimization",
+        "YAML frontmatter",
+        "Markdown content",
+        "IDE indexing",
+        "SEO schema updates",
+        "human-AI collaboration"
+      ],
+      "wordCount": 4187,
+      "fileSize": 25207,
+      "fileModified": "2025-09-23T22:23:05.405Z"
+    },
     {
       "slug": "troubleshooting-n8n-workflows-integrated-with-supabase-vapi-and-lovable-for-ai-driven-sales-automation",
       "title": [
@@ -107,7 +183,7 @@
       ],
       "wordCount": 3672,
       "fileSize": 22237,
-      "fileModified": "2025-09-23T17:16:30.117Z"
+      "fileModified": "2025-09-23T17:19:34.110Z"
     },
     {
       "slug": "replit-test-drive",
