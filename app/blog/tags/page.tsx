@@ -52,7 +52,7 @@ export default async function TagsPage() {
       .sort((a, b) => b[1] - a[1]);
     
     // Group tags by category for better organization
-    const tagCategories = {
+    const tagCategories: { [category: string]: string[] } = {
       'Technology': ['AI', 'automation', 'technology', 'innovation', 'digital-tools', 'blog-bot', 'AI-agents', 'content-creation', 'digital-legacy'],
       'Career & Development': ['career-development', 'professional-validation', 'personal-branding', 'content-strategy', 'career', 'first-job', 'career-transition'],
       'Business & Marketing': ['marketing', 'business', 'startup', 'partnerships', 'founder', 'engineer', 'industry-trends'],

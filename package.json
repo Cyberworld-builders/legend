@@ -4,10 +4,11 @@
   "private": true,
   "scripts": {
     "dev": "PORT=3001 next dev",
-    "build": "npm run generate-post-index && next build",
+    "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "generate-post-index": "node scripts/generate-post-index.js"
+    "generate-post-index": "node scripts/generate-post-index.js",
+    "prebuild": "echo 'Note: Run npm run generate-post-index manually if needed before building'"
   },
   "dependencies": {
     "@langchain/openai": "^0.5.6",

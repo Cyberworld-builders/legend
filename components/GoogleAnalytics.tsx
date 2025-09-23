@@ -18,7 +18,7 @@ export default function GoogleAnalytics() {
 
   useEffect(() => {
     // Track page views with content-focused parameters
-    if (typeof window !== 'undefined' && window.gtag) {
+    if (typeof window !== 'undefined' && window.gtag && pathname) {
       window.gtag('config', 'G-NF9SF0PSM9', {
         page_path: pathname,
         // Content-focused custom parameters
