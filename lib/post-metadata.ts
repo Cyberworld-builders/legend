@@ -136,14 +136,44 @@ function parseFrontmatter(content: string): { frontmatter: Record<string, unknow
   const frontmatterText = match[1];
   const markdownContent = match[2];
   
-  // Simple YAML parser for basic key-value pairs
+  // Simple YAML parser for basic key-value pairs and arrays
   const frontmatter: Record<string, unknown> = {};
   const lines = frontmatterText.split('\n');
   
-  for (const line of lines) {
+  let currentKey = '';
+  let currentArray: string[] = [];
+  let inArray = false;
+  
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
     const trimmed = line.trim();
+    
     if (!trimmed || trimmed.startsWith('#')) continue;
     
+    // Check if this is an array item (starts with -)
+    if (trimmed.startsWith('- ')) {
+      if (!inArray) {
+        // Start of a new array
+        inArray = true;
+        currentArray = [];
+      }
+      const arrayValue = trimmed.substring(2).trim();
+      // Remove quotes if present
+      const cleanValue = (arrayValue.startsWith('"') && arrayValue.endsWith('"')) || 
+                        (arrayValue.startsWith("'") && arrayValue.endsWith("'"))
+                        ? arrayValue.slice(1, -1) : arrayValue;
+      currentArray.push(cleanValue);
+      continue;
+    }
+    
+    // If we were in an array and this line doesn't start with -, save the array
+    if (inArray) {
+      frontmatter[currentKey] = currentArray;
+      inArray = false;
+      currentArray = [];
+    }
+    
+    // Check if this is a key-value pair
     const colonIndex = trimmed.indexOf(':');
     if (colonIndex === -1) continue;
     
@@ -154,6 +184,17 @@ function parseFrontmatter(content: string): { frontmatter: Record<string, unknow
     if ((value.startsWith('"') && value.endsWith('"')) || 
         (value.startsWith("'") && value.endsWith("'"))) {
       value = value.slice(1, -1);
+    }
+    
+    // If value is empty, it might be the start of an array
+    if (!value) {
+      currentKey = key;
+      // Check if next line starts with -
+      if (i + 1 < lines.length && lines[i + 1].trim().startsWith('- ')) {
+        inArray = true;
+        currentArray = [];
+        continue;
+      }
     }
     
     // Parse arrays (comma-separated)
@@ -168,7 +209,7 @@ function parseFrontmatter(content: string): { frontmatter: Record<string, unknow
       frontmatter[key] = false;
     }
     // Parse numbers
-    else if (!isNaN(Number(value))) {
+    else if (!isNaN(Number(value)) && value !== '') {
       frontmatter[key] = Number(value);
     }
     // Parse dates
@@ -176,9 +217,14 @@ function parseFrontmatter(content: string): { frontmatter: Record<string, unknow
       frontmatter[key] = new Date(value);
     }
     // Default to string
-    else {
+    else if (value) {
       frontmatter[key] = value;
     }
+  }
+  
+  // Handle case where file ends with an array
+  if (inArray && currentKey) {
+    frontmatter[currentKey] = currentArray;
   }
   
   return { frontmatter, content: markdownContent };
