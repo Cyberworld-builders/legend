@@ -49,6 +49,16 @@ export const postReferences: PostReference[] = [
     keywords: ['Replit', 'development', 'tools', 'testing', 'programming', 'IDE']
   },
   {
+    slug: 'building-a-generative-framework-evolving-ai-coding-agents-and-human-ai-collaboration',
+    title: 'Building a Generative Framework: Evolving AI Coding Agents',
+    keywords: ['generative framework', 'coding agents', 'AI autonomy', 'human-AI collaboration', 'software development', 'LLM productivity', 'prompt engineering', 'agentic AI']
+  },
+  {
+    slug: 'the-power-of-flat-files-in-blogging-repurposing-coding-tools-for-content-creation-and-ai-optimization',
+    title: 'The Power of Flat Files in Blogging',
+    keywords: ['flat files', 'blogging', 'Jamstack', 'Next.js', 'AI content creation', 'coding agents', 'generative search', 'YAML frontmatter', 'Markdown', 'IDE indexing']
+  },
+  {
     slug: 'revenant-hollow-integrating-technology-into-location-based-horror-experiences',
     title: 'Revenant Hollow: Integrating Technology into Location-Based Horror Experiences',
     keywords: ['mixed reality', 'virtual reality', 'augmented reality', 'IoT', 'location-based entertainment', 'haunted houses', 'Halloween attractions', 'automation', 'robotics', 'theatrical attractions', 'interactive experiences', 'mobile integration', 'geolocation', 'scare props', 'augmented reality sports complex']
