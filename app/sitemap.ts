@@ -18,23 +18,45 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: 'weekly' as const,
       priority: 0.8,
     },
+    {
+      url: `${baseUrl}/blog/tags`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly' as const,
+      priority: 0.7,
+    },
   ]
 
-  // Dynamic blog posts
+  // Dynamic blog posts and tag pages
   let blogPosts: MetadataRoute.Sitemap = []
+  let tagPages: MetadataRoute.Sitemap = []
 
   try {
     const allPostsWithMetadata = await getAllPostsWithMetadata()
     
+    // Blog posts
     blogPosts = allPostsWithMetadata.map(post => ({
       url: `${baseUrl}/blog/${post.slug}`,
       lastModified: post.metadata.modifiedDate || post.fileStats.mtime,
       changeFrequency: 'monthly' as const,
       priority: post.metadata.isFeatured ? 0.8 : 0.6,
     }))
+
+    // Tag pages - collect all unique tags
+    const allTags = new Set<string>()
+    allPostsWithMetadata.forEach(post => {
+      post.metadata.tags?.forEach(tag => allTags.add(tag))
+      post.metadata.keywords?.forEach(keyword => allTags.add(keyword))
+    })
+
+    tagPages = Array.from(allTags).map(tag => ({
+      url: `${baseUrl}/blog/tag/${encodeURIComponent(tag)}`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly' as const,
+      priority: 0.5,
+    }))
   } catch (error) {
     console.error('Error reading blog posts for sitemap:', error)
   }
 
-  return [...staticPages, ...blogPosts]
+  return [...staticPages, ...blogPosts, ...tagPages]
 }

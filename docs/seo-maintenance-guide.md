@@ -15,6 +15,7 @@ This document provides instructions for maintaining and updating the SEO feature
 - Post dates (published, modified, last reviewed)
 - SEO metadata (title, description, keywords)
 - Content categorization (topics, tags, series)
+- Sitemap (automatically updated on build)
 
 **How to Update:**
 
@@ -54,6 +55,14 @@ language: "en-US"
 - **When optimizing SEO**: Update `keywords`, `description`, and `title`
 - **When changing categorization**: Update `topics`, `tags`, and `category`
 
+#### New Post Creation Workflow
+1. **Create markdown file** with proper frontmatter
+2. **Add content** and ensure proper formatting
+3. **Build and test** locally (`npm run build`)
+4. **Verify sitemap** includes new post (`/sitemap.xml`)
+5. **Check tag pages** are updated if new tags added
+6. **Deploy** and verify in production
+
 #### Date Management Best Practices
 - `publishedDate`: When the post was first published (never change after initial publication)
 - `modifiedDate`: When the content was last modified
@@ -63,6 +72,7 @@ language: "en-US"
 - Create a script to automatically update `lastReviewedDate` for posts older than 90 days
 - Implement a content review reminder system
 - Generate frontmatter templates for new posts
+- **Sitemap Updates**: The sitemap automatically updates on each build to include new posts and tag pages
 
 ### 2. Topic Clusters & Related Posts Analysis
 
@@ -187,7 +197,32 @@ export default function AuthorSchema({
 3. Test page speed with tools like PageSpeed Insights
 4. Update image optimization settings if needed
 
-### 4. Schema Markup Validation
+### 4. Sitemap Maintenance
+
+**When to Update:** Automatically with each build, but verify after major content changes
+
+**What Gets Updated:**
+- Blog post URLs (automatically)
+- Tag page URLs (automatically)
+- Static page URLs
+- Last modified dates
+- Change frequencies
+- Priority rankings
+
+**How It Works:**
+The sitemap (`app/sitemap.ts`) automatically includes:
+- **Static pages**: Home, blog index, tags index
+- **Blog posts**: All published posts with proper dates
+- **Tag pages**: All unique tags from post metadata
+- **Dynamic updates**: Reflects changes in post metadata
+
+**Manual Verification:**
+- Check `/sitemap.xml` after adding new posts
+- Verify tag pages appear in sitemap
+- Ensure proper URL encoding for special characters
+- Confirm last modified dates are accurate
+
+### 5. Schema Markup Validation
 
 **When to Validate:** After any schema changes
 
@@ -202,7 +237,7 @@ export default function AuthorSchema({
 - Organization schema is complete
 - No validation errors
 
-### 5. Content Analysis & Optimization
+### 6. Content Analysis & Optimization
 
 **When to Analyze:** Quarterly
 
@@ -227,6 +262,7 @@ export default function AuthorSchema({
 - [ ] Update internal linking keywords
 - [ ] Review and update post metadata (dates, keywords, topics)
 - [ ] Check for posts needing review (older than 90 days)
+- [ ] Verify sitemap includes all new posts and tag pages
 
 ### Quarterly Tasks  
 - [ ] Review and update author schema
@@ -236,6 +272,7 @@ export default function AuthorSchema({
 - [ ] Update lastReviewedDate for all posts
 - [ ] Review and update post frontmatter for consistency
 - [ ] Audit post dates and ensure accuracy
+- [ ] Validate sitemap structure and completeness
 
 ### Annual Tasks
 - [ ] Complete SEO audit

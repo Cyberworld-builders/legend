@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
 import Breadcrumb from '@/components/Breadcrumb';
+import PageBackground from '@/components/PageBackground';
 import { getAllPostsWithMetadata } from '@/lib/post-metadata';
 import type { Metadata } from 'next';
 
@@ -49,9 +50,15 @@ export async function generateStaticParams() {
       }
     });
     
-    return Array.from(allTags).map(tag => ({
+    const tagParams = Array.from(allTags).map(tag => ({
       tag: encodeURIComponent(tag),
     }));
+    
+    console.log('Generated static params for tags:', tagParams);
+    console.log('Total tags found:', allTags.size);
+    console.log('Sample tags:', Array.from(allTags).slice(0, 5));
+    
+    return tagParams;
   } catch (error) {
     console.error('Error generating static params for tags:', error);
     return [];
@@ -61,6 +68,8 @@ export async function generateStaticParams() {
 export default async function TagPage({ params }: TagPageProps) {
   const { tag } = await params;
   const decodedTag = decodeURIComponent(tag);
+  
+  console.log('TagPage called with:', { tag, decodedTag });
   
   try {
     // Get all posts with metadata
@@ -85,7 +94,12 @@ export default async function TagPage({ params }: TagPageProps) {
     });
     
     return (
-      <div className="min-h-screen flex flex-col items-center py-8">
+      <div className="min-h-screen flex flex-col items-center py-8 relative">
+        {/* Page Background */}
+        <PageBackground opacity={20} fullWidth={true} />
+        
+        {/* Content with higher z-index */}
+        <div className="relative z-10 w-full flex flex-col items-center">
         <div className="flex justify-center mb-4">
           <Link href="/">
             <Image
@@ -202,6 +216,7 @@ export default async function TagPage({ params }: TagPageProps) {
             </Link>
           </div>
         </div>
+        </div> {/* Closing div for content wrapper */}
       </div>
     );
   } catch (error) {

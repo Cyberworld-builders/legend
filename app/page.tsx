@@ -1,10 +1,16 @@
 import Link from 'next/link';
 import ChatWidget from '../components/ChatWidget';
 import FAQ from '../components/FAQ';
+import PageBackground from '../components/PageBackground';
 import Image from 'next/image';
 export default function Home() {
   return (
-    <div className="text-center">
+    <div className="text-center relative">
+      {/* Page Background */}
+      <PageBackground opacity={20} fullWidth={true} />
+      
+      {/* Content with higher z-index */}
+      <div className="relative z-10">
       <Image
         src="/images/logo.png"
         alt="CyberWorld Builders - Software Engineering & Consulting Services Logo"
@@ -197,6 +203,7 @@ export default function Home() {
       </div>
 
       <ChatWidget />
+      </div>
     </div>
   );
 }

@@ -3,6 +3,7 @@ import Article from '@/components/Article';
 import Breadcrumb from '@/components/Breadcrumb';
 import RelatedPosts from '@/components/RelatedPosts';
 import SocialShare from '@/components/SocialShare';
+import PageBackground from '@/components/PageBackground';
 import Link from 'next/link';
 import Image from 'next/image';
 import { getPostWithMetadata, getAllPostsWithMetadata } from '@/lib/post-metadata';
@@ -110,7 +111,12 @@ export default async function BlogPost({ params }: BlogPostProps) {
   const description = metadata.description || `Read about ${title} - Software engineering insights and technical articles from CyberWorld Builders.`;
 
   return (
-      <div className="min-h-screen flex flex-col items-center py-8">
+      <div className="min-h-screen flex flex-col items-center py-8 relative">
+        {/* Page Background */}
+        <PageBackground opacity={20} fullWidth={true} />
+        
+        {/* Content with higher z-index */}
+        <div className="relative z-10 w-full flex flex-col items-center">
         <div className="flex justify-center mb-4">
           <Link href="/">
             <Image
@@ -322,6 +328,7 @@ export default async function BlogPost({ params }: BlogPostProps) {
               {nextPost.title} →
             </Link>
           )}
+        </div>
         </div>
       </div>
     );
