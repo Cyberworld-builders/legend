@@ -36,8 +36,8 @@ tags:
   - startup
 series: "Entertainment Technology"
 category: "Technology"
-socialImage: "/images/revenant-hollow-social.jpg"
-headerImage: "/images/revenant-hollow-hero.jpg?v=20240923"
+# socialImage: "/images/revenant-hollow-social.jpg"
+# headerImage: "/images/revenant-hollow-hero.jpg?v=20240923"
 isDraft: false
 isFeatured: true
 priority: 5

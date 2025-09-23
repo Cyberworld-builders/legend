@@ -36,8 +36,8 @@ tags:
   - online-validation
 series: "Professional Development"
 category: "Career"
-socialImage: "/images/web-presence-social.jpg"
-headerImage: "/images/web-presence-hero.jpg"
+# socialImage: "/images/web-presence-social.jpg"
+# headerImage: "/images/web-presence-hero.jpg"
 isDraft: false
 isFeatured: true
 priority: 8

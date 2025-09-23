@@ -77,9 +77,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        {/* Preload fonts for better performance */}
-        <link rel="preload" href="/fonts/courier-new.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
-        <link rel="preload" href="/fonts/ubuntu-mono.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        {/* Font preloads removed - fonts not available */}
         
         {/* WebSite Schema with Search Action */}
         <script

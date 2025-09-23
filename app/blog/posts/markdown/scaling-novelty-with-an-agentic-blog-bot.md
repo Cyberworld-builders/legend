@@ -34,8 +34,8 @@ tags:
   - innovation
 series: "AI & Automation"
 category: "Technology"
-socialImage: "/images/agentic-blog-bot-social.jpg"
-headerImage: "/images/agentic-blog-bot-hero.jpg"
+# socialImage: "/images/agentic-blog-bot-social.svg"
+# headerImage: "/images/agentic-blog-bot-hero.svg"
 isDraft: false
 isFeatured: true
 priority: 6

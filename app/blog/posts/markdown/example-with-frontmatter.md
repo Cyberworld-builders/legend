@@ -18,8 +18,8 @@ tags:
   - metadata
 series: "Blog System Updates"
 category: "Development"
-socialImage: "/images/example-social.jpg"
-headerImage: "/images/example-hero.jpg"
+# socialImage: "/images/example-social.jpg"
+# headerImage: "/images/example-hero.jpg"
 isDraft: true
 isFeatured: false
 priority: 1

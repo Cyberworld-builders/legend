@@ -30,8 +30,8 @@ tags:
   - technology
 series: "Career Journey"
 category: "Career"
-socialImage: "/images/coding-journey-social.jpg"
-headerImage: "/images/coding-journey-hero.jpg"
+# socialImage: "/images/coding-journey-social.jpg"
+# headerImage: "/images/coding-journey-hero.jpg"
 isDraft: false
 isFeatured: true
 priority: 7
