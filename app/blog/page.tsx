@@ -6,6 +6,7 @@ import Image from 'next/image';
 import Breadcrumb from '@/components/Breadcrumb';
 import SimpleSocialShare from '@/components/SimpleSocialShare';
 import TopicClusters from '@/components/TopicClusters';
+import PageBackground from '@/components/PageBackground';
 import type { Metadata } from 'next';
 
 const POSTS_PER_PAGE = 5;
@@ -71,7 +72,12 @@ export default async function BlogIndex({ searchParams }: BlogIndexProps) {
   const posts = allPosts.slice(startIndex, startIndex + POSTS_PER_PAGE);
 
   return (
-    <div className="min-h-screen flex flex-col items-center py-8">
+    <div className="min-h-screen flex flex-col items-center py-8 relative">
+        {/* Page Background */}
+        <PageBackground opacity={20} fullWidth={true} />
+      
+      {/* Content with higher z-index */}
+      <div className="relative z-10 w-full flex flex-col items-center">
       <div className="flex justify-center mb-4">
         <Link href="/">
           <Image
@@ -155,6 +161,7 @@ export default async function BlogIndex({ searchParams }: BlogIndexProps) {
           )}
         </div>
       )}
+      </div>
     </div>
   );
 }
