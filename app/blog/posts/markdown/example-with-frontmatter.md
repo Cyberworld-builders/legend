@@ -2,8 +2,8 @@
 title: "Example Post with Frontmatter"
 description: "This is an example blog post demonstrating the new metadata system with YAML frontmatter."
 publishedDate: 2024-01-15
-modifiedDate: 2024-01-20
-lastReviewedDate: 2024-01-20
+modifiedDate: 2025-09-23
+lastReviewedDate: 2025-09-23
 keywords:
   - metadata
   - frontmatter

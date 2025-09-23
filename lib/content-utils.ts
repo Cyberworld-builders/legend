@@ -47,6 +47,16 @@ export const postReferences: PostReference[] = [
     slug: 'replit-test-drive',
     title: 'Replit Test Drive',
     keywords: ['Replit', 'development', 'tools', 'testing', 'programming', 'IDE']
+  },
+  {
+    slug: 'revenant-hollow-integrating-technology-into-location-based-horror-experiences',
+    title: 'Revenant Hollow: Integrating Technology into Location-Based Horror Experiences',
+    keywords: ['mixed reality', 'virtual reality', 'augmented reality', 'IoT', 'location-based entertainment', 'haunted houses', 'Halloween attractions', 'automation', 'robotics', 'theatrical attractions', 'interactive experiences', 'mobile integration', 'geolocation', 'scare props', 'augmented reality sports complex']
+  },
+  {
+    slug: 'my-first-steps-into-coding',
+    title: 'My First Steps into Coding: A Biographical Journey',
+    keywords: ['coding journey', 'HTML', 'CSS', 'Flash', 'web development', 'career transition', 'self-directed learning', 'programming', 'software development', 'biographical', 'early career', 'technology']
   }
 ];
 

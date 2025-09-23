@@ -135,6 +135,20 @@ export default async function BlogPost({ params }: BlogPostProps) {
           />
         </div>
 
+        {/* Header Image */}
+        {metadata.headerImage && (
+          <div className="w-full max-w-4xl mb-8">
+            <Image
+              src={metadata.headerImage}
+              alt={title || slug.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}
+              width={1200}
+              height={630}
+              className="w-full h-auto rounded-lg shadow-lg"
+              priority
+            />
+          </div>
+        )}
+
         {/* Article Schema */}
         <script
           type="application/ld+json"

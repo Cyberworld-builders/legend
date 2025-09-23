@@ -13,7 +13,7 @@ export default function AuthorSchema({
   url = "https://cyberworldbuilders.com",
   email = "contact@cyberworldbuilders.com",
   jobTitle = "Software Engineer & Founder",
-  description = "Professional software engineer specializing in web development, AWS solutions, and SaaS development."
+  description = "Professional software engineer specializing in web development, AI integration, automation solutions, and SaaS development with expertise in mixed reality and location-based entertainment technologies."
 }: AuthorSchemaProps) {
   const personSchema = {
     "@context": "https://schema.org",
@@ -42,7 +42,18 @@ export default function AuthorSchema({
       "Node.js",
       "Python",
       "Database Design",
-      "API Development"
+      "API Development",
+      "AI Integration",
+      "Automation",
+      "Mixed Reality",
+      "Virtual Reality",
+      "Augmented Reality",
+      "IoT Development",
+      "Location-Based Entertainment",
+      "Content Management Systems",
+      "SEO Optimization",
+      "Digital Marketing",
+      "Professional Branding"
     ],
     "alumniOf": {
       "@type": "Organization",
