@@ -95,7 +95,6 @@ export function addInternalLinks(content: string, currentSlug: string): string {
           
           // Check if this match is inside a markdown link [text](url)
           const beforeMatch = enhancedContent.substring(0, currentIndex);
-          const afterMatch = enhancedContent.substring(currentIndex + match.length);
           
           // Count unclosed brackets before the match
           const openBrackets = (beforeMatch.match(/\[/g) || []).length;

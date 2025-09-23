@@ -42,7 +42,7 @@ export interface PostMetadata {
   };
   
   // Future expansion
-  customFields?: Record<string, any>;
+  customFields?: Record<string, unknown>;
   
   // Technical metadata
   wordCount?: number;
@@ -79,9 +79,53 @@ const DEFAULT_METADATA: Partial<PostMetadata> = {
 };
 
 /**
+ * Safely extract a value from frontmatter with type checking
+ */
+function safeExtract<T>(value: unknown, fallback: T): T {
+  if (value === undefined || value === null) {
+    return fallback;
+  }
+  return value as T;
+}
+
+/**
+ * Safely extract a string value from frontmatter
+ */
+function safeExtractString(value: unknown, fallback: string): string {
+  if (typeof value === 'string') {
+    return value;
+  }
+  return fallback;
+}
+
+/**
+ * Safely extract a date value from frontmatter
+ */
+function safeExtractDate(value: unknown, fallback: Date): Date {
+  if (value instanceof Date) {
+    return value;
+  }
+  if (typeof value === 'string') {
+    const parsed = new Date(value);
+    return isNaN(parsed.getTime()) ? fallback : parsed;
+  }
+  return fallback;
+}
+
+/**
+ * Safely extract an array value from frontmatter
+ */
+function safeExtractArray<T>(value: unknown, fallback: T[]): T[] {
+  if (Array.isArray(value)) {
+    return value;
+  }
+  return fallback;
+}
+
+/**
  * Parse YAML frontmatter from markdown content
  */
-function parseFrontmatter(content: string): { frontmatter: Record<string, any>; content: string } {
+function parseFrontmatter(content: string): { frontmatter: Record<string, unknown>; content: string } {
   const frontmatterRegex = /^---\s*\n([\s\S]*?)\n---\s*\n([\s\S]*)$/;
   const match = content.match(frontmatterRegex);
   
@@ -93,7 +137,7 @@ function parseFrontmatter(content: string): { frontmatter: Record<string, any>; 
   const markdownContent = match[2];
   
   // Simple YAML parser for basic key-value pairs
-  const frontmatter: Record<string, any> = {};
+  const frontmatter: Record<string, unknown> = {};
   const lines = frontmatterText.split('\n');
   
   for (const line of lines) {
@@ -179,8 +223,8 @@ export function parsePostMetadata(
   const { frontmatter, content: markdownContent } = parseFrontmatter(content);
   
   // Extract title and description from content if not in frontmatter
-  const title = frontmatter.title || extractTitle(markdownContent, slug);
-  const description = frontmatter.description || extractDescription(markdownContent, title);
+  const title = safeExtractString(frontmatter.title, extractTitle(markdownContent, slug));
+  const description = safeExtractString(frontmatter.description, extractDescription(markdownContent, title));
   
   // Calculate word count and reading time
   const wordCount = markdownContent.split(/\s+/).length;
@@ -196,26 +240,26 @@ export function parsePostMetadata(
     readingTime,
     
     // Use frontmatter values or fallback to file stats
-    publishedDate: frontmatter.publishedDate || frontmatter.published || fileStats.ctime,
-    modifiedDate: frontmatter.modifiedDate || frontmatter.modified || fileStats.mtime,
-    lastReviewedDate: frontmatter.lastReviewedDate || frontmatter.lastReviewed,
+    publishedDate: safeExtractDate(frontmatter.publishedDate || frontmatter.published, fileStats.ctime),
+    modifiedDate: safeExtractDate(frontmatter.modifiedDate || frontmatter.modified, fileStats.mtime),
+    lastReviewedDate: safeExtractDate(frontmatter.lastReviewedDate || frontmatter.lastReviewed, fileStats.mtime),
     
     // SEO fields
-    keywords: frontmatter.keywords || frontmatter.tags || [],
-    canonicalUrl: frontmatter.canonicalUrl || frontmatter.canonical,
-    socialImage: frontmatter.socialImage || frontmatter.image,
-    headerImage: frontmatter.headerImage || frontmatter.hero,
+    keywords: safeExtractArray(frontmatter.keywords || frontmatter.tags, []),
+    canonicalUrl: safeExtractString(frontmatter.canonicalUrl || frontmatter.canonical, ''),
+    socialImage: safeExtractString(frontmatter.socialImage || frontmatter.image, ''),
+    headerImage: safeExtractString(frontmatter.headerImage || frontmatter.hero, ''),
     
     // Content categorization
-    topics: frontmatter.topics || [],
-    tags: frontmatter.tags || [],
-    series: frontmatter.series,
-    category: frontmatter.category,
+    topics: safeExtractArray(frontmatter.topics, []),
+    tags: safeExtractArray(frontmatter.tags, []),
+    series: safeExtractString(frontmatter.series, ''),
+    category: safeExtractString(frontmatter.category, ''),
     
     // Publishing control
-    isDraft: frontmatter.isDraft || frontmatter.draft || false,
-    isFeatured: frontmatter.isFeatured || frontmatter.featured || false,
-    priority: frontmatter.priority || 0,
+    isDraft: safeExtract(frontmatter.isDraft || frontmatter.draft, false),
+    isFeatured: safeExtract(frontmatter.isFeatured || frontmatter.featured, false),
+    priority: safeExtract(frontmatter.priority, 5),
     
     // Author override
     author: frontmatter.author ? {
@@ -224,10 +268,10 @@ export function parsePostMetadata(
     } : DEFAULT_METADATA.author,
     
     // Custom fields
-    customFields: frontmatter.custom || {},
+    customFields: safeExtract(frontmatter.custom || frontmatter.customFields, {}),
     
     // Technical
-    language: frontmatter.language || 'en-US',
+    language: safeExtractString(frontmatter.language, 'en-US'),
   };
   
   return {

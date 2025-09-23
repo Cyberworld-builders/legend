@@ -6,7 +6,7 @@ import { PostMetadata } from './post-metadata';
  * Generate frontmatter YAML from PostMetadata
  */
 export function generateFrontmatter(metadata: PostMetadata): string {
-  const frontmatter: Record<string, any> = {};
+  const frontmatter: Record<string, unknown> = {};
   
   // Only include non-default values
   if (metadata.title && metadata.title !== metadata.slug.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase())) {
@@ -173,7 +173,7 @@ export function createPostTemplate(
 /**
  * Validate frontmatter structure
  */
-export function validateFrontmatter(frontmatter: Record<string, any>): {
+export function validateFrontmatter(frontmatter: Record<string, unknown>): {
   isValid: boolean;
   errors: string[];
   warnings: string[];
@@ -183,30 +183,43 @@ export function validateFrontmatter(frontmatter: Record<string, any>): {
   
   // Check required fields
   if (frontmatter.publishedDate) {
-    const date = new Date(frontmatter.publishedDate);
-    if (isNaN(date.getTime())) {
-      errors.push('publishedDate must be a valid date');
+    if (typeof frontmatter.publishedDate === 'string') {
+      const date = new Date(frontmatter.publishedDate);
+      if (isNaN(date.getTime())) {
+        errors.push('publishedDate must be a valid date');
+      }
+    } else if (!(frontmatter.publishedDate instanceof Date)) {
+      errors.push('publishedDate must be a string or Date');
     }
   }
   
   if (frontmatter.modifiedDate) {
-    const date = new Date(frontmatter.modifiedDate);
-    if (isNaN(date.getTime())) {
-      errors.push('modifiedDate must be a valid date');
+    if (typeof frontmatter.modifiedDate === 'string') {
+      const date = new Date(frontmatter.modifiedDate);
+      if (isNaN(date.getTime())) {
+        errors.push('modifiedDate must be a valid date');
+      }
+    } else if (!(frontmatter.modifiedDate instanceof Date)) {
+      errors.push('modifiedDate must be a string or Date');
     }
   }
   
   if (frontmatter.lastReviewedDate) {
-    const date = new Date(frontmatter.lastReviewedDate);
-    if (isNaN(date.getTime())) {
-      errors.push('lastReviewedDate must be a valid date');
+    if (typeof frontmatter.lastReviewedDate === 'string') {
+      const date = new Date(frontmatter.lastReviewedDate);
+      if (isNaN(date.getTime())) {
+        errors.push('lastReviewedDate must be a valid date');
+      }
+    } else if (!(frontmatter.lastReviewedDate instanceof Date)) {
+      errors.push('lastReviewedDate must be a string or Date');
     }
   }
   
   // Check array fields
   const arrayFields = ['keywords', 'topics', 'tags'];
   for (const field of arrayFields) {
-    if (frontmatter[field] && !Array.isArray(frontmatter[field])) {
+    const value = frontmatter[field];
+    if (value && !Array.isArray(value)) {
       errors.push(`${field} must be an array`);
     }
   }
@@ -214,7 +227,8 @@ export function validateFrontmatter(frontmatter: Record<string, any>): {
   // Check boolean fields
   const booleanFields = ['isDraft', 'isFeatured'];
   for (const field of booleanFields) {
-    if (frontmatter[field] !== undefined && typeof frontmatter[field] !== 'boolean') {
+    const value = frontmatter[field];
+    if (value !== undefined && typeof value !== 'boolean') {
       errors.push(`${field} must be a boolean`);
     }
   }
@@ -229,11 +243,11 @@ export function validateFrontmatter(frontmatter: Record<string, any>): {
     warnings.push('Consider adding a description for better SEO');
   }
   
-  if (!frontmatter.keywords || frontmatter.keywords.length === 0) {
+  if (!frontmatter.keywords || !Array.isArray(frontmatter.keywords) || frontmatter.keywords.length === 0) {
     warnings.push('Consider adding keywords for better SEO');
   }
   
-  if (!frontmatter.topics || frontmatter.topics.length === 0) {
+  if (!frontmatter.topics || !Array.isArray(frontmatter.topics) || frontmatter.topics.length === 0) {
     warnings.push('Consider adding topics for better content organization');
   }
   

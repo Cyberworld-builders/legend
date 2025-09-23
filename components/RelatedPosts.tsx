@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { getPostWithMetadata } from '@/lib/post-metadata';
+// import { getPostWithMetadata } from '@/lib/post-metadata';
 
 interface Post {
   slug: string;
