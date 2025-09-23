@@ -118,10 +118,12 @@ export default async function BlogIndex({ searchParams }: BlogIndexProps) {
         ))}
       </div>
       
-      {/* Topic Clusters */}
-      <div className="w-full max-w-4xl">
-        <TopicClusters allPosts={allPosts} />
-      </div>
+      {/* Topic Clusters - Only show on first page */}
+      {currentPage === 1 && (
+        <div className="w-full max-w-4xl">
+          <TopicClusters allPosts={allPosts} />
+        </div>
+      )}
       
       {totalPages > 1 && (
         <div className="flex gap-4 mt-8">
