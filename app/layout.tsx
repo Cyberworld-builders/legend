@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import Script from 'next/script';
 import '../app/globals.css';
 import { Analytics } from '@vercel/analytics/next';
-import { AuthProvider } from '@/lib/auth-context';
 import PerformanceMonitor from '@/components/PerformanceMonitor';
 import AuthorSchema from '@/components/AuthorSchema';
 import GoogleAnalytics from '@/components/GoogleAnalytics';
@@ -223,9 +222,7 @@ export default function RootLayout({
         />
       </head>
       <body className="flex flex-col items-center justify-center min-h-screen bg-[#1a1a1a] text-[#00ff00] font-mono">
-        <AuthProvider>
-          {children}
-        </AuthProvider>
+        {children}
         <Analytics />
         <GoogleAnalytics />
         <PerformanceMonitor />
