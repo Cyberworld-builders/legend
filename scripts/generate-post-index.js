@@ -121,6 +121,58 @@ function generatePostIndex() {
   try {
     console.log('Scanning for blog posts...');
     
+    // Check if posts directory exists
+    if (!fs.existsSync(POSTS_DIR)) {
+      console.warn(`Posts directory not found: ${POSTS_DIR}`);
+      console.log('Creating fallback index with known posts...');
+      
+      // Create fallback index with known posts
+      const fallbackPosts = [
+        'building-an-effective-web-presence-for-professional-validation',
+        'building-drum-note-ai-powered-drum-transcription-kit-generation-and-hands-on-marketing-with-rendercom',
+        'early-adventures-in-freelance-web-development-lessons-from-the-wordpress-era',
+        'enhancing-seo-on-my-company-landing-site-with-ai-agents',
+        'example-with-frontmatter',
+        'intro-to-linux-how-i-stayed-in-the-dev-game-while-too-broke-to-buy-a-pc',
+        'my-first-steps-into-coding',
+        'my-first-tech-job-the-evolution-of-the-docworks-emr-system-2011-2013',
+        'replit-test-drive',
+        'revenant-hollow-integrating-technology-into-location-based-horror-experiences',
+        'scaling-novelty-with-an-agentic-blog-bot',
+        'the-jumpstarter-a-5-point-framework-to-align-value-and-passion',
+        'the-last-cycle-why-founder-engineer-partnerships-are-nearing-their-end',
+        'transitioning-from-cable-contracting-to-freelance-web-development-a-career-pivot',
+        'troubleshooting-n8n-workflows-integrated-with-supabase-vapi-and-lovable-for-ai-driven-sales-automation'
+      ];
+      
+      const fallbackIndex = {
+        generatedAt: new Date().toISOString(),
+        count: fallbackPosts.length,
+        posts: fallbackPosts.map(slug => ({
+          slug,
+          title: slug.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()),
+          publishedDate: new Date().toISOString(),
+          modifiedDate: new Date().toISOString(),
+          lastReviewedDate: new Date().toISOString(),
+          isDraft: false,
+          isFeatured: false,
+          priority: 5,
+          category: '',
+          series: '',
+          topics: [],
+          tags: [],
+          keywords: [],
+          wordCount: 0,
+          fileSize: 0,
+          fileModified: new Date().toISOString()
+        }))
+      };
+      
+      fs.writeFileSync(INDEX_FILE, JSON.stringify(fallbackIndex, null, 2));
+      console.log(`✅ Generated fallback post index: ${INDEX_FILE}`);
+      return fallbackIndex;
+    }
+    
     // Read all markdown files
     const files = fs.readdirSync(POSTS_DIR);
     const markdownFiles = files.filter(file => 

@@ -364,7 +364,8 @@ export async function getAllPostsWithMetadata(): Promise<PostWithMetadata[]> {
     const postIndex = JSON.parse(indexContent);
     postsFromIndex = postIndex.posts || [];
     
-    console.log(`Loaded ${postsFromIndex.length} posts from index (generated: ${postIndex.generatedAt})`);
+    console.log(`✅ Loaded ${postsFromIndex.length} posts from index (generated: ${postIndex.generatedAt})`);
+    console.log(`📋 First few posts:`, postsFromIndex.slice(0, 3).map(p => p.slug));
   } catch (error) {
     console.warn('Could not load post index, falling back to individual post loading:', error instanceof Error ? error.message : String(error));
     
@@ -452,6 +453,9 @@ export async function getAllPostsWithMetadata(): Promise<PostWithMetadata[]> {
   const publishedPosts = validPosts.filter(post => 
     process.env.NODE_ENV === 'development' || !post.metadata.isDraft
   );
+  
+  console.log(`📊 Final result: ${validPosts.length} valid posts, ${publishedPosts.length} published posts`);
+  console.log(`📝 Published post slugs:`, publishedPosts.map(p => p.slug));
   
   // Sort by published date (most recent first), then by priority
   return publishedPosts.sort((a, b) => {
