@@ -275,13 +275,14 @@ export default async function BlogPost({ params }: BlogPostProps) {
                 <h3 className="text-lg font-semibold text-[#00ff00] mb-4">Tags</h3>
                 <div className="flex flex-wrap gap-2">
                   {(metadata.tags || metadata.keywords || []).map((tag: string) => (
-                    <span
+                    <Link
                       key={tag}
+                      href={`/blog/tag/${encodeURIComponent(tag)}`}
                       className="px-3 py-1 bg-[#00ff00]/10 border border-[#00ff00]/30 rounded-full text-sm text-[#00ff00]/80 hover:bg-[#00ff00]/20 hover:text-[#00ff00] transition-colors cursor-pointer"
                       title={`Filter by ${tag}`}
                     >
                       #{tag}
-                    </span>
+                    </Link>
                   ))}
                 </div>
               </div>
