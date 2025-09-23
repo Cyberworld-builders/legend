@@ -335,8 +335,40 @@ export async function getAllPostsWithMetadata(): Promise<PostWithMetadata[]> {
   const { promises: fs } = await import('fs');
   const path = await import('path');
   
-  const postsDirectory = path.join(process.cwd(), 'app/blog/posts/markdown');
-  const filenames = await fs.readdir(postsDirectory);
+  // Try multiple possible paths for different deployment environments
+  const possiblePaths = [
+    path.join(process.cwd(), 'app/blog/posts/markdown'),
+    path.join(process.cwd(), 'app', 'blog', 'posts', 'markdown'),
+    path.join(__dirname, '..', '..', 'app', 'blog', 'posts', 'markdown'),
+    path.join(process.cwd(), '..', 'app', 'blog', 'posts', 'markdown'),
+    // Vercel serverless environment paths
+    path.join('/var/task', 'app', 'blog', 'posts', 'markdown'),
+    path.join('/var/task', 'app/blog/posts/markdown'),
+    // Alternative Vercel paths
+    path.join('/tmp', 'app', 'blog', 'posts', 'markdown'),
+  ];
+  
+  let postsDirectory = '';
+  let filenames: string[] = [];
+  
+  // Try each possible path until we find one that works
+  for (const dirPath of possiblePaths) {
+    try {
+      filenames = await fs.readdir(dirPath);
+      postsDirectory = dirPath;
+      console.log(`Found posts directory at: ${dirPath}`);
+      break;
+    } catch (error) {
+      console.log(`Failed to read directory ${dirPath}:`, error.message);
+      // Continue to next path
+      continue;
+    }
+  }
+  
+  // If no path worked, throw a more descriptive error
+  if (!postsDirectory) {
+    throw new Error(`Could not find markdown posts directory. Tried paths: ${possiblePaths.join(', ')}`);
+  }
   
   const allPosts = await Promise.all(
     filenames
@@ -385,20 +417,39 @@ export async function getPostWithMetadata(slug: string): Promise<PostWithMetadat
   const { promises: fs } = await import('fs');
   const path = await import('path');
   
-  try {
-    const filePath = path.join(process.cwd(), `app/blog/posts/markdown/${slug}.md`);
-    const content = await fs.readFile(filePath, 'utf8');
-    const stats = await fs.stat(filePath);
-    
-    return parsePostMetadata(slug, content, {
-      mtime: stats.mtime,
-      ctime: stats.ctime,
-      size: stats.size
-    });
-  } catch (error) {
-    console.error(`Error reading post ${slug}:`, error);
-    return null;
+  // Try multiple possible paths for different deployment environments
+  const possiblePaths = [
+    path.join(process.cwd(), `app/blog/posts/markdown/${slug}.md`),
+    path.join(process.cwd(), 'app', 'blog', 'posts', 'markdown', `${slug}.md`),
+    path.join(__dirname, '..', '..', 'app', 'blog', 'posts', 'markdown', `${slug}.md`),
+    path.join(process.cwd(), '..', 'app', 'blog', 'posts', 'markdown', `${slug}.md`),
+    // Vercel serverless environment paths
+    path.join('/var/task', 'app', 'blog', 'posts', 'markdown', `${slug}.md`),
+    path.join('/var/task', `app/blog/posts/markdown/${slug}.md`),
+    // Alternative Vercel paths
+    path.join('/tmp', 'app', 'blog', 'posts', 'markdown', `${slug}.md`),
+  ];
+  
+  for (const filePath of possiblePaths) {
+    try {
+      const content = await fs.readFile(filePath, 'utf8');
+      const stats = await fs.stat(filePath);
+      console.log(`Found post file at: ${filePath}`);
+      
+      return parsePostMetadata(slug, content, {
+        mtime: stats.mtime,
+        ctime: stats.ctime,
+        size: stats.size
+      });
+    } catch (error) {
+      console.log(`Failed to read file ${filePath}:`, error.message);
+      // Continue to next path
+      continue;
+    }
   }
+  
+  console.error(`Error reading post ${slug}: Could not find file in any of the expected locations`);
+  return null;
 }
 
 /**
