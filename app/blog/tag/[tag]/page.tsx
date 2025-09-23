@@ -1,10 +1,8 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import { promises as fs } from 'fs';
-import path from 'path';
 import Image from 'next/image';
 import Breadcrumb from '@/components/Breadcrumb';
-import { getPostWithMetadata, getAllPostsWithMetadata } from '@/lib/post-metadata';
+import { getAllPostsWithMetadata } from '@/lib/post-metadata';
 import type { Metadata } from 'next';
 
 interface TagPageProps {
@@ -115,7 +113,7 @@ export default async function TagPage({ params }: TagPageProps) {
         <div className="w-full max-w-4xl">
           <div className="text-center mb-8">
             <h1 className="text-4xl font-bold mb-4 text-[#00ff00]">
-              Posts tagged with "{decodedTag}"
+              Posts tagged with &ldquo;{decodedTag}&rdquo;
             </h1>
             <p className="text-[#00ff00]/70 text-lg">
               {taggedPosts.length} {taggedPosts.length === 1 ? 'post' : 'posts'} found
