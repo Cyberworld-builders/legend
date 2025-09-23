@@ -1,6 +1,5 @@
 import { MetadataRoute } from 'next'
-import { promises as fs } from 'fs'
-import path from 'path'
+import { getAllPostsWithMetadata } from '@/lib/post-metadata'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = 'https://cyberworldbuilders.com'
@@ -22,31 +21,17 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   ]
 
   // Dynamic blog posts
-  const postsDirectory = path.join(process.cwd(), 'app/blog/posts/markdown')
   let blogPosts: MetadataRoute.Sitemap = []
 
   try {
-    const filenames = await fs.readdir(postsDirectory)
+    const allPostsWithMetadata = await getAllPostsWithMetadata()
     
-    blogPosts = await Promise.all(
-      filenames
-        .filter((filename) => 
-          filename.endsWith('.md') &&
-          !filename.startsWith('.')
-        )
-        .map(async (filename) => {
-          const filePath = path.join(postsDirectory, filename)
-          const stats = await fs.stat(filePath)
-          const slug = filename.replace(/\.md$/, '')
-          
-          return {
-            url: `${baseUrl}/blog/${slug}`,
-            lastModified: stats.mtime,
-            changeFrequency: 'monthly' as const,
-            priority: 0.6,
-          }
-        })
-    )
+    blogPosts = allPostsWithMetadata.map(post => ({
+      url: `${baseUrl}/blog/${post.slug}`,
+      lastModified: post.metadata.modifiedDate || post.fileStats.mtime,
+      changeFrequency: 'monthly' as const,
+      priority: post.metadata.isFeatured ? 0.8 : 0.6,
+    }))
   } catch (error) {
     console.error('Error reading blog posts for sitemap:', error)
   }

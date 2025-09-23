@@ -1,0 +1,379 @@
+// Post metadata system for blog posts
+// Supports frontmatter parsing and provides structured metadata
+
+export interface PostMetadata {
+  // Core post information
+  title?: string;
+  description?: string;
+  slug: string;
+  
+  // Dates and timing
+  publishedDate?: Date;
+  modifiedDate?: Date;
+  lastReviewedDate?: Date;
+  
+  // SEO and social
+  keywords?: string[];
+  canonicalUrl?: string;
+  socialImage?: string;
+  headerImage?: string;
+  
+  // Content categorization
+  topics?: string[];
+  tags?: string[];
+  series?: string;
+  category?: string;
+  
+  // Publishing control
+  isDraft?: boolean;
+  isFeatured?: boolean;
+  priority?: number; // For ordering
+  
+  // Author override (optional)
+  author?: {
+    name?: string;
+    email?: string;
+    url?: string;
+    social?: {
+      twitter?: string;
+      github?: string;
+      linkedin?: string;
+    };
+  };
+  
+  // Future expansion
+  customFields?: Record<string, any>;
+  
+  // Technical metadata
+  wordCount?: number;
+  readingTime?: number; // in minutes
+  language?: string;
+}
+
+export interface PostWithMetadata {
+  slug: string;
+  content: string;
+  metadata: PostMetadata;
+  fileStats: {
+    mtime: Date;
+    ctime: Date;
+    size: number;
+  };
+}
+
+// Default metadata values
+const DEFAULT_METADATA: Partial<PostMetadata> = {
+  language: 'en-US',
+  isDraft: false,
+  isFeatured: false,
+  priority: 0,
+  author: {
+    name: 'Jay Long',
+    email: 'contact@cyberworldbuilders.com',
+    url: 'https://cyberworldbuilders.com',
+    social: {
+      twitter: 'https://x.com/cyberbuilders',
+      github: 'https://github.com/CyberWorld-builders',
+    }
+  }
+};
+
+/**
+ * Parse YAML frontmatter from markdown content
+ */
+function parseFrontmatter(content: string): { frontmatter: Record<string, any>; content: string } {
+  const frontmatterRegex = /^---\s*\n([\s\S]*?)\n---\s*\n([\s\S]*)$/;
+  const match = content.match(frontmatterRegex);
+  
+  if (!match) {
+    return { frontmatter: {}, content };
+  }
+  
+  const frontmatterText = match[1];
+  const markdownContent = match[2];
+  
+  // Simple YAML parser for basic key-value pairs
+  const frontmatter: Record<string, any> = {};
+  const lines = frontmatterText.split('\n');
+  
+  for (const line of lines) {
+    const trimmed = line.trim();
+    if (!trimmed || trimmed.startsWith('#')) continue;
+    
+    const colonIndex = trimmed.indexOf(':');
+    if (colonIndex === -1) continue;
+    
+    const key = trimmed.substring(0, colonIndex).trim();
+    let value = trimmed.substring(colonIndex + 1).trim();
+    
+    // Remove quotes if present
+    if ((value.startsWith('"') && value.endsWith('"')) || 
+        (value.startsWith("'") && value.endsWith("'"))) {
+      value = value.slice(1, -1);
+    }
+    
+    // Parse arrays (comma-separated)
+    if (value.includes(',')) {
+      frontmatter[key] = value.split(',').map(v => v.trim());
+    }
+    // Parse booleans
+    else if (value.toLowerCase() === 'true') {
+      frontmatter[key] = true;
+    }
+    else if (value.toLowerCase() === 'false') {
+      frontmatter[key] = false;
+    }
+    // Parse numbers
+    else if (!isNaN(Number(value))) {
+      frontmatter[key] = Number(value);
+    }
+    // Parse dates
+    else if (value.match(/^\d{4}-\d{2}-\d{2}/)) {
+      frontmatter[key] = new Date(value);
+    }
+    // Default to string
+    else {
+      frontmatter[key] = value;
+    }
+  }
+  
+  return { frontmatter, content: markdownContent };
+}
+
+/**
+ * Extract title from markdown content
+ */
+function extractTitle(content: string, slug: string): string {
+  const titleMatch = content.match(/^#\s+(.+)$/m);
+  return titleMatch ? titleMatch[1] : 
+    slug.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+}
+
+/**
+ * Extract description from markdown content
+ */
+function extractDescription(content: string, title: string): string {
+  const descriptionMatch = content.match(/^##\s+Overview\s*\n\n([\s\S]+?)(?:\n\n|$)/) || 
+                          content.match(/^([\s\S]+?)(?:\n\n|$)/);
+  return descriptionMatch ? 
+    descriptionMatch[1].replace(/\n/g, ' ').substring(0, 160) + '...' :
+    `Read about ${title} - Software engineering insights and technical articles from CyberWorld Builders.`;
+}
+
+/**
+ * Calculate reading time based on word count
+ */
+function calculateReadingTime(wordCount: number): number {
+  const wordsPerMinute = 200; // Average reading speed
+  return Math.ceil(wordCount / wordsPerMinute);
+}
+
+/**
+ * Parse post metadata from markdown file content
+ */
+export function parsePostMetadata(
+  slug: string, 
+  content: string, 
+  fileStats: { mtime: Date; ctime: Date; size: number }
+): PostWithMetadata {
+  const { frontmatter, content: markdownContent } = parseFrontmatter(content);
+  
+  // Extract title and description from content if not in frontmatter
+  const title = frontmatter.title || extractTitle(markdownContent, slug);
+  const description = frontmatter.description || extractDescription(markdownContent, title);
+  
+  // Calculate word count and reading time
+  const wordCount = markdownContent.split(/\s+/).length;
+  const readingTime = calculateReadingTime(wordCount);
+  
+  // Build metadata object
+  const metadata: PostMetadata = {
+    ...DEFAULT_METADATA,
+    slug,
+    title,
+    description,
+    wordCount,
+    readingTime,
+    
+    // Use frontmatter values or fallback to file stats
+    publishedDate: frontmatter.publishedDate || frontmatter.published || fileStats.ctime,
+    modifiedDate: frontmatter.modifiedDate || frontmatter.modified || fileStats.mtime,
+    lastReviewedDate: frontmatter.lastReviewedDate || frontmatter.lastReviewed,
+    
+    // SEO fields
+    keywords: frontmatter.keywords || frontmatter.tags || [],
+    canonicalUrl: frontmatter.canonicalUrl || frontmatter.canonical,
+    socialImage: frontmatter.socialImage || frontmatter.image,
+    headerImage: frontmatter.headerImage || frontmatter.hero,
+    
+    // Content categorization
+    topics: frontmatter.topics || [],
+    tags: frontmatter.tags || [],
+    series: frontmatter.series,
+    category: frontmatter.category,
+    
+    // Publishing control
+    isDraft: frontmatter.isDraft || frontmatter.draft || false,
+    isFeatured: frontmatter.isFeatured || frontmatter.featured || false,
+    priority: frontmatter.priority || 0,
+    
+    // Author override
+    author: frontmatter.author ? {
+      ...DEFAULT_METADATA.author,
+      ...frontmatter.author
+    } : DEFAULT_METADATA.author,
+    
+    // Custom fields
+    customFields: frontmatter.custom || {},
+    
+    // Technical
+    language: frontmatter.language || 'en-US',
+  };
+  
+  return {
+    slug,
+    content: markdownContent,
+    metadata,
+    fileStats
+  };
+}
+
+/**
+ * Get all posts with metadata
+ */
+export async function getAllPostsWithMetadata(): Promise<PostWithMetadata[]> {
+  const { promises: fs } = await import('fs');
+  const path = await import('path');
+  
+  const postsDirectory = path.join(process.cwd(), 'app/blog/posts/markdown');
+  const filenames = await fs.readdir(postsDirectory);
+  
+  const allPosts = await Promise.all(
+    filenames
+      .filter((filename) => 
+        filename.endsWith('.md') &&
+        !filename.startsWith('.')
+      )
+      .map(async (filename) => {
+        const filePath = path.join(postsDirectory, filename);
+        const content = await fs.readFile(filePath, 'utf8');
+        const stats = await fs.stat(filePath);
+        
+        const slug = filename.replace(/\.md$/, '');
+        
+        return parsePostMetadata(slug, content, {
+          mtime: stats.mtime,
+          ctime: stats.ctime,
+          size: stats.size
+        });
+      })
+  );
+  
+  // Filter out drafts in production
+  const publishedPosts = allPosts.filter(post => 
+    process.env.NODE_ENV === 'development' || !post.metadata.isDraft
+  );
+  
+  // Sort by published date (most recent first), then by priority
+  return publishedPosts.sort((a, b) => {
+    const dateA = a.metadata.publishedDate || a.fileStats.ctime;
+    const dateB = b.metadata.publishedDate || b.fileStats.ctime;
+    
+    // First sort by date
+    const dateComparison = dateB.getTime() - dateA.getTime();
+    if (dateComparison !== 0) return dateComparison;
+    
+    // Then by priority (higher priority first)
+    return (b.metadata.priority || 0) - (a.metadata.priority || 0);
+  });
+}
+
+/**
+ * Get a single post with metadata
+ */
+export async function getPostWithMetadata(slug: string): Promise<PostWithMetadata | null> {
+  const { promises: fs } = await import('fs');
+  const path = await import('path');
+  
+  try {
+    const filePath = path.join(process.cwd(), `app/blog/posts/markdown/${slug}.md`);
+    const content = await fs.readFile(filePath, 'utf8');
+    const stats = await fs.stat(filePath);
+    
+    return parsePostMetadata(slug, content, {
+      mtime: stats.mtime,
+      ctime: stats.ctime,
+      size: stats.size
+    });
+  } catch (error) {
+    console.error(`Error reading post ${slug}:`, error);
+    return null;
+  }
+}
+
+/**
+ * Get posts that need review based on lastReviewedDate
+ */
+export function getPostsNeedingReview(posts: PostWithMetadata[], daysSinceReview = 90): PostWithMetadata[] {
+  const cutoffDate = new Date();
+  cutoffDate.setDate(cutoffDate.getDate() - daysSinceReview);
+  
+  return posts.filter(post => {
+    const lastReviewed = post.metadata.lastReviewedDate || post.metadata.publishedDate || post.fileStats.ctime;
+    return lastReviewed < cutoffDate;
+  });
+}
+
+/**
+ * Get posts by topic/category
+ */
+export function getPostsByTopic(posts: PostWithMetadata[], topic: string): PostWithMetadata[] {
+  return posts.filter(post => 
+    post.metadata.topics?.includes(topic) || 
+    post.metadata.category === topic ||
+    post.metadata.tags?.includes(topic)
+  );
+}
+
+/**
+ * Get related posts based on topics and tags
+ */
+export function getRelatedPosts(
+  currentPost: PostWithMetadata, 
+  allPosts: PostWithMetadata[], 
+  limit = 3
+): PostWithMetadata[] {
+  const currentTopics = currentPost.metadata.topics || [];
+  const currentTags = currentPost.metadata.tags || [];
+  
+  const scoredPosts = allPosts
+    .filter(post => post.slug !== currentPost.slug)
+    .map(post => {
+      let score = 0;
+      
+      // Score based on shared topics
+      const sharedTopics = (post.metadata.topics || []).filter(topic => 
+        currentTopics.includes(topic)
+      );
+      score += sharedTopics.length * 3;
+      
+      // Score based on shared tags
+      const sharedTags = (post.metadata.tags || []).filter(tag => 
+        currentTags.includes(tag)
+      );
+      score += sharedTags.length * 2;
+      
+      // Score based on same series
+      if (post.metadata.series && post.metadata.series === currentPost.metadata.series) {
+        score += 5;
+      }
+      
+      return { post, score };
+    })
+    .filter(item => item.score > 0)
+    .sort((a, b) => b.score - a.score)
+    .slice(0, limit)
+    .map(item => item.post);
+  
+  return scoredPosts;
+}

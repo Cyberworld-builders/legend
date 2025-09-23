@@ -5,8 +5,7 @@ import RelatedPosts from '@/components/RelatedPosts';
 import SocialShare from '@/components/SocialShare';
 import Link from 'next/link';
 import Image from 'next/image';
-import { promises as fs } from 'fs';
-import path from 'path';
+import { getPostWithMetadata, getAllPostsWithMetadata } from '@/lib/post-metadata';
 import type { Metadata } from 'next';
 
 interface BlogPostProps {
@@ -19,36 +18,39 @@ export async function generateMetadata({ params }: BlogPostProps): Promise<Metad
   const { slug } = await params;
   
   try {
-    const markdownPath = path.join(process.cwd(), `app/blog/posts/markdown/${slug}.md`);
-    const markdownContent = await fs.readFile(markdownPath, 'utf8');
+    const post = await getPostWithMetadata(slug);
     
-    // Extract title from first H1 or use slug
-    const titleMatch = markdownContent.match(/^#\s+(.+)$/m);
-    const title = titleMatch ? titleMatch[1] : slug.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+    if (!post) {
+      return {
+        title: 'Blog Post Not Found',
+        description: 'The requested blog post could not be found.',
+      };
+    }
     
-    // Extract description from first paragraph or create one
-    const descriptionMatch = markdownContent.match(/^##\s+Overview\s*\n\n([\s\S]+?)(?:\n\n|$)/) || 
-                           markdownContent.match(/^([\s\S]+?)(?:\n\n|$)/);
-    const description = descriptionMatch ? 
-      descriptionMatch[1].replace(/\n/g, ' ').substring(0, 160) + '...' :
-      `Read about ${title} - Software engineering insights and technical articles from CyberWorld Builders.`;
-    
-    const url = `https://cyberworldbuilders.com/blog/${slug}`;
+    const { metadata } = post;
+    const title = metadata.title || slug.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+    const description = metadata.description || `Read about ${title} - Software engineering insights and technical articles from CyberWorld Builders.`;
+    const url = metadata.canonicalUrl || `https://cyberworldbuilders.com/blog/${slug}`;
+    const socialImage = metadata.socialImage || 'https://cyberworldbuilders.com/images/logo.png';
+    const publishedTime = metadata.publishedDate?.toISOString() || new Date().toISOString();
+    const modifiedTime = metadata.modifiedDate?.toISOString() || new Date().toISOString();
     
     return {
       title,
       description,
+      keywords: metadata.keywords,
       openGraph: {
         title,
         description,
         url,
         type: 'article',
-        publishedTime: new Date().toISOString(),
-        authors: ['Jay Long'],
+        publishedTime,
+        modifiedTime,
+        authors: [metadata.author?.name || 'Jay Long'],
         siteName: 'CyberWorld Builders',
         images: [
           {
-            url: 'https://cyberworldbuilders.com/images/logo.png',
+            url: socialImage,
             width: 1200,
             height: 630,
             alt: title,
@@ -59,7 +61,7 @@ export async function generateMetadata({ params }: BlogPostProps): Promise<Metad
         card: 'summary_large_image',
         title,
         description,
-        images: ['https://cyberworldbuilders.com/images/logo.png'],
+        images: [socialImage],
       },
       alternates: {
         canonical: url,
@@ -74,74 +76,38 @@ export async function generateMetadata({ params }: BlogPostProps): Promise<Metad
   }
 }
 
-async function getAllPosts() {
-  const postsDirectory = path.join(process.cwd(), 'app/blog/posts/markdown');
-  const filenames = await fs.readdir(postsDirectory);
-
-  const allPosts = await Promise.all(
-    filenames
-      .filter((filename) => 
-        filename.endsWith('.md') &&
-        !filename.startsWith('.')
-      )
-      .map(async (filename) => {
-        const filePath = path.join(postsDirectory, filename);
-        const stats = await fs.stat(filePath);
-        return {
-          slug: filename.replace(/\.md$/, ''),
-          title: filename
-            .replace(/\.md$/, '')
-            .replace(/-/g, ' ')
-            .split(' ')
-            .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-            .join(' '),
-          mtime: stats.mtime,
-        };
-      })
-  );
-
-  // Sort by modification date (most recent first)
-  return allPosts.sort((a, b) => b.mtime.getTime() - a.mtime.getTime());
-}
-
 export async function generateStaticParams() {
-  const posts = await getAllPosts();
-  return posts.map((post) => ({
+  const allPostsWithMetadata = await getAllPostsWithMetadata();
+  return allPostsWithMetadata.map((post) => ({
     slug: post.slug,
   }));
 }
 
 export default async function BlogPost({ params }: BlogPostProps) {
   const { slug } = await params;
-  const allPosts = await getAllPosts();
-  const currentIndex = allPosts.findIndex(post => post.slug === slug);
   
-  if (currentIndex === -1) {
+  // Get the current post with metadata
+  const post = await getPostWithMetadata(slug);
+  
+  if (!post) {
     notFound();
   }
 
+  // Get all posts for navigation and related posts
+  const allPostsWithMetadata = await getAllPostsWithMetadata();
+  const allPosts = allPostsWithMetadata.map(p => ({
+    slug: p.slug,
+    title: p.metadata.title || p.slug.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()),
+    mtime: p.metadata.publishedDate || p.fileStats.ctime,
+  }));
+  
+  const currentIndex = allPosts.findIndex(p => p.slug === slug);
   const prevPost = currentIndex > 0 ? allPosts[currentIndex - 1] : null;
   const nextPost = currentIndex < allPosts.length - 1 ? allPosts[currentIndex + 1] : null;
 
-  try {
-    const markdownPath = path.join(process.cwd(), `app/blog/posts/markdown/${slug}.md`);
-    const markdownContent = await fs.readFile(markdownPath, 'utf8');
-    
-    if (!markdownContent) {
-      console.error(`No markdown content found for slug: ${slug}`);
-      notFound();
-    }
-
-    // Extract title for breadcrumb
-    const titleMatch = markdownContent.match(/^#\s+(.+)$/m);
-    const title = titleMatch ? titleMatch[1] : slug.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
-    
-    // Extract description for social sharing
-    const descriptionMatch = markdownContent.match(/^##\s+Overview\s*\n\n([\s\S]+?)(?:\n\n|$)/) || 
-                           markdownContent.match(/^([\s\S]+?)(?:\n\n|$)/);
-    const description = descriptionMatch ? 
-      descriptionMatch[1].replace(/\n/g, ' ').substring(0, 160) + '...' :
-      `Read about ${title} - Software engineering insights and technical articles from CyberWorld Builders.`;
+  const { content: markdownContent, metadata } = post;
+  const title = metadata.title || slug.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+  const description = metadata.description || `Read about ${title} - Software engineering insights and technical articles from CyberWorld Builders.`;
 
     return (
       <div className="min-h-screen flex flex-col items-center py-8">
@@ -201,17 +167,17 @@ export default async function BlogPost({ params }: BlogPostProps) {
                   "height": 250
                 }
               },
-              "datePublished": new Date().toISOString(),
-              "dateModified": new Date().toISOString(),
+              "datePublished": metadata.publishedDate?.toISOString() || new Date().toISOString(),
+              "dateModified": metadata.modifiedDate?.toISOString() || new Date().toISOString(),
               "mainEntityOfPage": {
                 "@type": "WebPage",
-                "@id": `https://cyberworldbuilders.com/blog/${slug}`
+                "@id": metadata.canonicalUrl || `https://cyberworldbuilders.com/blog/${slug}`
               },
-              "url": `https://cyberworldbuilders.com/blog/${slug}`,
-              "articleSection": "Technology",
-              "keywords": ["software engineering", "web development", "AWS", "SaaS development", "technology"],
-              "wordCount": markdownContent.split(' ').length,
-              "inLanguage": "en-US"
+              "url": metadata.canonicalUrl || `https://cyberworldbuilders.com/blog/${slug}`,
+              "articleSection": metadata.category || "Technology",
+              "keywords": metadata.keywords || ["software engineering", "web development", "AWS", "SaaS development", "technology"],
+              "wordCount": metadata.wordCount || markdownContent.split(' ').length,
+              "inLanguage": metadata.language || "en-US"
             })
           }}
         />

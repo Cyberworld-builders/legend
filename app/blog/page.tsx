@@ -1,11 +1,10 @@
 
 import Link from 'next/link';
-import { promises as fs } from 'fs';
-import path from 'path';
 import Image from 'next/image';
 import Breadcrumb from '@/components/Breadcrumb';
 import TopicClusters from '@/components/TopicClusters';
 import SimpleSocialShare from '@/components/SimpleSocialShare';
+import { getAllPostsWithMetadata } from '@/lib/post-metadata';
 import type { Metadata } from 'next';
 
 const POSTS_PER_PAGE = 5;
@@ -38,33 +37,17 @@ interface BlogIndexProps {
 export default async function BlogIndex({ searchParams }: BlogIndexProps) {
   const { page } = await searchParams;
   const currentPage = Number(page) || 1;
-  const postsDirectory = path.join(process.cwd(), 'app/blog/posts/markdown');
-  const filenames = await fs.readdir(postsDirectory);
-
-  const allPosts = await Promise.all(
-    filenames
-      .filter((filename) => 
-        filename.endsWith('.md') &&
-        !filename.startsWith('.')
-      )
-      .map(async (filename) => {
-        const filePath = path.join(postsDirectory, filename);
-        const stats = await fs.stat(filePath);
-        return {
-          slug: filename.replace(/\.md$/, ''),
-          title: filename
-            .replace(/\.md$/, '')
-            .replace(/-/g, ' ')
-            .split(' ')
-            .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-            .join(' '),
-          mtime: stats.mtime,
-        };
-      })
-  );
-
-  // Sort by modification date (most recent first)
-  allPosts.sort((a, b) => b.mtime.getTime() - a.mtime.getTime());
+  
+  // Get all posts with metadata
+  const allPostsWithMetadata = await getAllPostsWithMetadata();
+  
+  // Convert to the format expected by existing components
+  const allPosts = allPostsWithMetadata.map(post => ({
+    slug: post.slug,
+    title: post.metadata.title || post.slug.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()),
+    mtime: post.metadata.publishedDate || post.fileStats.ctime,
+    metadata: post.metadata
+  }));
 
   const totalPages = Math.ceil(allPosts.length / POSTS_PER_PAGE);
   const startIndex = (currentPage - 1) * POSTS_PER_PAGE;
