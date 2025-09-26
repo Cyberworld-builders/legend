@@ -26,8 +26,8 @@ tags:
   - code-refactoring
 series: ""
 category: "Technology"
-socialImage: "/images/revisiting-old-code-lessons-in-growth-enterprise-vs-startup-mindsets-and-ai-driven-infrastructure-evolution-social.jpg"
-headerImage: "/images/revisiting-old-code-lessons-in-growth-enterprise-vs-startup-mindsets-and-ai-driven-infrastructure-evolution-hero.jpg"
+# socialImage: "/images/revisiting-old-code-lessons-in-growth-enterprise-vs-startup-mindsets-and-ai-driven-infrastructure-evolution-social.jpg"
+# headerImage: "/images/revisiting-old-code-lessons-in-growth-enterprise-vs-startup-mindsets-and-ai-driven-infrastructure-evolution-hero.jpg"
 isDraft: false
 isFeatured: true
 priority: 8
