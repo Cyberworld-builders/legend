@@ -1,7 +1,5 @@
 
 import Link from 'next/link';
-import { promises as fs } from 'fs';
-import path from 'path';
 import Image from 'next/image';
 import Breadcrumb from '@/components/Breadcrumb';
 import SimpleSocialShare from '@/components/SimpleSocialShare';
