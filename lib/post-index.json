@@ -1,7 +1,49 @@
 {
-  "generatedAt": "2025-09-23T23:30:06.610Z",
-  "count": 17,
+  "generatedAt": "2025-09-26T13:14:23.351Z",
+  "count": 18,
   "posts": [
+    {
+      "slug": "revisiting-old-code-lessons-in-growth-enterprise-vs-startup-mindsets-and-ai-driven-infrastructure-evolution",
+      "title": [
+        "Revisiting Old Code: Lessons in Growth",
+        "Enterprise vs. Startup Mindsets",
+        "and AI-Driven Infrastructure Evolution"
+      ],
+      "publishedDate": "2025-09-25T00:00:00.000Z",
+      "modifiedDate": "2025-09-25T00:00:00.000Z",
+      "lastReviewedDate": "2025-09-25T00:00:00.000Z",
+      "isDraft": false,
+      "isFeatured": true,
+      "priority": 8,
+      "category": "Technology",
+      "series": "",
+      "topics": [
+        "Development & Tools",
+        "Career & Professional Development"
+      ],
+      "tags": [
+        "infrastructure-as-code",
+        "generative-ai",
+        "enterprise-startup",
+        "devops",
+        "code-refactoring"
+      ],
+      "keywords": [
+        "code quality",
+        "infrastructure as code",
+        "generative AI",
+        "enterprise vs startup",
+        "DevOps practices",
+        "cloud architecture",
+        "security practices",
+        "startup agility",
+        "terraform",
+        "AI-assisted development"
+      ],
+      "wordCount": 1267,
+      "fileSize": 9939,
+      "fileModified": "2025-09-26T13:14:02.506Z"
+    },
     {
       "slug": "building-a-generative-framework-evolving-ai-coding-agents-and-human-ai-collaboration",
       "title": "Building a Generative Framework: Evolving AI Coding Agents and Human-AI Collaboration",
