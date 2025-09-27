@@ -375,7 +375,6 @@ export async function getAllPostsWithMetadata(): Promise<PostWithMetadata[]> {
       'building-drum-note-ai-powered-drum-transcription-kit-generation-and-hands-on-marketing-with-rendercom',
       'early-adventures-in-freelance-web-development-lessons-from-the-wordpress-era',
       'enhancing-seo-on-my-company-landing-site-with-ai-agents',
-      'example-with-frontmatter',
       'intro-to-linux-how-i-stayed-in-the-dev-game-while-too-broke-to-buy-a-pc',
       'my-first-steps-into-coding',
       'my-first-tech-job-the-evolution-of-the-docworks-emr-system-2011-2013',
@@ -438,12 +437,68 @@ export async function getAllPostsWithMetadata(): Promise<PostWithMetadata[]> {
             }
           };
         } else {
-          console.warn(`Could not load post: ${postMeta.slug}`);
-          return null;
+          // If we can't load the full post, create a minimal post from index data
+          console.warn(`Could not load post: ${postMeta.slug}, using index data only`);
+          return {
+            slug: postMeta.slug,
+            content: '', // Empty content for index-only posts
+            metadata: {
+              title: postMeta.title || postMeta.slug.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()),
+              description: '',
+              slug: postMeta.slug,
+              publishedDate: new Date(postMeta.publishedDate),
+              modifiedDate: new Date(postMeta.modifiedDate),
+              lastReviewedDate: new Date(postMeta.lastReviewedDate),
+              isDraft: postMeta.isDraft,
+              isFeatured: postMeta.isFeatured,
+              priority: postMeta.priority,
+              category: postMeta.category,
+              series: postMeta.series,
+              topics: postMeta.topics,
+              tags: postMeta.tags,
+              keywords: postMeta.keywords,
+              wordCount: postMeta.wordCount,
+              readingTime: Math.ceil((postMeta.wordCount || 0) / 200), // Estimate reading time
+              language: 'en-US',
+            },
+            fileStats: {
+              ctime: new Date(postMeta.fileModified),
+              mtime: new Date(postMeta.fileModified),
+              size: postMeta.fileSize,
+            }
+          };
         }
       } catch (error) {
         console.error(`Error loading post ${postMeta.slug}:`, error instanceof Error ? error.message : String(error));
-        return null;
+        // Return a minimal post even on error to prevent empty blog
+        return {
+          slug: postMeta.slug,
+          content: '',
+          metadata: {
+            title: postMeta.title || postMeta.slug.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()),
+            description: '',
+            slug: postMeta.slug,
+            publishedDate: new Date(postMeta.publishedDate),
+            modifiedDate: new Date(postMeta.modifiedDate),
+            lastReviewedDate: new Date(postMeta.lastReviewedDate),
+            isDraft: postMeta.isDraft,
+            isFeatured: postMeta.isFeatured,
+            priority: postMeta.priority,
+            category: postMeta.category,
+            series: postMeta.series,
+            topics: postMeta.topics,
+            tags: postMeta.tags,
+            keywords: postMeta.keywords,
+            wordCount: postMeta.wordCount,
+            readingTime: Math.ceil((postMeta.wordCount || 0) / 200),
+            language: 'en-US',
+          },
+          fileStats: {
+            ctime: new Date(postMeta.fileModified),
+            mtime: new Date(postMeta.fileModified),
+            size: postMeta.fileSize,
+          }
+        };
       }
     })
   );

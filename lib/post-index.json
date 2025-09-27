@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2025-09-26T13:14:23.351Z",
-  "count": 18,
+  "generatedAt": "2025-09-27T17:52:40.368Z",
+  "count": 17,
   "posts": [
     {
       "slug": "revisiting-old-code-lessons-in-growth-enterprise-vs-startup-mindsets-and-ai-driven-infrastructure-evolution",
@@ -42,7 +42,7 @@
       ],
       "wordCount": 1267,
       "fileSize": 9939,
-      "fileModified": "2025-09-26T13:14:02.506Z"
+      "fileModified": "2025-09-26T13:30:28.782Z"
     },
     {
       "slug": "building-a-generative-framework-evolving-ai-coding-agents-and-human-ai-collaboration",
@@ -323,36 +323,6 @@
       "wordCount": 1480,
       "fileSize": 9953,
       "fileModified": "2025-09-23T23:19:09.876Z"
-    },
-    {
-      "slug": "example-with-frontmatter",
-      "title": "Example Post with Frontmatter",
-      "publishedDate": "2024-01-15T00:00:00.000Z",
-      "modifiedDate": "2025-09-23T00:00:00.000Z",
-      "lastReviewedDate": "2025-09-23T00:00:00.000Z",
-      "isDraft": true,
-      "isFeatured": false,
-      "priority": 1,
-      "category": "Development",
-      "series": "Blog System Updates",
-      "topics": [
-        "Development & Tools"
-      ],
-      "tags": [
-        "tutorial",
-        "example",
-        "metadata"
-      ],
-      "keywords": [
-        "metadata",
-        "frontmatter",
-        "blog",
-        "example",
-        "yaml"
-      ],
-      "wordCount": 223,
-      "fileSize": 1736,
-      "fileModified": "2025-09-23T23:19:09.872Z"
     },
     {
       "slug": "revenant-hollow-integrating-technology-into-location-based-horror-experiences",
