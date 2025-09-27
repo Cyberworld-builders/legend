@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'standalone',
+  // output: 'standalone', // Commented out to ensure all files are included in deployment
   // Performance optimizations
   images: {
     formats: ['image/webp', 'image/avif'],

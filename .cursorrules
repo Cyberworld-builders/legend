@@ -1,0 +1,151 @@
+# CyberWorld Builders - Cursor Rules
+
+## Project Overview
+This is a Next.js blog application for CyberWorld Builders, featuring advanced SEO optimization, metadata management, and content organization.
+
+## SEO Maintenance Guidelines
+
+### 🔄 Regular Maintenance Tasks
+
+#### Monthly Tasks
+- [ ] Review performance metrics in Google Search Console
+- [ ] Check for new blog posts to categorize in topic clusters
+- [ ] Validate schema markup using Google Rich Results Test
+- [ ] Update internal linking keywords in `lib/content-utils.ts`
+- [ ] Review and update post metadata (dates, keywords, topics)
+- [ ] Check for posts needing review (older than 90 days)
+- [ ] Verify sitemap includes all new posts and tag pages
+
+#### Quarterly Tasks
+- [ ] Review and update author schema in `components/AuthorSchema.tsx`
+- [ ] Analyze content performance and update topic categories
+- [ ] Review and optimize internal linking strategy
+- [ ] Update lastReviewedDate for all posts
+- [ ] Review and update post frontmatter for consistency
+- [ ] Audit post dates and ensure accuracy
+- [ ] Validate sitemap structure and completeness
+
+### 📝 Content Management
+
+#### Adding New Posts
+1. Create markdown file in `app/blog/posts/markdown/`
+2. Add proper frontmatter with all required fields:
+   ```yaml
+   ---
+   title: "Your Post Title"
+   description: "SEO-friendly description"
+   publishedDate: 2024-01-15
+   modifiedDate: 2024-01-15
+   lastReviewedDate: 2024-01-15
+   keywords: [keyword1, keyword2, keyword3]
+   topics: [AI & Automation, Development & Tools]
+   tags: [specific-tag, another-tag]
+   series: "Optional Series Name"
+   category: "Technology"
+   socialImage: "/images/your-social-image.jpg"
+   headerImage: "/images/your-header-image.jpg"
+   isDraft: false
+   isFeatured: false
+   priority: 0
+   canonicalUrl: "https://cyberworldbuilders.com/blog/your-post-slug"
+   language: "en-US"
+   ---
+   ```
+3. Update topic clusters in `lib/content-utils.ts`
+4. Add internal linking keywords for new posts
+5. Test locally with `npm run build`
+6. Deploy and verify in production
+
+#### Updating Existing Posts
+- **Content changes**: Update `modifiedDate` and `lastReviewedDate`
+- **SEO optimization**: Update `keywords`, `description`, and `title`
+- **Categorization changes**: Update `topics`, `tags`, and `category`
+- **Review for accuracy**: Update `lastReviewedDate`
+
+### 🛠️ Technical Components
+
+#### Key Files to Maintain
+- `lib/post-metadata.ts` - Post metadata system
+- `lib/content-utils.ts` - Topic clusters and internal linking
+- `components/AuthorSchema.tsx` - Author schema markup
+- `app/layout.tsx` - Organization schema
+- `app/sitemap.ts` - Sitemap generation
+- `components/TopicClusters.tsx` - Topic categorization
+- `components/RelatedPosts.tsx` - Related posts algorithm
+
+#### Schema Markup Validation
+Use these tools to validate schema:
+- [Google Rich Results Test](https://search.google.com/test/rich-results)
+- [Schema.org Validator](https://validator.schema.org/)
+- Google Search Console Rich Results report
+
+#### Performance Monitoring
+- Check Core Web Vitals in Google Search Console
+- Monitor performance metrics in `components/PerformanceMonitor.tsx`
+- Test page speed with PageSpeed Insights
+- Review image optimization effectiveness
+
+### 🚀 Automation Opportunities
+
+#### Script Ideas
+1. **Auto-categorization script** - Analyzes new posts and suggests topics
+2. **Internal linking generator** - Automatically suggests internal links
+3. **Schema validator** - Checks all schema markup for errors
+4. **Performance monitor** - Tracks Core Web Vitals and alerts on issues
+5. **Metadata validator** - Checks frontmatter for completeness
+6. **Content review reminder** - Identifies posts needing review
+7. **Frontmatter generator** - Creates frontmatter templates for new posts
+
+### 📊 Success Metrics
+
+Track these metrics to measure SEO effectiveness:
+- **Organic traffic growth**
+- **Core Web Vitals scores**
+- **Rich snippet appearances**
+- **Internal link click-through rates**
+- **Topic cluster performance**
+- **Schema markup validation success rate**
+
+### 🔧 Troubleshooting
+
+#### Common Issues
+- **Topic Clusters Not Working**: Check if new post slugs match topic keywords in `getTopicClusters()`
+- **Related Posts Not Relevant**: Review topic matching algorithm in `getRelatedPosts()`
+- **Schema Validation Errors**: Use Google's Rich Results Test to identify issues
+- **Performance Degradation**: Review image optimization and caching headers
+
+### 📋 Development Workflow
+
+#### Before Making Changes
+1. Review current SEO maintenance status
+2. Check for any pending maintenance tasks
+3. Validate current schema markup
+4. Review performance metrics
+
+#### After Making Changes
+1. Test locally with `npm run build`
+2. Validate schema markup
+3. Check sitemap includes new content
+4. Verify topic clusters are updated
+5. Test internal linking functionality
+6. Deploy and monitor performance
+
+### 🎯 Content Strategy
+
+#### Topic Categories
+- **AI & Automation**: AI tools, automation, coding agents, generative AI
+- **Career & Professional Development**: Career transitions, professional growth, frameworks
+- **Development & Tools**: Technical tutorials, tool reviews, development practices
+- **Marketing & Business**: SEO, digital marketing, business strategy, professional branding
+
+#### Content Quality Standards
+- All posts must have complete frontmatter
+- Keywords should be relevant and specific
+- Topics should align with defined categories
+- Internal linking should be natural and helpful
+- Schema markup must be valid and complete
+
+---
+
+*Last Updated: 2024-01-26*
+*Next Review: 2024-04-26*
