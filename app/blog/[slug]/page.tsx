@@ -32,7 +32,9 @@ export async function generateMetadata({ params }: BlogPostProps): Promise<Metad
     const title = metadata.title || slug.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
     const description = metadata.description || `Read about ${title} - Software engineering insights and technical articles from CyberWorld Builders.`;
     const url = metadata.canonicalUrl || `https://cyberworldbuilders.com/blog/${slug}`;
-    const socialImage = metadata.socialImage || 'https://cyberworldbuilders.com/images/logo.png';
+    const socialImage = (metadata.socialImage && metadata.socialImage.trim() !== '') 
+      ? metadata.socialImage 
+      : 'https://cyberworldbuilders.com/images/logo.png';
     const publishedTime = metadata.publishedDate?.toISOString() || new Date().toISOString();
     const modifiedTime = metadata.modifiedDate?.toISOString() || new Date().toISOString();
     
@@ -141,8 +143,8 @@ export default async function BlogPost({ params }: BlogPostProps) {
           />
         </div>
 
-        {/* Header Image */}
-        {metadata.headerImage && (
+        {/* Header Image - only render if image exists and is not empty */}
+        {metadata.headerImage && metadata.headerImage.trim() !== '' && (
           <div className="w-full max-w-4xl mb-8">
             <Image
               src={metadata.headerImage}

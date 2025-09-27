@@ -375,7 +375,6 @@ export async function getAllPostsWithMetadata(): Promise<PostWithMetadata[]> {
       'building-drum-note-ai-powered-drum-transcription-kit-generation-and-hands-on-marketing-with-rendercom',
       'early-adventures-in-freelance-web-development-lessons-from-the-wordpress-era',
       'enhancing-seo-on-my-company-landing-site-with-ai-agents',
-      'example-with-frontmatter',
       'intro-to-linux-how-i-stayed-in-the-dev-game-while-too-broke-to-buy-a-pc',
       'my-first-steps-into-coding',
       'my-first-tech-job-the-evolution-of-the-docworks-emr-system-2011-2013',
