@@ -67,6 +67,21 @@ export const postReferences: PostReference[] = [
     slug: 'my-first-steps-into-coding',
     title: 'My First Steps into Coding: A Biographical Journey',
     keywords: ['coding journey', 'HTML', 'CSS', 'Flash', 'web development', 'career transition', 'self-directed learning', 'programming', 'software development', 'biographical', 'early career', 'technology']
+  },
+  {
+    slug: 'building-a-generative-framework-evolving-ai-coding-agents-and-human-ai-collaboration',
+    title: 'Building a Generative Framework: Evolving AI Coding Agents',
+    keywords: ['generative framework', 'coding agents', 'AI autonomy', 'human-AI collaboration', 'software development', 'LLM productivity', 'prompt engineering', 'agentic AI', 'AI training data', 'heuristic for AI use']
+  },
+  {
+    slug: 'the-power-of-flat-files-in-blogging-repurposing-coding-tools-for-content-creation-and-ai-optimization',
+    title: 'The Power of Flat Files in Blogging',
+    keywords: ['flat files', 'blogging', 'Jamstack', 'Next.js', 'AI content creation', 'coding agents', 'generative search', 'YAML frontmatter', 'Markdown', 'IDE indexing', 'SEO schema updates', 'human-AI collaboration']
+  },
+  {
+    slug: 'revisiting-old-code-lessons-in-growth-enterprise-vs-startup-mindsets-and-ai-driven-infrastructure-evolution',
+    title: 'Revisiting Old Code: Lessons in Growth',
+    keywords: ['code quality', 'infrastructure as code', 'generative AI', 'enterprise vs startup', 'DevOps practices', 'cloud architecture', 'security practices', 'startup agility', 'terraform', 'AI-assisted development']
   }
 ];
 
@@ -143,22 +158,40 @@ export function getTopicClusters(): { [topic: string]: string[] } {
     'AI & Automation': [
       'scaling-novelty-with-an-agentic-blog-bot',
       'troubleshooting-n8n-workflows-integrated-with-supabase-vapi-and-lovable-for-ai-driven-sales-automation',
-      'building-drum-note-ai-powered-drum-transcription-kit-generation-and-hands-on-marketing-with-rendercom'
+      'building-drum-note-ai-powered-drum-transcription-kit-generation-and-hands-on-marketing-with-rendercom',
+      'building-a-generative-framework-evolving-ai-coding-agents-and-human-ai-collaboration',
+      'the-power-of-flat-files-in-blogging-repurposing-coding-tools-for-content-creation-and-ai-optimization',
+      'revenant-hollow-integrating-technology-into-location-based-horror-experiences',
+      'enhancing-seo-on-my-company-landing-site-with-ai-agents'
     ],
     'Career & Professional Development': [
       'building-an-effective-web-presence-for-professional-validation',
       'my-first-tech-job-the-evolution-of-the-docworks-emr-system-2011-2013',
       'the-jumpstarter-a-5-point-framework-to-align-value-and-passion',
-      'the-last-cycle-why-founder-engineer-partnerships-are-nearing-their-end'
+      'the-last-cycle-why-founder-engineer-partnerships-are-nearing-their-end',
+      'my-first-steps-into-coding',
+      'intro-to-linux-how-i-stayed-in-the-dev-game-while-too-broke-to-buy-a-pc',
+      'early-adventures-in-freelance-web-development-lessons-from-the-wordpress-era',
+      'transitioning-from-cable-contracting-to-freelance-web-development-a-career-pivot',
+      'revisiting-old-code-lessons-in-growth-enterprise-vs-startup-mindsets-and-ai-driven-infrastructure-evolution'
     ],
     'Development & Tools': [
       'replit-test-drive',
-      'troubleshooting-n8n-workflows-integrated-with-supabase-vapi-and-lovable-for-ai-driven-sales-automation'
+      'troubleshooting-n8n-workflows-integrated-with-supabase-vapi-and-lovable-for-ai-driven-sales-automation',
+      'my-first-tech-job-the-evolution-of-the-docworks-emr-system-2011-2013',
+      'intro-to-linux-how-i-stayed-in-the-dev-game-while-too-broke-to-buy-a-pc',
+      'early-adventures-in-freelance-web-development-lessons-from-the-wordpress-era',
+      'building-a-generative-framework-evolving-ai-coding-agents-and-human-ai-collaboration',
+      'the-power-of-flat-files-in-blogging-repurposing-coding-tools-for-content-creation-and-ai-optimization',
+      'enhancing-seo-on-my-company-landing-site-with-ai-agents',
+      'revisiting-old-code-lessons-in-growth-enterprise-vs-startup-mindsets-and-ai-driven-infrastructure-evolution'
     ],
     'Marketing & Business': [
       'building-an-effective-web-presence-for-professional-validation',
       'building-drum-note-ai-powered-drum-transcription-kit-generation-and-hands-on-marketing-with-rendercom',
-      'the-last-cycle-why-founder-engineer-partnerships-are-nearing-their-end'
+      'the-last-cycle-why-founder-engineer-partnerships-are-nearing-their-end',
+      'enhancing-seo-on-my-company-landing-site-with-ai-agents',
+      'scaling-novelty-with-an-agentic-blog-bot'
     ]
   };
 }
