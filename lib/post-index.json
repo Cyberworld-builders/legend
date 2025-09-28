@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2025-09-27T17:52:40.368Z",
-  "count": 17,
+  "generatedAt": "2025-09-27T17:58:03.520Z",
+  "count": 18,
   "posts": [
     {
       "slug": "revisiting-old-code-lessons-in-growth-enterprise-vs-startup-mindsets-and-ai-driven-infrastructure-evolution",
@@ -43,6 +43,44 @@
       "wordCount": 1267,
       "fileSize": 9939,
       "fileModified": "2025-09-26T13:30:28.782Z"
+    },
+    {
+      "slug": "lessons-from-mentors-enterprise-insights-and-personal-reflections-from-urban-dynamics",
+      "title": "Lessons from Mentors: Enterprise Insights and Personal Reflections from Urban Dynamics",
+      "publishedDate": "2025-09-24T00:00:00.000Z",
+      "modifiedDate": "2025-09-24T00:00:00.000Z",
+      "lastReviewedDate": "2025-09-24T00:00:00.000Z",
+      "isDraft": false,
+      "isFeatured": true,
+      "priority": 8,
+      "category": "Career",
+      "series": "",
+      "topics": [
+        "Career & Professional Development",
+        "Development & Tools"
+      ],
+      "tags": [
+        "enterprise-devops",
+        "mentorship",
+        "identity-access-management",
+        "startup-enterprise",
+        "personal-reflection"
+      ],
+      "keywords": [
+        "enterprise DevOps",
+        "identity management",
+        "single sign-on",
+        "mentorship",
+        "startup culture",
+        "enterprise contracts",
+        "networking security",
+        "personal growth",
+        "AI-assisted development",
+        "creative ideation"
+      ],
+      "wordCount": 1595,
+      "fileSize": 11837,
+      "fileModified": "2025-09-27T17:57:52.913Z"
     },
     {
       "slug": "building-a-generative-framework-evolving-ai-coding-agents-and-human-ai-collaboration",
