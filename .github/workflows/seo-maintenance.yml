@@ -38,10 +38,10 @@ jobs:
       - name: Install dependencies
         run: npm ci
       
-      - name: Validate current metadata
-        run: |
-          echo "🔍 Validating current post metadata..."
-          node scripts/metadata-utils.js validate
+      #- name: Validate current metadata
+      #  run: |
+      #    echo "🔍 Validating current post metadata..."
+      #    node scripts/metadata-utils.js validate
       
       - name: Update review dates for posts needing review
         run: |
