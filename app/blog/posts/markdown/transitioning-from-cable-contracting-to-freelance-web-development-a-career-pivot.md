@@ -1,55 +1,29 @@
 ---
 title: "Transitioning from Cable Contracting to Freelance Web Development: A Career Pivot"
-description: "A detailed account of transitioning from over three years as a cable installation contractor to becoming a full-time freelance web developer. Covers misclassification challenges, rediscovering programming skills, and the breakthrough moment leveraging Upwork to escape manual labor."
-publishedDate: 2024-01-09
-modifiedDate: 2025-09-23
-lastReviewedDate: 2025-09-23
+description: "SEO-friendly description for your post"
+publishedDate: 2025-09-29
+modifiedDate: 2025-09-29
+lastReviewedDate: 2025-09-29
 keywords:
-  - career transition
-  - cable contracting
-  - freelance web development
-  - misclassification
-  - Charter Communications
-  - Spectrum
-  - Upwork
-  - WordPress
-  - PHP
-  - MySQL
-  - self-directed learning
-  - global freelance market
-  - career pivot
-  - manual labor
-  - programming skills
+  - keyword1
+  - keyword2
+  - keyword3
 topics:
-  - Career & Professional Development
+  - AI & Automation
+  - Development & Tools
 tags:
-  - career-transition
-  - cable-contracting
-  - freelance
-  - web-development
-  - misclassification
-  - charter-communications
-  - upwork
-  - wordpress
-  - PHP
-  - MySQL
-  - self-learning
-  - global-market
-  - career-pivot
-  - manual-labor
-  - programming
+  - specific-tag
+  - another-tag
 series: "Career Journey"
 category: "Career"
-# socialImage: "/images/cable-to-freelance-social.jpg"
-# headerImage: "/images/cable-to-freelance-hero.jpg"
-isDraft: false
+socialImage: "/images/your-social-image.jpg"
+headerImage: "/images/your-header-image.jpg"
+isDraft: true
 isFeatured: true
 priority: 1
 canonicalUrl: "https://cyberworldbuilders.com/blog/transitioning-from-cable-contracting-to-freelance-web-development-a-career-pivot"
 language: "en-US"
----
-
-# Transitioning from Cable Contracting to Freelance Web Development: A Career Pivot
+---# Transitioning from Cable Contracting to Freelance Web Development: A Career Pivot
 
 ## Overview
 This post details my transition from over three years as a cable installation contractor to becoming a full-time freelance web developer, a pivotal moment in my career. It highlights the challenges of a misclassified contractor role, the rediscovery of my programming skills, and the breakthrough moment when I leveraged Upwork to escape manual labor and build a sustainable tech career. This journey underscores the power of self-directed learning, resilience, and the opportunities of the global freelance market.

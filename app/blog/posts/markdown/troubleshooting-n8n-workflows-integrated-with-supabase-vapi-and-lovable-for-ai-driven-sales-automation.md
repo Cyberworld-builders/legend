@@ -1,53 +1,29 @@
 ---
-title: "Troubleshooting n8n Workflows Integrated with Supabase, Vapi, and Lovable for AI-Driven Sales Automation"
-description: "A real-time troubleshooting guide for complex AI-driven sales automation systems using n8n workflows, Supabase database, Vapi voice AI, and Lovable frontend. Covers foreign key errors, data loss recovery, and system stability issues."
-publishedDate: 2024-01-20
-modifiedDate: 2025-09-23
-lastReviewedDate: 2025-09-23
+title: "Troubleshooting n8n Workflows Integrated with Supabase,Vapi,and Lovable for AI-Driven Sales Automation"
+description: "SEO-friendly description for your post"
+publishedDate: 2025-09-29
+modifiedDate: 2025-09-29
+lastReviewedDate: 2025-09-29
 keywords:
-  - n8n
-  - supabase
-  - vapi
-  - lovable
-  - AI automation
-  - sales automation
-  - workflow troubleshooting
-  - database errors
-  - foreign key constraints
-  - voice AI
-  - no-code
-  - low-code
-  - system recovery
-  - data loss
-  - automation debugging
+  - keyword1
+  - keyword2
+  - keyword3
 topics:
-  - Development & Tools
   - AI & Automation
+  - Development & Tools
 tags:
-  - n8n
-  - supabase
-  - vapi
-  - lovable
-  - automation
-  - troubleshooting
-  - database
-  - AI
-  - sales
-  - workflow
-  - debugging
-  - system-recovery
+  - specific-tag
+  - another-tag
 series: "Technical Troubleshooting"
 category: "Development"
-# socialImage: "/images/n8n-troubleshooting-social.jpg"
-# headerImage: "/images/n8n-troubleshooting-hero.jpg"
-isDraft: false
+socialImage: "/images/your-social-image.jpg"
+headerImage: "/images/your-header-image.jpg"
+isDraft: true
 isFeatured: false
 priority: 5
 canonicalUrl: "https://cyberworldbuilders.com/blog/troubleshooting-n8n-workflows-integrated-with-supabase-vapi-and-lovable-for-ai-driven-sales-automation"
 language: "en-US"
----
-
-# Troubleshooting n8n Workflows Integrated with Supabase, Vapi, and Lovable for AI-Driven Sales Automation
+---# Troubleshooting n8n Workflows Integrated with Supabase, Vapi, and Lovable for AI-Driven Sales Automation
 
 ## Overview
 This post documents my current troubleshooting process for a client's application stack experiencing reliability issues and data loss. The system automates sales processes using AI voice agents to handle lead follow-ups, making outbound calls via Vapi (powered by Twilio). The core components include n8n for complex automation workflows, Supabase as the database backend, and Lovable for the frontend application. While the app and database are relatively simple, the n8n workflows contain most of the system's complexity, acting as the "secret sauce" for AI-driven sales steps.

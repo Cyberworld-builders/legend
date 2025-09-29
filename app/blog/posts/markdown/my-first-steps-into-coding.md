@@ -1,45 +1,29 @@
 ---
 title: "My First Steps into Coding: A Biographical Journey"
-description: "A personal journey through the early days of coding, from learning HTML and CSS to building my first Flash website and transitioning into software development at a medical records startup."
-publishedDate: 2024-01-05
-modifiedDate: 2025-09-23
-lastReviewedDate: 2025-09-23
+description: "SEO-friendly description for your post"
+publishedDate: 2025-09-29
+modifiedDate: 2025-09-29
+lastReviewedDate: 2025-09-29
 keywords:
-  - coding journey
-  - HTML
-  - CSS
-  - Flash
-  - web development
-  - career transition
-  - self-directed learning
-  - programming
-  - software development
-  - biographical
-  - early career
-  - technology
+  - keyword1
+  - keyword2
+  - keyword3
 topics:
-  - Career & Professional Development
+  - AI & Automation
+  - Development & Tools
 tags:
-  - coding-journey
-  - web-development
-  - career-transition
-  - biographical
-  - early-career
-  - self-learning
-  - programming
-  - technology
+  - specific-tag
+  - another-tag
 series: "Career Journey"
 category: "Career"
-# socialImage: "/images/coding-journey-social.jpg"
-# headerImage: "/images/coding-journey-hero.jpg"
-isDraft: false
+socialImage: "/images/your-social-image.jpg"
+headerImage: "/images/your-header-image.jpg"
+isDraft: true
 isFeatured: true
 priority: 7
 canonicalUrl: "https://cyberworldbuilders.com/blog/my-first-steps-into-coding"
 language: "en-US"
----
-
-# My First Steps into Coding: A Biographical Journey
+---# My First Steps into Coding: A Biographical Journey
 
 ## Overview
 This post chronicles my earliest experiences with coding, beginning in my early 20s during a period of drifting and crashing at various apartments. It traces the pivotal moments that sparked my passion for programming, from learning HTML and CSS to building my first Flash website, and ultimately transitioning from a manual labor job to a role in software development at a medical records startup. This journey highlights the challenges, self-directed learning, and determination that shaped my career in technology.
