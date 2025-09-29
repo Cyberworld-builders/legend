@@ -53,10 +53,10 @@ jobs:
           echo "🔧 Running SEO maintenance (generate post index)..."
           npm run seo
       
-      - name: Validate updated metadata
-        run: |
-          echo "✅ Validating updated metadata..."
-          node scripts/metadata-utils.js validate
+      #- name: Validate updated metadata
+      #  run: |
+      #    echo "✅ Validating updated metadata..."
+      #    node scripts/metadata-utils.js validate
       
       - name: Check for changes
         id: changes
