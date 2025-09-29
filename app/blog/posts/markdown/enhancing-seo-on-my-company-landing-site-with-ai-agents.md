@@ -1,51 +1,29 @@
 ---
 title: "Enhancing SEO on My Company Landing Site with AI Agents"
-description: "A detailed exploration of implementing SEO improvements on a company landing site using AI agents like Cursor. Covers meta tags, breadcrumbs, social links, page speed optimization, schema markup, and building a developer-friendly blog architecture."
-publishedDate: 2024-01-12
-modifiedDate: 2025-09-23
-lastReviewedDate: 2025-09-23
+description: "SEO-friendly description for your post"
+publishedDate: 2025-09-29
+modifiedDate: 2025-09-29
+lastReviewedDate: 2025-09-29
 keywords:
-  - SEO optimization
-  - AI agents
-  - Cursor AI
-  - meta tags
-  - breadcrumbs
-  - social media integration
-  - page speed optimization
-  - schema markup
-  - blog architecture
-  - digital marketing
-  - search engine optimization
-  - AI-assisted development
-  - developer tools
-  - content strategy
+  - keyword1
+  - keyword2
+  - keyword3
 topics:
-  - Marketing & Business
-  - Development & Tools
   - AI & Automation
+  - Development & Tools
 tags:
-  - SEO
-  - AI-agents
-  - digital-marketing
-  - blog-architecture
-  - meta-tags
-  - schema-markup
-  - page-speed
-  - social-media
-  - content-strategy
-  - AI-development
+  - specific-tag
+  - another-tag
 series: "SEO & Marketing"
 category: "Marketing"
-# socialImage: "/images/seo-ai-agents-social.jpg"
-# headerImage: "/images/seo-ai-agents-hero.jpg"
-isDraft: false
+socialImage: "/images/your-social-image.jpg"
+headerImage: "/images/your-header-image.jpg"
+isDraft: true
 isFeatured: false
 priority: 6
 canonicalUrl: "https://cyberworldbuilders.com/blog/enhancing-seo-on-my-company-landing-site-with-ai-agents"
 language: "en-US"
----
-
-# Enhancing SEO on My Company Landing Site with AI Agents
+---# Enhancing SEO on My Company Landing Site with AI Agents
 
 ## Overview
 As an engineer diving deeper into digital marketing, I've been experimenting with SEO improvements on my company landing site. Late last night, I used AI tools like the Cursor agent to implement changes, focusing primarily on the blog section. This post shares my recent efforts, reflections on marketing strategies, and future plans for automating my blogging workflow using AI agents. Key topics include SEO optimization, AI-assisted development, and building a developer-friendly blog architecture.

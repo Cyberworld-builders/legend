@@ -1,49 +1,29 @@
 ---
 title: "Scaling Novelty with an Agentic Blog Bot"
-description: "Exploring the intersection of AI and content creation through an agentic blog bot that amplifies creativity, captures ideas, and builds tools that reflect personal voice and vision."
-publishedDate: 2024-01-12
-modifiedDate: 2025-09-23
-lastReviewedDate: 2025-09-23
+description: "SEO-friendly description for your post"
+publishedDate: 2025-09-29
+modifiedDate: 2025-09-29
+lastReviewedDate: 2025-09-29
 keywords:
-  - AI
-  - blog bot
-  - content creation
-  - automation
-  - digital legacy
-  - creativity
-  - AI agents
-  - content strategy
-  - personal branding
-  - technology
-  - innovation
-  - digital tools
+  - keyword1
+  - keyword2
+  - keyword3
 topics:
   - AI & Automation
   - Development & Tools
 tags:
-  - AI
-  - blog-bot
-  - content-creation
-  - automation
-  - digital-legacy
-  - creativity
-  - AI-agents
-  - content-strategy
-  - personal-branding
-  - technology
-  - innovation
+  - specific-tag
+  - another-tag
 series: "AI & Automation"
 category: "Technology"
-# socialImage: "/images/agentic-blog-bot-social.svg"
-# headerImage: "/images/agentic-blog-bot-hero.svg"
-isDraft: false
+socialImage: "/images/your-social-image.jpg"
+headerImage: "/images/your-header-image.jpg"
+isDraft: true
 isFeatured: true
 priority: 6
 canonicalUrl: "https://cyberworldbuilders.com/blog/scaling-novelty-with-an-agentic-blog-bot"
 language: "en-US"
----
-
-# Scaling Novelty with an Agentic Blog Bot
+---# Scaling Novelty with an Agentic Blog Bot
 
 ## From Blog to Bots: Crafting a Digital Legacy with AI
 

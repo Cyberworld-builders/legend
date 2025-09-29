@@ -1,52 +1,29 @@
 ---
 title: "Intro to Linux: How I Stayed in the Dev Game While Too Broke to Buy a PC"
-description: "A personal journey learning Linux, from first exposure at DocWorks EMR startup to necessity-driven adoption after being laid off. Details how Ubuntu transformed an end-of-life Windows XP machine into a functional development workstation, providing foundational skills in command-line operations, networking, and server management."
-publishedDate: 2024-01-06
-modifiedDate: 2025-09-23
-lastReviewedDate: 2025-09-23
+description: "SEO-friendly description for your post"
+publishedDate: 2025-09-29
+modifiedDate: 2025-09-29
+lastReviewedDate: 2025-09-29
 keywords:
-  - Linux
-  - Ubuntu
-  - command line
-  - networking
-  - server management
-  - development workstation
-  - Windows XP
-  - career development
-  - self-directed learning
-  - cloud architecture
-  - full-stack development
-  - enterprise development
-  - Linux skills
-  - career transition
+  - keyword1
+  - keyword2
+  - keyword3
 topics:
-  - Career & Professional Development
+  - AI & Automation
   - Development & Tools
 tags:
-  - linux
-  - ubuntu
-  - command-line
-  - networking
-  - server-management
-  - development
-  - career-transition
-  - self-learning
-  - cloud-architecture
-  - enterprise
-  - biographical
-  - early-career
+  - specific-tag
+  - another-tag
 series: "Career Journey"
 category: "Career"
-# socialImage: "/images/linux-journey-social.jpg"
-# headerImage: "/images/linux-journey-hero.jpg"
-isDraft: false
+socialImage: "/images/your-social-image.jpg"
+headerImage: "/images/your-header-image.jpg"
+isDraft: true
 isFeatured: false
 priority: 3
 canonicalUrl: "https://cyberworldbuilders.com/blog/intro-to-linux-how-i-stayed-in-the-dev-game-while-too-broke-to-buy-a-pc"
 language: "en-US"
----
-
-# Intro to Linux: How I Stayed in the Dev Game While Too Broke to Buy a PC
+---# Intro to Linux: How I Stayed in the Dev Game While Too Broke to Buy a PC
 
 ## Overview
 This post recounts my journey learning Linux, starting with my first exposure at DocWorks, an electronic medical records (EMR) startup, and evolving through necessity after being laid off. It details how Linux, specifically Ubuntu, became a critical part of my toolkit as a software developer and cloud architect, transforming an end-of-life Windows XP machine into a functional development workstation. This experience shaped my career, providing foundational skills in command-line operations, networking, and server management.

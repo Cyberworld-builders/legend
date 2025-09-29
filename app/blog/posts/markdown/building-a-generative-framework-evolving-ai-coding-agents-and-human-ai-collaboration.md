@@ -1,41 +1,29 @@
 ---
 title: "Building a Generative Framework: Evolving AI Coding Agents and Human-AI Collaboration"
-description: "Explore the concept of a generative framework using prompts and code snippets to enhance AI-assisted software development, insights on coding agents' evolution, and heuristics for effective human-AI collaboration in tech projects."
-publishedDate: 2025-09-23
-modifiedDate: 2025-09-23
-lastReviewedDate: 2025-09-23
+description: "SEO-friendly description for your post"
+publishedDate: 2025-09-29
+modifiedDate: 2025-09-29
+lastReviewedDate: 2025-09-29
 keywords:
-  - generative framework
-  - coding agents
-  - AI autonomy
-  - human-AI collaboration
-  - software development
-  - LLM productivity
-  - AI training data
-  - heuristic for AI use
-  - prompt engineering
-  - agentic AI
+  - keyword1
+  - keyword2
+  - keyword3
 topics:
   - AI & Automation
   - Development & Tools
 tags:
-  - generative-ai
-  - coding-agents
-  - ai-autonomy
-  - human-ai-collaboration
-  - software-frameworks
+  - specific-tag
+  - another-tag
 series: ""
 category: "Technology"
-# socialImage: "/images/building-a-generative-framework-evolving-ai-coding-agents-and-human-ai-collaboration-social.jpg"
-# headerImage: "/images/building-a-generative-framework-evolving-ai-coding-agents-and-human-ai-collaboration-hero.jpg"
-isDraft: false
+socialImage: "/images/your-social-image.jpg"
+headerImage: "/images/your-header-image.jpg"
+isDraft: true
 isFeatured: true
 priority: 9
 canonicalUrl: "https://cyberworldbuilders.com/blog/building-a-generative-framework-evolving-ai-coding-agents-and-human-ai-collaboration"
 language: "en-US"
----
-
-# Building a Generative Framework: Evolving AI Coding Agents and Human-AI Collaboration
+---# Building a Generative Framework: Evolving AI Coding Agents and Human-AI Collaboration
 
 ## Overview
 This post discusses the emergence of a generative framework for blog and software development, shifting from traditional code-based frameworks to prompt-driven systems. It covers how code snippets communicate ideas rather than rigid implementations, the role of coding agents in boosting productivity, their training challenges, and philosophical insights on achieving AI autonomy through human-AI synergy.
