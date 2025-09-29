@@ -1,41 +1,29 @@
 ---
-title: "Revisiting Old Code: Lessons in Growth, Enterprise vs. Startup Mindsets, and AI-Driven Infrastructure Evolution"
-description: "Reflections on revisiting outdated code, the pitfalls of applying enterprise practices to startups, and how generative AI tools transform infrastructure as code, enabling faster, more pragmatic development workflows."
-publishedDate: 2025-09-25
-modifiedDate: 2025-09-25
-lastReviewedDate: 2025-09-25
+title: "Revisiting Old Code: Lessons in Growth,Enterprise vs. Startup Mindsets,and AI-Driven Infrastructure Evolution"
+description: "SEO-friendly description for your post"
+publishedDate: 2025-09-29
+modifiedDate: 2025-09-29
+lastReviewedDate: 2025-09-29
 keywords:
-  - code quality
-  - infrastructure as code
-  - generative AI
-  - enterprise vs startup
-  - DevOps practices
-  - cloud architecture
-  - security practices
-  - startup agility
-  - terraform
-  - AI-assisted development
+  - keyword1
+  - keyword2
+  - keyword3
 topics:
+  - AI & Automation
   - Development & Tools
-  - Career & Professional Development
 tags:
-  - infrastructure-as-code
-  - generative-ai
-  - enterprise-startup
-  - devops
-  - code-refactoring
+  - specific-tag
+  - another-tag
 series: ""
 category: "Technology"
-# socialImage: "/images/revisiting-old-code-lessons-in-growth-enterprise-vs-startup-mindsets-and-ai-driven-infrastructure-evolution-social.jpg"
-# headerImage: "/images/revisiting-old-code-lessons-in-growth-enterprise-vs-startup-mindsets-and-ai-driven-infrastructure-evolution-hero.jpg"
-isDraft: false
+socialImage: "/images/your-social-image.jpg"
+headerImage: "/images/your-header-image.jpg"
+isDraft: true
 isFeatured: true
 priority: 8
 canonicalUrl: "https://cyberworldbuilders.com/blog/revisiting-old-code-lessons-in-growth-enterprise-vs-startup-mindsets-and-ai-driven-infrastructure-evolution"
 language: "en-US"
----
-
-# Revisiting Old Code: Lessons in Growth, Enterprise vs. Startup Mindsets, and AI-Driven Infrastructure Evolution
+---# Revisiting Old Code: Lessons in Growth, Enterprise vs. Startup Mindsets, and AI-Driven Infrastructure Evolution
 
 ## Overview
 This post reflects on the humbling experience of revisiting old code, highlighting the necessity of continuous improvement in software development. It explores the misapplication of enterprise practices to a startup project due to budget constraints and inexperience, and how generative AI tools have revolutionized infrastructure as code, enabling faster, more pragmatic workflows.

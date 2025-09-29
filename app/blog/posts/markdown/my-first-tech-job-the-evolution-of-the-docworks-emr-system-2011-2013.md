@@ -1,56 +1,29 @@
 ---
 title: "My First Tech Job: The Evolution of the DocWorks EMR System (2011-2013)"
-description: "A biographical account of early software development experiences at a doctor's office, working on the DocWorks electronic medical records system. Covers the evolution from Perl-based flat files to a hybrid system incorporating Ruby on Rails, PHP, and MySQL across multiple operating systems."
-publishedDate: 2024-01-07
-modifiedDate: 2025-09-23
-lastReviewedDate: 2025-09-23
+description: "SEO-friendly description for your post"
+publishedDate: 2025-09-29
+modifiedDate: 2025-09-29
+lastReviewedDate: 2025-09-29
 keywords:
-  - EMR system
-  - electronic medical records
-  - healthcare software
-  - Perl
-  - Ruby on Rails
-  - PHP
-  - MySQL
-  - full-stack development
-  - IT support
-  - Windows Server
-  - IIS
-  - Cygwin
-  - healthcare technology
-  - early career
-  - software evolution
+  - keyword1
+  - keyword2
+  - keyword3
 topics:
-  - Career & Professional Development
+  - AI & Automation
   - Development & Tools
 tags:
-  - EMR
-  - healthcare-software
-  - perl
-  - ruby-on-rails
-  - PHP
-  - MySQL
-  - full-stack
-  - IT-support
-  - windows-server
-  - IIS
-  - cygwin
-  - healthcare-tech
-  - early-career
-  - biographical
-  - software-evolution
+  - specific-tag
+  - another-tag
 series: "Career Journey"
 category: "Career"
-# socialImage: "/images/docworks-emr-social.jpg"
-# headerImage: "/images/docworks-emr-hero.jpg"
-isDraft: false
+socialImage: "/images/your-social-image.jpg"
+headerImage: "/images/your-header-image.jpg"
+isDraft: true
 isFeatured: false
 priority: 2
 canonicalUrl: "https://cyberworldbuilders.com/blog/my-first-tech-job-the-evolution-of-the-docworks-emr-system-2011-2013"
 language: "en-US"
----
-
-# My First Tech Job: The Evolution of the DocWorks EMR System (2011-2013)
+---# My First Tech Job: The Evolution of the DocWorks EMR System (2011-2013)
 
 ## Overview
 This biographical post chronicles my early experiences in software development at a doctor's office, where I worked on an electronic medical records (EMR) system called DocWorks. Spanning about two years around 2011-2013, this role involved full-stack development, IT support, and navigating a chaotic codebase. The system started as a simple Perl-based application and evolved into a hybrid "Franken system" incorporating multiple languages, operating systems, and architectures. Key themes include the tech stack, code evolution, and lessons from building healthcare software in a resource-constrained environment.
