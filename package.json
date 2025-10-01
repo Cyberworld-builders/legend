@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "PORT=3001 next dev",
-    "build": "npm run generate-post-index && next build",
+    "build": "npm run generate-tsx-posts && next build",
     "start": "next start",
     "lint": "next lint",
     "test": "jest",
@@ -13,6 +13,8 @@
     "test:production": "node scripts/test-production.js",
     "predeploy": "npm run test:ci && npm run lint",
     "generate-post-index": "node scripts/generate-post-index.js",
+    "preprocess-content": "node scripts/preprocess-content.js",
+    "generate-tsx-posts": "node scripts/generate-tsx-posts.js",
     "prebuild": "npm run generate-post-index",
     "postbuild": "npm run generate-post-index",
     "seo": "node scripts/seo-maintenance.js",
@@ -21,8 +23,14 @@
   },
   "dependencies": {
     "@langchain/openai": "^0.5.6",
+    "@tailwindcss/postcss": "^4.1.4",
     "@tailwindcss/typography": "^0.5.16",
+    "@types/react-syntax-highlighter": "^15.5.13",
     "@vercel/analytics": "^1.5.0",
+    "autoprefixer": "^10.4.21",
+    "eslint": "^9",
+    "eslint-config-next": "15.3.1",
+    "gray-matter": "^4.0.3",
     "langchain": "^0.3.23",
     "lucide-react": "^0.503.0",
     "next": "15.3.1",
@@ -34,12 +42,7 @@
     "react-markdown": "^10.1.0",
     "react-syntax-highlighter": "^15.6.1",
     "remark-gfm": "^4.0.1",
-    "typescript": "^5.9.2",
-    "eslint": "^9",
-    "eslint-config-next": "15.3.1",
-    "autoprefixer": "^10.4.21",
-    "@tailwindcss/postcss": "^4.1.4",
-    "@types/react-syntax-highlighter": "^15.5.13"
+    "typescript": "^5.9.2"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

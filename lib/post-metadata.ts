@@ -351,151 +351,39 @@ export function parsePostMetadata(
  * Get all posts with metadata
  */
 export async function getAllPostsWithMetadata(): Promise<PostWithMetadata[]> {
-  // Use hard-coded post index data instead of reading from file
-  // This eliminates file system dependencies in serverless environments
-  const { hardcodedPosts } = await import('./hardcoded-posts');
-  const postsFromIndex: PostIndexEntry[] = hardcodedPosts;
+  // Use generated TSX posts for better performance and modularity
+  // This eliminates all file system dependencies in serverless environments
+  const { getAllPostsData } = await import('./generated-posts-index');
   
-  console.log(`✅ Using hard-coded post index with ${postsFromIndex.length} posts`);
-  console.log(`📋 First few posts:`, postsFromIndex.slice(0, 3).map(p => p.slug));
+  console.log(`✅ Using generated TSX posts`);
   console.log(`🕐 Cache bust timestamp: ${Date.now()}`);
   
-  console.log(`Processing ${postsFromIndex.length} posts`);
+  const posts = await getAllPostsData();
   
-  const allPosts = await Promise.all(
-    postsFromIndex.map(async (postMeta) => {
-      try {
-        // Try to load the full post with content
-        const post = await getPostWithMetadata(postMeta.slug);
-        if (post) {
-          // Use the metadata from the index as a fallback/override
-          return {
-            ...post,
-            metadata: {
-              ...post.metadata,
-              // Override with index metadata where available
-              publishedDate: new Date(postMeta.publishedDate),
-              modifiedDate: new Date(postMeta.modifiedDate),
-              lastReviewedDate: new Date(postMeta.lastReviewedDate),
-              isDraft: postMeta.isDraft,
-              isFeatured: postMeta.isFeatured,
-              priority: postMeta.priority,
-              category: postMeta.category || post.metadata.category,
-              series: postMeta.series || post.metadata.series,
-              topics: postMeta.topics.length > 0 ? postMeta.topics : post.metadata.topics,
-              tags: postMeta.tags.length > 0 ? postMeta.tags : post.metadata.tags,
-              keywords: postMeta.keywords.length > 0 ? postMeta.keywords : post.metadata.keywords,
-              wordCount: postMeta.wordCount || post.metadata.wordCount,
-            }
-          };
-        } else {
-          // If we can't load the full post, create a minimal post from index data
-          console.warn(`Could not load post: ${postMeta.slug}, using index data only`);
-          return {
-            slug: postMeta.slug,
-            content: '', // Empty content for index-only posts
-            metadata: {
-              title: postMeta.title || postMeta.slug.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()),
-              description: '',
-              slug: postMeta.slug,
-              publishedDate: new Date(postMeta.publishedDate),
-              modifiedDate: new Date(postMeta.modifiedDate),
-              lastReviewedDate: new Date(postMeta.lastReviewedDate),
-              isDraft: postMeta.isDraft,
-              isFeatured: postMeta.isFeatured,
-              priority: postMeta.priority,
-              category: postMeta.category,
-              series: postMeta.series,
-              topics: postMeta.topics,
-              tags: postMeta.tags,
-              keywords: postMeta.keywords,
-              wordCount: postMeta.wordCount,
-              readingTime: Math.ceil((postMeta.wordCount || 0) / 200), // Estimate reading time
-              language: 'en-US',
-            },
-            fileStats: {
-              ctime: new Date(postMeta.fileModified),
-              mtime: new Date(postMeta.fileModified),
-              size: postMeta.fileSize,
-            }
-          };
-        }
-      } catch (error) {
-        console.error(`Error loading post ${postMeta.slug}:`, error instanceof Error ? error.message : String(error));
-        return null;
-      }
-    })
-  );
+  console.log(`📊 Final result: ${posts.length} published posts`);
+  console.log(`📝 Published post slugs:`, posts.map(p => p.slug));
   
-  // Filter out null results and drafts in production
-  const validPosts = allPosts.filter(post => post !== null) as PostWithMetadata[];
-  const publishedPosts = validPosts.filter(post => 
-    process.env.NODE_ENV === 'development' || !post.metadata.isDraft
-  );
-  
-  console.log(`📊 Final result: ${validPosts.length} valid posts, ${publishedPosts.length} published posts`);
-  console.log(`📝 Published post slugs:`, publishedPosts.map(p => p.slug));
-  
-  // Sort by published date (most recent first), then by priority
-  return publishedPosts.sort((a, b) => {
-    const dateA = a.metadata.publishedDate || a.fileStats.ctime;
-    const dateB = b.metadata.publishedDate || b.fileStats.ctime;
-    
-    // First sort by date
-    const dateComparison = dateB.getTime() - dateA.getTime();
-    if (dateComparison !== 0) return dateComparison;
-    
-    // Then by priority (higher priority first)
-    return (b.metadata.priority || 0) - (a.metadata.priority || 0);
-  });
+  return posts;
 }
 
 /**
  * Get a single post with metadata
  */
 export async function getPostWithMetadata(slug: string): Promise<PostWithMetadata | null> {
-  // Use hard-coded post data instead of reading from file system
-  const { hardcodedPosts } = await import('./hardcoded-posts');
+  // Use generated TSX posts for better performance and modularity
+  // This eliminates all file system dependencies in serverless environments
+  const { getPostData } = await import('./generated-posts-index');
   
-  // Find the post in our hard-coded data
-  const postData = hardcodedPosts.find(post => post.slug === slug);
+  console.log(`✅ Loading TSX post: ${slug}`);
   
-  if (!postData) {
+  const post = await getPostData(slug);
+  
+  if (!post) {
     console.error(`Post not found: ${slug}`);
     return null;
   }
   
-  console.log(`Found post data for: ${slug}`);
-  
-  // Create a PostWithMetadata object from the hard-coded data
-  const post: PostWithMetadata = {
-    slug: postData.slug,
-    content: `# ${postData.title}\n\nThis is a placeholder content for ${postData.title}. The full content would be loaded from the markdown file in a file-based system.`, // Placeholder content
-    metadata: {
-      title: postData.title,
-      description: `Read about ${postData.title} - Software engineering insights and technical articles from CyberWorld Builders.`,
-      slug: postData.slug,
-      publishedDate: new Date(postData.publishedDate),
-      modifiedDate: new Date(postData.modifiedDate),
-      lastReviewedDate: new Date(postData.lastReviewedDate),
-      isDraft: postData.isDraft,
-      isFeatured: postData.isFeatured,
-      priority: postData.priority,
-      category: postData.category,
-      series: postData.series,
-      topics: postData.topics,
-      tags: postData.tags,
-      keywords: postData.keywords,
-      wordCount: postData.wordCount,
-      readingTime: Math.ceil(postData.wordCount / 200),
-      language: 'en-US',
-    },
-    fileStats: {
-      ctime: new Date(postData.fileModified),
-      mtime: new Date(postData.fileModified),
-      size: postData.fileSize,
-    }
-  };
+  console.log(`✅ Found TSX post: ${slug}`);
   
   return post;
 }
