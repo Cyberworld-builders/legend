@@ -1,0 +1,20 @@
+{
+  "generatedAt": "2025-10-01T08:43:42.782Z",
+  "summary": {
+    "totalPosts": 18,
+    "publishedPosts": 18,
+    "draftPosts": 0,
+    "featuredPosts": 9,
+    "postsNeedingReview": 14
+  },
+  "topics": {
+    "Development & Tools": 13,
+    "Career & Professional Development": 9,
+    "AI & Automation": 8,
+    "Business & Marketing": 1,
+    "Marketing & Business": 2
+  },
+  "recommendations": [
+    "Review 14 posts older than 90 days"
+  ]
+}
