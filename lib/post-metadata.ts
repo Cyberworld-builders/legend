@@ -372,15 +372,13 @@ export async function getAllPostsWithMetadata(): Promise<PostWithMetadata[]> {
     ];
     
     let indexContent = '';
-    let indexPath = '';
     
     for (const testPath of possibleIndexPaths) {
       try {
         indexContent = await fs.readFile(testPath, 'utf8');
-        indexPath = testPath;
         console.log(`✅ Found post index at: ${testPath}`);
         break;
-      } catch (error) {
+      } catch {
         // Continue to next path
         continue;
       }
