@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2025-09-29T02:21:20.039Z",
+  "generatedAt": "2025-10-01T08:45:56.643Z",
   "count": 18,
   "posts": [
     {
@@ -13,12 +13,146 @@
       "priority": 5,
       "category": "",
       "series": "",
-      "topics": [],
-      "tags": [],
-      "keywords": [],
-      "wordCount": 1470,
-      "fileSize": 10228,
-      "fileModified": "2025-09-29T02:21:19.774Z"
+      "topics": [
+        "Development & Tools",
+        "Career & Professional Development"
+      ],
+      "tags": [
+        "infrastructure-as-code",
+        "generative-ai",
+        "enterprise-startup",
+        "devops",
+        "code-refactoring"
+      ],
+      "keywords": [
+        "code quality",
+        "infrastructure as code",
+        "generative AI",
+        "enterprise vs startup",
+        "DevOps practices",
+        "cloud architecture",
+        "security practices",
+        "startup agility",
+        "terraform",
+        "AI-assisted development"
+      ],
+      "wordCount": 1267,
+      "fileSize": 9939,
+      "fileModified": "2025-09-26T13:30:28.782Z"
+    },
+    {
+      "slug": "lessons-from-mentors-enterprise-insights-and-personal-reflections-from-urban-dynamics",
+      "title": "Lessons from Mentors: Enterprise Insights and Personal Reflections from Urban Dynamics",
+      "publishedDate": "2025-09-24T00:00:00.000Z",
+      "modifiedDate": "2025-09-24T00:00:00.000Z",
+      "lastReviewedDate": "2025-09-24T00:00:00.000Z",
+      "isDraft": false,
+      "isFeatured": true,
+      "priority": 8,
+      "category": "Career",
+      "series": "",
+      "topics": [
+        "Career & Professional Development",
+        "Development & Tools"
+      ],
+      "tags": [
+        "enterprise-devops",
+        "mentorship",
+        "identity-access-management",
+        "startup-enterprise",
+        "personal-reflection"
+      ],
+      "keywords": [
+        "enterprise DevOps",
+        "identity management",
+        "single sign-on",
+        "mentorship",
+        "startup culture",
+        "enterprise contracts",
+        "networking security",
+        "personal growth",
+        "AI-assisted development",
+        "creative ideation"
+      ],
+      "wordCount": 1595,
+      "fileSize": 11837,
+      "fileModified": "2025-10-01T08:39:19.639Z"
+    },
+    {
+      "slug": "building-a-generative-framework-evolving-ai-coding-agents-and-human-ai-collaboration",
+      "title": "Building a Generative Framework: Evolving AI Coding Agents and Human-AI Collaboration",
+      "publishedDate": "2025-09-23T00:00:00.000Z",
+      "modifiedDate": "2025-09-23T00:00:00.000Z",
+      "lastReviewedDate": "2025-09-23T00:00:00.000Z",
+      "isDraft": false,
+      "isFeatured": true,
+      "priority": 9,
+      "category": "Technology",
+      "series": "",
+      "topics": [
+        "AI & Automation",
+        "Development & Tools"
+      ],
+      "tags": [
+        "generative-ai",
+        "coding-agents",
+        "ai-autonomy",
+        "human-ai-collaboration",
+        "software-frameworks"
+      ],
+      "keywords": [
+        "generative framework",
+        "coding agents",
+        "AI autonomy",
+        "human-AI collaboration",
+        "software development",
+        "LLM productivity",
+        "AI training data",
+        "heuristic for AI use",
+        "prompt engineering",
+        "agentic AI"
+      ],
+      "wordCount": 4089,
+      "fileSize": 24565,
+      "fileModified": "2025-09-23T23:19:09.870Z"
+    },
+    {
+      "slug": "the-power-of-flat-files-in-blogging-repurposing-coding-tools-for-content-creation-and-ai-optimization",
+      "title": "The Power of Flat Files in Blogging: Repurposing Coding Tools for Content Creation and AI Optimization",
+      "publishedDate": "2025-09-23T00:00:00.000Z",
+      "modifiedDate": "2025-09-23T00:00:00.000Z",
+      "lastReviewedDate": "2025-09-23T00:00:00.000Z",
+      "isDraft": false,
+      "isFeatured": true,
+      "priority": 8,
+      "category": "Technology",
+      "series": "",
+      "topics": [
+        "AI & Automation",
+        "Development & Tools"
+      ],
+      "tags": [
+        "flat-files",
+        "ai-blogging",
+        "generative-seo",
+        "coding-ide-repurpose",
+        "content-framework"
+      ],
+      "keywords": [
+        "flat files blogging",
+        "Jamstack Next.js",
+        "AI content creation",
+        "coding agents for blogging",
+        "generative search optimization",
+        "YAML frontmatter",
+        "Markdown content",
+        "IDE indexing",
+        "SEO schema updates",
+        "human-AI collaboration"
+      ],
+      "wordCount": 4187,
+      "fileSize": 25207,
+      "fileModified": "2025-09-23T23:19:09.876Z"
     },
     {
       "slug": "troubleshooting-n8n-workflows-integrated-with-supabase-vapi-and-lovable-for-ai-driven-sales-automation",
