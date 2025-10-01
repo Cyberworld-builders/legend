@@ -1,0 +1,981 @@
+/**
+ * Generated posts index
+ * This file is generated automatically during the build process
+ * DO NOT EDIT MANUALLY - it will be overwritten on the next build
+ */
+
+export interface PostIndexEntry {
+  slug: string;
+  title: string;
+  publishedDate: string;
+  modifiedDate: string;
+  lastReviewedDate: string;
+  isDraft: boolean;
+  isFeatured: boolean;
+  priority: number;
+  category: string;
+  series: string;
+  topics: string[];
+  tags: string[];
+  keywords: string[];
+  wordCount: number;
+  fileSize: number;
+  fileModified: string;
+}
+
+export const postsIndex: PostIndexEntry[] = [
+  {
+    "slug": "ai-humanity-and-the-future-career-reflections-and-societal-shifts-in-an-automated-world",
+    "title": "AI, Humanity, and the Future: Career Reflections and Societal Shifts in an Automated World",
+    "publishedDate": "2025-10-01T00:00:00.000Z",
+    "modifiedDate": "2025-10-01T00:00:00.000Z",
+    "lastReviewedDate": "2025-10-01T00:00:00.000Z",
+    "isDraft": false,
+    "isFeatured": true,
+    "priority": 9,
+    "category": "Technology",
+    "series": "",
+    "topics": [
+      "AI & Automation",
+      "Career & Professional Development"
+    ],
+    "tags": [
+      "ai-humanity",
+      "career-transition",
+      "societal-optimism",
+      "existential-ai",
+      "creative-value"
+    ],
+    "keywords": [
+      "AI disruption",
+      "human uniqueness",
+      "career reflections",
+      "societal shifts",
+      "proof of humanity",
+      "existential crisis",
+      "generative AI",
+      "novelty creativity",
+      "space exploration",
+      "abundance future"
+    ],
+    "wordCount": 956,
+    "fileSize": 8254,
+    "fileModified": "2025-10-01T22:56:04.018Z"
+  },
+  {
+    "slug": "cemetery-management-application-gps-mapping-ar-integration-and-autonomous-maintenance-for-funeral-homes",
+    "title": "Cemetery Management Application: GPS Mapping, AR Integration, and Autonomous Maintenance for Funeral Homes",
+    "publishedDate": "2025-09-28T00:00:00.000Z",
+    "modifiedDate": "2025-09-28T00:00:00.000Z",
+    "lastReviewedDate": "2025-09-28T00:00:00.000Z",
+    "isDraft": false,
+    "isFeatured": true,
+    "priority": 8,
+    "category": "Technology",
+    "series": "",
+    "topics": [
+      "Development & Tools",
+      "AI & Automation"
+    ],
+    "tags": [
+      "cemetery-app",
+      "gps-mapping",
+      "ar-maintenance",
+      "autonomous-drones",
+      "revenant-hollow"
+    ],
+    "keywords": [
+      "cemetery management software",
+      "GPS grave mapping",
+      "AR cemetery maintenance",
+      "autonomous mowers",
+      "drone cemetery patrols",
+      "UGV terrain mapping",
+      "funeral home CRM",
+      "Revenant Hollow",
+      "location-based AR",
+      "mixed reality experiences"
+    ],
+    "wordCount": 1145,
+    "fileSize": 10830,
+    "fileModified": "2025-10-01T18:52:50.531Z"
+  },
+  {
+    "slug": "revisiting-old-code-lessons-in-growth-enterprise-vs-startup-mindsets-and-ai-driven-infrastructure-evolution",
+    "title": "Revisiting Old Code: Lessons in Growth, Enterprise vs. Startup Mindsets, and AI-Driven Infrastructure Evolution",
+    "publishedDate": "2025-09-25T00:00:00.000Z",
+    "modifiedDate": "2025-09-25T00:00:00.000Z",
+    "lastReviewedDate": "2025-09-25T00:00:00.000Z",
+    "isDraft": false,
+    "isFeatured": true,
+    "priority": 8,
+    "category": "Technology",
+    "series": "",
+    "topics": [
+      "Development & Tools",
+      "Career & Professional Development"
+    ],
+    "tags": [
+      "infrastructure-as-code",
+      "generative-ai",
+      "enterprise-startup",
+      "devops",
+      "code-refactoring"
+    ],
+    "keywords": [
+      "code quality",
+      "infrastructure as code",
+      "generative AI",
+      "enterprise vs startup",
+      "DevOps practices",
+      "cloud architecture",
+      "security practices",
+      "startup agility",
+      "terraform",
+      "AI-assisted development"
+    ],
+    "wordCount": 1141,
+    "fileSize": 9939,
+    "fileModified": "2025-10-01T14:10:23.579Z"
+  },
+  {
+    "slug": "lessons-from-mentors-enterprise-insights-and-personal-reflections-from-urban-dynamics",
+    "title": "Lessons from Mentors: Enterprise Insights and Personal Reflections from Urban Dynamics",
+    "publishedDate": "2025-09-24T00:00:00.000Z",
+    "modifiedDate": "2025-09-24T00:00:00.000Z",
+    "lastReviewedDate": "2025-09-24T00:00:00.000Z",
+    "isDraft": false,
+    "isFeatured": true,
+    "priority": 8,
+    "category": "Career",
+    "series": "",
+    "topics": [
+      "Career & Professional Development",
+      "Development & Tools"
+    ],
+    "tags": [
+      "enterprise-devops",
+      "mentorship",
+      "identity-access-management",
+      "startup-enterprise",
+      "personal-reflection"
+    ],
+    "keywords": [
+      "enterprise DevOps",
+      "identity management",
+      "single sign-on",
+      "mentorship",
+      "startup culture",
+      "enterprise contracts",
+      "networking security",
+      "personal growth",
+      "AI-assisted development",
+      "creative ideation"
+    ],
+    "wordCount": 1472,
+    "fileSize": 11841,
+    "fileModified": "2025-10-01T14:18:24.009Z"
+  },
+  {
+    "slug": "building-a-generative-framework-evolving-ai-coding-agents-and-human-ai-collaboration",
+    "title": "Building a Generative Framework: Evolving AI Coding Agents and Human-AI Collaboration",
+    "publishedDate": "2025-09-23T00:00:00.000Z",
+    "modifiedDate": "2025-09-23T00:00:00.000Z",
+    "lastReviewedDate": "2025-09-23T00:00:00.000Z",
+    "isDraft": false,
+    "isFeatured": true,
+    "priority": 9,
+    "category": "Technology",
+    "series": "",
+    "topics": [
+      "AI & Automation",
+      "Development & Tools"
+    ],
+    "tags": [
+      "generative-ai",
+      "coding-agents",
+      "ai-autonomy",
+      "human-ai-collaboration",
+      "software-frameworks"
+    ],
+    "keywords": [
+      "generative framework",
+      "coding agents",
+      "AI autonomy",
+      "human-AI collaboration",
+      "software development",
+      "LLM productivity",
+      "AI training data",
+      "heuristic for AI use",
+      "prompt engineering",
+      "agentic AI"
+    ],
+    "wordCount": 3963,
+    "fileSize": 24565,
+    "fileModified": "2025-10-01T14:10:23.533Z"
+  },
+  {
+    "slug": "the-power-of-flat-files-in-blogging-repurposing-coding-tools-for-content-creation-and-ai-optimization",
+    "title": "The Power of Flat Files in Blogging: Repurposing Coding Tools for Content Creation and AI Optimization",
+    "publishedDate": "2025-09-23T00:00:00.000Z",
+    "modifiedDate": "2025-09-23T00:00:00.000Z",
+    "lastReviewedDate": "2025-09-23T00:00:00.000Z",
+    "isDraft": false,
+    "isFeatured": true,
+    "priority": 8,
+    "category": "Technology",
+    "series": "",
+    "topics": [
+      "AI & Automation",
+      "Development & Tools"
+    ],
+    "tags": [
+      "flat-files",
+      "ai-blogging",
+      "generative-seo",
+      "coding-ide-repurpose",
+      "content-framework"
+    ],
+    "keywords": [
+      "flat files blogging",
+      "Jamstack Next.js",
+      "AI content creation",
+      "coding agents for blogging",
+      "generative search optimization",
+      "YAML frontmatter",
+      "Markdown content",
+      "IDE indexing",
+      "SEO schema updates",
+      "human-AI collaboration"
+    ],
+    "wordCount": 4051,
+    "fileSize": 25207,
+    "fileModified": "2025-10-01T14:10:23.604Z"
+  },
+  {
+    "slug": "troubleshooting-n8n-workflows-integrated-with-supabase-vapi-and-lovable-for-ai-driven-sales-automation",
+    "title": "Troubleshooting n8n Workflows Integrated with Supabase, Vapi, and Lovable for AI-Driven Sales Automation",
+    "publishedDate": "2024-01-20T00:00:00.000Z",
+    "modifiedDate": "2025-09-23T00:00:00.000Z",
+    "lastReviewedDate": "2025-09-23T00:00:00.000Z",
+    "isDraft": false,
+    "isFeatured": false,
+    "priority": 5,
+    "category": "Development",
+    "series": "Technical Troubleshooting",
+    "topics": [
+      "Development & Tools",
+      "AI & Automation"
+    ],
+    "tags": [
+      "n8n",
+      "supabase",
+      "vapi",
+      "lovable",
+      "automation",
+      "troubleshooting",
+      "database",
+      "AI",
+      "sales",
+      "workflow",
+      "debugging",
+      "system-recovery"
+    ],
+    "keywords": [
+      "n8n",
+      "supabase",
+      "vapi",
+      "lovable",
+      "AI automation",
+      "sales automation",
+      "workflow troubleshooting",
+      "database errors",
+      "foreign key constraints",
+      "voice AI",
+      "no-code",
+      "low-code",
+      "system recovery",
+      "data loss",
+      "automation debugging"
+    ],
+    "wordCount": 3987,
+    "fileSize": 24973,
+    "fileModified": "2025-10-01T14:10:23.485Z"
+  },
+  {
+    "slug": "building-drum-note-ai-powered-drum-transcription-kit-generation-and-hands-on-marketing-with-rendercom",
+    "title": "Building Drum Note: AI-Powered Drum Transcription, Kit Generation, and Hands-On Marketing with Render.com",
+    "publishedDate": "2024-01-18T00:00:00.000Z",
+    "modifiedDate": "2025-09-23T00:00:00.000Z",
+    "lastReviewedDate": "2025-09-23T00:00:00.000Z",
+    "isDraft": false,
+    "isFeatured": false,
+    "priority": 7,
+    "category": "Technology",
+    "series": "AI & Creative Tools",
+    "topics": [
+      "AI & Automation",
+      "Development & Tools"
+    ],
+    "tags": [
+      "AI-music",
+      "drum-transcription",
+      "audio-analysis",
+      "music-notation",
+      "music-production",
+      "automation",
+      "creative-tools",
+      "music-technology",
+      "drum-and-bass",
+      "hip-hop",
+      "metal",
+      "jungle"
+    ],
+    "keywords": [
+      "AI music tools",
+      "drum transcription",
+      "audio analysis",
+      "music notation",
+      "drum kit generation",
+      "audio-to-notation",
+      "music production",
+      "AI automation",
+      "drum and bass",
+      "jungle music",
+      "extreme metal",
+      "hip-hop beats",
+      "music technology",
+      "creative tools"
+    ],
+    "wordCount": 3513,
+    "fileSize": 22237,
+    "fileModified": "2025-10-01T14:10:23.567Z"
+  },
+  {
+    "slug": "replit-test-drive",
+    "title": "Exploring No-Code Development with Replit: A Professional Analysis",
+    "publishedDate": "2024-01-17T00:00:00.000Z",
+    "modifiedDate": "2025-09-23T00:00:00.000Z",
+    "lastReviewedDate": "2025-09-23T00:00:00.000Z",
+    "isDraft": false,
+    "isFeatured": false,
+    "priority": 10,
+    "category": "Development",
+    "series": "Development Tools",
+    "topics": [
+      "Development & Tools"
+    ],
+    "tags": [
+      "no-code",
+      "replit",
+      "automation",
+      "mobile-accessibility",
+      "non-technical",
+      "typescript",
+      "npm",
+      "docker",
+      "database-migration",
+      "founder-capabilities",
+      "development-services",
+      "cost-analysis"
+    ],
+    "keywords": [
+      "no-code development",
+      "Replit",
+      "to-do application",
+      "automation",
+      "mobile accessibility",
+      "non-technical interface",
+      "TypeScript",
+      "NPM dependencies",
+      "Docker containers",
+      "database migration",
+      "founder capabilities",
+      "development services",
+      "cost analysis"
+    ],
+    "wordCount": 967,
+    "fileSize": 8733,
+    "fileModified": "2025-10-01T14:10:23.510Z"
+  },
+  {
+    "slug": "the-last-cycle-why-founder-engineer-partnerships-are-nearing-their-end",
+    "title": "The Last Cycle: Why Founder-Engineer Partnerships Are Nearing Their End",
+    "publishedDate": "2024-01-16T00:00:00.000Z",
+    "modifiedDate": "2025-09-23T00:00:00.000Z",
+    "lastReviewedDate": "2025-09-23T00:00:00.000Z",
+    "isDraft": false,
+    "isFeatured": false,
+    "priority": 9,
+    "category": "Business",
+    "series": "Industry Analysis",
+    "topics": [
+      "Business & Marketing",
+      "AI & Automation"
+    ],
+    "tags": [
+      "founder-engineer",
+      "partnerships",
+      "AI-tools",
+      "minimal-teams",
+      "cursor",
+      "github-copilot",
+      "grok",
+      "tech-cycles",
+      "collaboration",
+      "strategic-planning",
+      "industry-trends",
+      "automation",
+      "development-efficiency",
+      "team-scaling"
+    ],
+    "keywords": [
+      "founder-engineer partnerships",
+      "AI tools",
+      "minimal teams",
+      "Cursor",
+      "GitHub Copilot",
+      "Grok 3",
+      "tech cycles",
+      "collaboration",
+      "strategic planning",
+      "industry trends",
+      "automation",
+      "development efficiency",
+      "team scaling"
+    ],
+    "wordCount": 1327,
+    "fileSize": 9953,
+    "fileModified": "2025-10-01T14:10:23.549Z"
+  },
+  {
+    "slug": "revenant-hollow-integrating-technology-into-location-based-horror-experiences",
+    "title": "Revenant Hollow: Integrating Technology into Location-Based Horror Experiences",
+    "publishedDate": "2024-01-15T00:00:00.000Z",
+    "modifiedDate": "2025-09-23T00:00:00.000Z",
+    "lastReviewedDate": "2025-09-23T00:00:00.000Z",
+    "isDraft": false,
+    "isFeatured": true,
+    "priority": 5,
+    "category": "Technology",
+    "series": "Entertainment Technology",
+    "topics": [
+      "AI & Automation",
+      "Development & Tools"
+    ],
+    "tags": [
+      "mixed-reality",
+      "entertainment-tech",
+      "IoT",
+      "location-based",
+      "horror",
+      "seasonal-business",
+      "mobile-apps",
+      "automation",
+      "theatrical",
+      "startup"
+    ],
+    "keywords": [
+      "mixed reality",
+      "virtual reality",
+      "augmented reality",
+      "IoT",
+      "location-based entertainment",
+      "haunted houses",
+      "Halloween attractions",
+      "automation",
+      "robotics",
+      "theatrical attractions",
+      "interactive experiences",
+      "mobile integration",
+      "geolocation",
+      "scare props",
+      "augmented reality sports complex"
+    ],
+    "wordCount": 2908,
+    "fileSize": 20080,
+    "fileModified": "2025-10-01T14:10:23.541Z"
+  },
+  {
+    "slug": "the-jumpstarter-a-5-point-framework-to-align-value-and-passion",
+    "title": "The Jumpstarter: A 5-Point Framework to Align Value and Passion",
+    "publishedDate": "2024-01-14T00:00:00.000Z",
+    "modifiedDate": "2025-09-23T00:00:00.000Z",
+    "lastReviewedDate": "2025-09-23T00:00:00.000Z",
+    "isDraft": false,
+    "isFeatured": false,
+    "priority": 8,
+    "category": "Career",
+    "series": "Productivity & Frameworks",
+    "topics": [
+      "Career & Professional Development"
+    ],
+    "tags": [
+      "productivity",
+      "framework",
+      "daily-standup",
+      "value-alignment",
+      "passion",
+      "creative-flow",
+      "idea-capture",
+      "downtime",
+      "voice-memos",
+      "transcription",
+      "LLMs",
+      "goal-setting",
+      "self-reflection"
+    ],
+    "keywords": [
+      "productivity framework",
+      "daily stand-up",
+      "value alignment",
+      "passion alignment",
+      "creative flow",
+      "idea capture",
+      "downtime utilization",
+      "voice memos",
+      "transcription tools",
+      "LLMs",
+      "productivity systems",
+      "goal setting",
+      "self-reflection"
+    ],
+    "wordCount": 1249,
+    "fileSize": 9096,
+    "fileModified": "2025-10-01T14:10:23.691Z"
+  },
+  {
+    "slug": "enhancing-seo-on-my-company-landing-site-with-ai-agents",
+    "title": "Enhancing SEO on My Company Landing Site with AI Agents",
+    "publishedDate": "2024-01-12T00:00:00.000Z",
+    "modifiedDate": "2025-09-23T00:00:00.000Z",
+    "lastReviewedDate": "2025-09-23T00:00:00.000Z",
+    "isDraft": false,
+    "isFeatured": false,
+    "priority": 6,
+    "category": "Marketing",
+    "series": "SEO & Marketing",
+    "topics": [
+      "Marketing & Business",
+      "Development & Tools",
+      "AI & Automation"
+    ],
+    "tags": [
+      "SEO",
+      "AI-agents",
+      "digital-marketing",
+      "blog-architecture",
+      "meta-tags",
+      "schema-markup",
+      "page-speed",
+      "social-media",
+      "content-strategy",
+      "AI-development"
+    ],
+    "keywords": [
+      "SEO optimization",
+      "AI agents",
+      "Cursor AI",
+      "meta tags",
+      "breadcrumbs",
+      "social media integration",
+      "page speed optimization",
+      "schema markup",
+      "blog architecture",
+      "digital marketing",
+      "search engine optimization",
+      "AI-assisted development",
+      "developer tools",
+      "content strategy"
+    ],
+    "wordCount": 4992,
+    "fileSize": 30103,
+    "fileModified": "2025-10-01T14:10:23.517Z"
+  },
+  {
+    "slug": "scaling-novelty-with-an-agentic-blog-bot",
+    "title": "Scaling Novelty with an Agentic Blog Bot",
+    "publishedDate": "2024-01-12T00:00:00.000Z",
+    "modifiedDate": "2025-09-23T00:00:00.000Z",
+    "lastReviewedDate": "2025-09-23T00:00:00.000Z",
+    "isDraft": false,
+    "isFeatured": true,
+    "priority": 6,
+    "category": "Technology",
+    "series": "AI & Automation",
+    "topics": [
+      "AI & Automation",
+      "Development & Tools"
+    ],
+    "tags": [
+      "AI",
+      "blog-bot",
+      "content-creation",
+      "automation",
+      "digital-legacy",
+      "creativity",
+      "AI-agents",
+      "content-strategy",
+      "personal-branding",
+      "technology",
+      "innovation"
+    ],
+    "keywords": [
+      "AI",
+      "blog bot",
+      "content creation",
+      "automation",
+      "digital legacy",
+      "creativity",
+      "AI agents",
+      "content strategy",
+      "personal branding",
+      "technology",
+      "innovation",
+      "digital tools"
+    ],
+    "wordCount": 1007,
+    "fileSize": 7567,
+    "fileModified": "2025-10-01T14:10:23.635Z"
+  },
+  {
+    "slug": "building-an-effective-web-presence-for-professional-validation",
+    "title": "Building an Effective Web Presence for Professional Validation",
+    "publishedDate": "2024-01-10T00:00:00.000Z",
+    "modifiedDate": "2025-09-23T00:00:00.000Z",
+    "lastReviewedDate": "2025-09-23T00:00:00.000Z",
+    "isDraft": false,
+    "isFeatured": true,
+    "priority": 8,
+    "category": "Career",
+    "series": "Professional Development",
+    "topics": [
+      "Marketing & Business",
+      "Career & Professional Development"
+    ],
+    "tags": [
+      "web-presence",
+      "professional-branding",
+      "SEO",
+      "freelancing",
+      "digital-marketing",
+      "content-strategy",
+      "networking",
+      "personal-brand",
+      "career-development",
+      "online-validation"
+    ],
+    "keywords": [
+      "web presence",
+      "professional validation",
+      "SEO",
+      "generative optimization",
+      "digital marketing",
+      "freelancing",
+      "personal branding",
+      "biographical blog",
+      "LLM optimization",
+      "professional networking",
+      "digital portfolio",
+      "content strategy",
+      "online credibility",
+      "search optimization",
+      "professional development"
+    ],
+    "wordCount": 909,
+    "fileSize": 7846,
+    "fileModified": "2025-10-01T14:10:23.558Z"
+  },
+  {
+    "slug": "transitioning-from-cable-contracting-to-freelance-web-development-a-career-pivot",
+    "title": "Transitioning from Cable Contracting to Freelance Web Development: A Career Pivot",
+    "publishedDate": "2024-01-09T00:00:00.000Z",
+    "modifiedDate": "2025-09-23T00:00:00.000Z",
+    "lastReviewedDate": "2025-09-23T00:00:00.000Z",
+    "isDraft": false,
+    "isFeatured": true,
+    "priority": 1,
+    "category": "Career",
+    "series": "Career Journey",
+    "topics": [
+      "Career & Professional Development"
+    ],
+    "tags": [
+      "career-transition",
+      "cable-contracting",
+      "freelance",
+      "web-development",
+      "misclassification",
+      "charter-communications",
+      "upwork",
+      "wordpress",
+      "PHP",
+      "MySQL",
+      "self-learning",
+      "global-market",
+      "career-pivot",
+      "manual-labor",
+      "programming"
+    ],
+    "keywords": [
+      "career transition",
+      "cable contracting",
+      "freelance web development",
+      "misclassification",
+      "Charter Communications",
+      "Spectrum",
+      "Upwork",
+      "WordPress",
+      "PHP",
+      "MySQL",
+      "self-directed learning",
+      "global freelance market",
+      "career pivot",
+      "manual labor",
+      "programming skills"
+    ],
+    "wordCount": 1404,
+    "fileSize": 10962,
+    "fileModified": "2025-10-01T14:10:23.494Z"
+  },
+  {
+    "slug": "early-adventures-in-freelance-web-development-lessons-from-the-wordpress-era",
+    "title": "Early Adventures in Freelance Web Development: Lessons from the WordPress Era",
+    "publishedDate": "2024-01-08T00:00:00.000Z",
+    "modifiedDate": "2025-09-23T00:00:00.000Z",
+    "lastReviewedDate": "2025-09-23T00:00:00.000Z",
+    "isDraft": false,
+    "isFeatured": false,
+    "priority": 4,
+    "category": "Career",
+    "series": "Career Journey",
+    "topics": [
+      "Career & Professional Development",
+      "Development & Tools"
+    ],
+    "tags": [
+      "freelance",
+      "wordpress",
+      "web-development",
+      "career-lessons",
+      "client-management",
+      "reputation",
+      "PHP",
+      "MySQL",
+      "JavaScript",
+      "remote-work",
+      "upwork",
+      "global-market"
+    ],
+    "keywords": [
+      "freelance web development",
+      "WordPress development",
+      "plugin customization",
+      "client relationships",
+      "reputation management",
+      "remote work",
+      "full-stack development",
+      "PHP",
+      "MySQL",
+      "JavaScript",
+      "career lessons",
+      "freelancing",
+      "Upwork",
+      "global market"
+    ],
+    "wordCount": 1407,
+    "fileSize": 11092,
+    "fileModified": "2025-10-01T14:10:23.683Z"
+  },
+  {
+    "slug": "my-first-tech-job-the-evolution-of-the-docworks-emr-system-2011-2013",
+    "title": "My First Tech Job: The Evolution of the DocWorks EMR System (2011-2013)",
+    "publishedDate": "2024-01-07T00:00:00.000Z",
+    "modifiedDate": "2025-09-23T00:00:00.000Z",
+    "lastReviewedDate": "2025-09-23T00:00:00.000Z",
+    "isDraft": false,
+    "isFeatured": false,
+    "priority": 2,
+    "category": "Career",
+    "series": "Career Journey",
+    "topics": [
+      "Career & Professional Development",
+      "Development & Tools"
+    ],
+    "tags": [
+      "EMR",
+      "healthcare-software",
+      "perl",
+      "ruby-on-rails",
+      "PHP",
+      "MySQL",
+      "full-stack",
+      "IT-support",
+      "windows-server",
+      "IIS",
+      "cygwin",
+      "healthcare-tech",
+      "early-career",
+      "biographical",
+      "software-evolution"
+    ],
+    "keywords": [
+      "EMR system",
+      "electronic medical records",
+      "healthcare software",
+      "Perl",
+      "Ruby on Rails",
+      "PHP",
+      "MySQL",
+      "full-stack development",
+      "IT support",
+      "Windows Server",
+      "IIS",
+      "Cygwin",
+      "healthcare technology",
+      "early career",
+      "software evolution"
+    ],
+    "wordCount": 2993,
+    "fileSize": 19539,
+    "fileModified": "2025-10-01T14:10:23.525Z"
+  },
+  {
+    "slug": "intro-to-linux-how-i-stayed-in-the-dev-game-while-too-broke-to-buy-a-pc",
+    "title": "Intro to Linux: How I Stayed in the Dev Game While Too Broke to Buy a PC",
+    "publishedDate": "2024-01-06T00:00:00.000Z",
+    "modifiedDate": "2025-09-23T00:00:00.000Z",
+    "lastReviewedDate": "2025-09-23T00:00:00.000Z",
+    "isDraft": false,
+    "isFeatured": false,
+    "priority": 3,
+    "category": "Career",
+    "series": "Career Journey",
+    "topics": [
+      "Career & Professional Development",
+      "Development & Tools"
+    ],
+    "tags": [
+      "linux",
+      "ubuntu",
+      "command-line",
+      "networking",
+      "server-management",
+      "development",
+      "career-transition",
+      "self-learning",
+      "cloud-architecture",
+      "enterprise",
+      "biographical",
+      "early-career"
+    ],
+    "keywords": [
+      "Linux",
+      "Ubuntu",
+      "command line",
+      "networking",
+      "server management",
+      "development workstation",
+      "Windows XP",
+      "career development",
+      "self-directed learning",
+      "cloud architecture",
+      "full-stack development",
+      "enterprise development",
+      "Linux skills",
+      "career transition"
+    ],
+    "wordCount": 1326,
+    "fileSize": 10573,
+    "fileModified": "2025-10-01T14:10:23.649Z"
+  },
+  {
+    "slug": "my-first-steps-into-coding",
+    "title": "My First Steps into Coding: A Biographical Journey",
+    "publishedDate": "2024-01-05T00:00:00.000Z",
+    "modifiedDate": "2025-09-23T00:00:00.000Z",
+    "lastReviewedDate": "2025-09-23T00:00:00.000Z",
+    "isDraft": false,
+    "isFeatured": true,
+    "priority": 7,
+    "category": "Career",
+    "series": "Career Journey",
+    "topics": [
+      "Career & Professional Development"
+    ],
+    "tags": [
+      "coding-journey",
+      "web-development",
+      "career-transition",
+      "biographical",
+      "early-career",
+      "self-learning",
+      "programming",
+      "technology"
+    ],
+    "keywords": [
+      "coding journey",
+      "HTML",
+      "CSS",
+      "Flash",
+      "web development",
+      "career transition",
+      "self-directed learning",
+      "programming",
+      "software development",
+      "biographical",
+      "early career",
+      "technology"
+    ],
+    "wordCount": 1970,
+    "fileSize": 13317,
+    "fileModified": "2025-10-01T14:10:23.616Z"
+  }
+];
+
+export const publishedPosts = postsIndex.filter(post => !post.isDraft);
+
+export const featuredPosts = postsIndex.filter(post => post.isFeatured);
+
+export const postsByTopic = postsIndex.reduce((acc, post) => {
+  post.topics.forEach(topic => {
+    if (!acc[topic]) {
+      acc[topic] = [];
+    }
+    acc[topic].push(post);
+  });
+  return acc;
+}, {} as Record<string, PostIndexEntry[]>);
+
+export const postsByTag = postsIndex.reduce((acc, post) => {
+  post.tags.forEach(tag => {
+    if (!acc[tag]) {
+      acc[tag] = [];
+    }
+    acc[tag].push(post);
+  });
+  return acc;
+}, {} as Record<string, PostIndexEntry[]>);
+
+// Helper function to get post data dynamically
+export async function getPostData(slug: string) {
+  try {
+    const postModule = await import(`@/app/blog/posts/generated/${slug}.tsx`);
+    return postModule.postData;
+  } catch (error) {
+    console.error(`Error loading post ${slug}:`, error);
+    return null;
+  }
+}
+
+// Helper function to get all posts data
+export async function getAllPostsData() {
+  const posts = [];
+  for (const postIndex of publishedPosts) {
+    const postData = await getPostData(postIndex.slug);
+    if (postData) {
+      posts.push(postData);
+    }
+  }
+  return posts;
+}
