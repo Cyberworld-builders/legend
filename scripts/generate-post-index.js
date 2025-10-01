@@ -121,6 +121,26 @@ function generatePostIndex() {
   try {
     console.log('Scanning for blog posts...');
     
+    // Load existing post index to preserve dates
+    let existingIndex = {};
+    if (fs.existsSync(INDEX_FILE)) {
+      try {
+        const existingContent = fs.readFileSync(INDEX_FILE, 'utf8');
+        existingIndex = JSON.parse(existingContent);
+        console.log(`📋 Loaded existing index with ${existingIndex.posts?.length || 0} posts`);
+      } catch (error) {
+        console.warn('Could not load existing index:', error.message);
+      }
+    }
+    
+    // Create a map of existing posts for date preservation
+    const existingPosts = {};
+    if (existingIndex.posts) {
+      existingIndex.posts.forEach(post => {
+        existingPosts[post.slug] = post;
+      });
+    }
+    
     // Check if posts directory exists
     if (!fs.existsSync(POSTS_DIR)) {
       console.warn(`Posts directory not found: ${POSTS_DIR}`);
@@ -202,13 +222,17 @@ function generatePostIndex() {
           title = titleMatch ? titleMatch[1] : slug.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
         }
         
-        // Create post metadata object
+        // Create post metadata object, preserving existing dates
+        const existingPost = existingPosts[slug];
         const postMeta = {
           slug,
           title,
-          publishedDate: frontmatter.publishedDate || frontmatter.published || stats.ctime.toISOString(),
-          modifiedDate: frontmatter.modifiedDate || frontmatter.modified || stats.mtime.toISOString(),
-          lastReviewedDate: frontmatter.lastReviewedDate || frontmatter.lastReviewed || stats.mtime.toISOString(),
+          // NEVER change publishedDate - preserve existing or use frontmatter
+          publishedDate: frontmatter.publishedDate || frontmatter.published || existingPost?.publishedDate || stats.ctime.toISOString(),
+          // Only update modifiedDate if frontmatter has it, otherwise preserve existing
+          modifiedDate: frontmatter.modifiedDate || frontmatter.modified || existingPost?.modifiedDate || stats.mtime.toISOString(),
+          // Only update lastReviewedDate if frontmatter has it, otherwise preserve existing
+          lastReviewedDate: frontmatter.lastReviewedDate || frontmatter.lastReviewed || existingPost?.lastReviewedDate || stats.mtime.toISOString(),
           isDraft: frontmatter.isDraft || frontmatter.draft || false,
           isFeatured: frontmatter.isFeatured || frontmatter.featured || false,
           priority: frontmatter.priority || 5,
@@ -228,12 +252,14 @@ function generatePostIndex() {
       } catch (error) {
         console.warn(`  ⚠️  Error processing ${slug}:`, error.message);
         // Add basic entry even if parsing fails
+        // Preserve existing dates for posts without frontmatter
+        const existingPost = existingPosts[slug];
         posts.push({
           slug,
           title: slug.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()),
-          publishedDate: new Date().toISOString(),
-          modifiedDate: new Date().toISOString(),
-          lastReviewedDate: new Date().toISOString(),
+          publishedDate: existingPost?.publishedDate || new Date().toISOString(),
+          modifiedDate: existingPost?.modifiedDate || new Date().toISOString(),
+          lastReviewedDate: existingPost?.lastReviewedDate || new Date().toISOString(),
           isDraft: false,
           isFeatured: false,
           priority: 5,
