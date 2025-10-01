@@ -119,6 +119,13 @@ function parseFrontmatter(content) {
 
 function generatePostIndex() {
   try {
+    console.log('🚀 Starting post index generation...');
+    console.log('📁 Posts directory:', POSTS_DIR);
+    console.log('📄 Index file path:', INDEX_FILE);
+    console.log('🔍 Current working directory:', process.cwd());
+    console.log('🔍 __dirname:', __dirname);
+    console.log('🔍 NODE_ENV:', process.env.NODE_ENV);
+    console.log('🔍 VERCEL_ENV:', process.env.VERCEL_ENV);
     console.log('Scanning for blog posts...');
     
     // Check if posts directory exists
@@ -264,6 +271,14 @@ function generatePostIndex() {
     
     console.log(`\n✅ Generated post index: ${INDEX_FILE}`);
     console.log(`📊 Index contains ${posts.length} posts with metadata`);
+    
+    // Verify the file was created
+    if (fs.existsSync(INDEX_FILE)) {
+      const stats = fs.statSync(INDEX_FILE);
+      console.log(`✅ File verification: ${INDEX_FILE} exists (${stats.size} bytes)`);
+    } else {
+      console.error(`❌ File verification failed: ${INDEX_FILE} does not exist`);
+    }
     
     // Show summary
     const publishedPosts = posts.filter(p => !p.isDraft);

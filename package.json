@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "PORT=3001 next dev",
-    "build": "next build",
+    "build": "npm run generate-post-index && next build",
     "start": "next start",
     "lint": "next lint",
     "test": "jest",
