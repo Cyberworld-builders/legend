@@ -1,7 +1,7 @@
 /**
  * Generated from: enhancing-seo-on-my-company-landing-site-with-ai-agents.md
  * DO NOT EDIT MANUALLY - this file is generated automatically
- * Last generated: 2025-10-01T22:42:35.916Z
+ * Last generated: 2025-10-01T22:58:47.570Z
  */
 
 import { PostWithMetadata } from '@/lib/post-metadata';

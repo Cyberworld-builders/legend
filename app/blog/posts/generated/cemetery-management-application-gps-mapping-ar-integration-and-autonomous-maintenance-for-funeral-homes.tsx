@@ -1,7 +1,7 @@
 /**
  * Generated from: cemetery-management-application-gps-mapping-ar-integration-and-autonomous-maintenance-for-funeral-homes.md
  * DO NOT EDIT MANUALLY - this file is generated automatically
- * Last generated: 2025-10-01T22:42:35.914Z
+ * Last generated: 2025-10-01T22:58:47.568Z
  */
 
 import { PostWithMetadata } from '@/lib/post-metadata';

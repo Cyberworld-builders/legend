@@ -1,7 +1,7 @@
 /**
  * Generated from: building-a-generative-framework-evolving-ai-coding-agents-and-human-ai-collaboration.md
  * DO NOT EDIT MANUALLY - this file is generated automatically
- * Last generated: 2025-10-01T22:42:35.906Z
+ * Last generated: 2025-10-01T22:58:47.564Z
  */
 
 import { PostWithMetadata } from '@/lib/post-metadata';

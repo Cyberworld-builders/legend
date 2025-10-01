@@ -25,6 +25,44 @@ export interface PostIndexEntry {
 
 export const postsIndex: PostIndexEntry[] = [
   {
+    "slug": "ai-humanity-and-the-future-career-reflections-and-societal-shifts-in-an-automated-world",
+    "title": "AI, Humanity, and the Future: Career Reflections and Societal Shifts in an Automated World",
+    "publishedDate": "2025-10-01T00:00:00.000Z",
+    "modifiedDate": "2025-10-01T00:00:00.000Z",
+    "lastReviewedDate": "2025-10-01T00:00:00.000Z",
+    "isDraft": false,
+    "isFeatured": true,
+    "priority": 9,
+    "category": "Technology",
+    "series": "",
+    "topics": [
+      "AI & Automation",
+      "Career & Professional Development"
+    ],
+    "tags": [
+      "ai-humanity",
+      "career-transition",
+      "societal-optimism",
+      "existential-ai",
+      "creative-value"
+    ],
+    "keywords": [
+      "AI disruption",
+      "human uniqueness",
+      "career reflections",
+      "societal shifts",
+      "proof of humanity",
+      "existential crisis",
+      "generative AI",
+      "novelty creativity",
+      "space exploration",
+      "abundance future"
+    ],
+    "wordCount": 956,
+    "fileSize": 8254,
+    "fileModified": "2025-10-01T22:56:04.018Z"
+  },
+  {
     "slug": "cemetery-management-application-gps-mapping-ar-integration-and-autonomous-maintenance-for-funeral-homes",
     "title": "Cemetery Management Application: GPS Mapping, AR Integration, and Autonomous Maintenance for Funeral Homes",
     "publishedDate": "2025-09-28T00:00:00.000Z",
