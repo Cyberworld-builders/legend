@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "PORT=3001 next dev",
-    "build": "next build",
+    "build": "npm run generate-post-index && next build",
     "start": "next start",
     "lint": "next lint",
     "test": "jest",
@@ -13,7 +13,8 @@
     "test:production": "node scripts/test-production.js",
     "predeploy": "npm run test:ci && npm run lint",
     "generate-post-index": "node scripts/generate-post-index.js",
-    "prebuild": "echo 'Note: Run npm run generate-post-index manually if needed before building'",
+    "prebuild": "npm run generate-post-index",
+    "postbuild": "npm run generate-post-index",
     "seo": "node scripts/seo-maintenance.js",
     "seo:index": "npm run generate-post-index",
     "seo:report": "node scripts/seo-maintenance.js && cat seo-report.json"
