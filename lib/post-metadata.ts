@@ -395,50 +395,8 @@ export async function getAllPostsWithMetadata(): Promise<PostWithMetadata[]> {
     console.log(`📋 First few posts:`, postsFromIndex.slice(0, 3).map(p => p.slug));
     console.log(`🕐 Cache bust timestamp: ${Date.now()}`);
   } catch (error) {
-    console.warn('Could not load post index, falling back to individual post loading:', error instanceof Error ? error.message : String(error));
-    
-    // Fallback to hardcoded list if index file is not available
-    const fallbackSlugs = [
-      'building-an-effective-web-presence-for-professional-validation',
-      'building-drum-note-ai-powered-drum-transcription-kit-generation-and-hands-on-marketing-with-rendercom',
-      'building-a-generative-framework-evolving-ai-coding-agents-and-human-ai-collaboration',
-      'cemetery-management-application-gps-mapping-ar-integration-and-autonomous-maintenance-for-funeral-homes',
-      'early-adventures-in-freelance-web-development-lessons-from-the-wordpress-era',
-      'enhancing-seo-on-my-company-landing-site-with-ai-agents',
-      'intro-to-linux-how-i-stayed-in-the-dev-game-while-too-broke-to-buy-a-pc',
-      'lessons-from-mentors-enterprise-insights-and-personal-reflections-from-urban-dynamics',
-      'my-first-steps-into-coding',
-      'my-first-tech-job-the-evolution-of-the-docworks-emr-system-2011-2013',
-      'replit-test-drive',
-      'revenant-hollow-integrating-technology-into-location-based-horror-experiences',
-      'revisiting-old-code-lessons-in-growth-enterprise-vs-startup-mindsets-and-ai-driven-infrastructure-evolution',
-      'scaling-novelty-with-an-agentic-blog-bot',
-      'the-jumpstarter-a-5-point-framework-to-align-value-and-passion',
-      'the-last-cycle-why-founder-engineer-partnerships-are-nearing-their-end',
-      'the-power-of-flat-files-in-blogging-repurposing-coding-tools-for-content-creation-and-ai-optimization',
-      'transitioning-from-cable-contracting-to-freelance-web-development-a-career-pivot',
-      'troubleshooting-n8n-workflows-integrated-with-supabase-vapi-and-lovable-for-ai-driven-sales-automation'
-    ];
-    
-    // Convert fallback slugs to index format
-    postsFromIndex = fallbackSlugs.map(slug => ({
-      slug,
-      title: slug.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()),
-      publishedDate: new Date().toISOString(),
-      modifiedDate: new Date().toISOString(),
-      lastReviewedDate: new Date().toISOString(),
-      isDraft: false,
-      isFeatured: false,
-      priority: 5,
-      category: '',
-      series: '',
-      topics: [],
-      tags: [],
-      keywords: [],
-      wordCount: 0,
-      fileSize: 0,
-      fileModified: new Date().toISOString()
-    }));
+    console.warn('Could not load post index, returning empty array:', error instanceof Error ? error.message : String(error));
+    postsFromIndex = [];
   }
   
   console.log(`Processing ${postsFromIndex.length} posts`);
@@ -503,35 +461,7 @@ export async function getAllPostsWithMetadata(): Promise<PostWithMetadata[]> {
         }
       } catch (error) {
         console.error(`Error loading post ${postMeta.slug}:`, error instanceof Error ? error.message : String(error));
-        // Return a minimal post even on error to prevent empty blog
-        return {
-          slug: postMeta.slug,
-          content: '',
-          metadata: {
-            title: postMeta.title || postMeta.slug.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()),
-            description: '',
-            slug: postMeta.slug,
-            publishedDate: new Date(postMeta.publishedDate),
-            modifiedDate: new Date(postMeta.modifiedDate),
-            lastReviewedDate: new Date(postMeta.lastReviewedDate),
-            isDraft: postMeta.isDraft,
-            isFeatured: postMeta.isFeatured,
-            priority: postMeta.priority,
-            category: postMeta.category,
-            series: postMeta.series,
-            topics: postMeta.topics,
-            tags: postMeta.tags,
-            keywords: postMeta.keywords,
-            wordCount: postMeta.wordCount,
-            readingTime: Math.ceil((postMeta.wordCount || 0) / 200),
-            language: 'en-US',
-          },
-          fileStats: {
-            ctime: new Date(postMeta.fileModified),
-            mtime: new Date(postMeta.fileModified),
-            size: postMeta.fileSize,
-          }
-        };
+        return null;
       }
     })
   );
