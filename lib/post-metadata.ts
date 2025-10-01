@@ -366,6 +366,7 @@ export async function getAllPostsWithMetadata(): Promise<PostWithMetadata[]> {
     
     console.log(`✅ Loaded ${postsFromIndex.length} posts from index (generated: ${postIndex.generatedAt})`);
     console.log(`📋 First few posts:`, postsFromIndex.slice(0, 3).map(p => p.slug));
+    console.log(`🕐 Cache bust timestamp: ${Date.now()}`);
   } catch (error) {
     console.warn('Could not load post index, falling back to individual post loading:', error instanceof Error ? error.message : String(error));
     
