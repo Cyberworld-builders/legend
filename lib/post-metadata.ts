@@ -358,9 +358,38 @@ export async function getAllPostsWithMetadata(): Promise<PostWithMetadata[]> {
     const { promises: fs } = await import('fs');
     const path = await import('path');
     
-    // Try to load the generated post index
-    const indexPath = path.join(process.cwd(), 'lib', 'post-index.json');
-    const indexContent = await fs.readFile(indexPath, 'utf8');
+    // Try multiple possible paths for the post index file
+    const possibleIndexPaths = [
+      path.join(process.cwd(), 'lib', 'post-index.json'),
+      path.join(__dirname, 'post-index.json'),
+      path.join(process.cwd(), '..', 'lib', 'post-index.json'),
+      // Vercel serverless environment paths
+      path.join('/var/task', 'lib', 'post-index.json'),
+      path.join('/var/task', 'post-index.json'),
+      // Alternative Vercel paths
+      path.join('/tmp', 'lib', 'post-index.json'),
+      path.join('/tmp', 'post-index.json'),
+    ];
+    
+    let indexContent = '';
+    let indexPath = '';
+    
+    for (const testPath of possibleIndexPaths) {
+      try {
+        indexContent = await fs.readFile(testPath, 'utf8');
+        indexPath = testPath;
+        console.log(`✅ Found post index at: ${testPath}`);
+        break;
+      } catch (error) {
+        // Continue to next path
+        continue;
+      }
+    }
+    
+    if (!indexContent) {
+      throw new Error('Could not find post-index.json in any expected location');
+    }
+    
     const postIndex = JSON.parse(indexContent);
     postsFromIndex = postIndex.posts || [];
     
@@ -373,17 +402,22 @@ export async function getAllPostsWithMetadata(): Promise<PostWithMetadata[]> {
     // Fallback to hardcoded list if index file is not available
     const fallbackSlugs = [
       'building-an-effective-web-presence-for-professional-validation',
-      'building-drum-note-ai-powered-drum-transcription-kit-generation-and-hands-on-marketing-with-rendercom',
-      'early-adventures-in-freelance-web-development-lessons-from-the-wordpress-era',
-      'enhancing-seo-on-my-company-landing-site-with-ai-agents',
-      'intro-to-linux-how-i-stayed-in-the-dev-game-while-too-broke-to-buy-a-pc',
-      'my-first-steps-into-coding',
-      'my-first-tech-job-the-evolution-of-the-docworks-emr-system-2011-2013',
-      'replit-test-drive',
-      'revenant-hollow-integrating-technology-into-location-based-horror-experiences',
-      'scaling-novelty-with-an-agentic-blog-bot',
-      'the-jumpstarter-a-5-point-framework-to-align-value-and-passion',
-      'the-last-cycle-why-founder-engineer-partnerships-are-nearing-their-end',
+      // 'building-drum-note-ai-powered-drum-transcription-kit-generation-and-hands-on-marketing-with-rendercom',
+      // 'building-a-generative-framework-evolving-ai-coding-agents-and-human-ai-collaboration',
+      // 'cemetery-management-application-gps-mapping-ar-integration-and-autonomous-maintenance-for-funeral-homes',
+      // 'early-adventures-in-freelance-web-development-lessons-from-the-wordpress-era',
+      // 'enhancing-seo-on-my-company-landing-site-with-ai-agents',
+      // 'intro-to-linux-how-i-stayed-in-the-dev-game-while-too-broke-to-buy-a-pc',
+      // 'lessons-from-mentors-enterprise-insights-and-personal-reflections-from-urban-dynamics',
+      // 'my-first-steps-into-coding',
+      // 'my-first-tech-job-the-evolution-of-the-docworks-emr-system-2011-2013',
+      // 'replit-test-drive',
+      // 'revenant-hollow-integrating-technology-into-location-based-horror-experiences',
+      // 'revisiting-old-code-lessons-in-growth-enterprise-vs-startup-mindsets-and-ai-driven-infrastructure-evolution',
+      // 'scaling-novelty-with-an-agentic-blog-bot',
+      // 'the-jumpstarter-a-5-point-framework-to-align-value-and-passion',
+      // 'the-last-cycle-why-founder-engineer-partnerships-are-nearing-their-end',
+      // 'the-power-of-flat-files-in-blogging-repurposing-coding-tools-for-content-creation-and-ai-optimization',
       'transitioning-from-cable-contracting-to-freelance-web-development-a-career-pivot',
       'troubleshooting-n8n-workflows-integrated-with-supabase-vapi-and-lovable-for-ai-driven-sales-automation'
     ];
