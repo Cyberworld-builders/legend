@@ -26,8 +26,8 @@ tags:
   - personal-reflection
 series: ""
 category: "Career"
-socialImage: "/images/lessons-from-mentors-enterprise-insights-and-personal-reflections-from-urban-dynamics-social.jpg"
-headerImage: "/images/lessons-from-mentors-enterprise-insights-and-personal-reflections-from-urban-dynamics-hero.jpg"
+# socialImage: "/images/lessons-from-mentors-enterprise-insights-and-personal-reflections-from-urban-dynamics-social.jpg"
+# headerImage: "/images/lessons-from-mentors-enterprise-insights-and-personal-reflections-from-urban-dynamics-hero.jpg"
 isDraft: false
 isFeatured: true
 priority: 8
