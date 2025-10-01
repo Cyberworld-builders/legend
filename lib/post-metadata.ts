@@ -358,6 +358,10 @@ export async function getAllPostsWithMetadata(): Promise<PostWithMetadata[]> {
     const { promises: fs } = await import('fs');
     const path = await import('path');
     
+    console.log(`🔍 DEBUG: process.cwd() = ${process.cwd()}`);
+    console.log(`🔍 DEBUG: __dirname = ${__dirname}`);
+    console.log(`🔍 DEBUG: NODE_ENV = ${process.env.NODE_ENV}`);
+    
     // Try multiple possible paths for the post index file
     const possibleIndexPaths = [
       path.join(process.cwd(), 'lib', 'post-index.json'),
@@ -371,20 +375,39 @@ export async function getAllPostsWithMetadata(): Promise<PostWithMetadata[]> {
       path.join('/tmp', 'post-index.json'),
     ];
     
-    let indexContent = '';
+    console.log(`🔍 DEBUG: Will try ${possibleIndexPaths.length} paths:`);
+    possibleIndexPaths.forEach((p, i) => {
+      console.log(`🔍 DEBUG:   ${i + 1}. ${p}`);
+    });
     
-    for (const testPath of possibleIndexPaths) {
+    let indexContent = '';
+    let foundPath = '';
+    
+    for (let i = 0; i < possibleIndexPaths.length; i++) {
+      const testPath = possibleIndexPaths[i];
+      console.log(`🔍 DEBUG: Trying path ${i + 1}/${possibleIndexPaths.length}: ${testPath}`);
+      
       try {
+        // Check if file exists first
+        await fs.access(testPath);
+        console.log(`🔍 DEBUG: File exists at ${testPath}`);
+        
+        // Try to read the file
         indexContent = await fs.readFile(testPath, 'utf8');
+        foundPath = testPath;
         console.log(`✅ Found post index at: ${testPath}`);
+        console.log(`🔍 DEBUG: File size: ${indexContent.length} characters`);
         break;
-      } catch {
+      } catch (error) {
+        console.log(`❌ Could not find post index at: ${testPath}`);
+        console.log(`🔍 DEBUG: Error: ${error instanceof Error ? error.message : String(error)}`);
         // Continue to next path
         continue;
       }
     }
     
     if (!indexContent) {
+      console.log(`🔍 DEBUG: No post index found in any location`);
       throw new Error('Could not find post-index.json in any expected location');
     }
     
@@ -396,6 +419,8 @@ export async function getAllPostsWithMetadata(): Promise<PostWithMetadata[]> {
     console.log(`🕐 Cache bust timestamp: ${Date.now()}`);
   } catch (error) {
     console.warn('Could not load post index, returning empty array:', error instanceof Error ? error.message : String(error));
+    console.log(`🔍 DEBUG: Error details:`, error);
+    console.log(`🔍 DEBUG: This means no posts will be available for the blog index`);
     postsFromIndex = [];
   }
   
