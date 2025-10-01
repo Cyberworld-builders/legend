@@ -358,9 +358,17 @@ export async function getAllPostsWithMetadata(): Promise<PostWithMetadata[]> {
     const { promises: fs } = await import('fs');
     const path = await import('path');
     
-    console.log(`🔍 DEBUG: process.cwd() = ${process.cwd()}`);
-    console.log(`🔍 DEBUG: __dirname = ${__dirname}`);
-    console.log(`🔍 DEBUG: NODE_ENV = ${process.env.NODE_ENV}`);
+    // Use multiple logging methods for Vercel compatibility
+    const debugInfo = {
+      processCwd: process.cwd(),
+      dirname: __dirname,
+      nodeEnv: process.env.NODE_ENV,
+      vercelEnv: process.env.VERCEL_ENV,
+      vercelRegion: process.env.VERCEL_REGION
+    };
+    
+    console.log('DEBUG INFO:', JSON.stringify(debugInfo, null, 2));
+    console.error('DEBUG ERROR LOG:', JSON.stringify(debugInfo, null, 2));
     
     // Try multiple possible paths for the post index file
     const possibleIndexPaths = [
@@ -375,37 +383,51 @@ export async function getAllPostsWithMetadata(): Promise<PostWithMetadata[]> {
       path.join('/tmp', 'post-index.json'),
     ];
     
-    console.log(`🔍 DEBUG: Will try ${possibleIndexPaths.length} paths:`);
-    possibleIndexPaths.forEach((p, i) => {
-      console.log(`🔍 DEBUG:   ${i + 1}. ${p}`);
-    });
+    console.log('DEBUG PATHS:', JSON.stringify(possibleIndexPaths, null, 2));
+    console.error('DEBUG PATHS ERROR:', JSON.stringify(possibleIndexPaths, null, 2));
     
     let indexContent = '';
     
     for (let i = 0; i < possibleIndexPaths.length; i++) {
       const testPath = possibleIndexPaths[i];
-      console.log(`🔍 DEBUG: Trying path ${i + 1}/${possibleIndexPaths.length}: ${testPath}`);
+      const pathInfo = {
+        attempt: i + 1,
+        total: possibleIndexPaths.length,
+        path: testPath
+      };
+      
+      console.log('DEBUG TRYING PATH:', JSON.stringify(pathInfo, null, 2));
+      console.error('DEBUG TRYING PATH ERROR:', JSON.stringify(pathInfo, null, 2));
       
       try {
         // Check if file exists first
         await fs.access(testPath);
-        console.log(`🔍 DEBUG: File exists at ${testPath}`);
+        console.log('DEBUG FILE EXISTS:', testPath);
+        console.error('DEBUG FILE EXISTS ERROR:', testPath);
         
         // Try to read the file
         indexContent = await fs.readFile(testPath, 'utf8');
-        console.log(`✅ Found post index at: ${testPath}`);
-        console.log(`🔍 DEBUG: File size: ${indexContent.length} characters`);
+        console.log('SUCCESS FOUND INDEX:', testPath);
+        console.error('SUCCESS FOUND INDEX ERROR:', testPath);
+        console.log('DEBUG FILE SIZE:', indexContent.length);
+        console.error('DEBUG FILE SIZE ERROR:', indexContent.length);
         break;
       } catch (error) {
-        console.log(`❌ Could not find post index at: ${testPath}`);
-        console.log(`🔍 DEBUG: Error: ${error instanceof Error ? error.message : String(error)}`);
+        const errorInfo = {
+          path: testPath,
+          error: error instanceof Error ? error.message : String(error),
+          code: error instanceof Error ? (error as NodeJS.ErrnoException).code : 'unknown'
+        };
+        console.log('DEBUG PATH FAILED:', JSON.stringify(errorInfo, null, 2));
+        console.error('DEBUG PATH FAILED ERROR:', JSON.stringify(errorInfo, null, 2));
         // Continue to next path
         continue;
       }
     }
     
     if (!indexContent) {
-      console.log(`🔍 DEBUG: No post index found in any location`);
+      console.log('DEBUG NO INDEX FOUND: No post index found in any location');
+      console.error('DEBUG NO INDEX FOUND ERROR: No post index found in any location');
       throw new Error('Could not find post-index.json in any expected location');
     }
     
@@ -416,9 +438,17 @@ export async function getAllPostsWithMetadata(): Promise<PostWithMetadata[]> {
     console.log(`📋 First few posts:`, postsFromIndex.slice(0, 3).map(p => p.slug));
     console.log(`🕐 Cache bust timestamp: ${Date.now()}`);
   } catch (error) {
+    const errorDetails = {
+      message: error instanceof Error ? error.message : String(error),
+      error: error,
+      stack: error instanceof Error ? error.stack : undefined
+    };
+    
     console.warn('Could not load post index, returning empty array:', error instanceof Error ? error.message : String(error));
-    console.log(`🔍 DEBUG: Error details:`, error);
-    console.log(`🔍 DEBUG: This means no posts will be available for the blog index`);
+    console.log('DEBUG ERROR DETAILS:', JSON.stringify(errorDetails, null, 2));
+    console.error('DEBUG ERROR DETAILS ERROR:', JSON.stringify(errorDetails, null, 2));
+    console.log('DEBUG NO POSTS AVAILABLE: This means no posts will be available for the blog index');
+    console.error('DEBUG NO POSTS AVAILABLE ERROR: This means no posts will be available for the blog index');
     postsFromIndex = [];
   }
   
