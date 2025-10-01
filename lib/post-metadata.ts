@@ -381,7 +381,6 @@ export async function getAllPostsWithMetadata(): Promise<PostWithMetadata[]> {
     });
     
     let indexContent = '';
-    let foundPath = '';
     
     for (let i = 0; i < possibleIndexPaths.length; i++) {
       const testPath = possibleIndexPaths[i];
@@ -394,7 +393,6 @@ export async function getAllPostsWithMetadata(): Promise<PostWithMetadata[]> {
         
         // Try to read the file
         indexContent = await fs.readFile(testPath, 'utf8');
-        foundPath = testPath;
         console.log(`✅ Found post index at: ${testPath}`);
         console.log(`🔍 DEBUG: File size: ${indexContent.length} characters`);
         break;
