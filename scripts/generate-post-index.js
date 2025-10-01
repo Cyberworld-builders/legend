@@ -222,7 +222,7 @@ function generatePostIndex() {
           title = titleMatch ? titleMatch[1] : slug.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
         }
         
-        // Create post metadata object, preserving existing dates
+        // Create post metadata object, preserving ALL existing metadata
         const existingPost = existingPosts[slug];
         const postMeta = {
           slug,
@@ -233,14 +233,15 @@ function generatePostIndex() {
           modifiedDate: frontmatter.modifiedDate || frontmatter.modified || existingPost?.modifiedDate || stats.mtime.toISOString(),
           // Only update lastReviewedDate if frontmatter has it, otherwise preserve existing
           lastReviewedDate: frontmatter.lastReviewedDate || frontmatter.lastReviewed || existingPost?.lastReviewedDate || stats.mtime.toISOString(),
-          isDraft: frontmatter.isDraft || frontmatter.draft || false,
-          isFeatured: frontmatter.isFeatured || frontmatter.featured || false,
-          priority: frontmatter.priority || 5,
-          category: frontmatter.category || '',
-          series: frontmatter.series || '',
-          topics: frontmatter.topics || [],
-          tags: frontmatter.tags || [],
-          keywords: frontmatter.keywords || [],
+          // Preserve existing metadata, only override if frontmatter has values
+          isDraft: frontmatter.isDraft !== undefined ? frontmatter.isDraft : (frontmatter.draft !== undefined ? frontmatter.draft : (existingPost?.isDraft || false)),
+          isFeatured: frontmatter.isFeatured !== undefined ? frontmatter.isFeatured : (frontmatter.featured !== undefined ? frontmatter.featured : (existingPost?.isFeatured || false)),
+          priority: frontmatter.priority !== undefined ? frontmatter.priority : (existingPost?.priority || 5),
+          category: frontmatter.category || existingPost?.category || '',
+          series: frontmatter.series || existingPost?.series || '',
+          topics: frontmatter.topics?.length > 0 ? frontmatter.topics : (existingPost?.topics || []),
+          tags: frontmatter.tags?.length > 0 ? frontmatter.tags : (existingPost?.tags || []),
+          keywords: frontmatter.keywords?.length > 0 ? frontmatter.keywords : (existingPost?.keywords || []),
           wordCount: content.split(/\s+/).length,
           fileSize: stats.size,
           fileModified: stats.mtime.toISOString()
@@ -252,22 +253,22 @@ function generatePostIndex() {
       } catch (error) {
         console.warn(`  ⚠️  Error processing ${slug}:`, error.message);
         // Add basic entry even if parsing fails
-        // Preserve existing dates for posts without frontmatter
+        // Preserve ALL existing metadata for posts without frontmatter
         const existingPost = existingPosts[slug];
         posts.push({
           slug,
-          title: slug.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()),
+          title: existingPost?.title || slug.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()),
           publishedDate: existingPost?.publishedDate || new Date().toISOString(),
           modifiedDate: existingPost?.modifiedDate || new Date().toISOString(),
           lastReviewedDate: existingPost?.lastReviewedDate || new Date().toISOString(),
-          isDraft: false,
-          isFeatured: false,
-          priority: 5,
-          category: '',
-          series: '',
-          topics: [],
-          tags: [],
-          keywords: [],
+          isDraft: existingPost?.isDraft || false,
+          isFeatured: existingPost?.isFeatured || false,
+          priority: existingPost?.priority || 5,
+          category: existingPost?.category || '',
+          series: existingPost?.series || '',
+          topics: existingPost?.topics || [],
+          tags: existingPost?.tags || [],
+          keywords: existingPost?.keywords || [],
           wordCount: 0,
           fileSize: 0,
           fileModified: new Date().toISOString()
