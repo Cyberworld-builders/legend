@@ -43,19 +43,30 @@ export default async function BlogIndex({ searchParams }: BlogIndexProps) {
   const { page } = await searchParams;
   const currentPage = Number(page) || 1;
   
-  // Get all posts with metadata (already sorted by published date and priority)
-  const allPostsWithMetadata = await getAllPostsWithMetadata();
-  
-  // Convert to the format expected by the component
-  const allPosts = allPostsWithMetadata.map(post => ({
-    slug: post.slug,
-    title: post.metadata.title || post.slug
-      .replace(/-/g, ' ')
-      .split(' ')
-      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-      .join(' '),
-    mtime: post.metadata.publishedDate || post.fileStats.ctime,
-  }));
+  try {
+    // Get all posts with metadata (already sorted by published date and priority)
+    const allPostsWithMetadata = await getAllPostsWithMetadata();
+    
+    if (!allPostsWithMetadata || allPostsWithMetadata.length === 0) {
+      console.error('No posts found in getAllPostsWithMetadata');
+      return (
+        <div className="min-h-screen flex flex-col items-center py-8">
+          <h1 className="text-2xl font-bold mb-4">Blog</h1>
+          <p>No blog posts found. Please check the post index.</p>
+        </div>
+      );
+    }
+    
+    // Convert to the format expected by the component
+    const allPosts = allPostsWithMetadata.map(post => ({
+      slug: post.slug,
+      title: post.metadata.title || post.slug
+        .replace(/-/g, ' ')
+        .split(' ')
+        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(' '),
+      mtime: post.metadata.publishedDate || post.fileStats.ctime,
+    }));
 
   const totalPages = Math.ceil(allPosts.length / POSTS_PER_PAGE);
   const startIndex = (currentPage - 1) * POSTS_PER_PAGE;
@@ -154,4 +165,15 @@ export default async function BlogIndex({ searchParams }: BlogIndexProps) {
       </div>
     </div>
   );
+  
+  } catch (error) {
+    console.error('Error in BlogIndex:', error);
+    return (
+      <div className="min-h-screen flex flex-col items-center py-8">
+        <h1 className="text-2xl font-bold mb-4">Blog</h1>
+        <p>Error loading blog posts. Please try again later.</p>
+        <p className="text-sm text-gray-500 mt-2">Error: {error instanceof Error ? error.message : String(error)}</p>
+      </div>
+    );
+  }
 }
