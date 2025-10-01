@@ -14,7 +14,9 @@
     "predeploy": "npm run test:ci && npm run lint",
     "generate-post-index": "node scripts/generate-post-index.js",
     "prebuild": "echo 'Note: Run npm run generate-post-index manually if needed before building'",
-    "seo": "npm run generate-post-index"
+    "seo": "node scripts/seo-maintenance.js",
+    "seo:index": "npm run generate-post-index",
+    "seo:report": "node scripts/seo-maintenance.js && cat seo-report.json"
   },
   "dependencies": {
     "@langchain/openai": "^0.5.6",
