@@ -17,8 +17,9 @@
     "generate-tsx-posts": "node scripts/generate-tsx-posts.js",
     "prebuild": "npm run generate-post-index",
     "postbuild": "npm run generate-post-index",
-    "seo": "node scripts/seo-maintenance.js",
+    "seo": "npm run seo:index && npm run seo:posts",
     "seo:index": "npm run generate-post-index",
+    "seo:posts": "npm run generate-tsx-posts",
     "seo:report": "node scripts/seo-maintenance.js && cat seo-report.json"
   },
   "dependencies": {
