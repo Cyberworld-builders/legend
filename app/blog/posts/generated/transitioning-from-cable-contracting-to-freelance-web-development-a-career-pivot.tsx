@@ -1,7 +1,7 @@
 /**
  * Generated from: transitioning-from-cable-contracting-to-freelance-web-development-a-career-pivot.md
  * DO NOT EDIT MANUALLY - this file is generated automatically
- * Last generated: 2025-10-02T16:13:25.077Z
+ * Last generated: 2025-10-02T16:33:19.458Z
  */
 
 import { PostWithMetadata } from '@/lib/post-metadata';

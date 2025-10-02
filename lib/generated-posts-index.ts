@@ -58,9 +58,9 @@ export const postsIndex: PostIndexEntry[] = [
       "space exploration",
       "abundance future"
     ],
-    "wordCount": 956,
-    "fileSize": 8254,
-    "fileModified": "2025-10-02T15:39:37.422Z"
+    "wordCount": 4856,
+    "fileSize": 28933,
+    "fileModified": "2025-10-02T16:33:09.728Z"
   },
   {
     "slug": "cemetery-management-application-gps-mapping-ar-integration-and-autonomous-maintenance-for-funeral-homes",
