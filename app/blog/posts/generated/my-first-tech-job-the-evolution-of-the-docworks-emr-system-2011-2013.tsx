@@ -1,7 +1,7 @@
 /**
  * Generated from: my-first-tech-job-the-evolution-of-the-docworks-emr-system-2011-2013.md
  * DO NOT EDIT MANUALLY - this file is generated automatically
- * Last generated: 2025-10-01T22:58:47.573Z
+ * Last generated: 2025-10-02T16:13:25.069Z
  */
 
 import { PostWithMetadata } from '@/lib/post-metadata';

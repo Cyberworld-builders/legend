@@ -60,7 +60,7 @@ export const postsIndex: PostIndexEntry[] = [
     ],
     "wordCount": 956,
     "fileSize": 8254,
-    "fileModified": "2025-10-01T22:56:04.018Z"
+    "fileModified": "2025-10-02T15:39:37.422Z"
   },
   {
     "slug": "cemetery-management-application-gps-mapping-ar-integration-and-autonomous-maintenance-for-funeral-homes",

@@ -37,6 +37,12 @@ export const metadata: Metadata = {
     description: 'Professional software engineering services, web development consulting, and AWS solutions. Expert freelance developer specializing in SaaS development and modern web technologies.',
     images: [
       {
+        url: 'https://cyberworldbuilders.com/images/social-card.png',
+        width: 1200,
+        height: 630,
+        alt: 'CyberWorld Builders - Software Engineering & Consulting Services',
+      },
+      {
         url: 'https://cyberworldbuilders.com/images/logo.png',
         width: 1200,
         height: 630,
@@ -50,7 +56,10 @@ export const metadata: Metadata = {
     creator: '@cyberbuilders',
     title: 'CyberWorld Builders - Software Engineering & Consulting Services',
     description: 'Professional software engineering services, web development consulting, and AWS solutions.',
-    images: ['https://cyberworldbuilders.com/images/logo.png'],
+    images: [
+      'https://cyberworldbuilders.com/images/social-card.png',
+      'https://cyberworldbuilders.com/images/logo.png'
+    ],
   },
   icons: {
     icon: [

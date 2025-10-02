@@ -1,7 +1,7 @@
 /**
  * Generated from: intro-to-linux-how-i-stayed-in-the-dev-game-while-too-broke-to-buy-a-pc.md
  * DO NOT EDIT MANUALLY - this file is generated automatically
- * Last generated: 2025-10-01T22:58:47.571Z
+ * Last generated: 2025-10-02T16:13:25.063Z
  */
 
 import { PostWithMetadata } from '@/lib/post-metadata';

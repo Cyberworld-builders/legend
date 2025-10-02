@@ -15,10 +15,12 @@
     "generate-post-index": "node scripts/generate-post-index.js",
     "preprocess-content": "node scripts/preprocess-content.js",
     "generate-tsx-posts": "node scripts/generate-tsx-posts.js",
+    "generate-social-image": "node scripts/generate-social-image-puppeteer.js",
     "prebuild": "npm run generate-post-index",
     "postbuild": "npm run generate-post-index",
-    "seo": "node scripts/seo-maintenance.js",
+    "seo": "npm run seo:index && npm run seo:posts",
     "seo:index": "npm run generate-post-index",
+    "seo:posts": "npm run generate-tsx-posts",
     "seo:report": "node scripts/seo-maintenance.js && cat seo-report.json"
   },
   "dependencies": {
@@ -51,6 +53,7 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "jest": "^30.1.3",
+    "puppeteer": "^24.23.0",
     "tailwindcss": "^4",
     "ts-jest": "^29.4.4"
   }
