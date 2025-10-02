@@ -18,11 +18,32 @@ export const metadata: Metadata = {
     description: 'Read the latest insights on software engineering, web development, AWS solutions, and SaaS development from CyberWorld Builders.',
     url: 'https://cyberworldbuilders.com/blog',
     type: 'website',
+    siteName: 'CyberWorld Builders',
+    images: [
+      {
+        url: 'https://cyberworldbuilders.com/images/social-card.png',
+        width: 1200,
+        height: 630,
+        alt: 'CyberWorld Builders Blog - Software Engineering Insights',
+      },
+      {
+        url: 'https://cyberworldbuilders.com/images/logo.png',
+        width: 1200,
+        height: 630,
+        alt: 'CyberWorld Builders Logo',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
+    site: '@cyberbuilders',
+    creator: '@cyberbuilders',
     title: 'Blog - Software Engineering Insights & Technical Articles',
     description: 'Read the latest insights on software engineering, web development, AWS solutions, and SaaS development from CyberWorld Builders.',
+    images: [
+      'https://cyberworldbuilders.com/images/social-card.png',
+      'https://cyberworldbuilders.com/images/logo.png'
+    ],
   },
   alternates: {
     canonical: 'https://cyberworldbuilders.com/blog',

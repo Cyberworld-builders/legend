@@ -1,7 +1,7 @@
 /**
  * Generated from: lessons-from-mentors-enterprise-insights-and-personal-reflections-from-urban-dynamics.md
  * DO NOT EDIT MANUALLY - this file is generated automatically
- * Last generated: 2025-10-01T22:58:47.572Z
+ * Last generated: 2025-10-02T16:13:25.064Z
  */
 
 import { PostWithMetadata } from '@/lib/post-metadata';

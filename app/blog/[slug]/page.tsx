@@ -38,7 +38,7 @@ export async function generateMetadata({ params }: BlogPostProps): Promise<Metad
     const url = metadata.canonicalUrl || `https://cyberworldbuilders.com/blog/${slug}`;
     const socialImage = (metadata.socialImage && metadata.socialImage.trim() !== '') 
       ? metadata.socialImage 
-      : 'https://cyberworldbuilders.com/images/logo.png';
+      : 'https://cyberworldbuilders.com/images/social-card.png';
     const publishedTime = metadata.publishedDate?.toISOString() || new Date().toISOString();
     const modifiedTime = metadata.modifiedDate?.toISOString() || new Date().toISOString();
     
