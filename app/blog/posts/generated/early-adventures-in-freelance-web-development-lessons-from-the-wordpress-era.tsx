@@ -1,7 +1,7 @@
 /**
  * Generated from: early-adventures-in-freelance-web-development-lessons-from-the-wordpress-era.md
  * DO NOT EDIT MANUALLY - this file is generated automatically
- * Last generated: 2025-10-03T05:36:42.314Z
+ * Last generated: 2025-10-03T05:41:34.480Z
  */
 
 import { PostWithMetadata } from '@/lib/post-metadata';

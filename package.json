@@ -18,9 +18,12 @@
     "generate-social-image": "node scripts/generate-social-image-puppeteer.js",
     "prebuild": "npm run generate-post-index",
     "postbuild": "npm run generate-post-index",
-    "seo": "npm run seo:index && npm run seo:posts",
+    "seo": "npm run seo:index && npm run seo:posts && npm run seo:tags",
     "seo:index": "npm run generate-post-index",
     "seo:posts": "npm run generate-tsx-posts",
+    "seo:tags": "npm run validate-tags && npm run generate-tag-pages",
+    "validate-tags": "node scripts/validate-tags.js",
+    "generate-tag-pages": "node scripts/generate-tag-pages.js",
     "seo:report": "node scripts/seo-maintenance.js && cat seo-report.json"
   },
   "dependencies": {

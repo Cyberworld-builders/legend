@@ -1,7 +1,7 @@
 /**
  * Generated from: the-power-of-flat-files-in-blogging-repurposing-coding-tools-for-content-creation-and-ai-optimization.md
  * DO NOT EDIT MANUALLY - this file is generated automatically
- * Last generated: 2025-10-03T05:36:42.334Z
+ * Last generated: 2025-10-03T05:41:34.504Z
  */
 
 import { PostWithMetadata } from '@/lib/post-metadata';

@@ -1,7 +1,7 @@
 /**
  * Generated from: ai-humanity-and-the-future-career-reflections-and-societal-shifts-in-an-automated-world.md
  * DO NOT EDIT MANUALLY - this file is generated automatically
- * Last generated: 2025-10-03T05:36:42.302Z
+ * Last generated: 2025-10-03T05:41:34.467Z
  */
 
 import { PostWithMetadata } from '@/lib/post-metadata';
