@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2025-10-03T07:17:14.760Z",
-  "totalTagPages": 375,
+  "generatedAt": "2025-10-03T15:41:56.808Z",
+  "totalTagPages": 389,
   "tagPages": [
     {
       "tag": "automation",
@@ -817,6 +817,71 @@
           "slug": "my-first-steps-into-coding",
           "title": "My First Steps into Coding: A Biographical Journey",
           "publishedDate": "2024-01-05T00:00:00.000Z"
+        }
+      ]
+    },
+    {
+      "tag": "AI chatbot",
+      "encodedTag": "AI%20chatbot",
+      "url": "/blog/tag/AI%20chatbot",
+      "postCount": 1,
+      "posts": [
+        {
+          "slug": "chatbot-breakthrough-how-openais-web-crawling-validates-generative-seo-for-smarter-site-interactions",
+          "title": "Chatbot Breakthrough: How OpenAI's Web Crawling Validates Generative SEO for Smarter Site Interactions",
+          "publishedDate": "2025-10-04T00:00:00.000Z"
+        }
+      ]
+    },
+    {
+      "tag": "generative search",
+      "encodedTag": "generative%20search",
+      "url": "/blog/tag/generative%20search",
+      "postCount": 1,
+      "posts": [
+        {
+          "slug": "chatbot-breakthrough-how-openais-web-crawling-validates-generative-seo-for-smarter-site-interactions",
+          "title": "Chatbot Breakthrough: How OpenAI's Web Crawling Validates Generative SEO for Smarter Site Interactions",
+          "publishedDate": "2025-10-04T00:00:00.000Z"
+        }
+      ]
+    },
+    {
+      "tag": "web optimization",
+      "encodedTag": "web%20optimization",
+      "url": "/blog/tag/web%20optimization",
+      "postCount": 1,
+      "posts": [
+        {
+          "slug": "chatbot-breakthrough-how-openais-web-crawling-validates-generative-seo-for-smarter-site-interactions",
+          "title": "Chatbot Breakthrough: How OpenAI's Web Crawling Validates Generative SEO for Smarter Site Interactions",
+          "publishedDate": "2025-10-04T00:00:00.000Z"
+        }
+      ]
+    },
+    {
+      "tag": "RAG implementation",
+      "encodedTag": "RAG%20implementation",
+      "url": "/blog/tag/RAG%20implementation",
+      "postCount": 1,
+      "posts": [
+        {
+          "slug": "chatbot-breakthrough-how-openais-web-crawling-validates-generative-seo-for-smarter-site-interactions",
+          "title": "Chatbot Breakthrough: How OpenAI's Web Crawling Validates Generative SEO for Smarter Site Interactions",
+          "publishedDate": "2025-10-04T00:00:00.000Z"
+        }
+      ]
+    },
+    {
+      "tag": "SEO strategy",
+      "encodedTag": "SEO%20strategy",
+      "url": "/blog/tag/SEO%20strategy",
+      "postCount": 1,
+      "posts": [
+        {
+          "slug": "chatbot-breakthrough-how-openais-web-crawling-validates-generative-seo-for-smarter-site-interactions",
+          "title": "Chatbot Breakthrough: How OpenAI's Web Crawling Validates Generative SEO for Smarter Site Interactions",
+          "publishedDate": "2025-10-04T00:00:00.000Z"
         }
       ]
     },
@@ -2825,6 +2890,123 @@
           "slug": "my-first-steps-into-coding",
           "title": "My First Steps into Coding: A Biographical Journey",
           "publishedDate": "2024-01-05T00:00:00.000Z"
+        }
+      ]
+    },
+    {
+      "tag": "chatbot optimization",
+      "encodedTag": "chatbot%20optimization",
+      "url": "/blog/tag/chatbot%20optimization",
+      "postCount": 1,
+      "posts": [
+        {
+          "slug": "chatbot-breakthrough-how-openais-web-crawling-validates-generative-seo-for-smarter-site-interactions",
+          "title": "Chatbot Breakthrough: How OpenAI's Web Crawling Validates Generative SEO for Smarter Site Interactions",
+          "publishedDate": "2025-10-04T00:00:00.000Z"
+        }
+      ]
+    },
+    {
+      "tag": "LangChain integration",
+      "encodedTag": "LangChain%20integration",
+      "url": "/blog/tag/LangChain%20integration",
+      "postCount": 1,
+      "posts": [
+        {
+          "slug": "chatbot-breakthrough-how-openais-web-crawling-validates-generative-seo-for-smarter-site-interactions",
+          "title": "Chatbot Breakthrough: How OpenAI's Web Crawling Validates Generative SEO for Smarter Site Interactions",
+          "publishedDate": "2025-10-04T00:00:00.000Z"
+        }
+      ]
+    },
+    {
+      "tag": "OpenAI crawling",
+      "encodedTag": "OpenAI%20crawling",
+      "url": "/blog/tag/OpenAI%20crawling",
+      "postCount": 1,
+      "posts": [
+        {
+          "slug": "chatbot-breakthrough-how-openais-web-crawling-validates-generative-seo-for-smarter-site-interactions",
+          "title": "Chatbot Breakthrough: How OpenAI's Web Crawling Validates Generative SEO for Smarter Site Interactions",
+          "publishedDate": "2025-10-04T00:00:00.000Z"
+        }
+      ]
+    },
+    {
+      "tag": "generative SEO",
+      "encodedTag": "generative%20SEO",
+      "url": "/blog/tag/generative%20SEO",
+      "postCount": 1,
+      "posts": [
+        {
+          "slug": "chatbot-breakthrough-how-openais-web-crawling-validates-generative-seo-for-smarter-site-interactions",
+          "title": "Chatbot Breakthrough: How OpenAI's Web Crawling Validates Generative SEO for Smarter Site Interactions",
+          "publishedDate": "2025-10-04T00:00:00.000Z"
+        }
+      ]
+    },
+    {
+      "tag": "retrieval augmented generation",
+      "encodedTag": "retrieval%20augmented%20generation",
+      "url": "/blog/tag/retrieval%20augmented%20generation",
+      "postCount": 1,
+      "posts": [
+        {
+          "slug": "chatbot-breakthrough-how-openais-web-crawling-validates-generative-seo-for-smarter-site-interactions",
+          "title": "Chatbot Breakthrough: How OpenAI's Web Crawling Validates Generative SEO for Smarter Site Interactions",
+          "publishedDate": "2025-10-04T00:00:00.000Z"
+        }
+      ]
+    },
+    {
+      "tag": "vector database",
+      "encodedTag": "vector%20database",
+      "url": "/blog/tag/vector%20database",
+      "postCount": 1,
+      "posts": [
+        {
+          "slug": "chatbot-breakthrough-how-openais-web-crawling-validates-generative-seo-for-smarter-site-interactions",
+          "title": "Chatbot Breakthrough: How OpenAI's Web Crawling Validates Generative SEO for Smarter Site Interactions",
+          "publishedDate": "2025-10-04T00:00:00.000Z"
+        }
+      ]
+    },
+    {
+      "tag": "Supabase backend",
+      "encodedTag": "Supabase%20backend",
+      "url": "/blog/tag/Supabase%20backend",
+      "postCount": 1,
+      "posts": [
+        {
+          "slug": "chatbot-breakthrough-how-openais-web-crawling-validates-generative-seo-for-smarter-site-interactions",
+          "title": "Chatbot Breakthrough: How OpenAI's Web Crawling Validates Generative SEO for Smarter Site Interactions",
+          "publishedDate": "2025-10-04T00:00:00.000Z"
+        }
+      ]
+    },
+    {
+      "tag": "blog indexing",
+      "encodedTag": "blog%20indexing",
+      "url": "/blog/tag/blog%20indexing",
+      "postCount": 1,
+      "posts": [
+        {
+          "slug": "chatbot-breakthrough-how-openais-web-crawling-validates-generative-seo-for-smarter-site-interactions",
+          "title": "Chatbot Breakthrough: How OpenAI's Web Crawling Validates Generative SEO for Smarter Site Interactions",
+          "publishedDate": "2025-10-04T00:00:00.000Z"
+        }
+      ]
+    },
+    {
+      "tag": "AI prompting tricks",
+      "encodedTag": "AI%20prompting%20tricks",
+      "url": "/blog/tag/AI%20prompting%20tricks",
+      "postCount": 1,
+      "posts": [
+        {
+          "slug": "chatbot-breakthrough-how-openais-web-crawling-validates-generative-seo-for-smarter-site-interactions",
+          "title": "Chatbot Breakthrough: How OpenAI's Web Crawling Validates Generative SEO for Smarter Site Interactions",
+          "publishedDate": "2025-10-04T00:00:00.000Z"
         }
       ]
     },

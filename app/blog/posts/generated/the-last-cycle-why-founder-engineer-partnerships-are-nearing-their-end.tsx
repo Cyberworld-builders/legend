@@ -1,7 +1,7 @@
 /**
  * Generated from: the-last-cycle-why-founder-engineer-partnerships-are-nearing-their-end.md
  * DO NOT EDIT MANUALLY - this file is generated automatically
- * Last generated: 2025-10-03T07:17:13.259Z
+ * Last generated: 2025-10-03T15:41:55.435Z
  */
 
 import { PostWithMetadata } from '@/lib/post-metadata';
