@@ -38,7 +38,9 @@ async function generateTagJSON() {
     const tagData = new Map();
     
     allUniqueTags.forEach(tag => {
-      const encodedTag = encodeURIComponent(tag);
+      // Normalize tag by replacing spaces with hyphens for Vercel compatibility
+      const normalizedTag = tag.replace(/\s+/g, '-');
+      const encodedTag = encodeURIComponent(normalizedTag);
       const postsWithTag = postIndex.posts.filter(post => 
         (post.tags && post.tags.includes(tag)) || 
         (post.keywords && post.keywords.includes(tag))
@@ -48,6 +50,7 @@ async function generateTagJSON() {
       if (postsWithTag.length > 0) {
         tagData.set(encodedTag, {
           tag: tag,
+          normalizedTag: normalizedTag,
           encodedTag: encodedTag,
           url: `/blog/tag/${encodedTag}`,
           postCount: postsWithTag.length,

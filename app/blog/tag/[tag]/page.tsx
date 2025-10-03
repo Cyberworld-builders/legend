@@ -56,10 +56,10 @@ export default async function TagPage({ params }: TagPageProps) {
   const { tag } = await params;
   const decodedTag = decodeURIComponent(tag);
   
-  console.log('TagPage called with:', { tag, decodedTag });
+  console.log('TagPage called with:', { tag, decodedTag, encodedTag: encodeURIComponent(tag) });
   
   try {
-    // Get tag data from JSON
+    // Get tag data from JSON - tag is already normalized (spaces replaced with hyphens)
     const tagData = tagDataJson.tagData[tag as keyof typeof tagDataJson.tagData];
     
     if (!tagData || tagData.posts.length === 0) {
