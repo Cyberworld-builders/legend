@@ -1,7 +1,7 @@
 /**
  * Generated from: building-an-effective-web-presence-for-professional-validation.md
  * DO NOT EDIT MANUALLY - this file is generated automatically
- * Last generated: 2025-10-03T07:04:06.573Z
+ * Last generated: 2025-10-03T07:17:13.239Z
  */
 
 import { PostWithMetadata } from '@/lib/post-metadata';

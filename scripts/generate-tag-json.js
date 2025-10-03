@@ -54,20 +54,10 @@ async function generateTagJSON() {
           posts: postsWithTag.map(post => ({
             slug: post.slug,
             title: Array.isArray(post.title) ? post.title.join(' ') : post.title,
-            description: post.description,
             publishedDate: post.publishedDate,
-            modifiedDate: post.modifiedDate,
-            lastReviewedDate: post.lastReviewedDate,
-            readingTime: post.readingTime,
             wordCount: post.wordCount,
             tags: post.tags || [],
-            keywords: post.keywords || [],
-            topics: post.topics || [],
-            category: post.category,
-            series: post.series,
-            isDraft: post.isDraft,
-            isFeatured: post.isFeatured,
-            priority: post.priority
+            keywords: post.keywords || []
           }))
         });
       }

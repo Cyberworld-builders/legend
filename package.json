@@ -19,7 +19,7 @@
     "seo": "npm run generate-post-index && npm run generate-tsx-posts && npm run generate-tag-json && npm run seo:report",
     "seo:index": "npm run generate-post-index",
     "seo:posts": "npm run generate-tsx-posts",
-    "seo:tags": "npm run validate-tags && npm run generate-tag-pages && npm run generate-tag-json",
+    "seo:tags": "npm run validate-tags && npm run generate-tag-json && npm run generate-tag-pages",
     "validate-tags": "node scripts/validate-tags.js",
     "generate-tag-pages": "node scripts/generate-tag-pages.js",
     "generate-tag-json": "node scripts/generate-tag-json.js",

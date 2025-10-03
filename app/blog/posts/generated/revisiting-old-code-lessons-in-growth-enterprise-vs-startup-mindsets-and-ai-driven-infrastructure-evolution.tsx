@@ -1,7 +1,7 @@
 /**
  * Generated from: revisiting-old-code-lessons-in-growth-enterprise-vs-startup-mindsets-and-ai-driven-infrastructure-evolution.md
  * DO NOT EDIT MANUALLY - this file is generated automatically
- * Last generated: 2025-10-03T07:04:06.590Z
+ * Last generated: 2025-10-03T07:17:13.256Z
  */
 
 import { PostWithMetadata } from '@/lib/post-metadata';
