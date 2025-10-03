@@ -1,18 +1,18 @@
 {
-  "generatedAt": "2025-10-01T15:30:06.219Z",
+  "generatedAt": "2025-10-03T07:04:07.482Z",
   "summary": {
-    "totalPosts": 19,
-    "publishedPosts": 19,
+    "totalPosts": 21,
+    "publishedPosts": 21,
     "draftPosts": 0,
-    "featuredPosts": 10,
+    "featuredPosts": 12,
     "postsNeedingReview": 14
   },
   "topics": {
-    "Development & Tools": 14,
-    "AI & Automation": 9,
-    "Career & Professional Development": 9,
-    "Business & Marketing": 1,
-    "Marketing & Business": 2
+    "AI & Automation": 11,
+    "Development & Tools": 15,
+    "Marketing & Business": 3,
+    "Career & Professional Development": 10,
+    "Business & Marketing": 1
   },
   "recommendations": [
     "Review 14 posts older than 90 days"

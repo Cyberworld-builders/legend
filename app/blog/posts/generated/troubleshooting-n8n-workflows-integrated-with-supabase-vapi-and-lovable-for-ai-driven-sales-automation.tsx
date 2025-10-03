@@ -1,7 +1,7 @@
 /**
  * Generated from: troubleshooting-n8n-workflows-integrated-with-supabase-vapi-and-lovable-for-ai-driven-sales-automation.md
  * DO NOT EDIT MANUALLY - this file is generated automatically
- * Last generated: 2025-10-03T06:53:19.909Z
+ * Last generated: 2025-10-03T07:04:06.597Z
  */
 
 import { PostWithMetadata } from '@/lib/post-metadata';
