@@ -61,7 +61,7 @@ export const postsIndex: PostIndexEntry[] = [
     ],
     "wordCount": 5160,
     "fileSize": 30670,
-    "fileModified": "2025-10-03T05:36:24.797Z"
+    "fileModified": "2025-10-03T06:50:41.414Z"
   },
   {
     "slug": "ai-humanity-and-the-future-career-reflections-and-societal-shifts-in-an-automated-world",
@@ -99,7 +99,7 @@ export const postsIndex: PostIndexEntry[] = [
     ],
     "wordCount": 4856,
     "fileSize": 28933,
-    "fileModified": "2025-10-02T16:33:09.728Z"
+    "fileModified": "2025-10-03T06:50:41.413Z"
   },
   {
     "slug": "cemetery-management-application-gps-mapping-ar-integration-and-autonomous-maintenance-for-funeral-homes",

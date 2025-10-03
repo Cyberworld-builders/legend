@@ -1,7 +1,7 @@
 /**
  * Generated from: the-jumpstarter-a-5-point-framework-to-align-value-and-passion.md
  * DO NOT EDIT MANUALLY - this file is generated automatically
- * Last generated: 2025-10-03T06:43:16.662Z
+ * Last generated: 2025-10-03T06:53:19.904Z
  */
 
 import { PostWithMetadata } from '@/lib/post-metadata';

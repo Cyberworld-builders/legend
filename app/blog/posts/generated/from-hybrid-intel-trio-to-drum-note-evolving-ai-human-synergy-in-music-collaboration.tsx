@@ -1,7 +1,7 @@
 /**
  * Generated from: from-hybrid-intel-trio-to-drum-note-evolving-ai-human-synergy-in-music-collaboration.md
  * DO NOT EDIT MANUALLY - this file is generated automatically
- * Last generated: 2025-10-03T06:43:16.648Z
+ * Last generated: 2025-10-03T06:53:19.890Z
  */
 
 import { PostWithMetadata } from '@/lib/post-metadata';
@@ -29,8 +29,8 @@ export const postData: PostWithMetadata = {
     language: "en-US",
   },
   fileStats: {
-    ctime: new Date('2025-10-03T05:36:03.359Z'),
-    mtime: new Date('2025-10-03T05:36:24.797Z'),
+    ctime: new Date('2025-10-03T06:50:41.413Z'),
+    mtime: new Date('2025-10-03T06:50:41.414Z'),
     size: 30670,
   }
 };
