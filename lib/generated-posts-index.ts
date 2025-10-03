@@ -25,6 +25,45 @@ export interface PostIndexEntry {
 
 export const postsIndex: PostIndexEntry[] = [
   {
+    "slug": "from-hybrid-intel-trio-to-drum-note-evolving-ai-human-synergy-in-music-collaboration",
+    "title": "From Hybrid Intel Trio to Drum Note: Evolving AI-Human Synergy in Music Collaboration",
+    "publishedDate": "2025-10-03T00:00:00.000Z",
+    "modifiedDate": "2025-10-03T00:00:00.000Z",
+    "lastReviewedDate": "2025-10-03T00:00:00.000Z",
+    "isDraft": false,
+    "isFeatured": true,
+    "priority": 9,
+    "category": "Technology",
+    "series": "",
+    "topics": [
+      "AI & Automation",
+      "Development & Tools",
+      "Marketing & Business"
+    ],
+    "tags": [
+      "AI creativity",
+      "music AI",
+      "human-AI collaboration",
+      "RLHF",
+      "session musician"
+    ],
+    "keywords": [
+      "AI music collaboration",
+      "human-AI synergy",
+      "reinforcement learning feedback",
+      "session drummer AI",
+      "BotBand",
+      "Drum Note",
+      "creative alignment",
+      "music production tools",
+      "RLHF in recommendations",
+      "hybrid intelligence"
+    ],
+    "wordCount": 5160,
+    "fileSize": 30670,
+    "fileModified": "2025-10-03T05:36:24.797Z"
+  },
+  {
     "slug": "ai-humanity-and-the-future-career-reflections-and-societal-shifts-in-an-automated-world",
     "title": "AI, Humanity, and the Future: Career Reflections and Societal Shifts in an Automated World",
     "publishedDate": "2025-10-01T00:00:00.000Z",
