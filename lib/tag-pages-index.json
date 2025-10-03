@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2025-10-03T15:41:56.808Z",
+  "generatedAt": "2025-10-03T15:45:58.084Z",
   "totalTagPages": 389,
   "tagPages": [
     {
@@ -821,9 +821,9 @@
       ]
     },
     {
-      "tag": "AI chatbot",
-      "encodedTag": "AI%20chatbot",
-      "url": "/blog/tag/AI%20chatbot",
+      "tag": "AI-chatbot",
+      "encodedTag": "AI-chatbot",
+      "url": "/blog/tag/AI-chatbot",
       "postCount": 1,
       "posts": [
         {
@@ -834,9 +834,9 @@
       ]
     },
     {
-      "tag": "generative search",
-      "encodedTag": "generative%20search",
-      "url": "/blog/tag/generative%20search",
+      "tag": "generative-search",
+      "encodedTag": "generative-search",
+      "url": "/blog/tag/generative-search",
       "postCount": 1,
       "posts": [
         {
@@ -847,9 +847,9 @@
       ]
     },
     {
-      "tag": "web optimization",
-      "encodedTag": "web%20optimization",
-      "url": "/blog/tag/web%20optimization",
+      "tag": "web-optimization",
+      "encodedTag": "web-optimization",
+      "url": "/blog/tag/web-optimization",
       "postCount": 1,
       "posts": [
         {
@@ -860,9 +860,9 @@
       ]
     },
     {
-      "tag": "RAG implementation",
-      "encodedTag": "RAG%20implementation",
-      "url": "/blog/tag/RAG%20implementation",
+      "tag": "RAG-implementation",
+      "encodedTag": "RAG-implementation",
+      "url": "/blog/tag/RAG-implementation",
       "postCount": 1,
       "posts": [
         {
@@ -873,9 +873,9 @@
       ]
     },
     {
-      "tag": "SEO strategy",
-      "encodedTag": "SEO%20strategy",
-      "url": "/blog/tag/SEO%20strategy",
+      "tag": "SEO-strategy",
+      "encodedTag": "SEO-strategy",
+      "url": "/blog/tag/SEO-strategy",
       "postCount": 1,
       "posts": [
         {
@@ -2894,9 +2894,9 @@
       ]
     },
     {
-      "tag": "chatbot optimization",
-      "encodedTag": "chatbot%20optimization",
-      "url": "/blog/tag/chatbot%20optimization",
+      "tag": "chatbot-optimization",
+      "encodedTag": "chatbot-optimization",
+      "url": "/blog/tag/chatbot-optimization",
       "postCount": 1,
       "posts": [
         {
@@ -2907,9 +2907,9 @@
       ]
     },
     {
-      "tag": "LangChain integration",
-      "encodedTag": "LangChain%20integration",
-      "url": "/blog/tag/LangChain%20integration",
+      "tag": "LangChain-integration",
+      "encodedTag": "LangChain-integration",
+      "url": "/blog/tag/LangChain-integration",
       "postCount": 1,
       "posts": [
         {
@@ -2920,9 +2920,9 @@
       ]
     },
     {
-      "tag": "OpenAI crawling",
-      "encodedTag": "OpenAI%20crawling",
-      "url": "/blog/tag/OpenAI%20crawling",
+      "tag": "OpenAI-crawling",
+      "encodedTag": "OpenAI-crawling",
+      "url": "/blog/tag/OpenAI-crawling",
       "postCount": 1,
       "posts": [
         {
@@ -2933,9 +2933,9 @@
       ]
     },
     {
-      "tag": "generative SEO",
-      "encodedTag": "generative%20SEO",
-      "url": "/blog/tag/generative%20SEO",
+      "tag": "generative-SEO",
+      "encodedTag": "generative-SEO",
+      "url": "/blog/tag/generative-SEO",
       "postCount": 1,
       "posts": [
         {
@@ -2946,9 +2946,9 @@
       ]
     },
     {
-      "tag": "retrieval augmented generation",
-      "encodedTag": "retrieval%20augmented%20generation",
-      "url": "/blog/tag/retrieval%20augmented%20generation",
+      "tag": "retrieval-augmented-generation",
+      "encodedTag": "retrieval-augmented-generation",
+      "url": "/blog/tag/retrieval-augmented-generation",
       "postCount": 1,
       "posts": [
         {
@@ -2959,9 +2959,9 @@
       ]
     },
     {
-      "tag": "vector database",
-      "encodedTag": "vector%20database",
-      "url": "/blog/tag/vector%20database",
+      "tag": "vector-database",
+      "encodedTag": "vector-database",
+      "url": "/blog/tag/vector-database",
       "postCount": 1,
       "posts": [
         {
@@ -2972,9 +2972,9 @@
       ]
     },
     {
-      "tag": "Supabase backend",
-      "encodedTag": "Supabase%20backend",
-      "url": "/blog/tag/Supabase%20backend",
+      "tag": "Supabase-backend",
+      "encodedTag": "Supabase-backend",
+      "url": "/blog/tag/Supabase-backend",
       "postCount": 1,
       "posts": [
         {
@@ -2985,9 +2985,9 @@
       ]
     },
     {
-      "tag": "blog indexing",
-      "encodedTag": "blog%20indexing",
-      "url": "/blog/tag/blog%20indexing",
+      "tag": "blog-indexing",
+      "encodedTag": "blog-indexing",
+      "url": "/blog/tag/blog-indexing",
       "postCount": 1,
       "posts": [
         {
@@ -2998,9 +2998,9 @@
       ]
     },
     {
-      "tag": "AI prompting tricks",
-      "encodedTag": "AI%20prompting%20tricks",
-      "url": "/blog/tag/AI%20prompting%20tricks",
+      "tag": "AI-prompting-tricks",
+      "encodedTag": "AI-prompting-tricks",
+      "url": "/blog/tag/AI-prompting-tricks",
       "postCount": 1,
       "posts": [
         {

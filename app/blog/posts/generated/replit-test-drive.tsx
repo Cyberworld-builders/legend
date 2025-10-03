@@ -1,7 +1,7 @@
 /**
  * Generated from: replit-test-drive.md
  * DO NOT EDIT MANUALLY - this file is generated automatically
- * Last generated: 2025-10-03T15:41:55.428Z
+ * Last generated: 2025-10-03T15:48:11.795Z
  */
 
 import { PostWithMetadata } from '@/lib/post-metadata';

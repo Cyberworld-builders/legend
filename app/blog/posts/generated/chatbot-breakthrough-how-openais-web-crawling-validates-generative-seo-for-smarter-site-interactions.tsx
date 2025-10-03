@@ -1,7 +1,7 @@
 /**
  * Generated from: chatbot-breakthrough-how-openais-web-crawling-validates-generative-seo-for-smarter-site-interactions.md
  * DO NOT EDIT MANUALLY - this file is generated automatically
- * Last generated: 2025-10-03T15:41:55.416Z
+ * Last generated: 2025-10-03T15:48:11.780Z
  */
 
 import { PostWithMetadata } from '@/lib/post-metadata';
@@ -22,15 +22,15 @@ export const postData: PostWithMetadata = {
     category: "Technology",
     series: "",
     topics: ["AI & Automation","Development & Tools"],
-    tags: ["AI chatbot","generative search","web optimization","RAG implementation","SEO strategy"],
-    keywords: ["chatbot optimization","LangChain integration","OpenAI crawling","generative SEO","retrieval augmented generation","vector database","Supabase backend","blog indexing","AI prompting tricks"],
+    tags: ["AI-chatbot","generative-search","web-optimization","RAG-implementation","SEO-strategy"],
+    keywords: ["chatbot-optimization","LangChain-integration","OpenAI-crawling","generative-SEO","retrieval-augmented-generation","vector-database","Supabase-backend","blog-indexing","AI-prompting-tricks"],
     wordCount: 1,
     readingTime: 1,
     language: "en-US",
   },
   fileStats: {
     ctime: new Date('2025-10-03T15:41:08.456Z'),
-    mtime: new Date('2025-10-03T15:41:50.656Z'),
+    mtime: new Date('2025-10-03T15:45:49.531Z'),
     size: 14453,
   }
 };

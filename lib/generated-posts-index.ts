@@ -40,26 +40,26 @@ export const postsIndex: PostIndexEntry[] = [
       "Development & Tools"
     ],
     "tags": [
-      "AI chatbot",
-      "generative search",
-      "web optimization",
-      "RAG implementation",
-      "SEO strategy"
+      "AI-chatbot",
+      "generative-search",
+      "web-optimization",
+      "RAG-implementation",
+      "SEO-strategy"
     ],
     "keywords": [
-      "chatbot optimization",
-      "LangChain integration",
-      "OpenAI crawling",
-      "generative SEO",
-      "retrieval augmented generation",
-      "vector database",
-      "Supabase backend",
-      "blog indexing",
-      "AI prompting tricks"
+      "chatbot-optimization",
+      "LangChain-integration",
+      "OpenAI-crawling",
+      "generative-SEO",
+      "retrieval-augmented-generation",
+      "vector-database",
+      "Supabase-backend",
+      "blog-indexing",
+      "AI-prompting-tricks"
     ],
     "wordCount": 2228,
     "fileSize": 14453,
-    "fileModified": "2025-10-03T15:41:50.656Z"
+    "fileModified": "2025-10-03T15:45:49.531Z"
   },
   {
     "slug": "from-hybrid-intel-trio-to-drum-note-evolving-ai-human-synergy-in-music-collaboration",
@@ -78,27 +78,27 @@ export const postsIndex: PostIndexEntry[] = [
       "Marketing & Business"
     ],
     "tags": [
-      "AI creativity",
-      "music AI",
-      "human-AI collaboration",
-      "RLHF",
-      "session musician"
+      "AI-creativity",
+      "music-AI",
+      "human-AI-collaboration",
+      "RLHF-in-recommendations",
+      "session-musician"
     ],
     "keywords": [
-      "AI music collaboration",
-      "human-AI synergy",
-      "reinforcement learning feedback",
-      "session drummer AI",
+      "AI-music-collaboration",
+      "human-AI-synergy",
+      "reinforcement-learning-feedback",
+      "session-drummer-AI",
       "BotBand",
-      "Drum Note",
-      "creative alignment",
-      "music production tools",
-      "RLHF in recommendations",
-      "hybrid intelligence"
+      "Drum-Note",
+      "creative-alignment",
+      "music-production-tools",
+      "RLHF-in-recommendations",
+      "hybrid-intelligence"
     ],
     "wordCount": 5160,
-    "fileSize": 30670,
-    "fileModified": "2025-10-03T06:50:41.414Z"
+    "fileSize": 30689,
+    "fileModified": "2025-10-03T15:47:42.295Z"
   },
   {
     "slug": "ai-humanity-and-the-future-career-reflections-and-societal-shifts-in-an-automated-world",

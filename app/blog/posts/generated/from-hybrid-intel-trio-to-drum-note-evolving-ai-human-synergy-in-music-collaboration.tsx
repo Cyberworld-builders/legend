@@ -1,7 +1,7 @@
 /**
  * Generated from: from-hybrid-intel-trio-to-drum-note-evolving-ai-human-synergy-in-music-collaboration.md
  * DO NOT EDIT MANUALLY - this file is generated automatically
- * Last generated: 2025-10-03T15:41:55.421Z
+ * Last generated: 2025-10-03T15:48:11.786Z
  */
 
 import { PostWithMetadata } from '@/lib/post-metadata';
@@ -22,16 +22,16 @@ export const postData: PostWithMetadata = {
     category: "Technology",
     series: "",
     topics: ["AI & Automation","Development & Tools","Marketing & Business"],
-    tags: ["AI creativity","music AI","human-AI collaboration","RLHF","session musician"],
-    keywords: ["AI music collaboration","human-AI synergy","reinforcement learning feedback","session drummer AI","BotBand","Drum Note","creative alignment","music production tools","RLHF in recommendations","hybrid intelligence"],
+    tags: ["AI-creativity","music-AI","human-AI-collaboration","RLHF-in-recommendations","session-musician"],
+    keywords: ["AI-music-collaboration","human-AI-synergy","reinforcement-learning-feedback","session-drummer-AI","BotBand","Drum-Note","creative-alignment","music-production-tools","RLHF-in-recommendations","hybrid-intelligence"],
     wordCount: 1,
     readingTime: 1,
     language: "en-US",
   },
   fileStats: {
     ctime: new Date('2025-10-03T06:50:41.413Z'),
-    mtime: new Date('2025-10-03T06:50:41.414Z'),
-    size: 30670,
+    mtime: new Date('2025-10-03T15:47:42.295Z'),
+    size: 30689,
   }
 };
 

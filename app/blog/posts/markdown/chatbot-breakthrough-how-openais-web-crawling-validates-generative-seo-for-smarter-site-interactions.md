@@ -5,24 +5,24 @@ publishedDate: 2025-10-04
 modifiedDate: 2025-10-04
 lastReviewedDate: 2025-10-04
 keywords:
-  - chatbot optimization
-  - LangChain integration
-  - OpenAI crawling
-  - generative SEO
-  - retrieval augmented generation
-  - vector database
-  - Supabase backend
-  - blog indexing
-  - AI prompting tricks
+  - chatbot-optimization
+  - LangChain-integration
+  - OpenAI-crawling
+  - generative-SEO
+  - retrieval-augmented-generation
+  - vector-database
+  - Supabase-backend
+  - blog-indexing
+  - AI-prompting-tricks
 topics:
   - AI & Automation
   - Development & Tools
 tags:
-  - AI chatbot
-  - generative search
-  - web optimization
-  - RAG implementation
-  - SEO strategy
+  - AI-chatbot
+  - generative-search
+  - web-optimization
+  - RAG-implementation
+  - SEO-strategy
 series: ""
 category: "Technology"
 isDraft: false
