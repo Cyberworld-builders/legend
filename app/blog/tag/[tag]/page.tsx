@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import Breadcrumb from '@/components/Breadcrumb';
 import PageBackground from '@/components/PageBackground';
-import { getAllPostsWithMetadata } from '@/lib/post-metadata';
+import tagDataJson from '@/lib/generated-tags/tag-data.json';
 import type { Metadata } from 'next';
 
 interface TagPageProps {
@@ -38,25 +38,12 @@ export async function generateMetadata({ params }: TagPageProps): Promise<Metada
 
 export async function generateStaticParams() {
   try {
-    const allPosts = await getAllPostsWithMetadata();
-    const allTags = new Set<string>();
-    
-    allPosts.forEach(post => {
-      if (post.metadata.tags) {
-        post.metadata.tags.forEach(tag => allTags.add(tag));
-      }
-      if (post.metadata.keywords) {
-        post.metadata.keywords.forEach(keyword => allTags.add(keyword));
-      }
-    });
-    
-    const tagParams = Array.from(allTags).map(tag => ({
-      tag: encodeURIComponent(tag),
+    const tagParams = Object.keys(tagDataJson.tagData).map(encodedTag => ({
+      tag: encodedTag,
     }));
     
-    console.log('Generated static params for tags:', tagParams);
-    console.log('Total tags found:', allTags.size);
-    console.log('Sample tags:', Array.from(allTags).slice(0, 5));
+    console.log('Generated static params for tags:', tagParams.length);
+    console.log('Sample tags:', tagParams.slice(0, 5));
     
     return tagParams;
   } catch (error) {
@@ -72,24 +59,17 @@ export default async function TagPage({ params }: TagPageProps) {
   console.log('TagPage called with:', { tag, decodedTag });
   
   try {
-    // Get all posts with metadata
-    const allPosts = await getAllPostsWithMetadata();
+    // Get tag data from JSON
+    const tagData = tagDataJson.tagData[tag as keyof typeof tagDataJson.tagData];
     
-    // Filter posts that have this tag
-    const taggedPosts = allPosts.filter(post => {
-      const hasTag = post.metadata.tags?.includes(decodedTag);
-      const hasKeyword = post.metadata.keywords?.includes(decodedTag);
-      return hasTag || hasKeyword;
-    });
-    
-    if (taggedPosts.length === 0) {
+    if (!tagData || tagData.posts.length === 0) {
       notFound();
     }
     
     // Sort by publication date (most recent first)
-    taggedPosts.sort((a, b) => {
-      const dateA = a.metadata.publishedDate || a.fileStats.ctime;
-      const dateB = b.metadata.publishedDate || b.fileStats.ctime;
+    const taggedPosts = tagData.posts.sort((a, b) => {
+      const dateA = new Date(a.publishedDate);
+      const dateB = new Date(b.publishedDate);
       return dateB.getTime() - dateA.getTime();
     });
     
@@ -137,9 +117,9 @@ export default async function TagPage({ params }: TagPageProps) {
           {/* Posts List */}
           <div className="space-y-6">
             {taggedPosts.map((post) => {
-              const title = post.metadata.title || post.slug.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
-              const description = post.metadata.description || `Read about ${title} - Software engineering insights and technical articles from CyberWorld Builders.`;
-              const publishedDate = post.metadata.publishedDate || post.fileStats.ctime;
+              const title = post.title || post.slug.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+              const description = (post as { description?: string }).description || `Read about ${title} - Software engineering insights and technical articles from CyberWorld Builders.`;
+              const publishedDate = new Date(post.publishedDate);
               
               return (
                 <article key={post.slug} className="border border-[#00ff00]/20 rounded-lg p-6 hover:border-[#00ff00]/40 transition-colors">
@@ -170,22 +150,22 @@ export default async function TagPage({ params }: TagPageProps) {
                           })}
                         </time>
                         
-                        {post.metadata.readingTime && (
-                          <span>{post.metadata.readingTime} min read</span>
+                        {(post as { readingTime?: number }).readingTime && (
+                          <span>{(post as { readingTime?: number }).readingTime} min read</span>
                         )}
                         
-                        {post.metadata.wordCount && (
-                          <span>{post.metadata.wordCount} words</span>
+                        {post.wordCount && (
+                          <span>{post.wordCount} words</span>
                         )}
                       </div>
                     </div>
                   </div>
                   
                   {/* Post Tags */}
-                  {((post.metadata.tags && post.metadata.tags.length > 0) || (post.metadata.keywords && post.metadata.keywords.length > 0)) && (
+                  {((post.tags && post.tags.length > 0) || (post.keywords && post.keywords.length > 0)) && (
                     <div className="mt-4 pt-4 border-t border-[#00ff00]/10">
                       <div className="flex flex-wrap gap-2">
-                        {(post.metadata.tags || post.metadata.keywords || []).map((postTag: string) => (
+                        {(post.tags || post.keywords || []).map((postTag: string) => (
                           <Link
                             key={postTag}
                             href={`/blog/tag/${encodeURIComponent(postTag)}`}
