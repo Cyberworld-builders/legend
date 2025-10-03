@@ -1,20 +1,21 @@
 {
-  "generatedAt": "2025-10-03T07:17:14.765Z",
+  "generatedAt": "2025-10-03T15:48:14.829Z",
   "summary": {
-    "totalPosts": 21,
-    "publishedPosts": 21,
+    "totalPosts": 22,
+    "publishedPosts": 22,
     "draftPosts": 0,
-    "featuredPosts": 12,
+    "featuredPosts": 13,
     "postsNeedingReview": 14
   },
   "topics": {
-    "AI & Automation": 11,
-    "Development & Tools": 15,
+    "AI & Automation": 12,
+    "Development & Tools": 16,
     "Marketing & Business": 3,
     "Career & Professional Development": 10,
     "Business & Marketing": 1
   },
   "recommendations": [
+    "Fix 1 metadata issues found",
     "Review 14 posts older than 90 days"
   ]
 }

@@ -5,26 +5,26 @@ publishedDate: 2025-10-03
 modifiedDate: 2025-10-03
 lastReviewedDate: 2025-10-03
 keywords:
-  - AI music collaboration
-  - human-AI synergy
-  - reinforcement learning feedback
-  - session drummer AI
+  - AI-music-collaboration
+  - human-AI-synergy
+  - reinforcement-learning-feedback
+  - session-drummer-AI
   - BotBand
-  - Drum Note
-  - creative alignment
-  - music production tools
-  - RLHF in recommendations
-  - hybrid intelligence
+  - Drum-Note
+  - creative-alignment
+  - music-production-tools
+  - RLHF-in-recommendations
+  - hybrid-intelligence
 topics:
   - AI & Automation
   - Development & Tools
   - Marketing & Business
 tags:
-  - AI creativity
-  - music AI
-  - human-AI collaboration
-  - RLHF
-  - session musician
+  - AI-creativity
+  - music-AI
+  - human-AI-collaboration
+  - RLHF-in-recommendations
+  - session-musician
 series: ""
 category: "Technology"
 isDraft: false
