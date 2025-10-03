@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { MessageCircle, X } from 'lucide-react';
+import ChatMessage from './ChatMessage';
 
 interface Message {
   role: 'user' | 'bot';
@@ -11,7 +12,7 @@ interface Message {
 const ChatWidget = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
-    { role: 'bot', content: 'Hello! Welcome to CyberWorld. How can I assist you today?' },
+    { role: 'bot', content: 'Hey there! I\'m Jay\'s chatbot from CyberWorld Builders. Jay helps with software engineering, career transitions, and AI tools. I\'ve been trained to answer questions using posts from this blog, so I know a lot about his work. What can I help you with today?' },
   ]);
   const [input, setInput] = useState('');
   const messagesEndRef = useRef<HTMLDivElement>(null);
@@ -75,20 +76,11 @@ const ChatWidget = () => {
           {/* Chat Messages */}
           <div className="flex-1 p-4 overflow-y-auto">
             {messages.map((msg, index) => (
-              <div
+              <ChatMessage
                 key={index}
-                className={`mb-3 ${msg.role === 'user' ? 'text-right' : 'text-left'}`}
-              >
-                <span
-                  className={`inline-block p-2 rounded-lg ${
-                    msg.role === 'user'
-                      ? 'bg-[#00ff00] text-[#1a1a1a]'
-                      : 'bg-[#1a1a1a] text-[#00ff00]'
-                  }`}
-                >
-                  {msg.content}
-                </span>
-              </div>
+                content={msg.content}
+                role={msg.role}
+              />
             ))}
             <div ref={messagesEndRef} />
           </div>

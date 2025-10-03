@@ -6,6 +6,7 @@ import PerformanceMonitor from '@/components/PerformanceMonitor';
 import AuthorSchema from '@/components/AuthorSchema';
 import GoogleAnalytics from '@/components/GoogleAnalytics';
 import FAQSchema from '@/components/FAQSchema';
+import ChatWidget from '@/components/ChatWidget';
 
 export const metadata: Metadata = {
   title: {
@@ -235,6 +236,7 @@ export default function RootLayout({
         <PerformanceMonitor />
         <AuthorSchema />
         <FAQSchema />
+        <ChatWidget />
       </body>
     </html>
   );

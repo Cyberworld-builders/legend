@@ -46,7 +46,10 @@ class SEOMaintenance {
       // 5. Check Schema Markup
       await this.validateSchemaMarkup();
       
-      // 6. Generate SEO Report
+      // 6. Validate Tag Pages
+      await this.validateTagPages();
+      
+      // 7. Generate SEO Report
       await this.generateSEOReport();
       
       console.log('\n✅ SEO Maintenance Complete!');
@@ -171,6 +174,25 @@ class SEOMaintenance {
       }
     } else {
       console.log('   ⚠️  AuthorSchema.tsx not found');
+    }
+  }
+
+  async validateTagPages() {
+    console.log('🏷️  Step 6: Validating Tag Pages...');
+    
+    try {
+      // Run tag validation script
+      const { execSync } = require('child_process');
+      execSync('node scripts/validate-tags.js', { stdio: 'pipe' });
+      console.log('   ✅ Tag validation completed');
+      
+      // Run tag page generation script
+      execSync('node scripts/generate-tag-pages.js', { stdio: 'pipe' });
+      console.log('   ✅ Tag page generation completed');
+      
+    } catch (error) {
+      console.log('   ⚠️  Tag validation/generation failed:', error.message);
+      this.stats.issuesFound++;
     }
   }
 
