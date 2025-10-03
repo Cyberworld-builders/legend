@@ -21,10 +21,12 @@
     "seo": "npm run seo:index && npm run seo:posts && npm run seo:tags",
     "seo:index": "npm run generate-post-index",
     "seo:posts": "npm run generate-tsx-posts",
-    "seo:tags": "npm run validate-tags && npm run generate-tag-pages",
-    "validate-tags": "node scripts/validate-tags.js",
-    "generate-tag-pages": "node scripts/generate-tag-pages.js",
-    "seo:report": "node scripts/seo-maintenance.js && cat seo-report.json"
+        "seo:tags": "npm run validate-tags && npm run generate-tag-pages",
+        "validate-tags": "node scripts/validate-tags.js",
+        "generate-tag-pages": "node scripts/generate-tag-pages.js",
+        "chatbot:content": "node scripts/generate-chatbot-content.js",
+        "chatbot:test": "node scripts/chatbot-content-selector-markdown.js",
+        "seo:report": "node scripts/seo-maintenance.js && cat seo-report.json"
   },
   "dependencies": {
     "@langchain/openai": "^0.5.6",
