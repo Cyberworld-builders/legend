@@ -25,6 +25,45 @@ export interface PostIndexEntry {
 
 export const postsIndex: PostIndexEntry[] = [
   {
+    "slug": "first-pitch-meeting-reflections-lessons-confidence-and-alignment-in-death-care-and-ar-innovation",
+    "title": "First Pitch Meeting Reflections: Lessons, Confidence, and Alignment in Death Care and AR Innovation",
+    "publishedDate": "2025-10-15T00:00:00.000Z",
+    "modifiedDate": "2025-10-15T00:00:00.000Z",
+    "lastReviewedDate": "2025-10-15T00:00:00.000Z",
+    "isDraft": false,
+    "isFeatured": true,
+    "priority": 9,
+    "category": "Technology",
+    "series": "",
+    "topics": [
+      "Career & Professional Development",
+      "AI & Automation",
+      "Entrepreneurship"
+    ],
+    "tags": [
+      "pitch-reflections",
+      "death-care-ar",
+      "prototyping",
+      "investor-strategy",
+      "revenant-hollow"
+    ],
+    "keywords": [
+      "pitch meeting",
+      "investor pitch",
+      "death care technology",
+      "augmented reality",
+      "location-based experiences",
+      "prototype development",
+      "career alignment",
+      "digital marketing",
+      "cemetery management",
+      "entrepreneurial confidence"
+    ],
+    "wordCount": 924,
+    "fileSize": 8285,
+    "fileModified": "2025-10-15T13:54:04.139Z"
+  },
+  {
     "slug": "chatbot-breakthrough-how-openais-web-crawling-validates-generative-seo-for-smarter-site-interactions",
     "title": "Chatbot Breakthrough: How OpenAI's Web Crawling Validates Generative SEO for Smarter Site Interactions",
     "publishedDate": "2025-10-04T00:00:00.000Z",
