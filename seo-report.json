@@ -1,17 +1,18 @@
 {
-  "generatedAt": "2025-10-03T15:48:14.829Z",
+  "generatedAt": "2025-10-15T15:22:26.140Z",
   "summary": {
-    "totalPosts": 22,
-    "publishedPosts": 22,
+    "totalPosts": 23,
+    "publishedPosts": 23,
     "draftPosts": 0,
-    "featuredPosts": 13,
+    "featuredPosts": 14,
     "postsNeedingReview": 14
   },
   "topics": {
-    "AI & Automation": 12,
+    "Career & Professional Development": 11,
+    "AI & Automation": 13,
+    "Entrepreneurship": 1,
     "Development & Tools": 16,
     "Marketing & Business": 3,
-    "Career & Professional Development": 10,
     "Business & Marketing": 1
   },
   "recommendations": [

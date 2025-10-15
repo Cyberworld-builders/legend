@@ -1,9 +1,199 @@
 {
-  "generatedAt": "2025-10-03T15:48:12.648Z",
-  "totalTagPages": 389,
-  "totalPosts": 22,
+  "generatedAt": "2025-10-15T15:22:25.696Z",
+  "totalTagPages": 401,
+  "totalPosts": 23,
   "averagePostsPerTag": 1.15,
   "tagData": {
+    "pitch-reflections": {
+      "tag": "pitch-reflections",
+      "encodedTag": "pitch-reflections",
+      "url": "/blog/tag/pitch-reflections",
+      "postCount": 1,
+      "posts": [
+        {
+          "slug": "first-pitch-meeting-reflections-lessons-confidence-and-alignment-in-death-care-and-ar-innovation",
+          "title": "First Pitch Meeting Reflections: Lessons Confidence and Alignment in Death Care and AR Innovation",
+          "publishedDate": "2025-10-15T00:00:00.000Z",
+          "wordCount": 1057,
+          "tags": [
+            "pitch-reflections",
+            "death-care-ar",
+            "prototyping",
+            "investor-strategy",
+            "revenant-hollow"
+          ],
+          "keywords": [
+            "pitch meeting",
+            "investor pitch",
+            "death care technology",
+            "augmented reality",
+            "location-based experiences",
+            "prototype development",
+            "career alignment",
+            "digital marketing",
+            "cemetery management",
+            "entrepreneurial confidence"
+          ]
+        }
+      ]
+    },
+    "death-care-ar": {
+      "tag": "death-care-ar",
+      "encodedTag": "death-care-ar",
+      "url": "/blog/tag/death-care-ar",
+      "postCount": 1,
+      "posts": [
+        {
+          "slug": "first-pitch-meeting-reflections-lessons-confidence-and-alignment-in-death-care-and-ar-innovation",
+          "title": "First Pitch Meeting Reflections: Lessons Confidence and Alignment in Death Care and AR Innovation",
+          "publishedDate": "2025-10-15T00:00:00.000Z",
+          "wordCount": 1057,
+          "tags": [
+            "pitch-reflections",
+            "death-care-ar",
+            "prototyping",
+            "investor-strategy",
+            "revenant-hollow"
+          ],
+          "keywords": [
+            "pitch meeting",
+            "investor pitch",
+            "death care technology",
+            "augmented reality",
+            "location-based experiences",
+            "prototype development",
+            "career alignment",
+            "digital marketing",
+            "cemetery management",
+            "entrepreneurial confidence"
+          ]
+        }
+      ]
+    },
+    "prototyping": {
+      "tag": "prototyping",
+      "encodedTag": "prototyping",
+      "url": "/blog/tag/prototyping",
+      "postCount": 1,
+      "posts": [
+        {
+          "slug": "first-pitch-meeting-reflections-lessons-confidence-and-alignment-in-death-care-and-ar-innovation",
+          "title": "First Pitch Meeting Reflections: Lessons Confidence and Alignment in Death Care and AR Innovation",
+          "publishedDate": "2025-10-15T00:00:00.000Z",
+          "wordCount": 1057,
+          "tags": [
+            "pitch-reflections",
+            "death-care-ar",
+            "prototyping",
+            "investor-strategy",
+            "revenant-hollow"
+          ],
+          "keywords": [
+            "pitch meeting",
+            "investor pitch",
+            "death care technology",
+            "augmented reality",
+            "location-based experiences",
+            "prototype development",
+            "career alignment",
+            "digital marketing",
+            "cemetery management",
+            "entrepreneurial confidence"
+          ]
+        }
+      ]
+    },
+    "investor-strategy": {
+      "tag": "investor-strategy",
+      "encodedTag": "investor-strategy",
+      "url": "/blog/tag/investor-strategy",
+      "postCount": 1,
+      "posts": [
+        {
+          "slug": "first-pitch-meeting-reflections-lessons-confidence-and-alignment-in-death-care-and-ar-innovation",
+          "title": "First Pitch Meeting Reflections: Lessons Confidence and Alignment in Death Care and AR Innovation",
+          "publishedDate": "2025-10-15T00:00:00.000Z",
+          "wordCount": 1057,
+          "tags": [
+            "pitch-reflections",
+            "death-care-ar",
+            "prototyping",
+            "investor-strategy",
+            "revenant-hollow"
+          ],
+          "keywords": [
+            "pitch meeting",
+            "investor pitch",
+            "death care technology",
+            "augmented reality",
+            "location-based experiences",
+            "prototype development",
+            "career alignment",
+            "digital marketing",
+            "cemetery management",
+            "entrepreneurial confidence"
+          ]
+        }
+      ]
+    },
+    "revenant-hollow": {
+      "tag": "revenant-hollow",
+      "encodedTag": "revenant-hollow",
+      "url": "/blog/tag/revenant-hollow",
+      "postCount": 2,
+      "posts": [
+        {
+          "slug": "first-pitch-meeting-reflections-lessons-confidence-and-alignment-in-death-care-and-ar-innovation",
+          "title": "First Pitch Meeting Reflections: Lessons Confidence and Alignment in Death Care and AR Innovation",
+          "publishedDate": "2025-10-15T00:00:00.000Z",
+          "wordCount": 1057,
+          "tags": [
+            "pitch-reflections",
+            "death-care-ar",
+            "prototyping",
+            "investor-strategy",
+            "revenant-hollow"
+          ],
+          "keywords": [
+            "pitch meeting",
+            "investor pitch",
+            "death care technology",
+            "augmented reality",
+            "location-based experiences",
+            "prototype development",
+            "career alignment",
+            "digital marketing",
+            "cemetery management",
+            "entrepreneurial confidence"
+          ]
+        },
+        {
+          "slug": "cemetery-management-application-gps-mapping-ar-integration-and-autonomous-maintenance-for-funeral-homes",
+          "title": "Cemetery Management Application: GPS Mapping AR Integration and Autonomous Maintenance for Funeral Homes",
+          "publishedDate": "2025-09-28T00:00:00.000Z",
+          "wordCount": 1273,
+          "tags": [
+            "cemetery-app",
+            "gps-mapping",
+            "ar-maintenance",
+            "autonomous-drones",
+            "revenant-hollow"
+          ],
+          "keywords": [
+            "cemetery management software",
+            "GPS grave mapping",
+            "AR cemetery maintenance",
+            "autonomous mowers",
+            "drone cemetery patrols",
+            "UGV terrain mapping",
+            "funeral home CRM",
+            "Revenant Hollow",
+            "location-based AR",
+            "mixed reality experiences"
+          ]
+        }
+      ]
+    },
     "AI-chatbot": {
       "tag": "AI-chatbot",
       "encodedTag": "AI-chatbot",
@@ -703,39 +893,6 @@
       "tag": "autonomous-drones",
       "encodedTag": "autonomous-drones",
       "url": "/blog/tag/autonomous-drones",
-      "postCount": 1,
-      "posts": [
-        {
-          "slug": "cemetery-management-application-gps-mapping-ar-integration-and-autonomous-maintenance-for-funeral-homes",
-          "title": "Cemetery Management Application: GPS Mapping AR Integration and Autonomous Maintenance for Funeral Homes",
-          "publishedDate": "2025-09-28T00:00:00.000Z",
-          "wordCount": 1273,
-          "tags": [
-            "cemetery-app",
-            "gps-mapping",
-            "ar-maintenance",
-            "autonomous-drones",
-            "revenant-hollow"
-          ],
-          "keywords": [
-            "cemetery management software",
-            "GPS grave mapping",
-            "AR cemetery maintenance",
-            "autonomous mowers",
-            "drone cemetery patrols",
-            "UGV terrain mapping",
-            "funeral home CRM",
-            "Revenant Hollow",
-            "location-based AR",
-            "mixed reality experiences"
-          ]
-        }
-      ]
-    },
-    "revenant-hollow": {
-      "tag": "revenant-hollow",
-      "encodedTag": "revenant-hollow",
-      "url": "/blog/tag/revenant-hollow",
       "postCount": 1,
       "posts": [
         {
@@ -8437,6 +8594,440 @@
         }
       ]
     },
+    "pitch%20meeting": {
+      "tag": "pitch meeting",
+      "encodedTag": "pitch%20meeting",
+      "url": "/blog/tag/pitch%20meeting",
+      "postCount": 1,
+      "posts": [
+        {
+          "slug": "first-pitch-meeting-reflections-lessons-confidence-and-alignment-in-death-care-and-ar-innovation",
+          "title": "First Pitch Meeting Reflections: Lessons Confidence and Alignment in Death Care and AR Innovation",
+          "publishedDate": "2025-10-15T00:00:00.000Z",
+          "wordCount": 1057,
+          "tags": [
+            "pitch-reflections",
+            "death-care-ar",
+            "prototyping",
+            "investor-strategy",
+            "revenant-hollow"
+          ],
+          "keywords": [
+            "pitch meeting",
+            "investor pitch",
+            "death care technology",
+            "augmented reality",
+            "location-based experiences",
+            "prototype development",
+            "career alignment",
+            "digital marketing",
+            "cemetery management",
+            "entrepreneurial confidence"
+          ]
+        }
+      ]
+    },
+    "investor%20pitch": {
+      "tag": "investor pitch",
+      "encodedTag": "investor%20pitch",
+      "url": "/blog/tag/investor%20pitch",
+      "postCount": 1,
+      "posts": [
+        {
+          "slug": "first-pitch-meeting-reflections-lessons-confidence-and-alignment-in-death-care-and-ar-innovation",
+          "title": "First Pitch Meeting Reflections: Lessons Confidence and Alignment in Death Care and AR Innovation",
+          "publishedDate": "2025-10-15T00:00:00.000Z",
+          "wordCount": 1057,
+          "tags": [
+            "pitch-reflections",
+            "death-care-ar",
+            "prototyping",
+            "investor-strategy",
+            "revenant-hollow"
+          ],
+          "keywords": [
+            "pitch meeting",
+            "investor pitch",
+            "death care technology",
+            "augmented reality",
+            "location-based experiences",
+            "prototype development",
+            "career alignment",
+            "digital marketing",
+            "cemetery management",
+            "entrepreneurial confidence"
+          ]
+        }
+      ]
+    },
+    "death%20care%20technology": {
+      "tag": "death care technology",
+      "encodedTag": "death%20care%20technology",
+      "url": "/blog/tag/death%20care%20technology",
+      "postCount": 1,
+      "posts": [
+        {
+          "slug": "first-pitch-meeting-reflections-lessons-confidence-and-alignment-in-death-care-and-ar-innovation",
+          "title": "First Pitch Meeting Reflections: Lessons Confidence and Alignment in Death Care and AR Innovation",
+          "publishedDate": "2025-10-15T00:00:00.000Z",
+          "wordCount": 1057,
+          "tags": [
+            "pitch-reflections",
+            "death-care-ar",
+            "prototyping",
+            "investor-strategy",
+            "revenant-hollow"
+          ],
+          "keywords": [
+            "pitch meeting",
+            "investor pitch",
+            "death care technology",
+            "augmented reality",
+            "location-based experiences",
+            "prototype development",
+            "career alignment",
+            "digital marketing",
+            "cemetery management",
+            "entrepreneurial confidence"
+          ]
+        }
+      ]
+    },
+    "augmented%20reality": {
+      "tag": "augmented reality",
+      "encodedTag": "augmented%20reality",
+      "url": "/blog/tag/augmented%20reality",
+      "postCount": 2,
+      "posts": [
+        {
+          "slug": "first-pitch-meeting-reflections-lessons-confidence-and-alignment-in-death-care-and-ar-innovation",
+          "title": "First Pitch Meeting Reflections: Lessons Confidence and Alignment in Death Care and AR Innovation",
+          "publishedDate": "2025-10-15T00:00:00.000Z",
+          "wordCount": 1057,
+          "tags": [
+            "pitch-reflections",
+            "death-care-ar",
+            "prototyping",
+            "investor-strategy",
+            "revenant-hollow"
+          ],
+          "keywords": [
+            "pitch meeting",
+            "investor pitch",
+            "death care technology",
+            "augmented reality",
+            "location-based experiences",
+            "prototype development",
+            "career alignment",
+            "digital marketing",
+            "cemetery management",
+            "entrepreneurial confidence"
+          ]
+        },
+        {
+          "slug": "revenant-hollow-integrating-technology-into-location-based-horror-experiences",
+          "title": "Revenant Hollow: Integrating Technology into Location-Based Horror Experiences",
+          "publishedDate": "2024-01-15T00:00:00.000Z",
+          "wordCount": 3043,
+          "tags": [
+            "mixed-reality",
+            "entertainment-tech",
+            "IoT",
+            "location-based",
+            "horror",
+            "seasonal-business",
+            "mobile-apps",
+            "automation",
+            "theatrical",
+            "startup"
+          ],
+          "keywords": [
+            "mixed reality",
+            "virtual reality",
+            "augmented reality",
+            "IoT",
+            "location-based entertainment",
+            "haunted houses",
+            "Halloween attractions",
+            "automation",
+            "robotics",
+            "theatrical attractions",
+            "interactive experiences",
+            "mobile integration",
+            "geolocation",
+            "scare props",
+            "augmented reality sports complex"
+          ]
+        }
+      ]
+    },
+    "location-based%20experiences": {
+      "tag": "location-based experiences",
+      "encodedTag": "location-based%20experiences",
+      "url": "/blog/tag/location-based%20experiences",
+      "postCount": 1,
+      "posts": [
+        {
+          "slug": "first-pitch-meeting-reflections-lessons-confidence-and-alignment-in-death-care-and-ar-innovation",
+          "title": "First Pitch Meeting Reflections: Lessons Confidence and Alignment in Death Care and AR Innovation",
+          "publishedDate": "2025-10-15T00:00:00.000Z",
+          "wordCount": 1057,
+          "tags": [
+            "pitch-reflections",
+            "death-care-ar",
+            "prototyping",
+            "investor-strategy",
+            "revenant-hollow"
+          ],
+          "keywords": [
+            "pitch meeting",
+            "investor pitch",
+            "death care technology",
+            "augmented reality",
+            "location-based experiences",
+            "prototype development",
+            "career alignment",
+            "digital marketing",
+            "cemetery management",
+            "entrepreneurial confidence"
+          ]
+        }
+      ]
+    },
+    "prototype%20development": {
+      "tag": "prototype development",
+      "encodedTag": "prototype%20development",
+      "url": "/blog/tag/prototype%20development",
+      "postCount": 1,
+      "posts": [
+        {
+          "slug": "first-pitch-meeting-reflections-lessons-confidence-and-alignment-in-death-care-and-ar-innovation",
+          "title": "First Pitch Meeting Reflections: Lessons Confidence and Alignment in Death Care and AR Innovation",
+          "publishedDate": "2025-10-15T00:00:00.000Z",
+          "wordCount": 1057,
+          "tags": [
+            "pitch-reflections",
+            "death-care-ar",
+            "prototyping",
+            "investor-strategy",
+            "revenant-hollow"
+          ],
+          "keywords": [
+            "pitch meeting",
+            "investor pitch",
+            "death care technology",
+            "augmented reality",
+            "location-based experiences",
+            "prototype development",
+            "career alignment",
+            "digital marketing",
+            "cemetery management",
+            "entrepreneurial confidence"
+          ]
+        }
+      ]
+    },
+    "career%20alignment": {
+      "tag": "career alignment",
+      "encodedTag": "career%20alignment",
+      "url": "/blog/tag/career%20alignment",
+      "postCount": 1,
+      "posts": [
+        {
+          "slug": "first-pitch-meeting-reflections-lessons-confidence-and-alignment-in-death-care-and-ar-innovation",
+          "title": "First Pitch Meeting Reflections: Lessons Confidence and Alignment in Death Care and AR Innovation",
+          "publishedDate": "2025-10-15T00:00:00.000Z",
+          "wordCount": 1057,
+          "tags": [
+            "pitch-reflections",
+            "death-care-ar",
+            "prototyping",
+            "investor-strategy",
+            "revenant-hollow"
+          ],
+          "keywords": [
+            "pitch meeting",
+            "investor pitch",
+            "death care technology",
+            "augmented reality",
+            "location-based experiences",
+            "prototype development",
+            "career alignment",
+            "digital marketing",
+            "cemetery management",
+            "entrepreneurial confidence"
+          ]
+        }
+      ]
+    },
+    "digital%20marketing": {
+      "tag": "digital marketing",
+      "encodedTag": "digital%20marketing",
+      "url": "/blog/tag/digital%20marketing",
+      "postCount": 3,
+      "posts": [
+        {
+          "slug": "first-pitch-meeting-reflections-lessons-confidence-and-alignment-in-death-care-and-ar-innovation",
+          "title": "First Pitch Meeting Reflections: Lessons Confidence and Alignment in Death Care and AR Innovation",
+          "publishedDate": "2025-10-15T00:00:00.000Z",
+          "wordCount": 1057,
+          "tags": [
+            "pitch-reflections",
+            "death-care-ar",
+            "prototyping",
+            "investor-strategy",
+            "revenant-hollow"
+          ],
+          "keywords": [
+            "pitch meeting",
+            "investor pitch",
+            "death care technology",
+            "augmented reality",
+            "location-based experiences",
+            "prototype development",
+            "career alignment",
+            "digital marketing",
+            "cemetery management",
+            "entrepreneurial confidence"
+          ]
+        },
+        {
+          "slug": "enhancing-seo-on-my-company-landing-site-with-ai-agents",
+          "title": "Enhancing SEO on My Company Landing Site with AI Agents",
+          "publishedDate": "2024-01-12T00:00:00.000Z",
+          "wordCount": 5147,
+          "tags": [
+            "SEO",
+            "AI-agents",
+            "digital-marketing",
+            "blog-architecture",
+            "meta-tags",
+            "schema-markup",
+            "page-speed",
+            "social-media",
+            "content-strategy",
+            "AI-development"
+          ],
+          "keywords": [
+            "SEO optimization",
+            "AI agents",
+            "Cursor AI",
+            "meta tags",
+            "breadcrumbs",
+            "social media integration",
+            "page speed optimization",
+            "schema markup",
+            "blog architecture",
+            "digital marketing",
+            "search engine optimization",
+            "AI-assisted development",
+            "developer tools",
+            "content strategy"
+          ]
+        },
+        {
+          "slug": "building-an-effective-web-presence-for-professional-validation",
+          "title": "Building an Effective Web Presence for Professional Validation",
+          "publishedDate": "2024-01-10T00:00:00.000Z",
+          "wordCount": 1048,
+          "tags": [
+            "web-presence",
+            "professional-branding",
+            "SEO",
+            "freelancing",
+            "digital-marketing",
+            "content-strategy",
+            "networking",
+            "personal-brand",
+            "career-development",
+            "online-validation"
+          ],
+          "keywords": [
+            "web presence",
+            "professional validation",
+            "SEO",
+            "generative optimization",
+            "digital marketing",
+            "freelancing",
+            "personal branding",
+            "biographical blog",
+            "LLM optimization",
+            "professional networking",
+            "digital portfolio",
+            "content strategy",
+            "online credibility",
+            "search optimization",
+            "professional development"
+          ]
+        }
+      ]
+    },
+    "cemetery%20management": {
+      "tag": "cemetery management",
+      "encodedTag": "cemetery%20management",
+      "url": "/blog/tag/cemetery%20management",
+      "postCount": 1,
+      "posts": [
+        {
+          "slug": "first-pitch-meeting-reflections-lessons-confidence-and-alignment-in-death-care-and-ar-innovation",
+          "title": "First Pitch Meeting Reflections: Lessons Confidence and Alignment in Death Care and AR Innovation",
+          "publishedDate": "2025-10-15T00:00:00.000Z",
+          "wordCount": 1057,
+          "tags": [
+            "pitch-reflections",
+            "death-care-ar",
+            "prototyping",
+            "investor-strategy",
+            "revenant-hollow"
+          ],
+          "keywords": [
+            "pitch meeting",
+            "investor pitch",
+            "death care technology",
+            "augmented reality",
+            "location-based experiences",
+            "prototype development",
+            "career alignment",
+            "digital marketing",
+            "cemetery management",
+            "entrepreneurial confidence"
+          ]
+        }
+      ]
+    },
+    "entrepreneurial%20confidence": {
+      "tag": "entrepreneurial confidence",
+      "encodedTag": "entrepreneurial%20confidence",
+      "url": "/blog/tag/entrepreneurial%20confidence",
+      "postCount": 1,
+      "posts": [
+        {
+          "slug": "first-pitch-meeting-reflections-lessons-confidence-and-alignment-in-death-care-and-ar-innovation",
+          "title": "First Pitch Meeting Reflections: Lessons Confidence and Alignment in Death Care and AR Innovation",
+          "publishedDate": "2025-10-15T00:00:00.000Z",
+          "wordCount": 1057,
+          "tags": [
+            "pitch-reflections",
+            "death-care-ar",
+            "prototyping",
+            "investor-strategy",
+            "revenant-hollow"
+          ],
+          "keywords": [
+            "pitch meeting",
+            "investor pitch",
+            "death care technology",
+            "augmented reality",
+            "location-based experiences",
+            "prototype development",
+            "career alignment",
+            "digital marketing",
+            "cemetery management",
+            "entrepreneurial confidence"
+          ]
+        }
+      ]
+    },
     "chatbot-optimization": {
       "tag": "chatbot-optimization",
       "encodedTag": "chatbot-optimization",
@@ -13200,49 +13791,6 @@
         }
       ]
     },
-    "augmented%20reality": {
-      "tag": "augmented reality",
-      "encodedTag": "augmented%20reality",
-      "url": "/blog/tag/augmented%20reality",
-      "postCount": 1,
-      "posts": [
-        {
-          "slug": "revenant-hollow-integrating-technology-into-location-based-horror-experiences",
-          "title": "Revenant Hollow: Integrating Technology into Location-Based Horror Experiences",
-          "publishedDate": "2024-01-15T00:00:00.000Z",
-          "wordCount": 3043,
-          "tags": [
-            "mixed-reality",
-            "entertainment-tech",
-            "IoT",
-            "location-based",
-            "horror",
-            "seasonal-business",
-            "mobile-apps",
-            "automation",
-            "theatrical",
-            "startup"
-          ],
-          "keywords": [
-            "mixed reality",
-            "virtual reality",
-            "augmented reality",
-            "IoT",
-            "location-based entertainment",
-            "haunted houses",
-            "Halloween attractions",
-            "automation",
-            "robotics",
-            "theatrical attractions",
-            "interactive experiences",
-            "mobile integration",
-            "geolocation",
-            "scare props",
-            "augmented reality sports complex"
-          ]
-        }
-      ]
-    },
     "location-based%20entertainment": {
       "tag": "location-based entertainment",
       "encodedTag": "location-based%20entertainment",
@@ -14564,83 +15112,6 @@
             "AI-assisted development",
             "developer tools",
             "content strategy"
-          ]
-        }
-      ]
-    },
-    "digital%20marketing": {
-      "tag": "digital marketing",
-      "encodedTag": "digital%20marketing",
-      "url": "/blog/tag/digital%20marketing",
-      "postCount": 2,
-      "posts": [
-        {
-          "slug": "enhancing-seo-on-my-company-landing-site-with-ai-agents",
-          "title": "Enhancing SEO on My Company Landing Site with AI Agents",
-          "publishedDate": "2024-01-12T00:00:00.000Z",
-          "wordCount": 5147,
-          "tags": [
-            "SEO",
-            "AI-agents",
-            "digital-marketing",
-            "blog-architecture",
-            "meta-tags",
-            "schema-markup",
-            "page-speed",
-            "social-media",
-            "content-strategy",
-            "AI-development"
-          ],
-          "keywords": [
-            "SEO optimization",
-            "AI agents",
-            "Cursor AI",
-            "meta tags",
-            "breadcrumbs",
-            "social media integration",
-            "page speed optimization",
-            "schema markup",
-            "blog architecture",
-            "digital marketing",
-            "search engine optimization",
-            "AI-assisted development",
-            "developer tools",
-            "content strategy"
-          ]
-        },
-        {
-          "slug": "building-an-effective-web-presence-for-professional-validation",
-          "title": "Building an Effective Web Presence for Professional Validation",
-          "publishedDate": "2024-01-10T00:00:00.000Z",
-          "wordCount": 1048,
-          "tags": [
-            "web-presence",
-            "professional-branding",
-            "SEO",
-            "freelancing",
-            "digital-marketing",
-            "content-strategy",
-            "networking",
-            "personal-brand",
-            "career-development",
-            "online-validation"
-          ],
-          "keywords": [
-            "web presence",
-            "professional validation",
-            "SEO",
-            "generative optimization",
-            "digital marketing",
-            "freelancing",
-            "personal branding",
-            "biographical blog",
-            "LLM optimization",
-            "professional networking",
-            "digital portfolio",
-            "content strategy",
-            "online credibility",
-            "search optimization",
-            "professional development"
           ]
         }
       ]
@@ -17863,6 +18334,11 @@
     }
   },
   "allTags": [
+    "pitch-reflections",
+    "death-care-ar",
+    "prototyping",
+    "investor-strategy",
+    "revenant-hollow",
     "AI-chatbot",
     "generative-search",
     "web-optimization",
@@ -17882,7 +18358,6 @@
     "gps-mapping",
     "ar-maintenance",
     "autonomous-drones",
-    "revenant-hollow",
     "infrastructure-as-code",
     "generative-ai",
     "enterprise-startup",
@@ -18035,6 +18510,16 @@
     "cloud-architecture",
     "enterprise",
     "coding-journey",
+    "pitch meeting",
+    "investor pitch",
+    "death care technology",
+    "augmented reality",
+    "location-based experiences",
+    "prototype development",
+    "career alignment",
+    "digital marketing",
+    "cemetery management",
+    "entrepreneurial confidence",
     "chatbot-optimization",
     "LangChain-integration",
     "OpenAI-crawling",
@@ -18157,7 +18642,6 @@
     "team scaling",
     "mixed reality",
     "virtual reality",
-    "augmented reality",
     "location-based entertainment",
     "haunted houses",
     "Halloween attractions",
@@ -18188,7 +18672,6 @@
     "page speed optimization",
     "schema markup",
     "blog architecture",
-    "digital marketing",
     "search engine optimization",
     "developer tools",
     "content strategy",
@@ -18291,6 +18774,10 @@
       "postCount": 3
     },
     {
+      "tag": "digital marketing",
+      "postCount": 3
+    },
+    {
       "tag": "AI-assisted development",
       "postCount": 3
     },
@@ -18311,6 +18798,10 @@
       "postCount": 3
     },
     {
+      "tag": "revenant-hollow",
+      "postCount": 2
+    },
+    {
       "tag": "generative-ai",
       "postCount": 2
     },
@@ -18324,14 +18815,6 @@
     },
     {
       "tag": "SEO",
-      "postCount": 2
-    },
-    {
-      "tag": "AI-agents",
-      "postCount": 2
-    },
-    {
-      "tag": "digital-marketing",
       "postCount": 2
     }
   ]

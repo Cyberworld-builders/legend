@@ -1,7 +1,7 @@
 /**
  * Generated from: revenant-hollow-integrating-technology-into-location-based-horror-experiences.md
  * DO NOT EDIT MANUALLY - this file is generated automatically
- * Last generated: 2025-10-03T15:48:11.796Z
+ * Last generated: 2025-10-15T15:22:25.308Z
  */
 
 import { PostWithMetadata } from '@/lib/post-metadata';
