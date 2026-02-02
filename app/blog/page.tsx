@@ -50,9 +50,8 @@ export const metadata: Metadata = {
   },
 };
 
-// Force dynamic rendering to prevent caching issues
-export const dynamic = 'force-dynamic';
-export const revalidate = 0;
+// SSG + ISR: pre-render at build, revalidate every hour for crawler-friendly fresh HTML
+export const revalidate = 3600;
 
 interface BlogIndexProps {
   searchParams: Promise<{
