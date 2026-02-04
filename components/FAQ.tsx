@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
 
 interface FAQItem {
   question: string;
@@ -100,9 +101,11 @@ export default function FAQ() {
           </div>
         ))}
       </div>
+
+
       
       <div className="mt-8 text-center">
-        <p className="text-[#00ff00]/70 mb-4">
+        {/* <p className="text-[#00ff00]/70 mb-4">
           Don&apos;t see your question? We&apos;re here to help!
         </p>
         <a
@@ -110,7 +113,24 @@ export default function FAQ() {
           className="inline-block px-6 py-3 bg-[#00ff00] text-[#1a1a1a] font-semibold rounded-lg hover:bg-[#00cc00] transition-colors"
         >
           Contact Us
-        </a>
+        </a> */}
+
+        {/* Secondary CTA */}
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          {/* <button
+            onClick={onContactClick}
+            className="px-8 py-3 border border-[#00ff00] text-[#00ff00] font-bold rounded-lg hover:bg-[#00ff00]/10 transition-colors"
+          >
+            Tell Me About Your Project
+          </button> */}
+          <Link
+            href="/blog"
+            className="px-8 py-3 border border-[#00ff00]/50 text-[#00ff00]/70 font-bold rounded-lg hover:bg-[#00ff00]/10 transition-colors"
+          >
+            Read the Blog
+          </Link>
+        </div>
+
       </div>
     </div>
   );

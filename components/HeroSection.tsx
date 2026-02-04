@@ -98,26 +98,16 @@ export default function HeroSection({ onContactClick }: HeroSectionProps) {
           )}
         </div>
 
-        {/* Secondary CTA */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <button
-            onClick={onContactClick}
-            className="px-8 py-3 border border-[#00ff00] text-[#00ff00] font-bold rounded-lg hover:bg-[#00ff00]/10 transition-colors"
-          >
-            Tell Me About Your Project
-          </button>
-          <Link
-            href="/blog"
-            className="px-8 py-3 border border-[#00ff00]/50 text-[#00ff00]/70 font-bold rounded-lg hover:bg-[#00ff00]/10 transition-colors"
-          >
-            Read the Blog
-          </Link>
-        </div>
+
 
         {/* Trust Signal */}
         <p className="mt-8 text-sm text-[#00ff00]/50">
           AWS Certified | 10+ Years in Tech | Based in the USA
         </p>
+
+
+
+
       </div>
     </section>
   );

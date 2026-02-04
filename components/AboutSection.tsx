@@ -1,4 +1,5 @@
 import { Award, Cloud, Code, Zap } from 'lucide-react';
+import Link from 'next/link';
 
 const highlights = [
   { icon: Cloud, label: 'AWS Solutions', description: 'Cloud infrastructure & serverless' },
@@ -44,6 +45,9 @@ export default function AboutSection() {
           </p>
         </div>
       </div>
+
+
+
     </section>
   );
 }
