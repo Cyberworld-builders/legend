@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-// Zod schema for creating a transcript — only transcript_text required; title optional (server sets default new_<ISO>)
+// Zod schema for creating a transcript — only transcript_text required; title optional (server sets default NEW_<timestamp>)
 export const transcriptCreateSchema = z.object({
   title: z.string().min(1).max(500).optional(),
   transcript_text: z.string().min(1, 'Transcript text is required'),

@@ -89,12 +89,12 @@ export async function POST(request: NextRequest) {
     );
   }
 
-  // Default title for add form: new_<ISO-like> so automations can identify new items and parse time
+  // Default title for add form: NEW_<timestamp> so automations can identify new items and parse time
   const rawTitle = parsed.data.title?.trim();
   const title =
     rawTitle && rawTitle.length > 0
       ? rawTitle
-      : 'new_' + new Date().toISOString().replace(/[:.]/g, '-').slice(0, 19);
+      : 'NEW_' + new Date().toISOString().replace(/[:.]/g, '-').slice(0, 19);
 
   const supabase = createServerClient();
   const { data, error } = await supabase

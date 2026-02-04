@@ -68,7 +68,7 @@ export default function LeadDetailCard({ lead: initialLead, events }: LeadDetail
           <dl className="space-y-3">
             <div>
               <dt className="text-[#00ff00]/50 text-xs">Name</dt>
-              <dd className="text-[#00ff00]">{lead.name}</dd>
+              <dd className="text-[#00ff00]">{lead.name ?? '-'}</dd>
             </div>
             <div>
               <dt className="text-[#00ff00]/50 text-xs">Email</dt>
@@ -91,15 +91,15 @@ export default function LeadDetailCard({ lead: initialLead, events }: LeadDetail
           <dl className="space-y-3">
             <div>
               <dt className="text-[#00ff00]/50 text-xs">Type</dt>
-              <dd className="text-[#00ff00]">{PROJECT_LABELS[lead.project_type] || lead.project_type}</dd>
+              <dd className="text-[#00ff00]">{lead.project_type != null ? (PROJECT_LABELS[lead.project_type] ?? lead.project_type) : '-'}</dd>
             </div>
             <div>
               <dt className="text-[#00ff00]/50 text-xs">Budget</dt>
-              <dd className="text-[#00ff00]">{BUDGET_LABELS[lead.budget_tier] || lead.budget_tier}</dd>
+              <dd className="text-[#00ff00]">{lead.budget_tier != null ? (BUDGET_LABELS[lead.budget_tier] ?? lead.budget_tier) : '-'}</dd>
             </div>
             <div>
               <dt className="text-[#00ff00]/50 text-xs">Urgency</dt>
-              <dd className="text-[#00ff00]">{URGENCY_LABELS[lead.urgency] || lead.urgency}</dd>
+              <dd className="text-[#00ff00]">{lead.urgency != null ? (URGENCY_LABELS[lead.urgency] ?? lead.urgency) : '-'}</dd>
             </div>
           </dl>
         </div>
@@ -107,7 +107,7 @@ export default function LeadDetailCard({ lead: initialLead, events }: LeadDetail
         {/* Message */}
         <div className="border border-[#00ff00]/20 bg-[#1a1a1a] rounded-lg p-6 lg:col-span-2">
           <h2 className="text-lg font-bold text-[#00ff00] mb-4">Message</h2>
-          <p className="text-[#00ff00]/80 whitespace-pre-wrap">{lead.message}</p>
+          <p className="text-[#00ff00]/80 whitespace-pre-wrap">{lead.message ?? '-'}</p>
         </div>
 
         {/* Score Breakdown */}

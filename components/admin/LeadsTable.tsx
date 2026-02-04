@@ -132,13 +132,13 @@ export default function LeadsTable() {
                         {lead.score}
                       </span>
                     </td>
-                    <td className="py-3 px-2 text-[#00ff00]">{lead.name}</td>
+                    <td className="py-3 px-2 text-[#00ff00]">{lead.name ?? '-'}</td>
                     <td className="py-3 px-2 text-[#00ff00]/70 hidden md:table-cell">{lead.email}</td>
                     <td className="py-3 px-2 text-[#00ff00]/60 hidden lg:table-cell">
-                      {PROJECT_LABELS[lead.project_type] || lead.project_type}
+                      {lead.project_type != null ? (PROJECT_LABELS[lead.project_type] ?? lead.project_type) : '-'}
                     </td>
                     <td className="py-3 px-2 text-[#00ff00]/60 hidden lg:table-cell">
-                      {BUDGET_LABELS[lead.budget_tier] || lead.budget_tier}
+                      {lead.budget_tier != null ? (BUDGET_LABELS[lead.budget_tier] ?? lead.budget_tier) : '-'}
                     </td>
                     <td className="py-3 px-2">
                       <select

@@ -71,6 +71,11 @@ export default function TranscriptEditModal({ transcript, onClose, onSaved }: Tr
 
         {/* Body */}
         <div className="p-6 space-y-4 overflow-y-auto flex-1">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs text-[#00ff00]/50 font-mono">
+            <div>Created: {new Date(transcript.created_at).toLocaleString()}</div>
+            <div>Updated: {new Date(transcript.updated_at).toLocaleString()}</div>
+          </div>
+
           <div>
             <label className="block text-sm text-[#00ff00]/70 mb-2 font-mono">Title</label>
             <input
