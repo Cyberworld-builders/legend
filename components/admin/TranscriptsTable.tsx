@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { TranscriptRecord } from '@/types/transcripts';
 import TranscriptEditModal from './TranscriptEditModal';
 import { Pencil, Trash2, Check, X } from 'lucide-react';
@@ -23,6 +23,7 @@ export default function TranscriptsTable({ refreshKey }: TranscriptsTableProps) 
   const [deleteConfirm, setDeleteConfirm] = useState<string | null>(null);
   const [searchTimeout, setSearchTimeout] = useState<NodeJS.Timeout | null>(null);
   const [loadError, setLoadError] = useState<string | null>(null);
+  const hasLoadedOnce = useRef(false);
 
   const fetchTranscripts = useCallback(async (currentPage: number, currentSearch: string, currentFilter: string) => {
     setLoading(true);
@@ -37,9 +38,10 @@ export default function TranscriptsTable({ refreshKey }: TranscriptsTableProps) 
       const res = await fetch(`/api/admin/transcripts?${params.toString()}`, { credentials: 'include' });
       const data = await res.json();
       if (res.ok) {
-        setTranscripts(data.transcripts);
-        setTotal(data.total);
-        setTotalPages(data.totalPages);
+        setTranscripts(data.transcripts ?? []);
+        setTotal(data.total ?? 0);
+        setTotalPages(data.totalPages ?? 1);
+        hasLoadedOnce.current = true;
       } else {
         const message =
           res.status === 401
@@ -54,7 +56,14 @@ export default function TranscriptsTable({ refreshKey }: TranscriptsTableProps) 
     }
   }, []);
 
+  // Load first page on mount so the list is populated without user interaction
   useEffect(() => {
+    fetchTranscripts(1, '', '');
+  }, [fetchTranscripts]);
+
+  // Refetch when page, search, filter, or refreshKey change (and we're not on initial mount)
+  useEffect(() => {
+    if (!hasLoadedOnce.current) return;
     fetchTranscripts(page, search, filterProcessed);
   }, [page, search, filterProcessed, refreshKey, fetchTranscripts]);
 
