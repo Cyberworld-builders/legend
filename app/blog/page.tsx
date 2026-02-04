@@ -62,7 +62,9 @@ interface BlogIndexProps {
 export default async function BlogIndex({ searchParams }: BlogIndexProps) {
   const { page } = await searchParams;
   const currentPage = Number(page) || 1;
-  
+  // #region agent log
+  fetch('http://127.0.0.1:7245/ingest/09142726-0b46-49c0-b91d-40a2cb60bfcb', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ location: 'app/blog/page.tsx:BlogIndex', message: 'blog-index entry', data: { route: 'blog-index', hypothesisId: 'H2' }, timestamp: Date.now(), sessionId: 'debug-session' }) }).catch(() => {});
+  // #endregion
   try {
     // Get all posts with metadata (already sorted by published date and priority)
     const allPostsWithMetadata = await getAllPostsWithMetadata();

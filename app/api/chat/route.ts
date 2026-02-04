@@ -1,14 +1,10 @@
 import { NextResponse } from 'next/server';
 import { ChatOpenAI } from '@langchain/openai';
-import { ConversationChain } from 'langchain/chains';
-import { BufferMemory } from 'langchain/memory';
-import { ChatPromptTemplate, HumanMessagePromptTemplate, SystemMessagePromptTemplate } from '@langchain/core/prompts';
-// import { getAllPostsWithMetadata } from '@/lib/post-metadata'; // Not used in this version
+import { HumanMessage, SystemMessage } from '@langchain/core/messages';
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 
-const memory = new BufferMemory();
 const llm = new ChatOpenAI({
   openAIApiKey: process.env.OPENAI_API_KEY!,
   modelName: 'gpt-3.5-turbo',
@@ -134,18 +130,13 @@ You're particularly passionate about AI-human collaboration, the evolution of de
       systemPrompt += `You can reference these articles and their content when providing answers. When mentioning these articles, always include the clickable link in the format /blog/post-slug.`;
     }
 
-    const systemPromptTemplate = SystemMessagePromptTemplate.fromTemplate(systemPrompt);
-    const humanPrompt = HumanMessagePromptTemplate.fromTemplate('{input}');
-    const prompt = ChatPromptTemplate.fromMessages([systemPromptTemplate, humanPrompt]);
+    const messages = [
+      new SystemMessage(systemPrompt),
+      new HumanMessage(message),
+    ];
 
-    const chain = new ConversationChain({
-      llm,
-      memory,
-      prompt,
-    });
-
-    const response = await chain.invoke({ input: message });
-    return NextResponse.json({ response: response.response });
+    const response = await llm.invoke(messages);
+    return NextResponse.json({ response: response.content });
   } catch (error: unknown) {
     return NextResponse.json(
       { error: error instanceof Error ? error.message : 'An error occurred' },
