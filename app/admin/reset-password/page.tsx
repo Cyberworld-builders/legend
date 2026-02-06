@@ -25,8 +25,9 @@ function ResetPasswordForm() {
 
     const tryEstablishSession = async () => {
       // 1) Force client to process redirect URL (hash or query) - fixes token in fragment
-      const { data: initData } = await supabase.auth.initialize();
-      if (initData?.session) {
+      await supabase.auth.initialize();
+      const { data: { session: sessionAfterInit } } = await supabase.auth.getSession();
+      if (sessionAfterInit) {
         setReadyAndClearError();
         return;
       }
