@@ -15,10 +15,13 @@
   "n8n": {
     "n8nNodesApiVersion": 1,
     "nodes": [
-      "dist/nodes/CyberWorldTest/CyberWorldTest.node.js"
+      "dist/nodes/CyberWorldTest/CyberWorldTest.node.js",
+      "dist/nodes/GetNextUnprocessedTranscript/GetNextUnprocessedTranscript.node.js",
+      "dist/nodes/TranscriptCleanupAgent/TranscriptCleanupAgent.node.js"
     ],
     "credentials": [
-      "dist/credentials/CyberWorldApi.credentials.js"
+      "dist/credentials/CyberWorldApi.credentials.js",
+      "dist/credentials/OpenAiApi.credentials.js"
     ]
   },
   "devDependencies": {

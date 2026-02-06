@@ -8,8 +8,12 @@ export async function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
-  // Allow the login page through
-  if (request.nextUrl.pathname === '/admin/login') {
+  // Allow login and password reset flow without auth
+  if (
+    request.nextUrl.pathname === '/admin/login' ||
+    request.nextUrl.pathname === '/admin/forgot-password' ||
+    request.nextUrl.pathname === '/admin/reset-password'
+  ) {
     return NextResponse.next();
   }
 

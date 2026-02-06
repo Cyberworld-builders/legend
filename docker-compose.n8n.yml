@@ -11,6 +11,8 @@ services:
     ports:
       - "5678:5678"
     environment:
+      # Disable User Management
+      - N8N_AUTH_DISABLE_USER_MANAGEMENT=true
       # Basic auth for n8n web interface
       - N8N_BASIC_AUTH_ACTIVE=true
       - N8N_BASIC_AUTH_USER=${N8N_BASIC_AUTH_USER:-admin}
@@ -32,6 +34,7 @@ services:
       - DB_POSTGRESDB_PASSWORD=${N8N_DB_PASSWORD:-n8npassword}
     volumes:
       - n8n_data:/home/node/.n8n
+      - ./n8n/n8n-nodes-cyberworld:/home/node/.n8n/custom/node_modules/n8n-nodes-cyberworld
     depends_on:
       n8n-postgres:
         condition: service_healthy

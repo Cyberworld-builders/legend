@@ -1,6 +1,7 @@
 'use client';
 
 import { Suspense, useState } from 'react';
+import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { createAuthBrowserClient } from '@/lib/supabase';
 
@@ -68,9 +69,17 @@ function LoginForm() {
         </div>
 
         <div>
-          <label htmlFor="password" className="block text-sm font-mono text-[#00ff00]/70 mb-2">
-            Password
-          </label>
+          <div className="flex justify-between items-center mb-2">
+            <label htmlFor="password" className="block text-sm font-mono text-[#00ff00]/70">
+              Password
+            </label>
+            <Link
+              href="/admin/forgot-password"
+              className="text-sm font-mono text-[#00ff00]/70 hover:text-[#00ff00]"
+            >
+              Forgot password?
+            </Link>
+          </div>
           <input
             id="password"
             type="password"
