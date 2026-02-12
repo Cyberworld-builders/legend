@@ -4,6 +4,7 @@ import '../app/globals.css';
 import PerformanceMonitor from '@/components/PerformanceMonitor';
 import AuthorSchema from '@/components/AuthorSchema';
 import GoogleAnalytics from '@/components/GoogleAnalytics';
+import AnalyticsClient from '@/components/AnalyticsClient';
 import FAQSchema from '@/components/FAQSchema';
 import ChatWidget from '@/components/ChatWidget';
 import DebugErrorReporter from '@/components/DebugErrorReporter';
@@ -232,6 +233,7 @@ export default function RootLayout({
       <body className="flex flex-col items-center justify-center min-h-screen bg-[#1a1a1a] text-[#00ff00] font-mono">
         <DebugErrorReporter />
         {children}
+        <AnalyticsClient />
         <GoogleAnalytics />
         <PerformanceMonitor />
         <AuthorSchema />
