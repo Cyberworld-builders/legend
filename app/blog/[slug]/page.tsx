@@ -15,9 +15,8 @@ interface BlogPostProps {
   }>;
 }
 
-// Force dynamic rendering to prevent caching issues
-export const dynamic = 'force-dynamic';
-export const revalidate = 0;
+// SSG + ISR: pre-render at build, revalidate every hour for crawler-friendly fresh HTML
+export const revalidate = 3600;
 
 export async function generateMetadata({ params }: BlogPostProps): Promise<Metadata> {
   const { slug } = await params;
@@ -92,7 +91,9 @@ export async function generateStaticParams() {
 
 export default async function BlogPost({ params }: BlogPostProps) {
   const { slug } = await params;
-  
+  // #region agent log
+  fetch('http://127.0.0.1:7245/ingest/09142726-0b46-49c0-b91d-40a2cb60bfcb', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ location: 'app/blog/[slug]/page.tsx:BlogPost', message: 'blog-slug entry', data: { route: 'blog-slug', slug, hypothesisId: 'H2,H4' }, timestamp: Date.now(), sessionId: 'debug-session' }) }).catch(() => {});
+  // #endregion
   // Get the current post with metadata
   const post = await getPostWithMetadata(slug);
   

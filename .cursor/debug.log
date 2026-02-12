@@ -1,0 +1,12 @@
+{"location":"next-unprocessed/route.ts:GET","message":"handler entry","data":{},"timestamp":1770335233722,"sessionId":"debug-session","hypothesisId":"H2-H5"}
+{"location":"automation-auth.ts:validateAutomationApiKey","message":"auth check entry","data":{"hasXApiKey":true,"hasBearer":false},"timestamp":1770335233723,"sessionId":"debug-session","hypothesisId":"H1"}
+{"location":"automation-auth.ts:valid","message":"auth passed","data":{},"timestamp":1770335233723,"sessionId":"debug-session","hypothesisId":"H1"}
+{"location":"next-unprocessed/route.ts:supabaseCheck","message":"after isServerSupabaseConfigured","data":{"supabaseConfigured":true},"timestamp":1770335233723,"sessionId":"debug-session","hypothesisId":"H2"}
+{"location":"next-unprocessed/route.ts:beforeQuery","message":"before supabase query","data":{},"timestamp":1770335233724,"sessionId":"debug-session","hypothesisId":"H3-H4"}
+{"location":"next-unprocessed/route.ts:afterQuery","message":"after supabase query","data":{"hasData":true,"errorMessage":null},"timestamp":1770335233738,"sessionId":"debug-session","hypothesisId":"H3"}
+{"location":"next-unprocessed/route.ts:GET","message":"handler entry","data":{},"timestamp":1770336128077,"sessionId":"debug-session","hypothesisId":"H2-H5"}
+{"location":"automation-auth.ts:validateAutomationApiKey","message":"auth check entry","data":{"hasXApiKey":true,"hasBearer":false},"timestamp":1770336128078,"sessionId":"debug-session","hypothesisId":"H1"}
+{"location":"automation-auth.ts:valid","message":"auth passed","data":{},"timestamp":1770336128078,"sessionId":"debug-session","hypothesisId":"H1"}
+{"location":"next-unprocessed/route.ts:supabaseCheck","message":"after isServerSupabaseConfigured","data":{"supabaseConfigured":true},"timestamp":1770336128078,"sessionId":"debug-session","hypothesisId":"H2"}
+{"location":"next-unprocessed/route.ts:beforeQuery","message":"before supabase query","data":{},"timestamp":1770336128078,"sessionId":"debug-session","hypothesisId":"H3-H4"}
+{"location":"next-unprocessed/route.ts:afterQuery","message":"after supabase query","data":{"hasData":true,"errorMessage":null},"timestamp":1770336128097,"sessionId":"debug-session","hypothesisId":"H3"}

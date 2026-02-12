@@ -1,12 +1,13 @@
 import type { Metadata } from 'next';
 import Script from 'next/script';
 import '../app/globals.css';
-import { Analytics } from '@vercel/analytics/next';
 import PerformanceMonitor from '@/components/PerformanceMonitor';
 import AuthorSchema from '@/components/AuthorSchema';
 import GoogleAnalytics from '@/components/GoogleAnalytics';
+import AnalyticsClient from '@/components/AnalyticsClient';
 import FAQSchema from '@/components/FAQSchema';
 import ChatWidget from '@/components/ChatWidget';
+import DebugErrorReporter from '@/components/DebugErrorReporter';
 
 export const metadata: Metadata = {
   title: {
@@ -230,8 +231,9 @@ export default function RootLayout({
         />
       </head>
       <body className="flex flex-col items-center justify-center min-h-screen bg-[#1a1a1a] text-[#00ff00] font-mono">
+        <DebugErrorReporter />
         {children}
-        <Analytics />
+        <AnalyticsClient />
         <GoogleAnalytics />
         <PerformanceMonitor />
         <AuthorSchema />
