@@ -6,27 +6,32 @@ import FAQ from '../components/FAQ';
 import PageBackground from '../components/PageBackground';
 import HeroSection from '../components/HeroSection';
 import ServicesSection from '../components/ServicesSection';
+import ProofSection from '../components/ProofSection';
 import AboutSection from '../components/AboutSection';
 import ContactCTA from '../components/ContactCTA';
 import SocialLinks from '../components/SocialLinks';
+import ScrollTracker from '../components/ScrollTracker';
+
+const TRACKED_SECTIONS = ['hero', 'services', 'proof', 'about', 'contact', 'faq'];
 
 export default function Home() {
   const contactRef = useRef<HTMLDivElement>(null);
-
-  const scrollToContact = () => {
-    contactRef.current?.scrollIntoView({ behavior: 'smooth' });
-  };
 
   return (
     <div className="relative min-h-screen">
       {/* Page Background */}
       <PageBackground opacity={15} fullWidth={true} />
 
+      {/* Scroll & behavior tracking */}
+      <ScrollTracker sections={TRACKED_SECTIONS} />
+
       {/* Content with higher z-index */}
       <main className="relative z-10">
-        <HeroSection onContactClick={scrollToContact} />
+        <HeroSection />
 
         <ServicesSection />
+
+        <ProofSection />
 
         <AboutSection />
 

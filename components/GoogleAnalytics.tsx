@@ -3,10 +3,10 @@
 import { useEffect, useCallback } from 'react';
 import { usePathname } from 'next/navigation';
 
-// Extend Window interface to include gtag and tracking functions
+// Extend Window interface to include tracking functions
+// Note: gtag is declared in lib/tracking.ts with a broad signature
 declare global {
   interface Window {
-    gtag?: (command: string, targetId: string, config?: Record<string, unknown>) => void;
     trackContentEngagement?: (action: string, content_type: string, content_id?: string) => void;
     trackSocialShare?: (platform: string, content_type: string) => void;
     trackReadingTime?: (reading_time_seconds: number, content_type: string) => void;

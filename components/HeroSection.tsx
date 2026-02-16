@@ -1,23 +1,43 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
+import { getVariant } from '@/lib/ab-test';
+import { trackEvent } from '@/lib/tracking';
 
-interface HeroSectionProps {
-  onContactClick?: () => void;
-}
+const HERO_VARIANTS = {
+  A: {
+    headline: 'Turn Marketing Into a Machine.',
+    subline:
+      'Custom digital systems that capture leads, nurture prospects, and measure what matters.',
+  },
+  B: {
+    headline: 'Your Marketing, on Autopilot.',
+    subline:
+      'Digital marketing systems that run while you run your business.',
+  },
+};
 
-export default function HeroSection({ onContactClick }: HeroSectionProps) {
+export default function HeroSection() {
   const [email, setEmail] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState('');
+  const [variant, setVariant] = useState<'A' | 'B'>('A');
+
+  useEffect(() => {
+    const result = getVariant('hero_headline_v1');
+    setVariant(result.variant);
+  }, []);
+
+  const copy = HERO_VARIANTS[variant];
 
   const handleEmailSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
     setError('');
+
+    trackEvent('cta_click', { cta: 'hero_email' });
 
     try {
       const res = await fetch('/api/leads/submit', {
@@ -33,6 +53,7 @@ export default function HeroSection({ onContactClick }: HeroSectionProps) {
 
       setSubmitted(true);
       setEmail('');
+      trackEvent('lead_submit', { cta: 'hero_email' });
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Something went wrong');
     } finally {
@@ -41,7 +62,7 @@ export default function HeroSection({ onContactClick }: HeroSectionProps) {
   };
 
   return (
-    <section className="relative py-16 md:py-24">
+    <section id="hero" className="relative py-16 md:py-24">
       <div className="max-w-4xl mx-auto text-center px-4">
         {/* Logo */}
         <Image
@@ -57,15 +78,12 @@ export default function HeroSection({ onContactClick }: HeroSectionProps) {
 
         {/* Headline */}
         <h1 className="text-3xl md:text-5xl font-bold mb-4 text-[#00ff00]">
-          Resurrect Your Dreams.
-          <br />
-          <span className="text-[#00ff00]/80">Automate with AI.</span>
+          {copy.headline}
         </h1>
 
         {/* Subheadline */}
         <p className="text-lg md:text-xl text-[#00ff00]/70 mb-8 max-w-2xl mx-auto">
-          Custom AI automation flows, workflow solutions, and web applications
-          for small businesses ready to scale without the overhead.
+          {copy.subline}
         </p>
 
         {/* Email-only CTA */}
@@ -89,7 +107,7 @@ export default function HeroSection({ onContactClick }: HeroSectionProps) {
                 disabled={isSubmitting}
                 className="px-6 py-3 bg-[#00ff00] text-[#1a1a1a] font-bold rounded-lg hover:bg-[#00cc00] transition-colors disabled:opacity-50 whitespace-nowrap"
               >
-                {isSubmitting ? '...' : 'Get Started'}
+                {isSubmitting ? '...' : "Let's Talk"}
               </button>
             </form>
           )}
@@ -98,16 +116,10 @@ export default function HeroSection({ onContactClick }: HeroSectionProps) {
           )}
         </div>
 
-
-
         {/* Trust Signal */}
         <p className="mt-8 text-sm text-[#00ff00]/50">
-          AWS Certified | 10+ Years in Tech | Based in the USA
+          10+ years in tech | AWS Certified | Building systems for service businesses
         </p>
-
-
-
-
       </div>
     </section>
   );

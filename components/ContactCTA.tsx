@@ -2,16 +2,22 @@
 
 import { useState } from 'react';
 import ContactForm from './ContactForm';
+import { trackEvent } from '@/lib/tracking';
 
 export default function ContactCTA() {
   const [showForm, setShowForm] = useState(false);
+
+  const handleOpenForm = () => {
+    trackEvent('cta_click', { cta: 'contact_start' });
+    setShowForm(true);
+  };
 
   return (
     <section id="contact" className="py-16 bg-[#0a0a0a]">
       <div className="max-w-2xl mx-auto px-4">
         <div className="text-center mb-8">
           <h2 className="text-2xl md:text-3xl font-bold mb-4 text-[#00ff00]">
-            Ready to Get Started?
+            Let&apos;s Build Your System
           </h2>
           <p className="text-[#00ff00]/70">
             Tell me about your project and I&apos;ll get back to you within 24-48 hours
@@ -26,7 +32,7 @@ export default function ContactCTA() {
         ) : (
           <div className="text-center">
             <button
-              onClick={() => setShowForm(true)}
+              onClick={handleOpenForm}
               className="px-8 py-4 bg-[#00ff00] text-[#1a1a1a] font-bold text-lg rounded-lg hover:bg-[#00cc00] transition-colors"
             >
               Start a Conversation
