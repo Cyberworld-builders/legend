@@ -10,45 +10,54 @@ import type { Metadata } from 'next';
 
 const POSTS_PER_PAGE = 5;
 
-export const metadata: Metadata = {
-  title: 'Blog - Software Engineering Insights & Technical Articles',
-  description: 'Read the latest insights on software engineering, web development, AWS solutions, and SaaS development from CyberWorld Builders. Technical articles and industry perspectives.',
-  openGraph: {
+export async function generateMetadata({
+  searchParams,
+}: BlogIndexProps): Promise<Metadata> {
+  const { tag: tagFilter } = await searchParams;
+  const baseUrl = 'https://cyberworldbuilders.com';
+  const canonical = tagFilter
+    ? `${baseUrl}/blog?tag=${encodeURIComponent(tagFilter)}`
+    : `${baseUrl}/blog`;
+
+  if (tagFilter) {
+    const decodedTag = decodeURIComponent(tagFilter);
+    return {
+      title: `Posts tagged with "${decodedTag}" - CyberWorld Builders Blog`,
+      description: `Browse blog posts tagged with "${decodedTag}" - Software engineering insights and technical articles from CyberWorld Builders.`,
+      openGraph: {
+        title: `Posts tagged with "${decodedTag}" - CyberWorld Builders Blog`,
+        description: `Browse blog posts tagged with "${decodedTag}".`,
+        url: canonical,
+        type: 'website',
+      },
+      alternates: { canonical },
+    };
+  }
+
+  return {
     title: 'Blog - Software Engineering Insights & Technical Articles',
     description: 'Read the latest insights on software engineering, web development, AWS solutions, and SaaS development from CyberWorld Builders.',
-    url: 'https://cyberworldbuilders.com/blog',
-    type: 'website',
-    siteName: 'CyberWorld Builders',
-    images: [
-      {
-        url: 'https://cyberworldbuilders.com/images/social-card.png',
-        width: 1200,
-        height: 630,
-        alt: 'CyberWorld Builders Blog - Software Engineering Insights',
-      },
-      {
-        url: 'https://cyberworldbuilders.com/images/logo.png',
-        width: 1200,
-        height: 630,
-        alt: 'CyberWorld Builders Logo',
-      },
-    ],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    site: '@cyberbuilders',
-    creator: '@cyberbuilders',
-    title: 'Blog - Software Engineering Insights & Technical Articles',
-    description: 'Read the latest insights on software engineering, web development, AWS solutions, and SaaS development from CyberWorld Builders.',
-    images: [
-      'https://cyberworldbuilders.com/images/social-card.png',
-      'https://cyberworldbuilders.com/images/logo.png'
-    ],
-  },
-  alternates: {
-    canonical: 'https://cyberworldbuilders.com/blog',
-  },
-};
+    openGraph: {
+      title: 'Blog - Software Engineering Insights & Technical Articles',
+      description: 'Read the latest insights on software engineering, web development, AWS solutions, and SaaS development from CyberWorld Builders.',
+      url: canonical,
+      type: 'website',
+      siteName: 'CyberWorld Builders',
+      images: [
+        { url: 'https://cyberworldbuilders.com/images/social-card.png', width: 1200, height: 630, alt: 'CyberWorld Builders Blog' },
+        { url: 'https://cyberworldbuilders.com/images/logo.png', width: 1200, height: 630, alt: 'CyberWorld Builders Logo' },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      site: '@cyberbuilders',
+      creator: '@cyberbuilders',
+      title: 'Blog - Software Engineering Insights & Technical Articles',
+      description: 'Read the latest insights on software engineering, web development, AWS solutions, and SaaS development from CyberWorld Builders.',
+    },
+    alternates: { canonical },
+  };
+}
 
 // SSG + ISR: pre-render at build, revalidate every hour for crawler-friendly fresh HTML
 export const revalidate = 3600;
@@ -56,18 +65,26 @@ export const revalidate = 3600;
 interface BlogIndexProps {
   searchParams: Promise<{
     page?: string;
+    tag?: string;
   }>;
 }
 
 export default async function BlogIndex({ searchParams }: BlogIndexProps) {
-  const { page } = await searchParams;
+  const { page, tag: tagFilter } = await searchParams;
   const currentPage = Number(page) || 1;
-  // #region agent log
-  fetch('http://127.0.0.1:7245/ingest/09142726-0b46-49c0-b91d-40a2cb60bfcb', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ location: 'app/blog/page.tsx:BlogIndex', message: 'blog-index entry', data: { route: 'blog-index', hypothesisId: 'H2' }, timestamp: Date.now(), sessionId: 'debug-session' }) }).catch(() => {});
-  // #endregion
   try {
     // Get all posts with metadata (already sorted by published date and priority)
-    const allPostsWithMetadata = await getAllPostsWithMetadata();
+    let allPostsWithMetadata = await getAllPostsWithMetadata();
+
+    // Filter by tag when ?tag= is present
+    if (tagFilter) {
+      const decodedTag = decodeURIComponent(tagFilter);
+      allPostsWithMetadata = allPostsWithMetadata.filter(
+        (post) =>
+          (post.metadata.tags && post.metadata.tags.includes(decodedTag)) ||
+          (post.metadata.keywords && post.metadata.keywords.includes(decodedTag))
+      );
+    }
     
     if (!allPostsWithMetadata || allPostsWithMetadata.length === 0) {
       console.error('No posts found in getAllPostsWithMetadata');
@@ -93,6 +110,8 @@ export default async function BlogIndex({ searchParams }: BlogIndexProps) {
   const totalPages = Math.ceil(allPosts.length / POSTS_PER_PAGE);
   const startIndex = (currentPage - 1) * POSTS_PER_PAGE;
   const posts = allPosts.slice(startIndex, startIndex + POSTS_PER_PAGE);
+
+  const paginationBase = tagFilter ? `/blog?tag=${encodeURIComponent(tagFilter)}` : '/blog';
 
   return (
     <div className="min-h-screen flex flex-col items-center py-8 relative">
@@ -124,7 +143,21 @@ export default async function BlogIndex({ searchParams }: BlogIndexProps) {
         />
       </div>
       
-      <h1 className="text-4xl font-bold mb-8">Blog</h1>
+      <h1 className="text-4xl font-bold mb-8">
+        {tagFilter ? (
+          <>Posts tagged with &ldquo;{decodeURIComponent(tagFilter)}&rdquo;</>
+        ) : (
+          'Blog'
+        )}
+      </h1>
+
+      {tagFilter && (
+        <p className="text-[#00ff00]/70 mb-4">
+          <Link href="/blog" className="hover:text-[#00ff00] underline">
+            ← View all posts
+          </Link>
+        </p>
+      )}
       
       {/* Blog Navigation */}
       <div className="w-full max-w-2xl mb-6">
@@ -168,7 +201,7 @@ export default async function BlogIndex({ searchParams }: BlogIndexProps) {
         <div className="flex gap-4 mt-8">
           {currentPage > 1 && (
             <Link
-              href={`/blog?page=${currentPage - 1}`}
+              href={`${paginationBase}${paginationBase.includes('?') ? '&' : '?'}page=${currentPage - 1}`}
               className="text-[#00ff00] hover:text-[#00cc00] hover:underline"
             >
               ← Previous
@@ -176,7 +209,7 @@ export default async function BlogIndex({ searchParams }: BlogIndexProps) {
           )}
           {currentPage < totalPages && (
             <Link
-              href={`/blog?page=${currentPage + 1}`}
+              href={`${paginationBase}${paginationBase.includes('?') ? '&' : '?'}page=${currentPage + 1}`}
               className="text-[#00ff00] hover:text-[#00cc00] hover:underline"
             >
               Next →

@@ -148,7 +148,7 @@ export default async function TagsPage() {
                     {tags.map(([tag, count]) => (
                       <Link
                         key={tag}
-                        href={`/blog/tag/${encodeURIComponent(tag)}`}
+                        href={`/blog?tag=${encodeURIComponent(tag)}`}
                         className="group px-4 py-2 bg-[#00ff00]/10 border border-[#00ff00]/30 rounded-full text-[#00ff00]/80 hover:bg-[#00ff00]/20 hover:text-[#00ff00] transition-colors"
                       >
                         <span className="font-medium">#{tag}</span>
