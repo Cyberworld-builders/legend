@@ -1,9 +1,10 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import Image from 'next/image';
 import { getVariant } from '@/lib/ab-test';
 import { trackEvent } from '@/lib/tracking';
+import TurnstileField from './TurnstileField';
 
 const HERO_VARIANTS = {
   A: {
@@ -24,6 +25,13 @@ export default function HeroSection() {
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState('');
   const [variant, setVariant] = useState<'A' | 'B'>('A');
+  const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
+
+  const handleTurnstileVerify = useCallback((token: string) => setTurnstileToken(token), []);
+  const handleTurnstileExpire = useCallback(() => setTurnstileToken(null), []);
+
+  const needsTurnstile = Boolean(process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY);
+  const canSubmit = !needsTurnstile || turnstileToken;
 
   useEffect(() => {
     const result = getVariant('hero_headline_v1');
@@ -34,16 +42,20 @@ export default function HeroSection() {
 
   const handleEmailSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (!canSubmit) return;
     setIsSubmitting(true);
     setError('');
 
     trackEvent('cta_click', { cta: 'hero_email' });
 
     try {
+      const payload: Record<string, unknown> = { email };
+      if (turnstileToken) payload.turnstileToken = turnstileToken;
+
       const res = await fetch('/api/leads/submit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email }),
+        body: JSON.stringify(payload),
       });
 
       if (!res.ok) {
@@ -93,22 +105,25 @@ export default function HeroSection() {
               Thanks! I&apos;ll be in touch soon.
             </div>
           ) : (
-            <form onSubmit={handleEmailSubmit} className="flex gap-2">
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-                placeholder="Enter your email"
-                className="flex-1 px-4 py-3 bg-[#1a1a1a] border border-[#00ff00]/30 rounded-lg text-[#00ff00] placeholder-[#00ff00]/40 focus:border-[#00ff00] focus:ring-1 focus:ring-[#00ff00] outline-none transition"
-              />
-              <button
-                type="submit"
-                disabled={isSubmitting}
+            <form onSubmit={handleEmailSubmit} className="flex flex-col gap-2">
+              <div className="flex gap-2">
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                  placeholder="Enter your email"
+                  className="flex-1 px-4 py-3 bg-[#1a1a1a] border border-[#00ff00]/30 rounded-lg text-[#00ff00] placeholder-[#00ff00]/40 focus:border-[#00ff00] focus:ring-1 focus:ring-[#00ff00] outline-none transition"
+                />
+                <button
+                  type="submit"
+                  disabled={isSubmitting || !canSubmit}
                 className="px-6 py-3 bg-[#00ff00] text-[#1a1a1a] font-bold rounded-lg hover:bg-[#00cc00] transition-colors disabled:opacity-50 whitespace-nowrap"
-              >
-                {isSubmitting ? '...' : "Let's Talk"}
-              </button>
+                >
+                  {isSubmitting ? '...' : "Let's Talk"}
+                </button>
+              </div>
+              <TurnstileField onVerify={handleTurnstileVerify} onExpire={handleTurnstileExpire} />
             </form>
           )}
           {error && (

@@ -52,6 +52,9 @@ export const leadFormSchema = z.object({
 
   // Hidden honeypot field - should be empty for real users
   honeypot: z.string().max(0, 'Bot detected').optional().or(z.literal('')),
+
+  // Turnstile token (when Turnstile is configured)
+  turnstileToken: z.string().optional(),
 });
 
 export type LeadFormData = z.infer<typeof leadFormSchema>;
