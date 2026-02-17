@@ -1,30 +1,26 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useCallback } from 'react';
+import dynamic from 'next/dynamic';
 import Image from 'next/image';
-import { getVariant } from '@/lib/ab-test';
 import { trackEvent } from '@/lib/tracking';
 import TurnstileField from './TurnstileField';
 
-const HERO_VARIANTS = {
-  A: {
-    headline: 'Turn Marketing Into a Machine.',
-    subline:
-      'Custom digital systems that capture leads, nurture prospects, and measure what matters.',
-  },
-  B: {
-    headline: 'Your Marketing, on Autopilot.',
-    subline:
-      'Digital marketing systems that run while you run your business.',
-  },
-};
+const HeroHeadline = dynamic(() => import('./HeroHeadline'), {
+  ssr: false,
+  loading: () => (
+    <div className="animate-pulse" aria-hidden>
+      <div className="h-9 md:h-14 w-full max-w-2xl mx-auto mb-4 bg-[#00ff00]/10 rounded" />
+      <div className="h-5 md:h-6 w-full max-w-2xl mx-auto mb-8 bg-[#00ff00]/5 rounded" />
+    </div>
+  ),
+});
 
 export default function HeroSection() {
   const [email, setEmail] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState('');
-  const [variant, setVariant] = useState<'A' | 'B'>('A');
   const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
 
   const handleTurnstileVerify = useCallback((token: string) => setTurnstileToken(token), []);
@@ -32,13 +28,6 @@ export default function HeroSection() {
 
   const needsTurnstile = Boolean(process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY);
   const canSubmit = !needsTurnstile || turnstileToken;
-
-  useEffect(() => {
-    const result = getVariant('hero_headline_v1');
-    setVariant(result.variant);
-  }, []);
-
-  const copy = HERO_VARIANTS[variant];
 
   const handleEmailSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -88,15 +77,8 @@ export default function HeroSection() {
           blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
         />
 
-        {/* Headline */}
-        <h1 className="text-3xl md:text-5xl font-bold mb-4 text-[#00ff00]">
-          {copy.headline}
-        </h1>
-
-        {/* Subheadline */}
-        <p className="text-lg md:text-xl text-[#00ff00]/70 mb-8 max-w-2xl mx-auto">
-          {copy.subline}
-        </p>
+        {/* Headline - loaded client-only with correct variant before first paint */}
+        <HeroHeadline />
 
         {/* Email-only CTA */}
         <div className="max-w-md mx-auto mb-6">
