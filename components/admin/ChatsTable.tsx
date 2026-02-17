@@ -116,7 +116,7 @@ export default function ChatsTable() {
   const [expandedId, setExpandedId] = useState<string | null>(null);
   const [searchTimeout, setSearchTimeout] = useState<NodeJS.Timeout | null>(null);
 
-  const fetchChats = useCallback(async (currentPage: number, currentFilters: typeof filters) => {
+  const fetchChats = useCallback(async (currentPage: number, currentFilters: typeof filters, signal?: AbortSignal) => {
     setLoading(true);
     const params = new URLSearchParams();
     params.set('page', String(currentPage));
@@ -129,6 +129,7 @@ export default function ChatsTable() {
     try {
       const res = await fetch(`/api/admin/chats?${params.toString()}`, {
         credentials: 'include',
+        signal,
         cache: 'no-store',
       });
       const data = await res.json();
@@ -137,15 +138,19 @@ export default function ChatsTable() {
         setTotal(data.total ?? 0);
         setTotalPages(data.totalPages ?? 1);
       }
-    } catch {
-      /* Network error */
+    } catch (err) {
+      if ((err as Error).name !== 'AbortError') {
+        /* Network error */
+      }
     } finally {
       setLoading(false);
     }
   }, []);
 
   useEffect(() => {
-    fetchChats(page, filters);
+    const controller = new AbortController();
+    fetchChats(page, filters, controller.signal);
+    return () => controller.abort();
   }, [page, filters, fetchChats]);
 
   const handleFilterChange = (key: string, value: string) => {
