@@ -9,6 +9,7 @@ import {
   BUDGET_LABELS,
   URGENCY_LABELS,
 } from '@/types/leads';
+import { trackEvent } from '@/lib/tracking';
 import TurnstileField from './TurnstileField';
 
 interface ContactFormProps {
@@ -63,6 +64,7 @@ export default function ContactForm({ onSuccess, className = '' }: ContactFormPr
       }
 
       setSuccess(true);
+      trackEvent('lead_submit', { cta: 'contact_start' });
       onSuccess?.();
 
     } catch (err) {
