@@ -20,13 +20,12 @@ export async function generateMetadata({
     : `${baseUrl}/blog`;
 
   if (tagFilter) {
-    const decodedTag = decodeURIComponent(tagFilter);
     return {
-      title: `Posts tagged with "${decodedTag}" - CyberWorld Builders Blog`,
-      description: `Browse blog posts tagged with "${decodedTag}" - Software engineering insights and technical articles from CyberWorld Builders.`,
+      title: `Posts tagged with "${tagFilter}" - CyberWorld Builders Blog`,
+      description: `Browse blog posts tagged with "${tagFilter}" - Software engineering insights and technical articles from CyberWorld Builders.`,
       openGraph: {
-        title: `Posts tagged with "${decodedTag}" - CyberWorld Builders Blog`,
-        description: `Browse blog posts tagged with "${decodedTag}".`,
+        title: `Posts tagged with "${tagFilter}" - CyberWorld Builders Blog`,
+        description: `Browse blog posts tagged with "${tagFilter}".`,
         url: canonical,
         type: 'website',
       },
@@ -76,13 +75,12 @@ export default async function BlogIndex({ searchParams }: BlogIndexProps) {
     // Get all posts with metadata (already sorted by published date and priority)
     let allPostsWithMetadata = await getAllPostsWithMetadata();
 
-    // Filter by tag when ?tag= is present
+    // Filter by tag when ?tag= is present (searchParams are already URL-decoded by Next.js)
     if (tagFilter) {
-      const decodedTag = decodeURIComponent(tagFilter);
       allPostsWithMetadata = allPostsWithMetadata.filter(
         (post) =>
-          (post.metadata.tags && post.metadata.tags.includes(decodedTag)) ||
-          (post.metadata.keywords && post.metadata.keywords.includes(decodedTag))
+          (post.metadata.tags && post.metadata.tags.includes(tagFilter)) ||
+          (post.metadata.keywords && post.metadata.keywords.includes(tagFilter))
       );
     }
     
@@ -145,7 +143,7 @@ export default async function BlogIndex({ searchParams }: BlogIndexProps) {
       
       <h1 className="text-4xl font-bold mb-8">
         {tagFilter ? (
-          <>Posts tagged with &ldquo;{decodeURIComponent(tagFilter)}&rdquo;</>
+          <>Posts tagged with &ldquo;{tagFilter}&rdquo;</>
         ) : (
           'Blog'
         )}
