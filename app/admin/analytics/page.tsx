@@ -177,6 +177,37 @@ async function getAnalyticsData(days: number) {
     leads: stats.leads,
   }));
 
+  // Chatbot metrics from page_events
+  const { count: chatImpressions } = await supabase
+    .from('page_events')
+    .select('*', { count: 'exact', head: true })
+    .eq('event_name', 'chat_impression')
+    .gte('created_at', sinceISO);
+
+  const { count: chatOpens } = await supabase
+    .from('page_events')
+    .select('*', { count: 'exact', head: true })
+    .eq('event_name', 'chat_open')
+    .gte('created_at', sinceISO);
+
+  const { count: chatMessagesSent } = await supabase
+    .from('page_events')
+    .select('*', { count: 'exact', head: true })
+    .eq('event_name', 'chat_message_sent')
+    .gte('created_at', sinceISO);
+
+  // Chat sessions from chat_sessions table
+  const { count: chatSessionsTotal } = await supabase
+    .from('chat_sessions')
+    .select('*', { count: 'exact', head: true })
+    .gte('created_at', sinceISO);
+
+  const { count: chatEngaged } = await supabase
+    .from('chat_sessions')
+    .select('*', { count: 'exact', head: true })
+    .gte('created_at', sinceISO)
+    .gte('message_count', 3);
+
   return {
     totalSessions: totalSessions ?? 0,
     uniqueSessions,
@@ -185,6 +216,11 @@ async function getAnalyticsData(days: number) {
     ctas,
     leadSubmits: leadSubmits ?? 0,
     variants,
+    chatImpressions: chatImpressions ?? 0,
+    chatOpens: chatOpens ?? 0,
+    chatMessagesSent: chatMessagesSent ?? 0,
+    chatSessionsTotal: chatSessionsTotal ?? 0,
+    chatEngaged: chatEngaged ?? 0,
   };
 }
 
@@ -336,6 +372,43 @@ export default async function AnalyticsPage({
         <h2 className="text-lg font-bold text-[#00ff00] mb-2">Lead Submissions</h2>
         <p className="text-3xl font-bold text-[#00ff00]">{data.leadSubmits}</p>
         <p className="text-xs text-[#00ff00]/50 mt-1">last {days} days</p>
+      </div>
+
+      {/* Chatbot Performance */}
+      <div className="border border-[#00ff00]/20 bg-[#1a1a1a] rounded-lg p-6 mb-6">
+        <h2 className="text-lg font-bold text-[#00ff00] mb-4">Chatbot Performance</h2>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4">
+          <div>
+            <p className="text-[#00ff00]/50 text-xs">Impressions</p>
+            <p className="text-2xl font-bold text-[#00ff00]">{data.chatImpressions}</p>
+          </div>
+          <div>
+            <p className="text-[#00ff00]/50 text-xs">Opens</p>
+            <p className="text-2xl font-bold text-[#00ff00]">{data.chatOpens}</p>
+          </div>
+          <div>
+            <p className="text-[#00ff00]/50 text-xs">Open Rate</p>
+            <p className="text-2xl font-bold text-[#00ff00]">
+              {data.chatImpressions > 0
+                ? ((data.chatOpens / data.chatImpressions) * 100).toFixed(1)
+                : '0'}%
+            </p>
+          </div>
+          <div>
+            <p className="text-[#00ff00]/50 text-xs">Messages Sent</p>
+            <p className="text-2xl font-bold text-[#00ff00]">{data.chatMessagesSent}</p>
+          </div>
+        </div>
+        <div className="grid grid-cols-2 gap-4 border-t border-[#00ff00]/10 pt-4">
+          <div>
+            <p className="text-[#00ff00]/50 text-xs">Chat Sessions</p>
+            <p className="text-xl font-bold text-[#00ff00]">{data.chatSessionsTotal}</p>
+          </div>
+          <div>
+            <p className="text-[#00ff00]/50 text-xs">Engaged (3+ msgs)</p>
+            <p className="text-xl font-bold text-[#00ff00]">{data.chatEngaged}</p>
+          </div>
+        </div>
       </div>
 
       {/* A/B Test Results */}
