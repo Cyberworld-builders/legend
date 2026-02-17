@@ -1,6 +1,5 @@
 'use client';
 
-import { useRef } from 'react';
 import ChatWidget from '../components/ChatWidget';
 import FAQ from '../components/FAQ';
 import PageBackground from '../components/PageBackground';
@@ -15,8 +14,6 @@ import ScrollTracker from '../components/ScrollTracker';
 const TRACKED_SECTIONS = ['hero', 'services', 'proof', 'about', 'contact', 'faq'];
 
 export default function Home() {
-  const contactRef = useRef<HTMLDivElement>(null);
-
   return (
     <div className="relative min-h-screen">
       {/* Page Background */}
@@ -35,9 +32,7 @@ export default function Home() {
 
         <AboutSection />
 
-        <div ref={contactRef}>
-          <ContactCTA />
-        </div>
+        <ContactCTA />
 
         {/* FAQ Section */}
         <section className="py-16">

@@ -28,7 +28,3 @@ export async function checkRateLimit(identifier: string): Promise<{ ok: boolean;
   const { success, remaining } = await ratelimit.limit(identifier);
   return { ok: success, remaining };
 }
-
-export function isRateLimitConfigured(): boolean {
-  return Boolean(redisUrl && redisToken);
-}

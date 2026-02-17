@@ -93,6 +93,7 @@ export default function ScrollTracker({ sections }: ScrollTrackerProps) {
       observer.disconnect();
       window.removeEventListener('scroll', onScroll);
       window.removeEventListener('beforeunload', onBeforeUnload);
+      initialized.current = false; // Reset so remount (e.g. React strict mode) re-initializes
     };
   }, [sections]);
 

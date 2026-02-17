@@ -58,7 +58,3 @@ export async function validateTurnstileToken(
     return { valid: false, error: 'Verification service unavailable' };
   }
 }
-
-export function isTurnstileConfigured(): boolean {
-  return Boolean(process.env.TURNSTILE_SECRET_KEY && process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY);
-}

@@ -1,5 +1,26 @@
 import { createAuthServerClient } from '@/lib/supabase-server';
 
+const PAGE_SIZE = 1000; // Supabase default limit; paginate to avoid truncation
+
+/** Fetches all rows by paginating through results to avoid 1000-row truncation. */
+async function fetchAllRows<T>(
+  runQuery: (from: number, to: number) => Promise<{ data: T[] | null; error?: { message: string } | null }>
+): Promise<T[]> {
+  const all: T[] = [];
+  let from = 0;
+  while (true) {
+    const to = from + PAGE_SIZE - 1;
+    const res = await runQuery(from, to);
+    if (res.error) throw res.error;
+    const data = res.data;
+    if (!data || data.length === 0) break;
+    all.push(...data);
+    if (data.length < PAGE_SIZE) break;
+    from += PAGE_SIZE;
+  }
+  return all;
+}
+
 interface SectionCount {
   section: string;
   count: number;
@@ -35,23 +56,30 @@ async function getAnalyticsData(days: number) {
     .eq('event_name', 'page_view')
     .gte('created_at', sinceISO);
 
-  // Unique sessions
-  const { data: uniqueSessionsData } = await supabase
-    .from('page_events')
-    .select('session_id')
-    .gte('created_at', sinceISO);
+  // Unique sessions (paginate to avoid 1000-row limit)
+  const uniqueSessionsData = await fetchAllRows<{ session_id: string }>(async (from, to) => {
+    const r = await supabase
+      .from('page_events')
+      .select('session_id')
+      .gte('created_at', sinceISO)
+      .range(from, to);
+    return { data: r.data, error: r.error };
+  });
+  const uniqueSessions = new Set(uniqueSessionsData.map((r) => r.session_id)).size;
 
-  const uniqueSessions = new Set(uniqueSessionsData?.map((r) => r.session_id)).size;
-
-  // Section visibility counts (with session_ids for dedup)
+  // Section visibility counts (with session_ids for dedup; paginate to avoid 1000-row limit)
   const sectionCounts: Record<string, Set<string>> = {};
-  const { data: sectionWithSessions } = await supabase
-    .from('page_events')
-    .select('session_id, event_data')
-    .eq('event_name', 'section_visible')
-    .gte('created_at', sinceISO);
+  const sectionWithSessions = await fetchAllRows<{ session_id: string; event_data: unknown }>(async (from, to) => {
+    const r = await supabase
+      .from('page_events')
+      .select('session_id, event_data')
+      .eq('event_name', 'section_visible')
+      .gte('created_at', sinceISO)
+      .range(from, to);
+    return { data: r.data, error: r.error };
+  });
 
-  if (sectionWithSessions) {
+  if (sectionWithSessions.length > 0) {
     for (const row of sectionWithSessions) {
       const section = (row.event_data as Record<string, unknown>)?.section as string;
       if (section) {
@@ -65,15 +93,19 @@ async function getAnalyticsData(days: number) {
     (s) => ({ section: s, count: sectionCounts[s]?.size ?? 0 })
   );
 
-  // Scroll depth counts
-  const { data: depthData } = await supabase
-    .from('page_events')
-    .select('session_id, event_data')
-    .eq('event_name', 'scroll_depth')
-    .gte('created_at', sinceISO);
+  // Scroll depth counts (paginate to avoid 1000-row limit)
+  const depthData = await fetchAllRows<{ session_id: string; event_data: unknown }>(async (from, to) => {
+    const r = await supabase
+      .from('page_events')
+      .select('session_id, event_data')
+      .eq('event_name', 'scroll_depth')
+      .gte('created_at', sinceISO)
+      .range(from, to);
+    return { data: r.data, error: r.error };
+  });
 
   const depthSessions: Record<number, Set<string>> = { 25: new Set(), 50: new Set(), 75: new Set(), 100: new Set() };
-  if (depthData) {
+  if (depthData.length > 0) {
     for (const row of depthData) {
       const depth = (row.event_data as Record<string, unknown>)?.depth as number;
       if (depth && depthSessions[depth]) {
@@ -87,15 +119,19 @@ async function getAnalyticsData(days: number) {
     count: depthSessions[d]?.size ?? 0,
   }));
 
-  // CTA clicks
-  const { data: ctaData } = await supabase
-    .from('page_events')
-    .select('event_data')
-    .eq('event_name', 'cta_click')
-    .gte('created_at', sinceISO);
+  // CTA clicks (paginate to avoid 1000-row limit)
+  const ctaData = await fetchAllRows<{ event_data: unknown }>(async (from, to) => {
+    const r = await supabase
+      .from('page_events')
+      .select('event_data')
+      .eq('event_name', 'cta_click')
+      .gte('created_at', sinceISO)
+      .range(from, to);
+    return { data: r.data, error: r.error };
+  });
 
   const ctaCounts: Record<string, number> = {};
-  if (ctaData) {
+  if (ctaData.length > 0) {
     for (const row of ctaData) {
       const cta = (row.event_data as Record<string, unknown>)?.cta as string;
       if (cta) ctaCounts[cta] = (ctaCounts[cta] || 0) + 1;
@@ -111,15 +147,19 @@ async function getAnalyticsData(days: number) {
     .eq('event_name', 'lead_submit')
     .gte('created_at', sinceISO);
 
-  // A/B test variant stats
-  const { data: variantData } = await supabase
-    .from('page_events')
-    .select('session_id, variant, event_name')
-    .not('variant', 'is', null)
-    .gte('created_at', sinceISO);
+  // A/B test variant stats (paginate to avoid 1000-row limit)
+  const variantData = await fetchAllRows<{ session_id: string; variant: string; event_name: string }>(async (from, to) => {
+    const r = await supabase
+      .from('page_events')
+      .select('session_id, variant, event_name')
+      .not('variant', 'is', null)
+      .gte('created_at', sinceISO)
+      .range(from, to);
+    return { data: r.data, error: r.error };
+  });
 
   const variantMap: Record<string, { sessions: Set<string>; cta_clicks: number; leads: number }> = {};
-  if (variantData) {
+  if (variantData.length > 0) {
     for (const row of variantData) {
       const v = row.variant!;
       if (!variantMap[v]) variantMap[v] = { sessions: new Set(), cta_clicks: 0, leads: 0 };

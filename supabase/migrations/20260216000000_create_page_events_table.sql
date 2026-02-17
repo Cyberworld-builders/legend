@@ -30,7 +30,3 @@ CREATE POLICY "Service role full access on page_events" ON page_events
 
 CREATE POLICY "Authenticated users can read page_events" ON page_events
   FOR SELECT USING (auth.role() = 'authenticated');
-
--- Allow anonymous inserts from the /api/track route
-CREATE POLICY "Anon can insert page_events" ON page_events
-  FOR INSERT WITH CHECK (true);
