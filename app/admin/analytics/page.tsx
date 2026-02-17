@@ -56,11 +56,12 @@ async function getAnalyticsData(days: number) {
     .eq('event_name', 'page_view')
     .gte('created_at', sinceISO);
 
-  // Unique sessions (paginate to avoid 1000-row limit)
+  // Unique sessions (paginate to avoid 1000-row limit; page_view only = ~1 row per session)
   const uniqueSessionsData = await fetchAllRows<{ session_id: string }>(async (from, to) => {
     const r = await supabase
       .from('page_events')
       .select('session_id')
+      .eq('event_name', 'page_view')
       .gte('created_at', sinceISO)
       .range(from, to);
     return { data: r.data, error: r.error };
