@@ -28,34 +28,45 @@ export default function LeadsTable() {
   });
   const [searchTimeout, setSearchTimeout] = useState<NodeJS.Timeout | null>(null);
 
-  const fetchLeads = useCallback(async (currentPage: number, currentFilters: typeof filters) => {
+  const fetchLeads = useCallback(async (currentPage: number, currentFilters: typeof filters, signal?: AbortSignal) => {
     setLoading(true);
     const params = new URLSearchParams();
     params.set('page', String(currentPage));
     params.set('pageSize', '20');
-    if (currentFilters.status) params.set('status', currentFilters.status);
+    // Only send status when a valid filter is selected; empty = "All Statuses"
+    if (currentFilters.status && LEAD_STATUSES.includes(currentFilters.status as typeof LEAD_STATUSES[number])) {
+      params.set('status', currentFilters.status);
+    }
     if (currentFilters.projectType) params.set('projectType', currentFilters.projectType);
     if (currentFilters.budgetTier) params.set('budgetTier', currentFilters.budgetTier);
     if (currentFilters.urgency) params.set('urgency', currentFilters.urgency);
     if (currentFilters.search) params.set('search', currentFilters.search);
 
     try {
-      const res = await fetch(`/api/admin/leads?${params.toString()}`);
+      const res = await fetch(`/api/admin/leads?${params.toString()}`, {
+        credentials: 'include',
+        signal,
+        cache: 'no-store',
+      });
       const data = await res.json();
       if (res.ok) {
         setLeads(data.leads);
         setTotal(data.total);
         setTotalPages(data.totalPages);
       }
-    } catch {
-      // Network error
+    } catch (err) {
+      if ((err as Error).name !== 'AbortError') {
+        // Ignore abort - component unmounted
+      }
     } finally {
       setLoading(false);
     }
   }, []);
 
   useEffect(() => {
-    fetchLeads(page, filters);
+    const controller = new AbortController();
+    fetchLeads(page, filters, controller.signal);
+    return () => controller.abort();
   }, [page, filters, fetchLeads]);
 
   const handleFilterChange = (key: string, value: string) => {

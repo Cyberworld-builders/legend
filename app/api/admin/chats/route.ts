@@ -3,6 +3,8 @@ import { createServerClient as createSSRClient } from '@supabase/ssr';
 import { createServerClient } from '@/lib/supabase';
 import { cookies } from 'next/headers';
 
+export const dynamic = 'force-dynamic';
+
 async function verifyAuth() {
   const cookieStore = await cookies();
   const supabase = createSSRClient(
@@ -80,11 +82,18 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 
-  return NextResponse.json({
-    chats: data ?? [],
-    total: count ?? 0,
-    page,
-    pageSize,
-    totalPages: Math.ceil((count ?? 0) / pageSize),
-  });
+  return NextResponse.json(
+    {
+      chats: data ?? [],
+      total: count ?? 0,
+      page,
+      pageSize,
+      totalPages: Math.ceil((count ?? 0) / pageSize),
+    },
+    {
+      headers: {
+        'Cache-Control': 'private, no-store, max-age=0',
+      },
+    },
+  );
 }

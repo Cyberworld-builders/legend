@@ -3,6 +3,8 @@ import { createServerClient as createSSRClient } from '@supabase/ssr';
 import { createServerClient } from '@/lib/supabase';
 import { cookies } from 'next/headers';
 
+export const dynamic = 'force-dynamic';
+
 async function verifyAuth() {
   const cookieStore = await cookies();
   const supabase = createSSRClient(
@@ -46,11 +48,16 @@ export async function GET(request: NextRequest) {
   const from = (page - 1) * pageSize;
   const to = from + pageSize - 1;
 
+  const VALID_STATUSES = ['new', 'contacted', 'qualified', 'converted', 'lost'];
+
   let query = supabase
     .from('leads')
     .select('*', { count: 'exact' });
 
-  if (status) query = query.eq('status', status);
+  // Only filter by status when a valid, non-empty status is provided; empty/'all' = show all
+  if (status && status.trim() !== '' && VALID_STATUSES.includes(status)) {
+    query = query.eq('status', status);
+  }
   if (projectType) query = query.eq('project_type', projectType);
   if (budgetTier) query = query.eq('budget_tier', budgetTier);
   if (urgency) query = query.eq('urgency', urgency);
@@ -67,11 +74,18 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 
-  return NextResponse.json({
-    leads: data ?? [],
-    total: count ?? 0,
-    page,
-    pageSize,
-    totalPages: Math.ceil((count ?? 0) / pageSize),
-  });
+  return NextResponse.json(
+    {
+      leads: data ?? [],
+      total: count ?? 0,
+      page,
+      pageSize,
+      totalPages: Math.ceil((count ?? 0) / pageSize),
+    },
+    {
+      headers: {
+        'Cache-Control': 'private, no-store, max-age=0',
+      },
+    },
+  );
 }

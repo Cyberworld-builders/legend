@@ -127,7 +127,10 @@ export default function ChatsTable() {
     params.set('sortOrder', currentFilters.sortOrder);
 
     try {
-      const res = await fetch(`/api/admin/chats?${params.toString()}`);
+      const res = await fetch(`/api/admin/chats?${params.toString()}`, {
+        credentials: 'include',
+        cache: 'no-store',
+      });
       const data = await res.json();
       if (res.ok) {
         setChats(data.chats ?? []);

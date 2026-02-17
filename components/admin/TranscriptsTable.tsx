@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useCallback, useRef } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { TranscriptRecord } from '@/types/transcripts';
 import TranscriptEditModal from './TranscriptEditModal';
 import { Pencil, Trash2, Check, X } from 'lucide-react';
@@ -23,48 +23,50 @@ export default function TranscriptsTable({ refreshKey }: TranscriptsTableProps) 
   const [deleteConfirm, setDeleteConfirm] = useState<string | null>(null);
   const [searchTimeout, setSearchTimeout] = useState<NodeJS.Timeout | null>(null);
   const [loadError, setLoadError] = useState<string | null>(null);
-  const hasLoadedOnce = useRef(false);
 
-  const fetchTranscripts = useCallback(async (currentPage: number, currentSearch: string, currentFilter: string) => {
-    setLoading(true);
-    setLoadError(null);
-    const params = new URLSearchParams();
-    params.set('page', String(currentPage));
-    params.set('pageSize', '20');
-    if (currentFilter) params.set('is_processed', currentFilter);
-    if (currentSearch) params.set('search', currentSearch);
+  const fetchTranscripts = useCallback(
+    async (currentPage: number, currentSearch: string, currentFilter: string, signal?: AbortSignal) => {
+      setLoading(true);
+      setLoadError(null);
+      const params = new URLSearchParams();
+      params.set('page', String(currentPage));
+      params.set('pageSize', '20');
+      if (currentFilter) params.set('is_processed', currentFilter);
+      if (currentSearch) params.set('search', currentSearch);
 
-    try {
-      const res = await fetch(`/api/admin/transcripts?${params.toString()}`, { credentials: 'include' });
-      const data = await res.json();
-      if (res.ok) {
-        setTranscripts(data.transcripts ?? []);
-        setTotal(data.total ?? 0);
-        setTotalPages(data.totalPages ?? 1);
-        hasLoadedOnce.current = true;
-      } else {
-        const message =
-          res.status === 401
-            ? 'Unable to load transcripts. Please sign in again.'
-            : (data?.error as string) || 'Unable to load transcripts.';
-        setLoadError(message);
+      try {
+        const res = await fetch(`/api/admin/transcripts?${params.toString()}`, {
+          credentials: 'include',
+          signal,
+        });
+        const data = await res.json();
+        if (res.ok) {
+          setTranscripts(data.transcripts ?? []);
+          setTotal(data.total ?? 0);
+          setTotalPages(data.totalPages ?? 1);
+        } else {
+          const message =
+            res.status === 401
+              ? 'Unable to load transcripts. Please sign in again.'
+              : (data?.error as string) || 'Unable to load transcripts.';
+          setLoadError(message);
+        }
+      } catch (err) {
+        if ((err as Error).name !== 'AbortError') {
+          setLoadError('Network error. Please try again.');
+        }
+      } finally {
+        setLoading(false);
       }
-    } catch {
-      setLoadError('Network error. Please try again.');
-    } finally {
-      setLoading(false);
-    }
-  }, []);
+    },
+    [],
+  );
 
-  // Load first page on mount so the list is populated without user interaction
+  // Single effect: load on mount and whenever page, search, filter, or refreshKey change
   useEffect(() => {
-    fetchTranscripts(1, '', '');
-  }, [fetchTranscripts]);
-
-  // Refetch when page, search, filter, or refreshKey change (and we're not on initial mount)
-  useEffect(() => {
-    if (!hasLoadedOnce.current) return;
-    fetchTranscripts(page, search, filterProcessed);
+    const controller = new AbortController();
+    fetchTranscripts(page, search, filterProcessed, controller.signal);
+    return () => controller.abort();
   }, [page, search, filterProcessed, refreshKey, fetchTranscripts]);
 
   const handleSearchChange = (value: string) => {
