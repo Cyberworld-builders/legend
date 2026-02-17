@@ -36,9 +36,9 @@ export default async function AdminLayout({
   }
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] font-mono">
+    <div className="w-full min-h-screen bg-[#0a0a0a] font-mono">
       <AdminNav userEmail={userEmail} />
-      <main className="md:ml-64 p-6 min-h-screen">
+      <main className="w-full md:ml-64 md:w-[calc(100%-16rem)] p-6 min-h-screen">
         {children}
       </main>
     </div>
