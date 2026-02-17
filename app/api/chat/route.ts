@@ -6,11 +6,9 @@ import path from 'path';
 import matter from 'gray-matter';
 import { createServerClient, isServerSupabaseConfigured } from '@/lib/supabase';
 import { checkRateLimit } from '@/lib/rate-limit';
+import { extractContactInfo, hasContactInfo } from '@/lib/chat-extraction';
 
 const MAX_HISTORY_MESSAGES = 20;
-
-const EMAIL_REGEX = /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/;
-const PHONE_REGEX = /(?:\+?1[-.\s]?)?(?:\(?\d{3}\)?[-.\s]?)?\d{3}[-.\s]?\d{4}/;
 
 const llm = new ChatOpenAI({
   openAIApiKey: process.env.OPENAI_API_KEY!,
@@ -85,47 +83,6 @@ interface ChatMessage {
   role: 'user' | 'bot';
   content: string;
   ts?: string;
-}
-
-/** Extract email and phone from all user messages in the conversation. */
-function extractContactInfo(messages: ChatMessage[]): { email: string | null; phone: string | null; name: string | null } {
-  let email: string | null = null;
-  let phone: string | null = null;
-  let name: string | null = null;
-
-  for (const msg of messages) {
-    if (msg.role !== 'user') continue;
-    const text = msg.content;
-
-    if (!email) {
-      const emailMatch = text.match(EMAIL_REGEX);
-      if (emailMatch) email = emailMatch[0].toLowerCase();
-    }
-
-    if (!phone) {
-      const phoneMatch = text.match(PHONE_REGEX);
-      if (phoneMatch) phone = phoneMatch[0];
-    }
-
-    // Name extraction: require explicit name-intro phrase (e.g. "I'm John", "My name is Sarah")
-    // to avoid misclassifying quick replies like "Automation", "Custom Software", "Just Browsing"
-    const nameIntro = /^(i'm|my name is|it's|call me|i am|hey,?\s*i'm)\s+/i;
-    if (!name && text.length < 50 && nameIntro.test(text)) {
-      const cleaned = text.replace(nameIntro, '').trim();
-      const words = cleaned.split(/\s+/);
-      if (words.length >= 1 && words.length <= 4 && /^[A-Za-z\s'-]+$/.test(cleaned) && cleaned.length >= 2) {
-        name = cleaned;
-      }
-    }
-  }
-
-  return { email, phone, name };
-}
-
-/** Check if contact info has already been captured in the conversation. */
-function hasContactInfo(messages: ChatMessage[]): boolean {
-  const { email, phone } = extractContactInfo(messages);
-  return !!(email || phone);
 }
 
 /** Upsert chat conversation to Supabase with extracted fields. */
