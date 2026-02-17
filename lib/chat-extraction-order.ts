@@ -45,14 +45,14 @@ export function computeExtractionOrder(messages: ChatMessage[]): ExtractionOrder
       }
     }
 
-    if (!nameFound && text.length < 50) {
-      const cleaned = text
-        .replace(/^(i'm|my name is|it's|call me|i am|hey,?\s*i'm)\s+/i, '')
-        .trim();
+    // Require explicit name-intro phrase to avoid misclassifying quick replies (e.g. "Automation")
+    const nameIntro = /^(i'm|my name is|it's|call me|i am|hey,?\s*i'm)\s+/i;
+    if (!nameFound && text.length < 50 && nameIntro.test(text)) {
+      const cleaned = text.replace(nameIntro, '').trim();
       const words = cleaned.split(/\s+/);
       if (
         words.length >= 1 &&
-        words.length <= 3 &&
+        words.length <= 4 &&
         /^[A-Za-z\s'-]+$/.test(cleaned) &&
         cleaned.length >= 2
       ) {

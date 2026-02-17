@@ -107,12 +107,13 @@ function extractContactInfo(messages: ChatMessage[]): { email: string | null; ph
       if (phoneMatch) phone = phoneMatch[0];
     }
 
-    // Simple name extraction: if message is short (1-4 words) and no special chars,
-    // and we're early in conversation, it's likely a name response
-    if (!name && text.length < 50) {
-      const cleaned = text.replace(/^(i'm|my name is|it's|call me|i am|hey,?\s*i'm)\s+/i, '').trim();
+    // Name extraction: require explicit name-intro phrase (e.g. "I'm John", "My name is Sarah")
+    // to avoid misclassifying quick replies like "Automation", "Custom Software", "Just Browsing"
+    const nameIntro = /^(i'm|my name is|it's|call me|i am|hey,?\s*i'm)\s+/i;
+    if (!name && text.length < 50 && nameIntro.test(text)) {
+      const cleaned = text.replace(nameIntro, '').trim();
       const words = cleaned.split(/\s+/);
-      if (words.length >= 1 && words.length <= 3 && /^[A-Za-z\s'-]+$/.test(cleaned) && cleaned.length >= 2) {
+      if (words.length >= 1 && words.length <= 4 && /^[A-Za-z\s'-]+$/.test(cleaned) && cleaned.length >= 2) {
         name = cleaned;
       }
     }
