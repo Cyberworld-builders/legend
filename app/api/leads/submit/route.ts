@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { createServerClient, isServerSupabaseConfigured } from '@/lib/supabase';
 import { leadFormSchema } from '@/types/leads';
 import { calculateLeadScore, isSpam } from '@/lib/lead-scoring';
+import { validateTurnstileToken } from '@/lib/turnstile';
 import { v4 as uuidv4 } from 'uuid';
 
 // Send lead data to n8n webhook (non-blocking)
@@ -57,6 +58,19 @@ export async function POST(request: NextRequest) {
     }
 
     const data = parseResult.data;
+
+    const turnstileResult = await validateTurnstileToken(
+      data.turnstileToken,
+      request.headers.get('x-forwarded-for')?.split(',')[0]?.trim() ||
+        request.headers.get('x-real-ip') ||
+        null
+    );
+    if (!turnstileResult.valid) {
+      return NextResponse.json(
+        { error: turnstileResult.error ?? 'Verification failed' },
+        { status: 400 }
+      );
+    }
 
     // Calculate lead score
     const scoreBreakdown = calculateLeadScore(data);

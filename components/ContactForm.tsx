@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 import {
   PROJECT_TYPES,
   BUDGET_TIERS,
@@ -9,6 +9,8 @@ import {
   BUDGET_LABELS,
   URGENCY_LABELS,
 } from '@/types/leads';
+import { trackEvent } from '@/lib/tracking';
+import TurnstileField from './TurnstileField';
 
 interface ContactFormProps {
   onSuccess?: () => void;
@@ -19,29 +21,40 @@ export default function ContactForm({ onSuccess, className = '' }: ContactFormPr
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState(false);
+  const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
+
+  const handleTurnstileVerify = useCallback((token: string) => setTurnstileToken(token), []);
+  const handleTurnstileExpire = useCallback(() => setTurnstileToken(null), []);
+
+  const needsTurnstile = Boolean(process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY);
+  const canSubmit = !needsTurnstile || turnstileToken;
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (!canSubmit) return;
     setIsSubmitting(true);
     setError(null);
 
     const formData = new FormData(e.currentTarget);
 
     try {
+      const payload: Record<string, unknown> = {
+        name: formData.get('name') || undefined,
+        email: formData.get('email'),
+        company: formData.get('company') || undefined,
+        phone: formData.get('phone') || undefined,
+        projectType: formData.get('projectType') || undefined,
+        budgetTier: formData.get('budgetTier') || undefined,
+        urgency: formData.get('urgency') || undefined,
+        message: formData.get('message') || undefined,
+        honeypot: formData.get('website'),
+      };
+      if (turnstileToken) payload.turnstileToken = turnstileToken;
+
       const response = await fetch('/api/leads/submit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          name: formData.get('name') || undefined,
-          email: formData.get('email'),
-          company: formData.get('company') || undefined,
-          phone: formData.get('phone') || undefined,
-          projectType: formData.get('projectType') || undefined,
-          budgetTier: formData.get('budgetTier') || undefined,
-          urgency: formData.get('urgency') || undefined,
-          message: formData.get('message') || undefined,
-          honeypot: formData.get('website'), // Hidden honeypot field
-        }),
+        body: JSON.stringify(payload),
       });
 
       const data = await response.json();
@@ -51,6 +64,7 @@ export default function ContactForm({ onSuccess, className = '' }: ContactFormPr
       }
 
       setSuccess(true);
+      trackEvent('lead_submit', { cta: 'contact_start' });
       onSuccess?.();
 
     } catch (err) {
@@ -217,10 +231,12 @@ export default function ContactForm({ onSuccess, className = '' }: ContactFormPr
         />
       </div>
 
+      <TurnstileField onVerify={handleTurnstileVerify} onExpire={handleTurnstileExpire} />
+
       {/* Submit Button */}
       <button
         type="submit"
-        disabled={isSubmitting}
+        disabled={isSubmitting || !canSubmit}
         className="w-full py-3 px-6 bg-[#00ff00] text-[#1a1a1a] font-bold rounded hover:bg-[#00cc00] disabled:opacity-50 disabled:cursor-not-allowed transition"
       >
         {isSubmitting ? 'Sending...' : 'Send Message'}

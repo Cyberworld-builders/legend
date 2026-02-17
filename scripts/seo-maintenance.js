@@ -181,17 +181,11 @@ class SEOMaintenance {
     console.log('🏷️  Step 6: Validating Tag Pages...');
     
     try {
-      // Run tag validation script
       const { execSync } = require('child_process');
       execSync('node scripts/validate-tags.js', { stdio: 'pipe' });
       console.log('   ✅ Tag validation completed');
-      
-      // Run tag page generation script
-      execSync('node scripts/generate-tag-pages.js', { stdio: 'pipe' });
-      console.log('   ✅ Tag page generation completed');
-      
     } catch (error) {
-      console.log('   ⚠️  Tag validation/generation failed:', error.message);
+      console.log('   ⚠️  Tag validation failed:', error.message);
       this.stats.issuesFound++;
     }
   }

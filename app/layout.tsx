@@ -11,11 +11,11 @@ import DebugErrorReporter from '@/components/DebugErrorReporter';
 
 export const metadata: Metadata = {
   title: {
-    default: 'CyberWorld Builders - Software Engineering & Consulting Services',
+    default: 'CyberWorld Builders - Digital Marketing Systems & Software Engineering',
     template: '%s | CyberWorld Builders'
   },
-  description: 'Professional software engineering services, web development consulting, and AWS solutions. Expert freelance developer specializing in SaaS development and modern web technologies.',
-  keywords: ['software engineering', 'web development', 'consulting', 'AWS', 'SaaS development', 'freelance developer', 'cyberworld builders'],
+  description: 'Digital marketing systems, business automation, and software engineering for service businesses ready to grow. Automated lead capture, content pipelines, and reporting dashboards.',
+  keywords: ['digital marketing systems', 'marketing automation', 'lead generation', 'business automation', 'software engineering', 'web development', 'consulting', 'AWS', 'cyberworld builders'],
   authors: [{ name: 'Jay Long', url: 'https://cyberworldbuilders.dev' }],
   creator: 'Jay Long',
   publisher: 'CyberWorld Builders',
@@ -35,14 +35,14 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: 'https://cyberworldbuilders.com',
     siteName: 'CyberWorld Builders',
-    title: 'CyberWorld Builders - Software Engineering & Consulting Services',
-    description: 'Professional software engineering services, web development consulting, and AWS solutions. Expert freelance developer specializing in SaaS development and modern web technologies.',
+    title: 'CyberWorld Builders - Digital Marketing Systems & Software Engineering',
+    description: 'Digital marketing systems, business automation, and software engineering for service businesses ready to grow.',
     images: [
       {
         url: 'https://cyberworldbuilders.com/images/social-card.png',
         width: 1200,
         height: 630,
-        alt: 'CyberWorld Builders - Software Engineering & Consulting Services',
+        alt: 'CyberWorld Builders - Digital Marketing Systems & Software Engineering',
       },
       {
         url: 'https://cyberworldbuilders.com/images/logo.png',
@@ -56,8 +56,8 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     site: '@cyberbuilders',
     creator: '@cyberbuilders',
-    title: 'CyberWorld Builders - Software Engineering & Consulting Services',
-    description: 'Professional software engineering services, web development consulting, and AWS solutions.',
+    title: 'CyberWorld Builders - Digital Marketing Systems & Software Engineering',
+    description: 'Digital marketing systems, business automation, and software engineering for service businesses ready to grow.',
     images: [
       'https://cyberworldbuilders.com/images/social-card.png',
       'https://cyberworldbuilders.com/images/logo.png'

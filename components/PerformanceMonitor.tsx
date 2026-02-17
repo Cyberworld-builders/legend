@@ -2,12 +2,7 @@
 
 import { useEffect } from 'react';
 
-// Extend Window interface to include gtag
-declare global {
-  interface Window {
-    gtag?: (command: string, targetId: string, config?: Record<string, unknown>) => void;
-  }
-}
+// gtag type is declared in lib/tracking.ts
 
 export default function PerformanceMonitor() {
   useEffect(() => {

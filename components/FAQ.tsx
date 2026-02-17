@@ -10,45 +10,29 @@ interface FAQItem {
 
 const faqData: FAQItem[] = [
   {
-    question: "What services does CyberWorld Builders offer?",
-    answer: "We specialize in software engineering, web development, AWS solutions, and SaaS development. Our services include custom application development, cloud infrastructure setup, database design, API development, and technical consulting for modern web technologies."
+    question: "What kind of businesses do you work with?",
+    answer: "Primarily service businesses — plumbers, contractors, agencies, and regional companies that are growing but still running marketing manually. If you're spending hours on tasks that should be automated, we can help."
   },
   {
-    question: "What technologies do you work with?",
-    answer: "We work with modern web technologies including Next.js, React, TypeScript, Node.js, PostgreSQL, Supabase, AWS, Stripe, and various AI/automation tools. We stay current with the latest frameworks and best practices in software development."
+    question: "What does a digital marketing system include?",
+    answer: "It depends on your needs, but typically: automated lead capture forms, email nurture sequences, content scheduling, SEO monitoring, and a reporting dashboard so you can see what's working. Everything is built to run without daily babysitting."
   },
   {
-    question: "Do you work with startups or established companies?",
-    answer: "We work with both startups and established companies. For startups, we help build MVPs and scale technical infrastructure. For established companies, we provide consulting, system optimization, and integration of new technologies."
+    question: "Do you also build software and web apps?",
+    answer: "Yes. I've been building web applications and cloud infrastructure for over a decade — Next.js, React, AWS, APIs, the works. If you need a custom tool, portal, or SaaS product, that's in my wheelhouse too."
   },
   {
-    question: "What is your typical project timeline?",
-    answer: "Project timelines vary based on scope and complexity. Simple websites can take 2-4 weeks, while complex SaaS applications may take 3-6 months. We provide detailed project estimates during our initial consultation and maintain regular communication throughout development."
+    question: "How does a typical engagement start?",
+    answer: "We start with a short discovery call to understand your business and goals. From there I'll propose a scope, timeline, and price. If it makes sense for both of us, we build iteratively — you see progress every week, not just at the end."
   },
   {
-    question: "Do you provide ongoing maintenance and support?",
-    answer: "Yes, we offer ongoing maintenance, monitoring, and support services. This includes bug fixes, security updates, performance optimization, and feature enhancements. We can also provide technical consulting for scaling and optimization."
+    question: "What does it cost?",
+    answer: "It varies by scope. A focused marketing automation project might be a few thousand dollars; a full custom web application is more. I provide transparent, itemized estimates before any work begins, and I offer flexible pricing models including hourly and fixed-price."
   },
   {
-    question: "How do you ensure code quality and security?",
-    answer: "We follow industry best practices including code reviews, automated testing, security audits, and documentation. We use modern development tools, implement proper error handling, and follow OWASP security guidelines to ensure robust and secure applications."
+    question: "How long until I see results?",
+    answer: "Most clients have a working system within 2-4 weeks. Measurable improvements in lead flow and marketing efficiency typically show up within 30-60 days. I prioritize shipping something useful fast, then iterating."
   },
-  {
-    question: "Can you help with existing projects or only new development?",
-    answer: "We work with both new and existing projects. For existing projects, we can help with debugging, refactoring, adding new features, performance optimization, or migrating to modern technologies. We start with a thorough code review to understand the current state."
-  },
-  {
-    question: "What is your pricing model?",
-    answer: "We offer flexible pricing models including hourly rates, fixed-price projects, and retainer agreements. Pricing depends on project complexity, timeline, and specific requirements. We provide transparent estimates and can work within various budget constraints."
-  },
-  {
-    question: "How do you handle project communication and updates?",
-    answer: "We maintain regular communication through your preferred channels (email, Slack, etc.) and provide weekly progress updates. We use project management tools to track milestones and ensure you're always informed about project status and any potential issues."
-  },
-  {
-    question: "Do you offer training or knowledge transfer?",
-    answer: "Yes, we provide comprehensive documentation and can conduct training sessions for your team. We believe in knowledge transfer and can help your internal team understand the systems we build, including code walkthroughs and best practices training."
-  }
 ];
 
 export default function FAQ() {
@@ -65,9 +49,9 @@ export default function FAQ() {
   };
 
   return (
-    <div className="w-full max-w-4xl mx-auto">
+    <div id="faq" className="w-full max-w-4xl mx-auto">
       <h2 className="text-3xl font-bold mb-8 text-[#00ff00] text-center">Frequently Asked Questions</h2>
-      
+
       <div className="space-y-4">
         {faqData.map((item, index) => (
           <div key={index} className="border border-[#00ff00]/30 rounded-lg overflow-hidden">
@@ -90,7 +74,7 @@ export default function FAQ() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
               </svg>
             </button>
-            
+
             {openItems.has(index) && (
               <div className="px-6 py-4 bg-[#2a2a2a] border-t border-[#00ff00]/20">
                 <p className="text-[#00ff00]/90 leading-relaxed">
@@ -102,27 +86,8 @@ export default function FAQ() {
         ))}
       </div>
 
-
-      
       <div className="mt-8 text-center">
-        {/* <p className="text-[#00ff00]/70 mb-4">
-          Don&apos;t see your question? We&apos;re here to help!
-        </p>
-        <a
-          href="mailto:contact@cyberworldbuilders.com"
-          className="inline-block px-6 py-3 bg-[#00ff00] text-[#1a1a1a] font-semibold rounded-lg hover:bg-[#00cc00] transition-colors"
-        >
-          Contact Us
-        </a> */}
-
-        {/* Secondary CTA */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          {/* <button
-            onClick={onContactClick}
-            className="px-8 py-3 border border-[#00ff00] text-[#00ff00] font-bold rounded-lg hover:bg-[#00ff00]/10 transition-colors"
-          >
-            Tell Me About Your Project
-          </button> */}
           <Link
             href="/blog"
             className="px-8 py-3 border border-[#00ff00]/50 text-[#00ff00]/70 font-bold rounded-lg hover:bg-[#00ff00]/10 transition-colors"
@@ -130,7 +95,6 @@ export default function FAQ() {
             Read the Blog
           </Link>
         </div>
-
       </div>
     </div>
   );

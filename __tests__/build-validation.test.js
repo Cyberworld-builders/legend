@@ -82,8 +82,7 @@ describe('Build Validation', () => {
       expect(fs.existsSync('app/blog/[slug]/page.tsx')).toBe(true);
     });
 
-    test('should have tag pages', () => {
-      expect(fs.existsSync('app/blog/tag/[tag]/page.tsx')).toBe(true);
+    test('should have tags hub page', () => {
       expect(fs.existsSync('app/blog/tags/page.tsx')).toBe(true);
     });
 

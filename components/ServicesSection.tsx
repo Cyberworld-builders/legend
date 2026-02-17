@@ -1,44 +1,38 @@
-import { Cpu, Workflow, Code2, MessageSquare } from 'lucide-react';
+import { TrendingUp, Workflow, Code2 } from 'lucide-react';
 
 const services = [
   {
-    icon: Cpu,
-    title: 'AI Automation Flows',
-    description: 'Intelligent workflows that handle repetitive tasks, process data, and make decisions - so you can focus on growing your business.',
-    examples: ['Lead qualification bots', 'Document processing', 'Email automation'],
+    icon: TrendingUp,
+    title: 'Digital Marketing Systems',
+    description: 'Automated lead capture, content pipelines, and reporting dashboards that keep your marketing running 24/7.',
+    examples: ['Lead generation', 'Content automation', 'Analytics dashboards'],
   },
   {
     icon: Workflow,
-    title: 'Custom Automation Solutions',
-    description: 'Connect your existing tools and automate the gaps between them. No more manual data entry or copy-paste workflows.',
-    examples: ['CRM integrations', 'Invoice processing', 'Scheduling automation'],
+    title: 'Business Process Automation',
+    description: 'Connect your tools, eliminate manual data entry, and let your team focus on high-value work.',
+    examples: ['CRM integrations', 'Invoice processing', 'Scheduling'],
   },
   {
     icon: Code2,
-    title: 'Web Applications',
-    description: 'Modern, fast web apps built to your specifications. From internal tools to customer-facing platforms.',
-    examples: ['Customer portals', 'Booking systems', 'Admin dashboards'],
-  },
-  {
-    icon: MessageSquare,
-    title: 'Technical Consulting',
-    description: 'Not sure where to start? Get expert guidance on your technology stack, automation strategy, or digital transformation.',
-    examples: ['Tech audits', 'Stack recommendations', 'Roadmap planning'],
+    title: 'Software Engineering',
+    description: 'Web applications, cloud infrastructure, and SaaS products built with modern tech stacks.',
+    examples: ['Next.js / React', 'AWS & cloud', 'API development'],
   },
 ];
 
 export default function ServicesSection() {
   return (
-    <section className="py-16 bg-[#0a0a0a]">
+    <section id="services" className="py-16 bg-[#0a0a0a]">
       <div className="max-w-6xl mx-auto px-4">
         <h2 className="text-2xl md:text-3xl font-bold text-center mb-4 text-[#00ff00]">
           Services
         </h2>
         <p className="text-center text-[#00ff00]/70 mb-12 max-w-2xl mx-auto">
-          Practical solutions for businesses that want to work smarter, not harder.
+          Systems that grow your business while freeing your team to do their best work.
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {services.map((service, index) => (
             <div
               key={index}

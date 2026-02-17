@@ -76,8 +76,7 @@ legend/
 │   │   │   ├── markdown/         # Source markdown files (23 posts)
 │   │   │   ├── generated/        # Generated TSX components from markdown
 │   │   │   └── template.tsx      # Template for new posts
-│   │   ├── tag/[tag]/page.tsx    # Tag filtering pages
-│   │   └── tags/page.tsx         # All tags listing
+│   │   └── tags/page.tsx         # All tags listing (links to /blog?tag=)
 │   └── api/                      # API routes
 │       ├── chat/route.ts         # LangChain chat endpoint (RAG on blog content)
 │       └── health/route.ts       # Health check endpoint
@@ -105,15 +104,11 @@ legend/
 │   ├── post-index.json           # Auto-generated post index (JSON)
 │   ├── post-metadata.ts          # Post metadata extraction
 │   ├── processed-posts.ts        # Preprocessed post content
-│   ├── hardcoded-posts.ts        # Legacy hardcoded posts (deprecated)
-│   ├── tag-pages-index.json      # Tag pages lookup table
-│   └── generated-tags/           # Auto-generated tag page components
+│   └── hardcoded-posts.ts        # Legacy hardcoded posts (deprecated)
 │
 ├── scripts/                      # Build and content pipeline scripts
 │   ├── generate-post-index.js    # Creates post-index.json from markdown
 │   ├── generate-tsx-posts.js     # Converts markdown → TSX components
-│   ├── generate-tag-json.js      # Creates tag lookup tables
-│   ├── generate-tag-pages.js     # Generates tag page components
 │   ├── normalize-tags.js         # Normalizes tag formatting (hyphens, lowercase)
 │   ├── validate-tags.js          # Validates tags against schema
 │   ├── seo-maintenance.js        # SEO health checks and reporting
@@ -216,11 +211,7 @@ npm run generate-tsx-posts
 npm run validate-tags
 npm run seo:normalize
 
-# Generate tag pages and JSON lookup
-npm run generate-tag-pages
-npm run generate-tag-json
-
-# Full SEO pipeline (index + posts + tags + report)
+# Full SEO pipeline (index + posts + report)
 npm run seo
 
 # Complete development setup (one command)
@@ -327,11 +318,9 @@ npm run generate-tsx-posts
 - Embeds frontmatter as metadata
 - Creates importable React components
 
-**3. Post index and tags are updated**
+**3. Post index is updated**
 ```bash
 npm run generate-post-index  # Creates lib/post-index.json
-npm run generate-tag-json    # Creates lib/tag-pages-index.json
-npm run generate-tag-pages   # Creates tag page components
 ```
 
 **4. SEO validation and reporting**
@@ -357,7 +346,7 @@ npm run generate-social-image  # Uses Puppeteer to create OG images
 **Post discovery:**
 - Posts indexed in `lib/post-index.json`
 - Blog listing reads this index
-- Tags managed via `lib/tag-pages-index.json`
+- Tags derived at runtime from `getAllPostsWithMetadata()`; filtered via `/blog?tag=foo`
 
 ### Current Limitations
 - **Manual process**: Author must run scripts after writing
