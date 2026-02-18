@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { ChevronDown, ChevronRight } from 'lucide-react';
 import type { ChatSessionRecord } from '@/types/chats';
 import { computeExtractionOrder } from '@/lib/chat-extraction-order';
@@ -114,7 +114,8 @@ export default function ChatsTable() {
     sortOrder: 'desc',
   });
   const [expandedId, setExpandedId] = useState<string | null>(null);
-  const [searchTimeout, setSearchTimeout] = useState<NodeJS.Timeout | null>(null);
+  const [searchInput, setSearchInput] = useState('');
+  const searchTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   const fetchChats = useCallback(async (currentPage: number, currentFilters: typeof filters, signal?: AbortSignal) => {
     setLoading(true);
@@ -153,15 +154,21 @@ export default function ChatsTable() {
     return () => controller.abort();
   }, [page, filters, fetchChats]);
 
+  useEffect(() => {
+    return () => {
+      if (searchTimeoutRef.current) clearTimeout(searchTimeoutRef.current);
+    };
+  }, []);
+
   const handleFilterChange = (key: string, value: string) => {
     if (key === 'search') {
-      if (searchTimeout) clearTimeout(searchTimeout);
-      const timeout = setTimeout(() => {
+      setSearchInput(value);
+      if (searchTimeoutRef.current) clearTimeout(searchTimeoutRef.current);
+      searchTimeoutRef.current = setTimeout(() => {
         setPage(1);
         setFilters((prev) => ({ ...prev, search: value }));
+        searchTimeoutRef.current = null;
       }, 400);
-      setSearchTimeout(timeout);
-      setFilters((prev) => ({ ...prev, search: value }));
       return;
     }
     setPage(1);
@@ -179,7 +186,7 @@ export default function ChatsTable() {
         <input
           type="text"
           placeholder="Search email, name, phone..."
-          value={filters.search}
+          value={searchInput}
           onChange={(e) => handleFilterChange('search', e.target.value)}
           className={`${inputClass} w-64`}
         />
