@@ -12,18 +12,24 @@ async function verifyAuth() {
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
     {
       cookies: {
-        getAll() { return cookieStore.getAll(); },
+        getAll() {
+          return cookieStore.getAll();
+        },
         setAll(cookiesToSet) {
           try {
             cookiesToSet.forEach(({ name, value, options }) =>
               cookieStore.set(name, value, options)
             );
-          } catch { /* Read-only context */ }
+          } catch {
+            /* Read-only context */
+          }
         },
       },
     }
   );
-  const { data: { user } } = await supabase.auth.getUser();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
   return user;
 }
 
@@ -38,9 +44,6 @@ export async function GET(request: NextRequest) {
   const page = Math.max(1, parseInt(searchParams.get('page') || '1'));
   const pageSize = Math.min(100, Math.max(1, parseInt(searchParams.get('pageSize') || '20')));
   const status = searchParams.get('status');
-  const projectType = searchParams.get('projectType');
-  const budgetTier = searchParams.get('budgetTier');
-  const urgency = searchParams.get('urgency');
   const search = searchParams.get('search');
   const sortBy = searchParams.get('sortBy') || 'created_at';
   const sortOrder = searchParams.get('sortOrder') || 'desc';
@@ -48,24 +51,29 @@ export async function GET(request: NextRequest) {
   const from = (page - 1) * pageSize;
   const to = from + pageSize - 1;
 
-  const VALID_STATUSES = ['new', 'contacted', 'qualified', 'converted', 'lost'];
+  let query = supabase.from('chat_sessions').select('*', { count: 'exact' });
 
-  let query = supabase
-    .from('leads')
-    .select('*', { count: 'exact' });
-
-  // Only filter by status when a valid, non-empty status is provided; empty/'all' = show all
-  if (status && status.trim() !== '' && VALID_STATUSES.includes(status)) {
+  if (status && ['active', 'abandoned', 'converted'].includes(status)) {
     query = query.eq('status', status);
   }
-  if (projectType) query = query.eq('project_type', projectType);
-  if (budgetTier) query = query.eq('budget_tier', budgetTier);
-  if (urgency) query = query.eq('urgency', urgency);
-  if (search) {
-    query = query.or(`name.ilike.%${search}%,email.ilike.%${search}%,company.ilike.%${search}%`);
+
+  if (search && search.trim()) {
+    const term = `%${search.trim()}%`;
+    query = query.or(
+      `extracted_email.ilike.${term},extracted_name.ilike.${term},extracted_phone.ilike.${term}`
+    );
   }
 
-  query = query.order(sortBy, { ascending: sortOrder === 'asc' });
+  const sortColumn =
+    sortBy === 'message_count'
+      ? 'message_count'
+      : sortBy === 'last_message_at'
+        ? 'last_message_at'
+        : 'created_at';
+  query = query.order(sortColumn, {
+    ascending: sortOrder === 'asc',
+    nullsFirst: false,
+  });
   query = query.range(from, to);
 
   const { data, count, error } = await query;
@@ -76,7 +84,7 @@ export async function GET(request: NextRequest) {
 
   return NextResponse.json(
     {
-      leads: data ?? [],
+      chats: data ?? [],
       total: count ?? 0,
       page,
       pageSize,

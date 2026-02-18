@@ -9,6 +9,9 @@ const ALLOWED_EVENTS = new Set([
   'scroll_depth_final',
   'cta_click',
   'lead_submit',
+  'chat_impression',
+  'chat_open',
+  'chat_message_sent',
 ]);
 
 const MAX_EVENTS_PER_REQUEST = 20;
