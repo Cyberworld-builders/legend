@@ -9,8 +9,6 @@ export const metadata: PostMeta = {
   modifiedDate: "2026-03-05",
   keywords: ["pitch meeting","investor pitch","death care technology","augmented reality","location-based experiences","prototype development","career alignment","digital marketing","cemetery management","entrepreneurial confidence"],
   canonicalUrl: "https://cyberworldbuilders.com/blog/first-pitch-meeting-reflections-lessons-confidence-and-alignment-in-death-care-and-ar-innovation",
-  socialImage: "/images/first-pitch-meeting-reflections-lessons-confidence-and-alignment-in-death-care-and-ar-innovation-social.jpg",
-  headerImage: "/images/first-pitch-meeting-reflections-lessons-confidence-and-alignment-in-death-care-and-ar-innovation-hero.jpg",
   topics: ["Career & Professional Development","AI & Automation","Entrepreneurship"],
   tags: ["pitch-reflections","death-care-ar","prototyping","investor-strategy","revenant-hollow"],
   category: "Technology",

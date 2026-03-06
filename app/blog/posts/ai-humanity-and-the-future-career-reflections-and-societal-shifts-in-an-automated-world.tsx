@@ -9,8 +9,6 @@ export const metadata: PostMeta = {
   modifiedDate: "2025-10-01",
   keywords: ["AI disruption","human uniqueness","career reflections","societal shifts","proof of humanity","existential crisis","generative AI","novelty creativity","space exploration","abundance future"],
   canonicalUrl: "https://cyberworldbuilders.com/blog/ai-humanity-and-the-future-career-reflections-and-societal-shifts-in-an-automated-world",
-  socialImage: "/images/ai-humanity-and-the-future-career-reflections-and-societal-shifts-in-an-automated-world-social.jpg",
-  headerImage: "/images/ai-humanity-and-the-future-career-reflections-and-societal-shifts-in-an-automated-world-hero.jpg",
   topics: ["AI & Automation","Career & Professional Development"],
   tags: ["ai-humanity","career-transition","societal-optimism","existential-ai","creative-value"],
   category: "Technology",
