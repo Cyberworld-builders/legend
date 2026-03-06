@@ -1,13 +1,10 @@
 import type { Metadata } from 'next';
 import Script from 'next/script';
 import '../app/globals.css';
-import PerformanceMonitor from '@/components/PerformanceMonitor';
 import AuthorSchema from '@/components/AuthorSchema';
-import GoogleAnalytics from '@/components/GoogleAnalytics';
 import AnalyticsClient from '@/components/AnalyticsClient';
 import FAQSchema from '@/components/FAQSchema';
-import ChatWidget from '@/components/ChatWidget';
-import DebugErrorReporter from '@/components/DebugErrorReporter';
+import DeferredWidgets from '@/components/DeferredWidgets';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://cyberworldbuilders.com'),
@@ -89,8 +86,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        {/* Font preloads removed - fonts not available */}
-        
         {/* WebSite Schema with Search Action */}
         <script
           type="application/ld+json"
@@ -232,14 +227,11 @@ export default function RootLayout({
         />
       </head>
       <body className="flex flex-col items-center justify-center min-h-screen bg-[#1a1a1a] text-[#00ff00] font-mono">
-        <DebugErrorReporter />
         {children}
         <AnalyticsClient />
-        <GoogleAnalytics />
-        <PerformanceMonitor />
         <AuthorSchema />
         <FAQSchema />
-        <ChatWidget />
+        <DeferredWidgets />
       </body>
     </html>
   );

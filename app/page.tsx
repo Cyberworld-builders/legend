@@ -8,7 +8,9 @@ import ProofSection from '../components/ProofSection';
 import AboutSection from '../components/AboutSection';
 import ContactCTA from '../components/ContactCTA';
 import SocialLinks from '../components/SocialLinks';
-import ScrollTracker from '../components/ScrollTracker';
+import dynamic from 'next/dynamic';
+
+const ScrollTracker = dynamic(() => import('../components/ScrollTracker'), { ssr: false });
 
 const TRACKED_SECTIONS = ['hero', 'services', 'proof', 'about', 'contact', 'faq'];
 
