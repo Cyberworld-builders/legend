@@ -108,12 +108,76 @@ GusClaw heartbeat (every 30 min)
   +-> if transcript found:
   |     +-> run editor pipeline (voice-dna + transcript-editor + stop-slop)
   |     +-> generate TSX blog post component
+  |     +-> run: npm run generate-post-index  (update lib/post-index.json)
+  |     +-> commit both the .tsx post file AND lib/post-index.json
   |     +-> create PR to legend repo (Vercel preview = draft)
   |     +-> PATCH /api/automation/transcripts/:id
   |           { is_processed: true, title: "Generated Title" }
   |
   +-> if transcript is null: sleep until next heartbeat
 ```
+
+## Blog Publishing: Post Index
+
+The blog listing page reads from `lib/post-index.json` at build time. This file **must be committed to git** — Vercel does not generate it during the build.
+
+### Why committed, not generated at build time?
+
+Vercel's build environment is unreliable for generating intermediate artifacts that other build steps depend on. The deterministic approach: commit exactly what Vercel needs.
+
+### Bot responsibilities
+
+When publishing a new blog post, the bot must:
+
+1. Write the TSX post file to `app/blog/posts/<slug>.tsx`
+2. Run `npm run generate-post-index` to regenerate `lib/post-index.json`
+3. Commit **both** files
+4. Push / create PR
+
+```bash
+# After writing the new post file:
+npm run generate-post-index
+git add app/blog/posts/<slug>.tsx lib/post-index.json
+git commit -m "feat: add blog post — <title>"
+git push
+```
+
+### Post file format
+
+Blog posts are TSX components that export metadata and a default component:
+
+```tsx
+import type { PostMeta } from '@/lib/post-types';
+import PostLayout from '@/components/PostLayout';
+
+export const metadata: PostMeta = {
+  title: "Post Title",
+  description: "...",
+  slug: "post-slug",
+  publishedDate: "2026-03-06",
+  modifiedDate: "2026-03-06",
+  keywords: ["..."],
+  canonicalUrl: "https://cyberworldbuilders.com/blog/post-slug",
+  topics: ["AI & Automation"],
+  tags: ["tag-one", "tag-two"],
+  category: "AI & Automation",
+  isFeatured: false,
+  priority: 5,
+};
+
+export default function Post() {
+  return (
+    <PostLayout meta={metadata}>
+      <h2>Section</h2>
+      <p>Content here. Use &amp;apos; for apostrophes in text.</p>
+    </PostLayout>
+  );
+}
+```
+
+### Index generator
+
+`npm run generate-post-index` scans `app/blog/posts/*.tsx`, extracts metadata via regex, and writes `lib/post-index.json`. The slug is derived from the filename (minus `.tsx`).
 
 ## Error Responses
 
