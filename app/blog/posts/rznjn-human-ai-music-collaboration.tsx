@@ -2,15 +2,15 @@ import type { PostMeta } from '@/lib/post-types';
 import PostLayout from '@/components/PostLayout';
 
 export const metadata: PostMeta = {
-  title: "ResEngine: Building the Foundation for Human-AI Music Collaboration",
-  description: "Introducing ResEngine (RZNJN), the foundational technology behind CyberWorld Media Studios. DrumNote, NotePulse, Music as Code, and why drums are the smartest place to start.",
-  slug: "resengine-human-ai-music-collaboration",
+  title: "rZNjN: Building the Foundation for Human-AI Music Collaboration",
+  description: "Introducing rZNjN, the foundational technology behind CyberWorld Media Studios. DrumNote, NotePulse, Music as Code, and why drums are the smartest place to start.",
+  slug: "rznjn-human-ai-music-collaboration",
   publishedDate: "2026-03-06",
   modifiedDate: "2026-03-06",
-  keywords: ["resengine", "rznjn", "drum notation", "music as code", "ai music", "drum machine", "stem separation", "cyberworld media studios", "drumnote", "notepulse"],
-  canonicalUrl: "https://cyberworldbuilders.com/blog/resengine-human-ai-music-collaboration",
+  keywords: ["rznjn", "drum notation", "music as code", "ai music", "drum machine", "stem separation", "cyberworld media studios", "drumnote", "notepulse"],
+  canonicalUrl: "https://cyberworldbuilders.com/blog/rznjn-human-ai-music-collaboration",
   topics: ["AI & Automation", "Development & Tools"],
-  tags: ["resengine", "music-tech", "ai-music", "drum-notation", "music-as-code", "cyberworld-media-studios", "audio-engineering", "mvp"],
+  tags: ["rznjn", "music-tech", "ai-music", "drum-notation", "music-as-code", "cyberworld-media-studios", "audio-engineering", "mvp"],
   category: "AI & Automation",
   isFeatured: false,
   priority: 5,
@@ -19,19 +19,19 @@ export const metadata: PostMeta = {
 export default function Post() {
   return (
     <PostLayout meta={metadata}>
-      <h2>What Is ResEngine?</h2>
+      <h2>What Is rZNjN?</h2>
 
-      <p>Right now, ResEngine is just a word. It&apos;s spelled RZNJN. I use it to invoke an idea that will become the foundational technology of a system, a set of products, under the banner of CyberWorld Media Studios.</p>
+      <p>Right now, rZNjN is just a word. I use it to invoke an idea that will become the foundational technology of a system, a set of products, under the banner of CyberWorld Media Studios.</p>
 
-      <p>At its core, ResEngine is about collaboration. It&apos;s about fostering a hybrid intelligence that emerges from collaboration between human musical performances and generative AI. The goal is to form a deep, meaningful partnership with AI when it comes to creating music.</p>
+      <p>At its core, rZNjN is about collaboration. It&apos;s about fostering a hybrid intelligence that emerges from collaboration between human musical performances and generative AI. The goal is to form a deep, meaningful partnership with AI when it comes to creating music.</p>
 
-      <p>The state of technology has factored in largely to ResEngine actually becoming a thing. Now that I&apos;ve coined a term for it, it&apos;s transformed my thought process, my inspiration. It&apos;s changed everything, and it&apos;s been really powerful.</p>
+      <p>The state of technology has factored in largely to rZNjN actually becoming a thing. Now that I&apos;ve coined a term for it, it&apos;s transformed my thought process, my inspiration. It&apos;s changed everything, and it&apos;s been really powerful.</p>
 
       <h2>The N96 Origin Story</h2>
 
       <p>It all traces back to the N96 project. N96 is a personal obsession of mine. Back in 1996 through 1999, Nine Inch Nails was supposed to be working on a follow-up album to The Downward Spiral. Instead, Trent Reznor worked on other projects: soundtracks, scoring, the Quake soundtrack, sound effects. Marilyn Manson&apos;s Antichrist Superstar record was effectively another Nine Inch Nails album, but not really. We were all anticipating that follow-up album that never came. All these different projects Reznor was working on at the time give you an idea of what that album would have been like in 1996. I&apos;ve been obsessed with that ever since. I was about 11, 12, 13 years old at the time.</p>
 
-      <p>You could think of N96 as an attempt to generate what-if scenarios. And in order to bring N96 into existence, there are certain technological capabilities I needed. That need is what spawned ResEngine. N96 will still be a source of inspiration to test functionality along the way, but the technology that has emerged out of it goes way beyond one project.</p>
+      <p>You could think of N96 as an attempt to generate what-if scenarios. And in order to bring N96 into existence, there are certain technological capabilities I needed. That need is what spawned rZNjN. N96 will still be a source of inspiration to test functionality along the way, but the technology that has emerged out of it goes way beyond one project.</p>
 
       <h2>DrumNote: Audio to Notation</h2>
 

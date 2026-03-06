@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-03-06T23:16:36.302Z",
+  "generatedAt": "2026-03-06T23:30:41.637Z",
   "count": 24,
   "posts": [
     {
-      "slug": "resengine-human-ai-music-collaboration",
-      "title": "ResEngine: Building the Foundation for Human-AI Music Collaboration",
-      "description": "Introducing ResEngine (RZNJN), the foundational technology behind CyberWorld Media Studios. DrumNote, NotePulse, Music as Code, and why drums are the smartest place to start.",
+      "slug": "rznjn-human-ai-music-collaboration",
+      "title": "rZNjN: Building the Foundation for Human-AI Music Collaboration",
+      "description": "Introducing rZNjN, the foundational technology behind CyberWorld Media Studios. DrumNote, NotePulse, Music as Code, and why drums are the smartest place to start.",
       "publishedDate": "2026-03-06",
       "modifiedDate": "2026-03-06",
       "isDraft": false,
@@ -18,7 +18,7 @@
         "Development & Tools"
       ],
       "tags": [
-        "resengine",
+        "rznjn",
         "music-tech",
         "ai-music",
         "drum-notation",
@@ -28,7 +28,6 @@
         "mvp"
       ],
       "keywords": [
-        "resengine",
         "rznjn",
         "drum notation",
         "music as code",
@@ -39,10 +38,10 @@
         "drumnote",
         "notepulse"
       ],
-      "canonicalUrl": "https://cyberworldbuilders.com/blog/resengine-human-ai-music-collaboration",
-      "wordCount": 1934,
-      "fileSize": 12784,
-      "fileModified": "2026-03-06T23:16:00.525Z"
+      "canonicalUrl": "https://cyberworldbuilders.com/blog/rznjn-human-ai-music-collaboration",
+      "wordCount": 1932,
+      "fileSize": 12723,
+      "fileModified": "2026-03-06T23:30:16.302Z"
     },
     {
       "slug": "first-pitch-meeting-reflections-lessons-confidence-and-alignment-in-death-care-and-ar-innovation",
