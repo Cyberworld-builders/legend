@@ -10,6 +10,7 @@ import ChatWidget from '@/components/ChatWidget';
 import DebugErrorReporter from '@/components/DebugErrorReporter';
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://cyberworldbuilders.com'),
   title: {
     default: 'CyberWorld Builders - Digital Marketing Systems & Software Engineering',
     template: '%s | CyberWorld Builders'

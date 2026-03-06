@@ -162,7 +162,7 @@ export default async function BlogPost({ params }: BlogPostProps) {
               "@type": "Article",
               headline: title,
               description,
-              image: "https://cyberworldbuilders.com/images/logo.png",
+              image: metadata.socialImage || "https://cyberworldbuilders.com/images/logo.png",
               author: {
                 "@type": "Person",
                 name: "Jay Long",

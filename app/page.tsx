@@ -1,6 +1,5 @@
 'use client';
 
-import ChatWidget from '../components/ChatWidget';
 import FAQ from '../components/FAQ';
 import PageBackground from '../components/PageBackground';
 import HeroSection from '../components/HeroSection';
@@ -58,7 +57,6 @@ export default function Home() {
         </footer>
       </main>
 
-      <ChatWidget />
     </div>
   );
 }

@@ -7,13 +7,7 @@ import { trackEvent } from '@/lib/tracking';
 import TurnstileField from './TurnstileField';
 
 const HeroHeadline = dynamic(() => import('./HeroHeadline'), {
-  ssr: false,
-  loading: () => (
-    <div className="animate-pulse" aria-hidden>
-      <div className="h-9 md:h-14 w-full max-w-2xl mx-auto mb-4 bg-[#00ff00]/10 rounded" />
-      <div className="h-5 md:h-6 w-full max-w-2xl mx-auto mb-8 bg-[#00ff00]/5 rounded" />
-    </div>
-  ),
+  ssr: true,
 });
 
 export default function HeroSection() {
