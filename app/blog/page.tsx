@@ -102,7 +102,7 @@ export default async function BlogIndex({ searchParams }: BlogIndexProps) {
         .split(' ')
         .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
         .join(' '),
-      mtime: post.metadata.publishedDate || post.fileStats.ctime,
+      mtime: new Date(post.metadata.publishedDate || ''),
     }));
 
   const totalPages = Math.ceil(allPosts.length / POSTS_PER_PAGE);
