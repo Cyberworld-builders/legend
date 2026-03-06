@@ -1,16 +1,14 @@
 /**
  * Build Validation Test Suite
- * 
- * This test suite validates that the build process works correctly
+ *
+ * Validates that the build process works correctly
  * and that all required files and configurations are in place.
- * This can run in CI without requiring a running server.
  */
 
 const fs = require('fs');
 const path = require('path');
 
 describe('Build Validation', () => {
-  // Test that required files exist
   describe('Required Files', () => {
     test('should have package.json', () => {
       expect(fs.existsSync('package.json')).toBe(true);
@@ -33,34 +31,36 @@ describe('Build Validation', () => {
     });
   });
 
-  // Test that blog posts exist
   describe('Blog Posts', () => {
     test('should have blog posts directory', () => {
-      const postsDir = path.join('app', 'blog', 'posts', 'markdown');
+      const postsDir = path.join('app', 'blog', 'posts');
       expect(fs.existsSync(postsDir)).toBe(true);
     });
 
-    test('should have blog posts', () => {
-      const postsDir = path.join('app', 'blog', 'posts', 'markdown');
+    test('should have blog post TSX files', () => {
+      const postsDir = path.join('app', 'blog', 'posts');
       const files = fs.readdirSync(postsDir);
-      const mdFiles = files.filter(file => file.endsWith('.md'));
-      expect(mdFiles.length).toBeGreaterThan(0);
+      const tsxFiles = files.filter(file => file.endsWith('.tsx'));
+      expect(tsxFiles.length).toBeGreaterThan(0);
     });
 
-    test('should have the problematic article', () => {
-      const articlePath = path.join('app', 'blog', 'posts', 'markdown', 'building-a-generative-framework-evolving-ai-coding-agents-and-human-ai-collaboration.md');
-      expect(fs.existsSync(articlePath)).toBe(true);
+    test('should have post-index.json', () => {
+      expect(fs.existsSync('lib/post-index.json')).toBe(true);
+    });
+
+    test('post-index.json should have posts', () => {
+      const index = JSON.parse(fs.readFileSync('lib/post-index.json', 'utf8'));
+      expect(index.posts.length).toBeGreaterThan(0);
     });
   });
 
-  // Test that components exist
   describe('Components', () => {
     test('should have PageBackground component', () => {
       expect(fs.existsSync('components/PageBackground.tsx')).toBe(true);
     });
 
-    test('should have Article component', () => {
-      expect(fs.existsSync('components/Article.tsx')).toBe(true);
+    test('should have PostLayout component', () => {
+      expect(fs.existsSync('components/PostLayout.tsx')).toBe(true);
     });
 
     test('should have TopicClusters component', () => {
@@ -68,7 +68,6 @@ describe('Build Validation', () => {
     });
   });
 
-  // Test that pages exist
   describe('Pages', () => {
     test('should have home page', () => {
       expect(fs.existsSync('app/page.tsx')).toBe(true);
@@ -91,7 +90,6 @@ describe('Build Validation', () => {
     });
   });
 
-  // Test that assets exist
   describe('Assets', () => {
     test('should have background image', () => {
       expect(fs.existsSync('public/images/article-background-circuits.png')).toBe(true);
@@ -106,7 +104,6 @@ describe('Build Validation', () => {
     });
   });
 
-  // Test package.json scripts
   describe('Package Scripts', () => {
     let packageJson;
 
@@ -131,24 +128,17 @@ describe('Build Validation', () => {
     });
   });
 
-  // Test that markdown files have frontmatter
-  describe('Markdown Frontmatter', () => {
-    test('should have frontmatter in blog posts', () => {
-      const postsDir = path.join('app', 'blog', 'posts', 'markdown');
-      const files = fs.readdirSync(postsDir);
-      const mdFiles = files.filter(file => file.endsWith('.md'));
-      
-      mdFiles.forEach(file => {
-        const filePath = path.join(postsDir, file);
-        const content = fs.readFileSync(filePath, 'utf8');
-        
-        // Check for frontmatter
-        expect(content).toMatch(/^---\n/);
-        expect(content).toMatch(/\n---\n/);
-        
-        // Check for required fields
-        expect(content).toMatch(/title:/);
-        expect(content).toMatch(/description:/);
+  describe('Blog Post Metadata', () => {
+    test('blog post files should export metadata', () => {
+      const postsDir = path.join('app', 'blog', 'posts');
+      const files = fs.readdirSync(postsDir).filter(f => f.endsWith('.tsx'));
+
+      files.forEach(file => {
+        const content = fs.readFileSync(path.join(postsDir, file), 'utf8');
+        expect(content).toContain('export const metadata: PostMeta');
+        expect(content).toContain('title:');
+        expect(content).toContain('description:');
+        expect(content).toContain('export default function Post');
       });
     });
   });
