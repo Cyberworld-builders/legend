@@ -92,7 +92,7 @@ describe('Build Validation', () => {
 
   describe('Assets', () => {
     test('should have background image', () => {
-      expect(fs.existsSync('public/images/article-background-circuits.png')).toBe(true);
+      expect(fs.existsSync('public/images/article-background-circuits.webp')).toBe(true);
     });
 
     test('should have logo', () => {

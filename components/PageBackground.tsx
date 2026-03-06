@@ -18,12 +18,12 @@ export default function PageBackground({
   return (
     <div className={containerClass} style={{ opacity: opacity / 100 }}>
       <Image
-        src="/images/article-background-circuits.png"
+        src="/images/article-background-circuits.webp"
         alt=""
         fill
         style={{ objectFit: 'cover' }}
         className="pointer-events-none"
-        priority={false}
+        priority
       />
     </div>
   );

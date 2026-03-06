@@ -16,13 +16,6 @@ const nextConfig = {
   experimental: {
     // optimizePackageImports: ['@vercel/analytics', 'react-markdown'],
   },
-  webpack: (config) => {
-    config.module.rules.push({
-      test: /\.md$/,
-      use: 'raw-loader',
-    });
-    return config;
-  },
   async redirects() {
     return [
       // Redirect old tag pages (removed in favor of /blog?tag=) — 301 for SEO
