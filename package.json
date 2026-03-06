@@ -9,7 +9,7 @@
     "lint": "next lint",
     "test": "jest",
     "test:404": "jest __tests__/404-check.test.js",
-    "test:ci": "jest __tests__/build-validation.test.js --ci --coverage --watchAll=false",
+    "test:ci": "npm run generate-post-index && jest __tests__/build-validation.test.js --ci --coverage --watchAll=false",
     "test:production": "node scripts/test-production.js",
     "predeploy": "npm run test:ci && npm run lint",
     "generate-post-index": "node scripts/generate-post-index-new.js",
