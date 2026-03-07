@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-03-07T20:02:42.176Z",
-  "count": 28,
+  "generatedAt": "2026-03-07T20:15:27.171Z",
+  "count": 29,
   "posts": [
     {
       "slug": "code-first-n8n-custom-nodes-automation-workflow",
@@ -84,7 +84,7 @@
       "canonicalUrl": "https://cyberworldbuilders.com/blog/custom-n8n-nodes-transcript-cleanup-xai-grok",
       "wordCount": 1832,
       "fileSize": 12256,
-      "fileModified": "2026-03-07T20:02:41.978Z"
+      "fileModified": "2026-03-07T20:15:26.937Z"
     },
     {
       "slug": "drawing-from-the-well-sober-meditation-pyramids-pure-information",
@@ -128,6 +128,47 @@
       "wordCount": 1960,
       "fileSize": 13517,
       "fileModified": "2026-03-07T18:48:13.092Z"
+    },
+    {
+      "slug": "finding-my-pitch-digital-marketing-engineering-brick-and-mortar",
+      "title": "Finding My Pitch: Digital Marketing, Engineering, and the Brick-and-Mortar Play",
+      "description": "Working through how to position CyberWorld Builders for small businesses — leading with digital marketing, backing it up with real engineering chops, and keeping the SaaS dream alive on the back burner.",
+      "publishedDate": "2026-03-07",
+      "modifiedDate": "2026-03-07",
+      "isDraft": false,
+      "isFeatured": false,
+      "priority": 5,
+      "category": "Business & Marketing",
+      "series": "",
+      "topics": [
+        "Business & Marketing",
+        "Career & Professional Development"
+      ],
+      "tags": [
+        "digital-marketing",
+        "small-business",
+        "software-engineering",
+        "freelancing",
+        "business-strategy",
+        "seo",
+        "positioning"
+      ],
+      "keywords": [
+        "digital marketing",
+        "small business",
+        "software engineering",
+        "saas",
+        "freelancing",
+        "business positioning",
+        "seo",
+        "lead generation",
+        "sales funnels",
+        "cyberworld builders"
+      ],
+      "canonicalUrl": "https://cyberworldbuilders.com/blog/finding-my-pitch-digital-marketing-engineering-brick-and-mortar",
+      "wordCount": 2059,
+      "fileSize": 13739,
+      "fileModified": "2026-03-07T20:15:26.973Z"
     },
     {
       "slug": "from-zapier-to-n8n-automation-practice",
