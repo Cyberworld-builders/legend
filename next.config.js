@@ -35,6 +35,7 @@ const nextConfig = {
   },
   async headers() {
     return [
+      // Security header for all routes
       {
         source: '/(.*)',
         headers: [
@@ -42,13 +43,19 @@ const nextConfig = {
             key: 'X-Frame-Options',
             value: 'SAMEORIGIN',
           },
-          // Cache static assets
+        ],
+      },
+      // API routes: never cache
+      {
+        source: '/api/(.*)',
+        headers: [
           {
             key: 'Cache-Control',
-            value: 'public, max-age=31536000, immutable',
+            value: 'private, no-store, no-cache, must-revalidate',
           },
         ],
       },
+      // Static assets: long cache
       {
         source: '/images/(.*)',
         headers: [
@@ -68,7 +75,17 @@ const nextConfig = {
         ],
       },
       {
-        source: '/((?!api|_next/static|_next/image|favicon.ico).*)',
+        source: '/_next/static/(.*)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      // Pages: moderate cache (excludes api, static assets)
+      {
+        source: '/((?!api|_next/static|_next/image|favicon.ico|images|icons).*)',
         headers: [
           {
             key: 'Cache-Control',
