@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-03-07T20:15:27.171Z",
-  "count": 29,
+  "generatedAt": "2026-03-07T21:01:30.322Z",
+  "count": 30,
   "posts": [
     {
       "slug": "code-first-n8n-custom-nodes-automation-workflow",
@@ -168,7 +168,7 @@
       "canonicalUrl": "https://cyberworldbuilders.com/blog/finding-my-pitch-digital-marketing-engineering-brick-and-mortar",
       "wordCount": 2059,
       "fileSize": 13739,
-      "fileModified": "2026-03-07T20:15:26.973Z"
+      "fileModified": "2026-03-07T20:42:50.142Z"
     },
     {
       "slug": "from-zapier-to-n8n-automation-practice",
@@ -212,6 +212,48 @@
       "wordCount": 2366,
       "fileSize": 15481,
       "fileModified": "2026-03-07T19:13:43.690Z"
+    },
+    {
+      "slug": "stop-nickel-and-diming-ai-tools-go-all-in",
+      "title": "Stop Nickel-and-Diming Your AI Tools and Go All In",
+      "description": "How a desperate deal with a bad client led to a Claude Pro Max subscription that changed everything. Why spreading across cheap AI subscriptions is holding you back, and what happens when you commit.",
+      "publishedDate": "2026-03-07",
+      "modifiedDate": "2026-03-07",
+      "isDraft": false,
+      "isFeatured": false,
+      "priority": 5,
+      "category": "AI & Automation",
+      "series": "",
+      "topics": [
+        "AI & Automation",
+        "Career & Professional Development",
+        "Development & Tools"
+      ],
+      "tags": [
+        "claude-code",
+        "ai-tools",
+        "automation",
+        "freelancing",
+        "subagents",
+        "openclaw",
+        "coding-agents",
+        "productivity"
+      ],
+      "keywords": [
+        "claude pro max",
+        "claude code",
+        "ai development tools",
+        "coding agents",
+        "automation",
+        "subagents",
+        "openclaw",
+        "ai personal assistant",
+        "freelance developer"
+      ],
+      "canonicalUrl": "https://cyberworldbuilders.com/blog/stop-nickel-and-diming-ai-tools-go-all-in",
+      "wordCount": 2023,
+      "fileSize": 13236,
+      "fileModified": "2026-03-07T21:01:30.064Z"
     },
     {
       "slug": "rznjn-human-ai-music-collaboration",
