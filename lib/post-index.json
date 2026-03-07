@@ -1,7 +1,50 @@
 {
-  "generatedAt": "2026-03-07T17:27:05.137Z",
-  "count": 24,
+  "generatedAt": "2026-03-07T18:31:55.445Z",
+  "count": 25,
   "posts": [
+    {
+      "slug": "drawing-from-the-well-sober-meditation-pyramids-pure-information",
+      "title": "Drawing from the Well: Sober Meditation, Ancient Pyramids, and Becoming Pure Information",
+      "description": "A practice I've been developing to induce altered states without drugs, and how it's changing the way I think about ancient civilizations, sacred architecture, and what consciousness actually is.",
+      "publishedDate": "2026-03-07",
+      "modifiedDate": "2026-03-07",
+      "isDraft": false,
+      "isFeatured": false,
+      "priority": 5,
+      "category": "Philosophy",
+      "series": "",
+      "topics": [
+        "Personal Development",
+        "Philosophy & Spirituality"
+      ],
+      "tags": [
+        "meditation",
+        "consciousness",
+        "spirituality",
+        "lucid-dreaming",
+        "ancient-history",
+        "philosophy",
+        "psychedelics",
+        "information-theory"
+      ],
+      "keywords": [
+        "meditation",
+        "lucid dreaming",
+        "power nap",
+        "sober meditation",
+        "pyramids",
+        "ancient mystery schools",
+        "consciousness",
+        "pure information",
+        "spirituality",
+        "timothy leary",
+        "tibetan book of the dead"
+      ],
+      "canonicalUrl": "https://cyberworldbuilders.com/blog/drawing-from-the-well-sober-meditation-pyramids-pure-information",
+      "wordCount": 1960,
+      "fileSize": 13517,
+      "fileModified": "2026-03-07T18:31:55.180Z"
+    },
     {
       "slug": "rznjn-human-ai-music-collaboration",
       "title": "rZNjN: Building the Foundation for Human-AI Music Collaboration",
@@ -41,7 +84,7 @@
       "canonicalUrl": "https://cyberworldbuilders.com/blog/rznjn-human-ai-music-collaboration",
       "wordCount": 2046,
       "fileSize": 14280,
-      "fileModified": "2026-03-07T17:26:52.395Z"
+      "fileModified": "2026-03-07T18:30:34.285Z"
     },
     {
       "slug": "first-pitch-meeting-reflections-lessons-confidence-and-alignment-in-death-care-and-ar-innovation",
