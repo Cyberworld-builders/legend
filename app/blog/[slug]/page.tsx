@@ -29,7 +29,10 @@ export async function generateMetadata({ params }: BlogPostProps): Promise<Metad
   const title = metadata.title;
   const description = metadata.description || `Read about ${title} - Software engineering insights from CyberWorld Builders.`;
   const url = metadata.canonicalUrl || `https://cyberworldbuilders.com/blog/${slug}`;
-  const socialImage = metadata.socialImage?.trim() || 'https://cyberworldbuilders.com/images/social-card.png';
+  const ogParams = new URLSearchParams({ title });
+  if (description) ogParams.set('description', description);
+  const dynamicOgImage = `https://cyberworldbuilders.com/api/og?${ogParams.toString()}`;
+  const socialImage = metadata.socialImage?.trim() || dynamicOgImage;
 
   return {
     title,
