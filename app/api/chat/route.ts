@@ -1,82 +1,61 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { ChatOpenAI } from '@langchain/openai';
-import { AIMessage, HumanMessage, SystemMessage } from '@langchain/core/messages';
-import fs from 'fs';
-import path from 'path';
-import matter from 'gray-matter';
+import Anthropic from '@anthropic-ai/sdk';
+import postIndex from '@/lib/post-index.json';
 import { createServerClient, isServerSupabaseConfigured } from '@/lib/supabase';
 import { checkRateLimit } from '@/lib/rate-limit';
 import { extractContactInfo, hasContactInfo } from '@/lib/chat-extraction';
 
 const MAX_HISTORY_MESSAGES = 20;
 
-const llm = new ChatOpenAI({
-  openAIApiKey: process.env.OPENAI_API_KEY!,
-  modelName: 'gpt-3.5-turbo',
-  temperature: 0.7,
-  modelKwargs: { response_format: { type: 'json_object' } },
+const anthropic = new Anthropic({
+  apiKey: process.env.ANTHROPIC_API_KEY!,
 });
 
-async function getRelevantBlogContent(userQuery: string) {
-  try {
-    const markdownDir = path.join(process.cwd(), 'app', 'blog', 'posts', 'markdown');
-    const files = fs.readdirSync(markdownDir).filter(file => file.endsWith('.md'));
+interface PostEntry {
+  slug: string;
+  title: string;
+  description: string;
+  tags: string[];
+  keywords: string[];
+  topics: string[];
+}
 
-    const queryLower = userQuery.toLowerCase();
-    const queryWords = queryLower.split(/\s+/).filter(word => word.length > 2);
+function getRelevantBlogContent(userQuery: string): PostEntry[] {
+  const queryLower = userQuery.toLowerCase();
+  const queryWords = queryLower.split(/\s+/).filter(word => word.length > 2);
 
-    const scoredPosts = files.map(filename => {
-      const filePath = path.join(markdownDir, filename);
-      const fileContent = fs.readFileSync(filePath, 'utf8');
-      const { data: frontmatter, content } = matter(fileContent);
+  if (queryWords.length === 0) return [];
 
-      let score = 0;
+  const scored = (postIndex.posts as PostEntry[]).map(post => {
+    let score = 0;
 
-      const title = (frontmatter.title || '').toLowerCase();
-      queryWords.forEach(word => {
-        if (title.includes(word)) score += 5;
-      });
-
-      const description = (frontmatter.description || '').toLowerCase();
-      queryWords.forEach(word => {
-        if (description.includes(word)) score += 3;
-      });
-
-      const contentLower = (content || '').toLowerCase();
-      queryWords.forEach(word => {
-        const wordCount = (contentLower.match(new RegExp(word, 'g')) || []).length;
-        score += wordCount * 2;
-      });
-
-      const tags = (frontmatter.tags || []).join(' ').toLowerCase();
-      queryWords.forEach(word => {
-        if (tags.includes(word)) score += 2;
-      });
-
-      const keywords = (frontmatter.keywords || []).join(' ').toLowerCase();
-      queryWords.forEach(word => {
-        if (keywords.includes(word)) score += 1;
-      });
-
-      return {
-        title: frontmatter.title,
-        slug: filename.replace('.md', ''),
-        description: frontmatter.description,
-        topics: frontmatter.topics || [],
-        tags: frontmatter.tags || [],
-        content: content.substring(0, 300),
-        score
-      };
+    const title = (post.title || '').toLowerCase();
+    queryWords.forEach(word => {
+      if (title.includes(word)) score += 5;
     });
 
-    return scoredPosts
-      .filter(post => post.score > 0)
-      .sort((a, b) => b.score - a.score)
-      .slice(0, 3);
-  } catch (error) {
-    console.error('Error fetching blog content:', error);
-    return [];
-  }
+    const description = (post.description || '').toLowerCase();
+    queryWords.forEach(word => {
+      if (description.includes(word)) score += 3;
+    });
+
+    const tags = (post.tags || []).join(' ').toLowerCase();
+    queryWords.forEach(word => {
+      if (tags.includes(word)) score += 2;
+    });
+
+    const keywords = (post.keywords || []).join(' ').toLowerCase();
+    queryWords.forEach(word => {
+      if (keywords.includes(word)) score += 1;
+    });
+
+    return { ...post, score };
+  });
+
+  return scored
+    .filter(p => p.score > 0)
+    .sort((a, b) => b.score - a.score)
+    .slice(0, 3);
 }
 
 interface ChatMessage {
@@ -106,7 +85,6 @@ async function upsertChatSession(
         last_message_at: new Date().toISOString(),
         page: page || null,
         status: extracted.email ? 'converted' : 'active',
-        // Write extracted fields (only overwrite with non-null values)
         ...(extracted.email && { extracted_email: extracted.email }),
         ...(extracted.phone && { extracted_phone: extracted.phone }),
         ...(extracted.name && { extracted_name: extracted.name }),
@@ -122,13 +100,13 @@ async function upsertChatSession(
 }
 
 function buildSystemPrompt(
-  relevantContent: Awaited<ReturnType<typeof getRelevantBlogContent>>,
+  relevantContent: PostEntry[],
   userMessageCount: number,
   contactCaptured: boolean,
 ): string {
-  let systemPrompt = `You are Jay's assistant at CyberWorld Builders. Jay builds digital marketing systems, business automation, and custom software for service businesses.
+  let systemPrompt = `You are Jay's assistant at CyberWorld Builders. Jay Long is a software engineer, founder, and builder. He builds digital marketing systems, business automation, and custom software for service businesses. He's also a drummer, a thinker, and an authentic human who shares real experiences through his blog.
 
-Your job is to have a helpful conversation AND learn about the visitor so Jay can follow up personally if there's a fit.
+Your voice: warm, direct, technically sharp but approachable. You talk like a real person — not a customer service bot. You can be funny, you can be blunt, you care about the person you're talking to.
 
 RESPONSE FORMAT:
 You MUST respond with valid JSON containing these keys:
@@ -142,7 +120,7 @@ The "quickReplies" array is OPTIONAL. Include 2-3 short options when asking a qu
 IMPORTANT: NEVER include quickReplies about sharing contact info (like "Sure, here's my email" or "Here's my number"). The chat interface will automatically show an email/phone form when appropriate. Do NOT prompt for email or phone via quickReplies.
 
 CONVERSATION STRATEGY:
-You are warm and direct. You help freely but you also move the conversation forward. Think of yourself as a friendly intake coordinator — you want to understand their situation quickly so Jay can help them.
+You help freely but you also move the conversation forward. Think of yourself as a friendly intake coordinator — you want to understand their situation quickly so Jay can help them.
 
 ${userMessageCount === 0 ? `This is their FIRST message. Respond helpfully to whatever they say, then immediately ask what kind of project or problem brought them here. Include quickReplies like ["Marketing & Lead Gen", "Custom Software", "Automation", "Just Exploring"].` : ''}
 
@@ -165,7 +143,7 @@ General rules:
 - Never be pushy or repetitive about contact info.`;
 
   if (relevantContent.length > 0) {
-    systemPrompt += `\n\nRelevant blog content:\n`;
+    systemPrompt += `\n\nRelevant blog content you can reference:\n`;
     relevantContent.forEach((post, index) => {
       systemPrompt += `${index + 1}. "${post.title}" - ${post.description} (Link: /blog/${post.slug})\n`;
     });
@@ -213,40 +191,39 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Message is required' }, { status: 400 });
     }
 
-    // Count user messages in history to determine conversation stage
     const userMessageCount = history.filter(m => m.role === 'user').length;
 
-    // Check if we already have contact info from the conversation
     const allUserMessages: ChatMessage[] = [
       ...history.filter(m => m.role === 'user'),
       { role: 'user', content: message },
     ];
     const contactCaptured = hasContactInfo(allUserMessages);
 
-    // Get relevant blog content for RAG
-    const relevantContent = await getRelevantBlogContent(message);
+    const relevantContent = getRelevantBlogContent(message);
     const systemPrompt = buildSystemPrompt(relevantContent, userMessageCount, contactCaptured);
 
-    // Build LangChain message array with conversation history
-    // Skip the initial welcome bot message (index 0) and cap history length
+    // Build Claude message array from conversation history
     const recentHistory = history.slice(1).slice(-MAX_HISTORY_MESSAGES);
-    const langchainMessages = [
-      new SystemMessage(systemPrompt),
-      ...recentHistory.map((m) =>
-        m.role === 'user' ? new HumanMessage(m.content) : new AIMessage(m.content),
-      ),
-      new HumanMessage(message),
+    const claudeMessages: Anthropic.MessageParam[] = [
+      ...recentHistory.map((m): Anthropic.MessageParam => ({
+        role: m.role === 'user' ? 'user' : 'assistant',
+        content: m.content,
+      })),
+      { role: 'user', content: message },
     ];
 
-    const response = await llm.invoke(langchainMessages);
-    const rawContent = response.content as string;
+    const response = await anthropic.messages.create({
+      model: 'claude-haiku-4-5-20251001',
+      max_tokens: 512,
+      system: systemPrompt,
+      messages: claudeMessages,
+    });
+
+    const rawContent = response.content[0].type === 'text' ? response.content[0].text : '';
     const { message: botMessage, quickReplies } = parseLLMResponse(rawContent);
 
-    // Determine whether to show the email capture form
-    // Show it when: we're at the contact stage AND we don't have contact info yet
     const showEmailCapture = userMessageCount >= 3 && !contactCaptured;
 
-    // Store conversation — MUST await (serverless kills fire-and-forget)
     if (sessionId) {
       const allMessages: ChatMessage[] = [
         ...history,
