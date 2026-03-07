@@ -1,5 +1,7 @@
 # Post Metadata System Implementation Summary
 
+> **DEPRECATED (2026-03-07):** This document describes the old YAML frontmatter + markdown pipeline. The blog now uses direct TSX components with `export const metadata: PostMeta` objects. For the current system, see **`docs/blog-post-publishing.md`**.
+
 ## Overview
 
 We've successfully implemented a comprehensive metadata system for blog posts that provides better control over post dates, SEO metadata, and content organization. This system replaces the previous file-based approach with a structured YAML frontmatter system.

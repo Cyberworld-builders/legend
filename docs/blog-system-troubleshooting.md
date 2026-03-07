@@ -1,5 +1,7 @@
 # Blog System Troubleshooting & Changes
 
+> **DEPRECATED (2026-03-07):** This document describes the old markdown-based blog pipeline which has been fully replaced by direct TSX components. For the current system, see **`docs/blog-post-publishing.md`**.
+
 ## Overview
 
 This document outlines the issues encountered with the blog system and the changes made to resolve them. The main problems were related to webpack module loading errors in production and the complexity of the metadata system.
