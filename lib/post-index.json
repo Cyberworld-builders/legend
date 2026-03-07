@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-03-07T19:13:43.939Z",
-  "count": 27,
+  "generatedAt": "2026-03-07T19:51:31.674Z",
+  "count": 28,
   "posts": [
     {
       "slug": "code-first-n8n-custom-nodes-automation-workflow",
@@ -43,7 +43,7 @@
       "canonicalUrl": "https://cyberworldbuilders.com/blog/code-first-n8n-custom-nodes-automation-workflow",
       "wordCount": 2555,
       "fileSize": 17152,
-      "fileModified": "2026-03-07T19:13:43.728Z"
+      "fileModified": "2026-03-07T19:51:31.439Z"
     },
     {
       "slug": "drawing-from-the-well-sober-meditation-pyramids-pure-information",
@@ -130,6 +130,45 @@
       "wordCount": 2366,
       "fileSize": 15481,
       "fileModified": "2026-03-07T19:13:43.690Z"
+    },
+    {
+      "slug": "little-devils-dollhouse-theory",
+      "title": "Little Devils and the Dollhouse Theory of Reality",
+      "description": "A late-night vision about hyperdimensional space, haunted houses, and what happens when you back up into a meta-reality where the monsters become action figures.",
+      "publishedDate": "2026-03-07",
+      "modifiedDate": "2026-03-07",
+      "isDraft": false,
+      "isFeatured": false,
+      "priority": 5,
+      "category": "Legendarium",
+      "series": "",
+      "topics": [
+        "Creative Writing",
+        "Legendarium"
+      ],
+      "tags": [
+        "legendarium",
+        "hawthorne-chronicles",
+        "worldbuilding",
+        "hyperdimensional",
+        "dreams",
+        "creative-writing"
+      ],
+      "keywords": [
+        "little devils",
+        "hyperdimensional space",
+        "legendarium",
+        "hawthorne chronicles",
+        "haunted house",
+        "meta-reality",
+        "dollhouse theory",
+        "crowley",
+        "nightshade"
+      ],
+      "canonicalUrl": "https://cyberworldbuilders.com/blog/little-devils-dollhouse-theory",
+      "wordCount": 1720,
+      "fileSize": 12040,
+      "fileModified": "2026-03-07T19:51:31.474Z"
     },
     {
       "slug": "rznjn-human-ai-music-collaboration",
