@@ -124,6 +124,81 @@ GusClaw heartbeat (every 30 min)
 | 404 | Transcript ID not found (PATCH) |
 | 500 | Supabase not configured or query error |
 
+## Blog Index Management
+
+After a new `.tsx` post file is added to `app/blog/posts/`, the blog index must be regenerated so the post appears in listings, sitemaps, and static params.
+
+### Why it's needed
+
+The blog listing page (`/blog`) and slug page (`/blog/[slug]`) both read from `lib/post-index.json` to discover posts. This file is **not auto-generated at build time** — it must be explicitly regenerated whenever a post is added, removed, or has its metadata changed.
+
+### How to regenerate
+
+```bash
+npm run generate-post-index
+```
+
+This runs `scripts/generate-post-index-new.js`, which:
+
+1. Scans all `.tsx` files in `app/blog/posts/` (excluding `template.tsx`)
+2. Extracts the `export const metadata: PostMeta` block from each file using regex
+3. Parses string, boolean, number, and array fields from the metadata
+4. Sorts posts by `publishedDate` (newest first), then `priority`
+5. Writes `lib/post-index.json` with the full index
+
+### When to run it
+
+| Scenario | Run index generation? |
+|----------|----------------------|
+| New blog post `.tsx` added | Yes |
+| Post metadata edited (title, tags, dates, etc.) | Yes |
+| Post content changed but metadata unchanged | No |
+| Post deleted | Yes |
+
+### Integration with the transcript pipeline
+
+In the automation pipeline (`docs/automation-api.md` pipeline diagram), the index regeneration happens **after** the TSX file is committed and **before** (or as part of) the PR that Vercel will preview-deploy:
+
+```
+GusClaw heartbeat
+  +-> fetch transcript
+  +-> editor pipeline -> generate TSX
+  +-> git add app/blog/posts/<slug>.tsx
+  +-> npm run generate-post-index          <-- updates lib/post-index.json
+  +-> git add lib/post-index.json
+  +-> commit + push + create PR
+  +-> PATCH transcript as processed
+```
+
+If the index is not regenerated, the post file will exist but:
+- It won't appear on `/blog`
+- `generateStaticParams` won't include it (no SSG page)
+- The sitemap won't list it
+
+### Verifying the index
+
+```bash
+# Check post count
+node -e "console.log(require('./lib/post-index.json').count)"
+
+# Check a specific post is present
+node -e "const idx = require('./lib/post-index.json'); console.log(idx.posts.find(p => p.slug === '<slug>') ? 'FOUND' : 'MISSING')"
+
+# Quick smoke test after regenerating
+npm run build 2>&1 | grep '/blog/\[slug\]'
+```
+
+### Separating responsibilities
+
+If the transcript-to-TSX agent and the blog-index agent are different jobs:
+
+- **Transcript agent**: Generates the `.tsx` file and opens a PR with just the post file.
+- **Index agent** (or CI step): Runs `npm run generate-post-index`, commits the updated `lib/post-index.json`, and pushes to the same PR branch.
+
+A GitHub Action can automate this — see `docs/github-workflows.md` for the existing SEO maintenance workflow, which already runs `npm run seo` (an alias for `npm run generate-post-index`).
+
+---
+
 ## curl Examples
 
 ```bash

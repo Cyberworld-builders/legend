@@ -4,62 +4,35 @@ This document describes the GitHub Actions workflows available in this repositor
 
 ## SEO Maintenance Script Automation
 
-**File:** `.github/workflows/seo-maintenance.yml`
+> **Note (2026-03-07):** The `seo-maintenance.yml` workflow file has been removed. The index generation step (`npm run generate-post-index`) is now expected to run locally or in the blog publishing agent before committing. See `docs/blog-post-publishing.md` for the current workflow.
 
-This workflow automates SEO maintenance tasks for the blog including:
-
-- Validating frontmatter metadata across all posts
-- Updating `lastReviewedDate` for posts older than 90 days
-- Regenerating the post index with latest metadata
-- Committing and pushing changes back to the specified branch
-
-### Usage
-
-#### Manual Trigger (Workflow Dispatch)
-
-You can manually trigger this workflow from the GitHub Actions tab or using the GitHub CLI:
-
-```bash
-# Using GitHub CLI
-gh workflow run seo-maintenance.yml -f branch=your-branch-name
-
-# Default branch (117-seo-maintenance-script-automation) will be used if not specified
-gh workflow run seo-maintenance.yml
-```
-
-#### Input Parameters
-
-- **branch** (required): The branch to checkout and process
-  - Default: `117-seo-maintenance-script-automation`
-  - The workflow will checkout this branch, run maintenance scripts, and push changes back to it
-
-### What It Does
-
-1. **Checkout**: Checks out the specified branch with full git history
-2. **Setup**: Installs Node.js 20.x and npm dependencies
-3. **Validate**: Runs metadata validation to identify any issues
-4. **Update**: Updates review dates for posts that haven't been reviewed in 90+ days
-5. **Generate**: Runs the SEO maintenance script (`npm run seo`) to regenerate post index
-6. **Validate**: Re-validates metadata after updates
-7. **Commit & Push**: If changes were made, commits them with a descriptive message and pushes to the branch
-
-### Requirements
-
-- The workflow requires `contents: write` permissions to commit and push changes
-- The target branch must exist in the repository
-- Node.js dependencies must be installable via `npm ci`
-
-### Future Plans
-
-The workflow is designed to eventually trigger automatically on PR opens to main:
+A future CI step could re-add automatic index regeneration on PR. The pattern would be:
 
 ```yaml
-pull_request:
-  branches: [ main ]
-  types: [ opened ]
-```
+# .github/workflows/update-blog-index.yml (not yet implemented)
+on:
+  pull_request:
+    paths:
+      - 'app/blog/posts/*.tsx'
 
-This is currently commented out while the workflow is being tested and refined.
+jobs:
+  update-index:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - run: npm ci
+      - run: npm run generate-post-index
+      - run: |
+          git diff --quiet lib/post-index.json || {
+            git config user.name "github-actions"
+            git config user.email "github-actions@github.com"
+            git add lib/post-index.json
+            git commit -m "chore: regenerate blog post index"
+            git push
+          }
+```
 
 ## Other Workflows
 
