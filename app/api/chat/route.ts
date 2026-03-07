@@ -7,9 +7,13 @@ import { extractContactInfo, hasContactInfo } from '@/lib/chat-extraction';
 
 const MAX_HISTORY_MESSAGES = 20;
 
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY!,
-});
+let _openai: OpenAI | null = null;
+function getOpenAI() {
+  if (!_openai) {
+    _openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY! });
+  }
+  return _openai;
+}
 
 interface PostEntry {
   slug: string;
@@ -213,7 +217,7 @@ export async function POST(request: NextRequest) {
       { role: 'user', content: message },
     ];
 
-    const response = await openai.chat.completions.create({
+    const response = await getOpenAI().chat.completions.create({
       model: 'gpt-4o-mini',
       max_tokens: 512,
       temperature: 0.7,
