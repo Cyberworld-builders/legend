@@ -5,6 +5,7 @@ import Breadcrumb from '@/components/Breadcrumb';
 import SimpleSocialShare from '@/components/SimpleSocialShare';
 import TopicClusters from '@/components/TopicClusters';
 import PageBackground from '@/components/PageBackground';
+import BlogPostList from '@/components/BlogPostList';
 import { getAllPostsWithMetadata } from '@/lib/post-metadata';
 import type { Metadata } from 'next';
 
@@ -177,44 +178,17 @@ export default async function BlogIndex({ searchParams }: BlogIndexProps) {
         />
       </div>
       
-      <div className="w-full max-w-2xl">
-        {posts.map((post) => (
-          <div key={post.slug} className="mb-6">
-            <Link
-              href={`/blog/${post.slug}`}
-              className="text-2xl text-[#00ff00] hover:text-[#00cc00] hover:underline"
-            >
-              {post.title}
-            </Link>
-          </div>
-        ))}
-      </div>
-      
+      <BlogPostList
+        posts={posts.map((p) => ({ slug: p.slug, title: p.title, mtime: p.mtime.toISOString() }))}
+        totalPages={totalPages}
+        currentPage={currentPage}
+        paginationBase={paginationBase}
+      />
+
       {/* Topic Clusters */}
       <div className="w-full max-w-4xl">
         <TopicClusters allPosts={allPosts} />
       </div>
-      
-      {totalPages > 1 && (
-        <div className="flex gap-4 mt-8">
-          {currentPage > 1 && (
-            <Link
-              href={`${paginationBase}${paginationBase.includes('?') ? '&' : '?'}page=${currentPage - 1}`}
-              className="text-[#00ff00] hover:text-[#00cc00] hover:underline"
-            >
-              ← Previous
-            </Link>
-          )}
-          {currentPage < totalPages && (
-            <Link
-              href={`${paginationBase}${paginationBase.includes('?') ? '&' : '?'}page=${currentPage + 1}`}
-              className="text-[#00ff00] hover:text-[#00cc00] hover:underline"
-            >
-              Next →
-            </Link>
-          )}
-        </div>
-      )}
       </div>
     </div>
   );

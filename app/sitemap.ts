@@ -28,6 +28,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   // Dynamic blog posts
   let blogPosts: MetadataRoute.Sitemap = []
+  let tagPages: MetadataRoute.Sitemap = []
 
   try {
     const posts = getAllPosts()
@@ -38,9 +39,23 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: 'monthly' as const,
       priority: post.isFeatured ? 0.8 : 0.7,
     }))
+
+    // Collect unique tags
+    const tags = new Set<string>()
+    for (const post of posts) {
+      for (const t of post.tags) tags.add(t)
+      for (const k of post.keywords) tags.add(k)
+    }
+
+    tagPages = Array.from(tags).map(tag => ({
+      url: `${baseUrl}/blog/tag/${encodeURIComponent(tag)}`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly' as const,
+      priority: 0.5,
+    }))
   } catch (error) {
     console.error('Error reading blog posts for sitemap:', error)
   }
 
-  return [...staticPages, ...blogPosts]
+  return [...staticPages, ...blogPosts, ...tagPages]
 }

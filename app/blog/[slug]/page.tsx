@@ -207,7 +207,7 @@ export default async function BlogPost({ params }: BlogPostProps) {
                 {(metadata.tags || metadata.keywords || []).map((tag: string) => (
                   <Link
                     key={tag}
-                    href={`/blog?tag=${encodeURIComponent(tag)}`}
+                    href={`/blog/tag/${encodeURIComponent(tag)}`}
                     className="px-3 py-1 bg-[#00ff00]/10 border border-[#00ff00]/30 rounded-full text-sm text-[#00ff00]/80 hover:bg-[#00ff00]/20 hover:text-[#00ff00] transition-colors cursor-pointer"
                     title={`Filter by ${tag}`}
                   >

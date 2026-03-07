@@ -18,12 +18,6 @@ const nextConfig = {
   },
   async redirects() {
     return [
-      // Redirect old tag pages (removed in favor of /blog?tag=) — 301 for SEO
-      {
-        source: '/blog/tag/:tag',
-        destination: '/blog?tag=:tag',
-        permanent: true,
-      },
       // /blog/tag with no slug → tags hub
       {
         source: '/blog/tag',
