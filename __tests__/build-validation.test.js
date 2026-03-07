@@ -99,8 +99,8 @@ describe('Build Validation', () => {
       expect(fs.existsSync('public/images/logo.png')).toBe(true);
     });
 
-    test('should have robots.txt', () => {
-      expect(fs.existsSync('public/robots.txt')).toBe(true);
+    test('should have robots.txt route handler', () => {
+      expect(fs.existsSync('app/robots.ts')).toBe(true);
     });
   });
 
