@@ -1,7 +1,50 @@
 {
-  "generatedAt": "2026-03-07T18:48:13.439Z",
-  "count": 26,
+  "generatedAt": "2026-03-07T19:13:43.939Z",
+  "count": 27,
   "posts": [
+    {
+      "slug": "code-first-n8n-custom-nodes-automation-workflow",
+      "title": "Code-First N8N: Why I Build Custom Nodes Instead of Searching the Marketplace",
+      "description": "I'm building automation workflows with a code-first approach to N8N. Custom nodes, version-controlled workflows, and a monorepo where my coding agents have full context. Here's where I'm at and where this is going.",
+      "publishedDate": "2026-03-07",
+      "modifiedDate": "2026-03-07",
+      "isDraft": false,
+      "isFeatured": false,
+      "priority": 5,
+      "category": "Development & Tools",
+      "series": "",
+      "topics": [
+        "Development & Tools",
+        "AI & Automation",
+        "Business & Marketing"
+      ],
+      "tags": [
+        "n8n",
+        "automation",
+        "custom-nodes",
+        "code-first",
+        "docker",
+        "nextjs",
+        "supabase",
+        "version-control"
+      ],
+      "keywords": [
+        "n8n",
+        "automation",
+        "custom nodes",
+        "code-first development",
+        "docker compose",
+        "next.js",
+        "supabase",
+        "version control",
+        "blog automation",
+        "transcript pipeline"
+      ],
+      "canonicalUrl": "https://cyberworldbuilders.com/blog/code-first-n8n-custom-nodes-automation-workflow",
+      "wordCount": 2555,
+      "fileSize": 17152,
+      "fileModified": "2026-03-07T19:13:43.728Z"
+    },
     {
       "slug": "drawing-from-the-well-sober-meditation-pyramids-pure-information",
       "title": "Drawing from the Well: Sober Meditation, Ancient Pyramids, and Becoming Pure Information",
@@ -86,7 +129,7 @@
       "canonicalUrl": "https://cyberworldbuilders.com/blog/from-zapier-to-n8n-automation-practice",
       "wordCount": 2366,
       "fileSize": 15481,
-      "fileModified": "2026-03-07T18:48:13.159Z"
+      "fileModified": "2026-03-07T19:13:43.690Z"
     },
     {
       "slug": "rznjn-human-ai-music-collaboration",
