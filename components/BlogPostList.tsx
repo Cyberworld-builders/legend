@@ -7,21 +7,23 @@ import SearchInput from './SearchInput';
 interface BlogPost {
   slug: string;
   title: string;
-  mtime: string; // ISO string for serialization
+  mtime: string;
 }
 
 interface BlogPostListProps {
   posts: BlogPost[];
+  allPosts: BlogPost[];
   totalPages: number;
   currentPage: number;
   paginationBase: string;
 }
 
-export default function BlogPostList({ posts, totalPages, currentPage, paginationBase }: BlogPostListProps) {
+export default function BlogPostList({ posts, allPosts, totalPages, currentPage, paginationBase }: BlogPostListProps) {
   const [query, setQuery] = useState('');
 
-  const filtered = query
-    ? posts.filter((p) => p.title.toLowerCase().includes(query.toLowerCase()))
+  const isSearching = query.length > 0;
+  const displayPosts = isSearching
+    ? allPosts.filter((p) => p.title.toLowerCase().includes(query.toLowerCase()))
     : posts;
 
   return (
@@ -31,10 +33,10 @@ export default function BlogPostList({ posts, totalPages, currentPage, paginatio
       </div>
 
       <div className="w-full max-w-2xl">
-        {filtered.length === 0 ? (
+        {displayPosts.length === 0 ? (
           <p className="text-[#00ff00]/70 text-center">No posts match your search.</p>
         ) : (
-          filtered.map((post) => (
+          displayPosts.map((post) => (
             <div key={post.slug} className="mb-6">
               <Link
                 href={`/blog/${post.slug}`}
@@ -47,7 +49,13 @@ export default function BlogPostList({ posts, totalPages, currentPage, paginatio
         )}
       </div>
 
-      {!query && totalPages > 1 && (
+      {isSearching && displayPosts.length > 0 && (
+        <p className="text-[#00ff00]/50 text-sm mt-2">
+          {displayPosts.length} result{displayPosts.length === 1 ? '' : 's'} found
+        </p>
+      )}
+
+      {!isSearching && totalPages > 1 && (
         <div className="flex gap-4 mt-8">
           {currentPage > 1 && (
             <Link

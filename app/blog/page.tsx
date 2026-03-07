@@ -180,6 +180,7 @@ export default async function BlogIndex({ searchParams }: BlogIndexProps) {
       
       <BlogPostList
         posts={posts.map((p) => ({ slug: p.slug, title: p.title, mtime: p.mtime.toISOString() }))}
+        allPosts={allPosts.map((p) => ({ slug: p.slug, title: p.title, mtime: p.mtime.toISOString() }))}
         totalPages={totalPages}
         currentPage={currentPage}
         paginationBase={paginationBase}
