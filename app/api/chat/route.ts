@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import Anthropic from '@anthropic-ai/sdk';
+import OpenAI from 'openai';
 import postIndex from '@/lib/post-index.json';
 import { createServerClient, isServerSupabaseConfigured } from '@/lib/supabase';
 import { checkRateLimit } from '@/lib/rate-limit';
@@ -7,9 +7,13 @@ import { extractContactInfo, hasContactInfo } from '@/lib/chat-extraction';
 
 const MAX_HISTORY_MESSAGES = 20;
 
-const anthropic = new Anthropic({
-  apiKey: process.env.ANTHROPIC_API_KEY!,
-});
+let _openai: OpenAI | null = null;
+function getOpenAI() {
+  if (!_openai) {
+    _openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY! });
+  }
+  return _openai;
+}
 
 interface PostEntry {
   slug: string;
@@ -202,24 +206,26 @@ export async function POST(request: NextRequest) {
     const relevantContent = getRelevantBlogContent(message);
     const systemPrompt = buildSystemPrompt(relevantContent, userMessageCount, contactCaptured);
 
-    // Build Claude message array from conversation history
+    // Build OpenAI message array from conversation history
     const recentHistory = history.slice(1).slice(-MAX_HISTORY_MESSAGES);
-    const claudeMessages: Anthropic.MessageParam[] = [
-      ...recentHistory.map((m): Anthropic.MessageParam => ({
+    const openaiMessages: OpenAI.ChatCompletionMessageParam[] = [
+      { role: 'system', content: systemPrompt },
+      ...recentHistory.map((m): OpenAI.ChatCompletionMessageParam => ({
         role: m.role === 'user' ? 'user' : 'assistant',
         content: m.content,
       })),
       { role: 'user', content: message },
     ];
 
-    const response = await anthropic.messages.create({
-      model: 'claude-haiku-4-5-20251001',
+    const response = await getOpenAI().chat.completions.create({
+      model: 'gpt-4o-mini',
       max_tokens: 512,
-      system: systemPrompt,
-      messages: claudeMessages,
+      temperature: 0.7,
+      response_format: { type: 'json_object' },
+      messages: openaiMessages,
     });
 
-    const rawContent = response.content[0].type === 'text' ? response.content[0].text : '';
+    const rawContent = response.choices[0]?.message?.content || '';
     const { message: botMessage, quickReplies } = parseLLMResponse(rawContent);
 
     const showEmailCapture = userMessageCount >= 3 && !contactCaptured;
