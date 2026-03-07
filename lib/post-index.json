@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-03-07T18:37:55.867Z",
-  "count": 25,
+  "generatedAt": "2026-03-07T18:48:13.439Z",
+  "count": 26,
   "posts": [
     {
       "slug": "drawing-from-the-well-sober-meditation-pyramids-pure-information",
@@ -43,7 +43,50 @@
       "canonicalUrl": "https://cyberworldbuilders.com/blog/drawing-from-the-well-sober-meditation-pyramids-pure-information",
       "wordCount": 1960,
       "fileSize": 13517,
-      "fileModified": "2026-03-07T18:37:01.064Z"
+      "fileModified": "2026-03-07T18:48:13.092Z"
+    },
+    {
+      "slug": "from-zapier-to-n8n-automation-practice",
+      "title": "From Zapier to n8n: Why I'm Building an Automation Practice",
+      "description": "How a Bitbucket pipeline hack years ago led me to build automation consulting into my business — and why knowing n8n matters even if it's not the future.",
+      "publishedDate": "2026-03-07",
+      "modifiedDate": "2026-03-07",
+      "isDraft": false,
+      "isFeatured": false,
+      "priority": 5,
+      "category": "AI & Automation",
+      "series": "",
+      "topics": [
+        "AI & Automation",
+        "Business & Marketing",
+        "Development & Tools"
+      ],
+      "tags": [
+        "n8n",
+        "zapier",
+        "automation",
+        "no-code",
+        "vercel",
+        "devops",
+        "business-strategy",
+        "custom-nodes"
+      ],
+      "keywords": [
+        "n8n",
+        "zapier",
+        "automation workflows",
+        "no-code automation",
+        "custom nodes",
+        "vercel",
+        "next.js",
+        "bitbucket pipelines",
+        "devops automation",
+        "refactoring workflows"
+      ],
+      "canonicalUrl": "https://cyberworldbuilders.com/blog/from-zapier-to-n8n-automation-practice",
+      "wordCount": 2366,
+      "fileSize": 15481,
+      "fileModified": "2026-03-07T18:48:13.159Z"
     },
     {
       "slug": "rznjn-human-ai-music-collaboration",
