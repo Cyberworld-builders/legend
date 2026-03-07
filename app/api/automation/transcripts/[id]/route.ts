@@ -57,7 +57,9 @@ export async function PATCH(
       return NextResponse.json({ error: 'Transcript not found' }, { status: 404 });
     }
 
-    return NextResponse.json({ transcript: data });
+    return NextResponse.json({ transcript: data }, {
+      headers: { 'Cache-Control': 'private, no-store' },
+    });
   } catch (err) {
     const message = err instanceof Error ? err.message : 'Unknown error';
     return NextResponse.json({ error: message }, { status: 500 });
