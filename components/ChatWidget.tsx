@@ -6,7 +6,7 @@ import ChatMessage from './ChatMessage';
 import { trackEvent, getSession } from '@/lib/tracking';
 
 interface Message {
-  role: 'user' | 'bot';
+  role: 'user' | 'bot' | 'jay';
   content: string;
   quickReplies?: string[];
   showEmailCapture?: boolean;
@@ -18,6 +18,30 @@ const WELCOME_MESSAGE: Message = {
   content: "Hey! I'm Jay's assistant at CyberWorld Builders. What brings you here today?",
   quickReplies: ['Marketing & Lead Gen', 'Custom Software', 'Automation', 'Just Browsing'],
 };
+
+const CHAT_STATE_KEY = 'cwb_chat_state';
+
+interface ChatState {
+  messages: Message[];
+  isOpen: boolean;
+  hasOpened: boolean;
+  emailCaptured: boolean;
+  jayOnline: boolean;
+}
+
+function saveChatState(state: ChatState) {
+  try {
+    sessionStorage.setItem(CHAT_STATE_KEY, JSON.stringify(state));
+  } catch { /* ignore */ }
+}
+
+function loadChatState(): ChatState | null {
+  try {
+    const stored = sessionStorage.getItem(CHAT_STATE_KEY);
+    if (stored) return JSON.parse(stored) as ChatState;
+  } catch { /* ignore */ }
+  return null;
+}
 
 /** Inline email/phone capture form rendered inside the chat. */
 function InlineCaptureForm({ onSubmit, disabled }: { onSubmit: (value: string) => void; disabled: boolean }) {
@@ -87,15 +111,18 @@ function InlineCaptureForm({ onSubmit, disabled }: { onSubmit: (value: string) =
 }
 
 const ChatWidget = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [messages, setMessages] = useState<Message[]>([WELCOME_MESSAGE]);
+  const restored = useRef(loadChatState());
+  const [isOpen, setIsOpen] = useState(restored.current?.isOpen ?? false);
+  const [messages, setMessages] = useState<Message[]>(restored.current?.messages ?? [WELCOME_MESSAGE]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [showEmailCapture, setShowEmailCapture] = useState(false);
-  const [emailCaptured, setEmailCaptured] = useState(false);
-  const [hasOpened, setHasOpened] = useState(false);
+  const [emailCaptured, setEmailCaptured] = useState(restored.current?.emailCaptured ?? false);
+  const [hasOpened, setHasOpened] = useState(restored.current?.hasOpened ?? false);
+  const [jayOnline, setJayOnline] = useState(restored.current?.jayOnline ?? false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const impressionFired = useRef(false);
+  const pollRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   // Track impression once on mount
   useEffect(() => {
@@ -104,6 +131,60 @@ const ChatWidget = () => {
       trackEvent('chat_impression', {});
     }
   }, []);
+
+  // Persist chat state to sessionStorage on every change
+  useEffect(() => {
+    saveChatState({ messages, isOpen, hasOpened, emailCaptured, jayOnline });
+  }, [messages, isOpen, hasOpened, emailCaptured, jayOnline]);
+
+  // Poll for Jay's messages when chat is open and there's been interaction
+  useEffect(() => {
+    if (!isOpen || messages.length <= 1) {
+      if (pollRef.current) {
+        clearInterval(pollRef.current);
+        pollRef.current = null;
+      }
+      return;
+    }
+
+    const session = getSession();
+    const poll = async () => {
+      try {
+        const res = await fetch(`/api/chat?sessionId=${encodeURIComponent(session.session_id)}`);
+        if (!res.ok) return;
+        const data = await res.json();
+
+        if (data.jayOnline !== undefined) {
+          setJayOnline(data.jayOnline);
+        }
+
+        if (data.jayMessages && data.jayMessages.length > 0) {
+          const newMsgs: Message[] = data.jayMessages
+            .filter((m: string) => m !== '__CAPTURE__')
+            .map((m: string) => ({ role: 'jay' as const, content: m }));
+
+          const hasCaptureSignal = data.jayMessages.includes('__CAPTURE__');
+
+          if (newMsgs.length > 0) {
+            setMessages(prev => [...prev, ...newMsgs]);
+          }
+          if (hasCaptureSignal || data.showEmailCapture) {
+            setShowEmailCapture(true);
+          }
+        }
+      } catch {
+        // Polling failures are silent
+      }
+    };
+
+    pollRef.current = setInterval(poll, 4000);
+    return () => {
+      if (pollRef.current) {
+        clearInterval(pollRef.current);
+        pollRef.current = null;
+      }
+    };
+  }, [isOpen, messages.length]);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -158,6 +239,24 @@ const ChatWidget = () => {
       if (data.error) {
         setMessages((prev) => [...prev, { role: 'bot', content: 'Sorry, something went wrong.' }]);
       } else {
+        const newMsgs: Message[] = [];
+
+        // Add Jay's messages first (if any came with this response)
+        if (data.jayMessages && data.jayMessages.length > 0) {
+          for (const jm of data.jayMessages) {
+            if (jm !== '__CAPTURE__') {
+              newMsgs.push({ role: 'jay', content: jm });
+            }
+          }
+          if (data.jayMessages.includes('__CAPTURE__')) {
+            setShowEmailCapture(true);
+          }
+          if (data.jayMessages.length > 0) {
+            setJayOnline(true);
+          }
+        }
+
+        // Then add bot response
         const botMsg: Message = {
           role: 'bot',
           content: data.response,
@@ -165,7 +264,8 @@ const ChatWidget = () => {
             ? data.quickReplies
             : undefined,
         };
-        setMessages((prev) => [...prev, botMsg]);
+        newMsgs.push(botMsg);
+        setMessages((prev) => [...prev, ...newMsgs]);
 
         // Show email capture form if API says so (and we haven't already captured)
         if (data.showEmailCapture && !emailCaptured) {
@@ -230,7 +330,15 @@ const ChatWidget = () => {
         <div className="fixed inset-0 md:inset-auto md:bottom-20 md:right-6 md:w-[400px] md:h-[600px] md:rounded-lg bg-[#2a2a2a] border-2 border-[#00ff00] shadow-[0_0_15px_rgba(0,255,0,0.3)] z-50 flex flex-col overflow-hidden">
           {/* Header */}
           <div className="flex justify-between items-center p-4 bg-[#1a1a1a] border-b border-[#00ff00]">
-            <h2 className="text-lg uppercase">CyberWorld Chat</h2>
+            <div>
+              <h2 className="text-lg uppercase">CyberWorld Chat</h2>
+              {jayOnline && (
+                <span className="text-[10px] text-[#00ff00]/70 flex items-center gap-1">
+                  <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#00ff00] animate-pulse" />
+                  Jay is online
+                </span>
+              )}
+            </div>
             <button onClick={toggleChat} className="text-[#00ff00] hover:text-[#00cc00]">
               <X size={24} />
             </button>
@@ -239,11 +347,20 @@ const ChatWidget = () => {
           {/* Chat Messages */}
           <div className="flex-1 p-4 overflow-y-auto">
             {messages.map((msg, index) => (
-              <ChatMessage
-                key={index}
-                content={msg.content}
-                role={msg.role}
-              />
+              msg.role === 'jay' ? (
+                <div key={index} className="mb-3 text-left">
+                  <div className="inline-block p-2 rounded-lg bg-[#003300] border border-[#00ff00]/60 text-[#00ff00] max-w-[85%]">
+                    <span className="text-[10px] text-[#00ff00]/70 block mb-1 font-bold uppercase tracking-wider">Jay is online</span>
+                    {msg.content}
+                  </div>
+                </div>
+              ) : (
+                <ChatMessage
+                  key={index}
+                  content={msg.content}
+                  role={msg.role}
+                />
+              )
             ))}
             {isLoading && (
               <div className="mb-3 text-left">

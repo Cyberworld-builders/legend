@@ -18,12 +18,12 @@ const ChatMessage: React.FC<ChatMessageProps> = ({ content, role }) => {
       const isLink = /^(https?:\/\/[^\s]+|\/blog\/[a-zA-Z0-9-]+)$/.test(part);
       
       if (isLink) {
+        const isInternal = part.startsWith('/');
         return (
           <a
             key={index}
             href={part}
-            target="_blank"
-            rel="noopener noreferrer"
+            {...(!isInternal && { target: '_blank', rel: 'noopener noreferrer' })}
             className="text-[#00ccff] hover:text-[#00aaff] underline"
           >
             {part}
