@@ -5,6 +5,8 @@ export const metadata: PostMeta = {
   title: "Lessons from Mentors: Enterprise Insights and Personal Reflections from Urban Dynamics",
   description: "Reflections on working with an exceptional mentor at Urban Dynamics, lessons in enterprise-grade DevOps, identity management, and the importance of balancing personal challenges with professional growth in a startup-like team delivering enterprise contracts.",
   slug: "lessons-from-mentors-enterprise-insights-and-personal-reflections-from-urban-dynamics",
+  headerImage: "/images/lessons-from-mentors-enterprise-insights-and-personal-reflections-from-urban-dynamics-hero.png",
+  socialImage: "/images/lessons-from-mentors-enterprise-insights-and-personal-reflections-from-urban-dynamics-hero.png",
   publishedDate: "2025-09-24",
   modifiedDate: "2026-03-05",
   keywords: ["enterprise DevOps","identity management","single sign-on","mentorship","startup culture","enterprise contracts","networking security","personal growth","AI-assisted development","creative ideation"],
