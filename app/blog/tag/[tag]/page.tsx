@@ -4,6 +4,7 @@ import Breadcrumb from '@/components/Breadcrumb';
 import PageBackground from '@/components/PageBackground';
 import { getAllPosts } from '@/lib/post-metadata';
 import type { PostIndexEntry } from '@/lib/post-metadata';
+import { slugifyTag, getTagDisplayName, getAllTagSlugs } from '@/lib/tag-utils';
 import type { Metadata } from 'next';
 
 export const revalidate = 3600;
@@ -12,33 +13,25 @@ interface TagPageProps {
   params: Promise<{ tag: string }>;
 }
 
-function getPostsForTag(tag: string): PostIndexEntry[] {
-  const decoded = decodeURIComponent(tag);
+function getPostsForSlug(slug: string): PostIndexEntry[] {
   return getAllPosts().filter(
-    (p) => p.tags.includes(decoded) || p.keywords.includes(decoded)
+    (p) =>
+      p.tags.some((t) => slugifyTag(t) === slug) ||
+      p.keywords.some((k) => slugifyTag(k) === slug)
   );
 }
 
-function getAllUniqueTags(): string[] {
-  const tags = new Set<string>();
-  for (const post of getAllPosts()) {
-    for (const t of post.tags) tags.add(t);
-    for (const k of post.keywords) tags.add(k);
-  }
-  return Array.from(tags);
-}
-
 export async function generateStaticParams() {
-  return getAllUniqueTags().map((tag) => ({ tag: encodeURIComponent(tag) }));
+  return getAllTagSlugs().map((tag) => ({ tag }));
 }
 
 export async function generateMetadata({ params }: TagPageProps): Promise<Metadata> {
   const { tag } = await params;
-  const decoded = decodeURIComponent(tag);
-  const posts = getPostsForTag(tag);
-  const title = `Posts tagged "${decoded}" — CyberWorld Builders Blog`;
-  const description = `Browse ${posts.length} blog post${posts.length === 1 ? '' : 's'} tagged with "${decoded}" — Software engineering insights from CyberWorld Builders.`;
-  const canonical = `https://cyberworldbuilders.com/blog/tag/${encodeURIComponent(decoded)}`;
+  const displayName = getTagDisplayName(tag);
+  const posts = getPostsForSlug(tag);
+  const title = `Posts tagged "${displayName}" — CyberWorld Builders Blog`;
+  const description = `Browse ${posts.length} blog post${posts.length === 1 ? '' : 's'} tagged with "${displayName}" — Software engineering insights from CyberWorld Builders.`;
+  const canonical = `https://cyberworldbuilders.com/blog/tag/${tag}`;
 
   return {
     title,
@@ -51,8 +44,8 @@ export async function generateMetadata({ params }: TagPageProps): Promise<Metada
 
 export default async function TagPage({ params }: TagPageProps) {
   const { tag } = await params;
-  const decoded = decodeURIComponent(tag);
-  const posts = getPostsForTag(tag);
+  const displayName = getTagDisplayName(tag);
+  const posts = getPostsForSlug(tag);
 
   return (
     <div className="min-h-screen flex flex-col items-center py-8 relative">
@@ -78,13 +71,13 @@ export default async function TagPage({ params }: TagPageProps) {
               { label: 'Home', href: '/' },
               { label: 'Blog', href: '/blog' },
               { label: 'Tags', href: '/blog/tags' },
-              { label: `#${decoded}` },
+              { label: `#${displayName}` },
             ]}
           />
         </div>
 
         <h1 className="text-4xl font-bold mb-2 text-[#00ff00]">
-          #{decoded}
+          #{displayName}
         </h1>
         <p className="text-[#00ff00]/70 mb-8">
           {posts.length} post{posts.length === 1 ? '' : 's'}
@@ -116,7 +109,7 @@ export default async function TagPage({ params }: TagPageProps) {
                   {post.tags.slice(0, 5).map((t) => (
                     <Link
                       key={t}
-                      href={`/blog/tag/${encodeURIComponent(t)}`}
+                      href={`/blog/tag/${slugifyTag(t)}`}
                       className="px-2 py-0.5 bg-[#00ff00]/10 border border-[#00ff00]/20 rounded-full text-xs text-[#00ff00]/60 hover:text-[#00ff00] transition-colors"
                     >
                       #{t}
