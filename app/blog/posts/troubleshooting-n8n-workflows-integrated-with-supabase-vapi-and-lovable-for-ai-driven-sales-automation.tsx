@@ -5,6 +5,8 @@ export const metadata: PostMeta = {
   title: "Troubleshooting n8n Workflows Integrated with Supabase, Vapi, and Lovable for AI-Driven Sales Automation",
   description: "A real-time troubleshooting guide for complex AI-driven sales automation systems using n8n workflows, Supabase database, Vapi voice AI, and Lovable frontend. Covers foreign key errors, data loss recovery, and system stability issues.",
   slug: "troubleshooting-n8n-workflows-integrated-with-supabase-vapi-and-lovable-for-ai-driven-sales-automation",
+  headerImage: "/images/troubleshooting-n8n-workflows-integrated-with-supabase-vapi-and-lovable-for-ai-driven-sales-automation-hero.png",
+  socialImage: "/images/troubleshooting-n8n-workflows-integrated-with-supabase-vapi-and-lovable-for-ai-driven-sales-automation-hero.png",
   publishedDate: "2024-01-20",
   modifiedDate: "2026-03-05",
   keywords: ["n8n","supabase","vapi","lovable","AI automation","sales automation","workflow troubleshooting","database errors","foreign key constraints","voice AI","no-code","low-code","system recovery","data loss","automation debugging"],

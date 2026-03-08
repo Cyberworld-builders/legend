@@ -5,6 +5,8 @@ export const metadata: PostMeta = {
   title: "Transitioning from Cable Contracting to Freelance Web Development: A Career Pivot",
   description: "A detailed account of transitioning from over three years as a cable installation contractor to becoming a full-time freelance web developer. Covers misclassification challenges, rediscovering programming skills, and the breakthrough moment leveraging Upwork to escape manual labor.",
   slug: "transitioning-from-cable-contracting-to-freelance-web-development-a-career-pivot",
+  headerImage: "/images/transitioning-from-cable-contracting-to-freelance-web-development-a-career-pivot-hero.png",
+  socialImage: "/images/transitioning-from-cable-contracting-to-freelance-web-development-a-career-pivot-hero.png",
   publishedDate: "2024-01-09",
   modifiedDate: "2026-03-05",
   keywords: ["career transition","cable contracting","freelance web development","misclassification","Charter Communications","Spectrum","Upwork","WordPress","PHP","MySQL","self-directed learning","global freelance market","career pivot","manual labor","programming skills"],
