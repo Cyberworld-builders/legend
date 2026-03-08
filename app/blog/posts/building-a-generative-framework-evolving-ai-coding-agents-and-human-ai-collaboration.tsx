@@ -5,6 +5,8 @@ export const metadata: PostMeta = {
   title: "Building a Generative Framework: Evolving AI Coding Agents and Human-AI Collaboration",
   description: "Explore the concept of a generative framework using prompts and code snippets to enhance AI-assisted software development, insights on coding agents' evolution, and heuristics for effective human-AI collaboration in tech projects.",
   slug: "building-a-generative-framework-evolving-ai-coding-agents-and-human-ai-collaboration",
+  headerImage: "/images/building-a-generative-framework-evolving-ai-coding-agents-and-human-ai-collaboration-hero.png",
+  socialImage: "/images/building-a-generative-framework-evolving-ai-coding-agents-and-human-ai-collaboration-hero.png",
   publishedDate: "2025-09-23",
   modifiedDate: "2026-03-06",
   keywords: ["generative framework","coding agents","AI autonomy","human-AI collaboration","software development","LLM productivity","AI training data","heuristic for AI use","prompt engineering","agentic AI"],

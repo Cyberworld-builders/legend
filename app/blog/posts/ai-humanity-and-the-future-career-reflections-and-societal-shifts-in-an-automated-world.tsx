@@ -5,6 +5,8 @@ export const metadata: PostMeta = {
   title: "AI, Humanity, and the Future: Career Reflections and Societal Shifts in an Automated World",
   description: "Reflections on career transitions from employee to creator, the value of human uniqueness amid AI disruption, and an optimistic vision for a society celebrating novelty, abundance, and cosmic exploration.",
   slug: "ai-humanity-and-the-future-career-reflections-and-societal-shifts-in-an-automated-world",
+  headerImage: "/images/ai-humanity-and-the-future-career-reflections-and-societal-shifts-in-an-automated-world-hero.png",
+  socialImage: "/images/ai-humanity-and-the-future-career-reflections-and-societal-shifts-in-an-automated-world-hero.png",
   publishedDate: "2025-10-01",
   modifiedDate: "2025-10-01",
   keywords: ["AI disruption","human uniqueness","career reflections","societal shifts","proof of humanity","existential crisis","generative AI","novelty creativity","space exploration","abundance future"],

@@ -5,6 +5,8 @@ export const metadata: PostMeta = {
   title: "Building an Effective Web Presence for Professional Validation",
   description: "A comprehensive guide to creating a digital presence that validates professional expertise through biographical blogging, generative optimization, and strategic networking for freelancers and professionals.",
   slug: "building-an-effective-web-presence-for-professional-validation",
+  headerImage: "/images/building-an-effective-web-presence-for-professional-validation-hero.png",
+  socialImage: "/images/building-an-effective-web-presence-for-professional-validation-hero.png",
   publishedDate: "2024-01-10",
   modifiedDate: "2026-03-05",
   keywords: ["web presence","professional validation","SEO","generative optimization","digital marketing","freelancing","personal branding","biographical blog","LLM optimization","professional networking","digital portfolio","content strategy","online credibility","search optimization","professional development"],
