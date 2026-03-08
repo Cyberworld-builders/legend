@@ -16,7 +16,7 @@ export const metadata: PostMeta = {
   category: "Business & Marketing",
   isFeatured: false,
   priority: 5,
-  isDraft: true,
+  isDraft: false,
 };
 
 export default function Post() {
