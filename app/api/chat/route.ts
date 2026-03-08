@@ -47,6 +47,32 @@ async function upsertChatSession(
   }
 }
 
+export async function GET(request: NextRequest) {
+  try {
+    const sessionId = request.nextUrl.searchParams.get('sessionId') || '';
+    if (!sessionId) {
+      return NextResponse.json({ jayMessages: [], jayOnline: false });
+    }
+
+    const headers: Record<string, string> = {};
+    if (CHAT_API_SECRET) {
+      headers['X-Chat-Secret'] = CHAT_API_SECRET;
+    }
+
+    const pollUrl = `${GUSCLAW_CHAT_URL}/chat/poll?sessionId=${encodeURIComponent(sessionId)}`;
+    const gusResponse = await fetch(pollUrl, { headers });
+
+    if (!gusResponse.ok) {
+      return NextResponse.json({ jayMessages: [], jayOnline: false });
+    }
+
+    const data = await gusResponse.json();
+    return NextResponse.json(data);
+  } catch {
+    return NextResponse.json({ jayMessages: [], jayOnline: false });
+  }
+}
+
 export async function POST(request: NextRequest) {
   try {
     const ip =
@@ -89,6 +115,7 @@ export async function POST(request: NextRequest) {
         message,
         history,
         contactCaptured,
+        sessionId: sessionId || '',
       }),
     });
 
@@ -105,6 +132,7 @@ export async function POST(request: NextRequest) {
     const botMessage: string = gusData.response || 'Sorry, I had a hiccup. Could you try again?';
     const quickReplies: string[] = gusData.quickReplies || [];
     const showEmailCapture: boolean = gusData.showEmailCapture || false;
+    const jayMessages: string[] = gusData.jayMessages || [];
 
     if (sessionId) {
       const allMessages: ChatMessage[] = [
@@ -112,6 +140,10 @@ export async function POST(request: NextRequest) {
         { role: 'user', content: message, ts: new Date().toISOString() },
         { role: 'bot', content: botMessage, ts: new Date().toISOString() },
       ];
+      // Include Jay's messages in the session too
+      for (const jm of jayMessages) {
+        allMessages.push({ role: 'bot', content: `Jay: ${jm}`, ts: new Date().toISOString() });
+      }
       await upsertChatSession(sessionId, allMessages, page || null);
     }
 
@@ -119,6 +151,7 @@ export async function POST(request: NextRequest) {
       response: botMessage,
       quickReplies,
       showEmailCapture,
+      jayMessages,
     });
   } catch (error: unknown) {
     console.error('Chat API error:', error);
