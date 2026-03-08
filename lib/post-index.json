@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-03-08T06:53:24.521Z",
-  "count": 31,
+  "generatedAt": "2026-03-08T18:16:31.528Z",
+  "count": 32,
   "posts": [
     {
       "slug": "one-week-claude-code-publishing-pipeline",
@@ -45,7 +45,50 @@
       "canonicalUrl": "https://cyberworldbuilders.com/blog/one-week-claude-code-publishing-pipeline",
       "wordCount": 1803,
       "fileSize": 11960,
-      "fileModified": "2026-03-08T06:53:24.077Z"
+      "fileModified": "2026-03-08T08:11:42.787Z"
+    },
+    {
+      "slug": "where-im-going-next",
+      "title": "Where I'm Going Next",
+      "description": "After building out the blog pipeline and SEO automations, here's the roadmap for CyberWorld — from generative search optimization to a unified dashboard to a three-tier service model that makes traditional SaaS obsolete.",
+      "publishedDate": "2026-03-08",
+      "modifiedDate": "2026-03-08",
+      "isDraft": true,
+      "isFeatured": false,
+      "priority": 5,
+      "category": "Business & Marketing",
+      "series": "",
+      "topics": [
+        "Business & Marketing",
+        "AI & Automation",
+        "Career & Professional Development"
+      ],
+      "tags": [
+        "cyberworld",
+        "seo",
+        "geo",
+        "automation",
+        "saas",
+        "digital-marketing",
+        "claude-code",
+        "roadmap"
+      ],
+      "keywords": [
+        "cyberworld builders",
+        "seo automation",
+        "generative engine optimization",
+        "geo",
+        "saas",
+        "digital marketing",
+        "ai automation",
+        "blog publishing pipeline",
+        "claude code",
+        "open claw"
+      ],
+      "canonicalUrl": "https://cyberworldbuilders.com/blog/where-im-going-next",
+      "wordCount": 2301,
+      "fileSize": 15087,
+      "fileModified": "2026-03-08T18:16:31.331Z"
     },
     {
       "slug": "code-first-n8n-custom-nodes-automation-workflow",
