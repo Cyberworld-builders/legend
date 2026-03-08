@@ -5,6 +5,8 @@ export const metadata: PostMeta = {
   title: "Chatbot Breakthrough: How OpenAI's Web Crawling Validates Generative SEO for Smarter Site Interactions",
   description: "Uncovering the power of simple LangChain chatbots enhanced by OpenAI's training data, turning basic prompts into accurate, linked responses—proving the value of generative search optimization for blogs.",
   slug: "chatbot-breakthrough-how-openais-web-crawling-validates-generative-seo-for-smarter-site-interactions",
+  headerImage: "/images/chatbot-breakthrough-how-openais-web-crawling-validates-generative-seo-for-smarter-site-interactions-hero.png",
+  socialImage: "/images/chatbot-breakthrough-how-openais-web-crawling-validates-generative-seo-for-smarter-site-interactions-hero.png",
   publishedDate: "2025-10-04",
   modifiedDate: "2025-10-04",
   keywords: ["chatbot-optimization","LangChain-integration","OpenAI-crawling","generative-SEO","retrieval-augmented-generation","vector-database","Supabase-backend","blog-indexing","AI-prompting-tricks"],

@@ -5,6 +5,8 @@ export const metadata: PostMeta = {
   title: "Building Custom n8n Nodes to Automate Transcript Cleanup with Grok",
   description: "A deep technical walkthrough of building custom n8n nodes, wiring them to a Next.js API, and using XAI's Grok model to clean up voice transcripts automatically.",
   slug: "custom-n8n-nodes-transcript-cleanup-xai-grok",
+  headerImage: "/images/custom-n8n-nodes-transcript-cleanup-xai-grok-hero.png",
+  socialImage: "/images/custom-n8n-nodes-transcript-cleanup-xai-grok-hero.png",
   publishedDate: "2026-03-07",
   modifiedDate: "2026-03-07",
   keywords: ["n8n", "custom nodes", "xai", "grok", "transcript processing", "next.js api", "automation", "claude code", "cursor"],
