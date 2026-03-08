@@ -11,17 +11,18 @@ export const viewport: Viewport = {
   initialScale: 1,
   maximumScale: 1,
   userScalable: false,
+  themeColor: '#1a1a1a',
 };
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://cyberworldbuilders.com'),
   title: {
-    default: 'CyberWorld Builders - Digital Marketing Systems & Software Engineering',
+    default: 'Custom Software & Automation for Service Businesses | CyberWorld Builders',
     template: '%s | CyberWorld Builders'
   },
-  description: 'Digital marketing systems, business automation, and software engineering for service businesses ready to grow. Automated lead capture, content pipelines, and reporting dashboards.',
-  keywords: ['digital marketing systems', 'marketing automation', 'lead generation', 'business automation', 'software engineering', 'web development', 'consulting', 'AWS', 'cyberworld builders'],
-  authors: [{ name: 'Jay Long', url: 'https://cyberworldbuilders.dev' }],
+  description: 'We build custom software, marketing automation, and AI-powered systems that help service businesses capture more leads and scale faster. Free consultation available.',
+  keywords: ['custom software development', 'marketing automation', 'lead generation', 'business automation', 'software engineering', 'web development', 'consulting', 'AI automation', 'cyberworld builders'],
+  authors: [{ name: 'Jay Long', url: 'https://cyberworldbuilders.com' }],
   creator: 'Jay Long',
   publisher: 'CyberWorld Builders',
   robots: {
@@ -40,20 +41,14 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: 'https://cyberworldbuilders.com',
     siteName: 'CyberWorld Builders',
-    title: 'CyberWorld Builders - Digital Marketing Systems & Software Engineering',
-    description: 'Digital marketing systems, business automation, and software engineering for service businesses ready to grow.',
+    title: 'Custom Software & Automation for Service Businesses | CyberWorld Builders',
+    description: 'We build custom software, marketing automation, and AI-powered systems that help service businesses capture more leads and scale faster.',
     images: [
       {
         url: 'https://cyberworldbuilders.com/images/social-card.png',
         width: 1200,
         height: 630,
-        alt: 'CyberWorld Builders - Digital Marketing Systems & Software Engineering',
-      },
-      {
-        url: 'https://cyberworldbuilders.com/images/logo.png',
-        width: 1200,
-        height: 630,
-        alt: 'CyberWorld Builders Logo',
+        alt: 'CyberWorld Builders - Custom Software & Automation for Service Businesses',
       },
     ],
   },
@@ -61,12 +56,9 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     site: '@cyberbuilders',
     creator: '@cyberbuilders',
-    title: 'CyberWorld Builders - Digital Marketing Systems & Software Engineering',
-    description: 'Digital marketing systems, business automation, and software engineering for service businesses ready to grow.',
-    images: [
-      'https://cyberworldbuilders.com/images/social-card.png',
-      'https://cyberworldbuilders.com/images/logo.png'
-    ],
+    title: 'Custom Software & Automation for Service Businesses | CyberWorld Builders',
+    description: 'We build custom software, marketing automation, and AI-powered systems that help service businesses capture more leads and scale faster.',
+    images: ['https://cyberworldbuilders.com/images/social-card.png'],
   },
   icons: {
     icon: [
@@ -102,7 +94,7 @@ export default function RootLayout({
               "@type": "WebSite",
               "name": "CyberWorld Builders",
               "url": "https://cyberworldbuilders.com",
-              "description": "Professional software engineering services, web development consulting, and AWS solutions.",
+              "description": "Custom software development, marketing automation, and AI-powered systems for service businesses ready to grow.",
               "potentialAction": {
                 "@type": "SearchAction",
                 "target": {
@@ -157,7 +149,7 @@ export default function RootLayout({
               "alternateName": "CyberWorld Builders, Inc.",
               "url": "https://cyberworldbuilders.com",
               "logo": "https://cyberworldbuilders.com/images/logo.png",
-              "description": "Professional software engineering services, web development consulting, and AWS solutions.",
+              "description": "Custom software development, marketing automation, and AI-powered systems for service businesses ready to grow.",
               "founder": {
                 "@type": "Person",
                 "name": "Jay Long",
@@ -229,6 +221,43 @@ export default function RootLayout({
                   }
                 ]
               }
+            })
+          }}
+        />
+
+        {/* LocalBusiness Schema — captures local intent queries */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "ProfessionalService",
+              "name": "CyberWorld Builders",
+              "url": "https://cyberworldbuilders.com",
+              "logo": "https://cyberworldbuilders.com/images/logo.png",
+              "image": "https://cyberworldbuilders.com/images/social-card.png",
+              "description": "Custom software development, marketing automation, and AI-powered systems for service businesses.",
+              "email": "contact@cyberworldbuilders.com",
+              "priceRange": "$$",
+              "areaServed": {
+                "@type": "Country",
+                "name": "United States"
+              },
+              "serviceType": [
+                "Custom Software Development",
+                "Marketing Automation",
+                "Web Development",
+                "AI Integration",
+                "Business Automation",
+                "Technical Consulting"
+              ],
+              "sameAs": [
+                "https://github.com/CyberWorld-builders",
+                "https://youtube.com/@cyberbuilders",
+                "https://x.com/cyberbuilders",
+                "https://www.facebook.com/cyberworldbuilders",
+                "https://www.upwork.com/freelancers/jaylongcyberworld"
+              ]
             })
           }}
         />
