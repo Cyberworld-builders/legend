@@ -4,6 +4,10 @@ import { useState } from 'react';
 import Link from 'next/link';
 import SearchInput from './SearchInput';
 
+function slugifyTag(tag: string): string {
+  return tag.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+}
+
 interface TagGridProps {
   categorizedTags: Record<string, Array<[string, number]>>;
   totalTags: number;
@@ -39,7 +43,7 @@ export default function TagGrid({ categorizedTags, totalTags, totalPosts }: TagG
               {filteredTags.map(([tag, count]) => (
                 <Link
                   key={tag}
-                  href={`/blog/tag/${encodeURIComponent(tag)}`}
+                  href={`/blog/tag/${slugifyTag(tag)}`}
                   className="group px-4 py-2 bg-[#00ff00]/10 border border-[#00ff00]/30 rounded-full text-[#00ff00]/80 hover:bg-[#00ff00]/20 hover:text-[#00ff00] transition-colors"
                 >
                   <span className="font-medium">#{tag}</span>
@@ -62,7 +66,7 @@ export default function TagGrid({ categorizedTags, totalTags, totalPosts }: TagG
                   {tags.map(([tag, count]) => (
                     <Link
                       key={tag}
-                      href={`/blog/tag/${encodeURIComponent(tag)}`}
+                      href={`/blog/tag/${slugifyTag(tag)}`}
                       className="group px-4 py-2 bg-[#00ff00]/10 border border-[#00ff00]/30 rounded-full text-[#00ff00]/80 hover:bg-[#00ff00]/20 hover:text-[#00ff00] transition-colors"
                     >
                       <span className="font-medium">#{tag}</span>

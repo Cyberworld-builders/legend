@@ -1,5 +1,6 @@
 import { MetadataRoute } from 'next'
 import { getAllPosts } from '@/lib/post-metadata'
+import { getAllTagSlugs } from '@/lib/tag-utils'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = 'https://cyberworldbuilders.com'
@@ -40,15 +41,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: post.isFeatured ? 0.8 : 0.7,
     }))
 
-    // Collect unique tags
-    const tags = new Set<string>()
-    for (const post of posts) {
-      for (const t of post.tags) tags.add(t)
-      for (const k of post.keywords) tags.add(k)
-    }
-
-    tagPages = Array.from(tags).map(tag => ({
-      url: `${baseUrl}/blog/tag/${encodeURIComponent(tag)}`,
+    // Collect unique tag slugs (deduped, hyphenated)
+    tagPages = getAllTagSlugs().map(slug => ({
+      url: `${baseUrl}/blog/tag/${slug}`,
       lastModified: new Date(),
       changeFrequency: 'weekly' as const,
       priority: 0.5,
