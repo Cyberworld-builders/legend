@@ -5,6 +5,8 @@ export const metadata: PostMeta = {
   title: "Early Adventures in Freelance Web Development: Lessons from the WordPress Era",
   description: "A reflection on early freelance web development experiences, focusing on WordPress specialization after transitioning from DocWorks. Covers plugin customization, client relationships, reputation management, and the dynamics of remote freelance work in the early 2010s.",
   slug: "early-adventures-in-freelance-web-development-lessons-from-the-wordpress-era",
+  headerImage: "/images/early-adventures-in-freelance-web-development-lessons-from-the-wordpress-era-hero.png",
+  socialImage: "/images/early-adventures-in-freelance-web-development-lessons-from-the-wordpress-era-hero.png",
   publishedDate: "2024-01-08",
   modifiedDate: "2026-03-05",
   keywords: ["freelance web development","WordPress development","plugin customization","client relationships","reputation management","remote work","full-stack development","PHP","MySQL","JavaScript","career lessons","freelancing","Upwork","global market"],

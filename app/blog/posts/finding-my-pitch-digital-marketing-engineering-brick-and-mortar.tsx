@@ -5,6 +5,8 @@ export const metadata: PostMeta = {
   title: "Finding My Pitch: Digital Marketing, Engineering, and the Brick-and-Mortar Play",
   description: "Working through how to position CyberWorld Builders for small businesses — leading with digital marketing, backing it up with real engineering chops, and keeping the SaaS dream alive on the back burner.",
   slug: "finding-my-pitch-digital-marketing-engineering-brick-and-mortar",
+  headerImage: "/images/finding-my-pitch-digital-marketing-engineering-brick-and-mortar-hero.png",
+  socialImage: "/images/finding-my-pitch-digital-marketing-engineering-brick-and-mortar-hero.png",
   publishedDate: "2026-03-07",
   modifiedDate: "2026-03-07",
   keywords: ["digital marketing", "small business", "software engineering", "saas", "freelancing", "business positioning", "seo", "lead generation", "sales funnels", "cyberworld builders"],
