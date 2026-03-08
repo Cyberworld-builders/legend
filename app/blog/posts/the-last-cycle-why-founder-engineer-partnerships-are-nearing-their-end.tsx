@@ -5,6 +5,8 @@ export const metadata: PostMeta = {
   title: "The Last Cycle: Why Founder-Engineer Partnerships Are Nearing Their End",
   description: "An analysis of the current era of founder-engineer collaboration and predictions about its end. Covers the transition to minimal teams, AI tool maturation, and strategic planning for the next 6-12 months in the evolving tech landscape.",
   slug: "the-last-cycle-why-founder-engineer-partnerships-are-nearing-their-end",
+  headerImage: "/images/the-last-cycle-why-founder-engineer-partnerships-are-nearing-their-end-hero.png",
+  socialImage: "/images/the-last-cycle-why-founder-engineer-partnerships-are-nearing-their-end-hero.png",
   publishedDate: "2024-01-16",
   modifiedDate: "2025-09-23",
   keywords: ["founder-engineer partnerships","AI tools","minimal teams","Cursor","GitHub Copilot","Grok 3","tech cycles","collaboration","strategic planning","industry trends","automation","development efficiency","team scaling"],
