@@ -5,6 +5,8 @@ export const metadata: PostMeta = {
   title: "Drawing from the Well: Sober Meditation, Ancient Pyramids, and Becoming Pure Information",
   description: "A practice I've been developing to induce altered states without drugs, and how it's changing the way I think about ancient civilizations, sacred architecture, and what consciousness actually is.",
   slug: "drawing-from-the-well-sober-meditation-pyramids-pure-information",
+  headerImage: "/images/drawing-from-the-well-sober-meditation-pyramids-pure-information-hero.png",
+  socialImage: "/images/drawing-from-the-well-sober-meditation-pyramids-pure-information-hero.png",
   publishedDate: "2026-03-07",
   modifiedDate: "2026-03-07",
   keywords: ["meditation", "lucid dreaming", "power nap", "sober meditation", "pyramids", "ancient mystery schools", "consciousness", "pure information", "spirituality", "timothy leary", "tibetan book of the dead"],

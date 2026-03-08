@@ -5,6 +5,8 @@ export const metadata: PostMeta = {
   title: "Scaling Novelty with an Agentic Blog Bot",
   description: "Exploring the intersection of AI and content creation through an agentic blog bot that amplifies creativity, captures ideas, and builds tools that reflect personal voice and vision.",
   slug: "scaling-novelty-with-an-agentic-blog-bot",
+  headerImage: "/images/scaling-novelty-with-an-agentic-blog-bot-hero.png",
+  socialImage: "/images/scaling-novelty-with-an-agentic-blog-bot-hero.png",
   publishedDate: "2024-01-12",
   modifiedDate: "2025-09-23",
   keywords: ["AI","blog bot","content creation","automation","digital legacy","creativity","AI agents","content strategy","personal branding","technology","innovation","digital tools"],

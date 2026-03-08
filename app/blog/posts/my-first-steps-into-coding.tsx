@@ -5,6 +5,8 @@ export const metadata: PostMeta = {
   title: "My First Steps into Coding: A Biographical Journey",
   description: "A personal journey through the early days of coding, from learning HTML and CSS to building my first Flash website and transitioning into software development at a medical records startup.",
   slug: "my-first-steps-into-coding",
+  headerImage: "/images/my-first-steps-into-coding-hero.png",
+  socialImage: "/images/my-first-steps-into-coding-hero.png",
   publishedDate: "2024-01-05",
   modifiedDate: "2026-03-05",
   keywords: ["coding journey","HTML","CSS","Flash","web development","career transition","self-directed learning","programming","software development","biographical","early career","technology"],

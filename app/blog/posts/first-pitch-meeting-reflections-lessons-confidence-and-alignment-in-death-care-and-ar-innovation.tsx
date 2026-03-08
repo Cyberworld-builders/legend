@@ -5,6 +5,8 @@ export const metadata: PostMeta = {
   title: "First Pitch Meeting Reflections: Lessons, Confidence, and Alignment in Death Care and AR Innovation",
   description: "Reflections on my first investor pitch meeting, its unexpected value as a forcing function for prototyping, and the alignment of death care solutions with augmented reality (AR) location-based experiences, reinforcing confidence to pursue the vision independently.",
   slug: "first-pitch-meeting-reflections-lessons-confidence-and-alignment-in-death-care-and-ar-innovation",
+  headerImage: "/images/first-pitch-meeting-reflections-lessons-confidence-and-alignment-in-death-care-and-ar-innovation-hero.png",
+  socialImage: "/images/first-pitch-meeting-reflections-lessons-confidence-and-alignment-in-death-care-and-ar-innovation-hero.png",
   publishedDate: "2025-10-15",
   modifiedDate: "2026-03-05",
   keywords: ["pitch meeting","investor pitch","death care technology","augmented reality","location-based experiences","prototype development","career alignment","digital marketing","cemetery management","entrepreneurial confidence"],

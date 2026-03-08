@@ -5,6 +5,8 @@ export const metadata: PostMeta = {
   title: "Code-First N8N: Why I Build Custom Nodes Instead of Searching the Marketplace",
   description: "I'm building automation workflows with a code-first approach to N8N. Custom nodes, version-controlled workflows, and a monorepo where my coding agents have full context. Here's where I'm at and where this is going.",
   slug: "code-first-n8n-custom-nodes-automation-workflow",
+  headerImage: "/images/code-first-n8n-custom-nodes-automation-workflow-hero.png",
+  socialImage: "/images/code-first-n8n-custom-nodes-automation-workflow-hero.png",
   publishedDate: "2026-03-07",
   modifiedDate: "2026-03-07",
   keywords: ["n8n", "automation", "custom nodes", "code-first development", "docker compose", "next.js", "supabase", "version control", "blog automation", "transcript pipeline"],

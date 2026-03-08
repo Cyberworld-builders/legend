@@ -5,6 +5,8 @@ export const metadata: PostMeta = {
   title: "From Zapier to n8n: Why I'm Building an Automation Practice",
   description: "How a Bitbucket pipeline hack years ago led me to build automation consulting into my business — and why knowing n8n matters even if it's not the future.",
   slug: "from-zapier-to-n8n-automation-practice",
+  headerImage: "/images/from-zapier-to-n8n-automation-practice-hero.png",
+  socialImage: "/images/from-zapier-to-n8n-automation-practice-hero.png",
   publishedDate: "2026-03-07",
   modifiedDate: "2026-03-07",
   keywords: ["n8n", "zapier", "automation workflows", "no-code automation", "custom nodes", "vercel", "next.js", "bitbucket pipelines", "devops automation", "refactoring workflows"],

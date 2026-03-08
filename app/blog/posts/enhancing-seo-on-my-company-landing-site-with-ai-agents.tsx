@@ -5,6 +5,8 @@ export const metadata: PostMeta = {
   title: "Enhancing SEO on My Company Landing Site with AI Agents",
   description: "A detailed exploration of implementing SEO improvements on a company landing site using AI agents like Cursor. Covers meta tags, breadcrumbs, social links, page speed optimization, schema markup, and building a developer-friendly blog architecture.",
   slug: "enhancing-seo-on-my-company-landing-site-with-ai-agents",
+  headerImage: "/images/enhancing-seo-on-my-company-landing-site-with-ai-agents-hero.png",
+  socialImage: "/images/enhancing-seo-on-my-company-landing-site-with-ai-agents-hero.png",
   publishedDate: "2024-01-12",
   modifiedDate: "2026-03-05",
   keywords: ["SEO optimization","AI agents","Cursor AI","meta tags","breadcrumbs","social media integration","page speed optimization","schema markup","blog architecture","digital marketing","search engine optimization","AI-assisted development","developer tools","content strategy"],

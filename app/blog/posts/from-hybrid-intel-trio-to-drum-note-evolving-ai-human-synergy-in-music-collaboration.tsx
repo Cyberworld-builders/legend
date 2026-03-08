@@ -5,6 +5,8 @@ export const metadata: PostMeta = {
   title: "From Hybrid Intel Trio to Drum Note: Evolving AI-Human Synergy in Music Collaboration",
   description: "Tracing the evolution of AI-music ideas from Pandora's lessons in RLHF to BotBand and Drum Note, exploring optimal human-AI collaboration in creativity, relationships, and education for meaningful alignment.",
   slug: "from-hybrid-intel-trio-to-drum-note-evolving-ai-human-synergy-in-music-collaboration",
+  headerImage: "/images/from-hybrid-intel-trio-to-drum-note-evolving-ai-human-synergy-in-music-collaboration-hero.png",
+  socialImage: "/images/from-hybrid-intel-trio-to-drum-note-evolving-ai-human-synergy-in-music-collaboration-hero.png",
   publishedDate: "2025-10-03",
   modifiedDate: "2025-10-03",
   keywords: ["AI-music-collaboration","human-AI-synergy","reinforcement-learning-feedback","session-drummer-AI","BotBand","Drum-Note","creative-alignment","music-production-tools","RLHF-in-recommendations","hybrid-intelligence"],

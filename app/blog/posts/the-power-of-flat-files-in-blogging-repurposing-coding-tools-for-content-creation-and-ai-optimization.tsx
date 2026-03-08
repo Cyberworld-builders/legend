@@ -5,6 +5,8 @@ export const metadata: PostMeta = {
   title: "The Power of Flat Files in Blogging: Repurposing Coding Tools for Content Creation and AI Optimization",
   description: "Discover how using flat files with Markdown and YAML in a Next.js Jamstack blog enhances AI-assisted content creation, SEO, and generative search optimization by repurposing coding IDEs like Cursor for literary tasks.",
   slug: "the-power-of-flat-files-in-blogging-repurposing-coding-tools-for-content-creation-and-ai-optimization",
+  headerImage: "/images/the-power-of-flat-files-in-blogging-repurposing-coding-tools-for-content-creation-and-ai-optimization-hero.png",
+  socialImage: "/images/the-power-of-flat-files-in-blogging-repurposing-coding-tools-for-content-creation-and-ai-optimization-hero.png",
   publishedDate: "2025-09-23",
   modifiedDate: "2026-03-06",
   keywords: ["flat files blogging","Jamstack Next.js","AI content creation","coding agents for blogging","generative search optimization","YAML frontmatter","Markdown content","IDE indexing","SEO schema updates","human-AI collaboration"],

@@ -5,6 +5,8 @@ export const metadata: PostMeta = {
   title: "Revenant Hollow: Integrating Technology into Location-Based Horror Experiences",
   description: "An interactive, location-based entertainment experience that incorporates mixed reality, IoT, and automation to enhance theatrical horror attractions and seasonal Halloween markets.",
   slug: "revenant-hollow-integrating-technology-into-location-based-horror-experiences",
+  headerImage: "/images/revenant-hollow-integrating-technology-into-location-based-horror-experiences-hero.png",
+  socialImage: "/images/revenant-hollow-integrating-technology-into-location-based-horror-experiences-hero.png",
   publishedDate: "2024-01-15",
   modifiedDate: "2026-03-05",
   keywords: ["mixed reality","virtual reality","augmented reality","IoT","location-based entertainment","haunted houses","Halloween attractions","automation","robotics","theatrical attractions","interactive experiences","mobile integration","geolocation","scare props","augmented reality sports complex"],

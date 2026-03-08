@@ -5,6 +5,8 @@ export const metadata: PostMeta = {
   title: "Exploring No-Code Development with Replit: A Professional Analysis",
   description: "A professional analysis of Replit's no-code development capabilities through building a to-do application. Covers automation, mobile accessibility, non-technical interfaces, and strategic implications for founders and developers.",
   slug: "replit-test-drive",
+  headerImage: "/images/replit-test-drive-hero.png",
+  socialImage: "/images/replit-test-drive-hero.png",
   publishedDate: "2024-01-17",
   modifiedDate: "2025-09-23",
   keywords: ["no-code development","Replit","to-do application","automation","mobile accessibility","non-technical interface","TypeScript","NPM dependencies","Docker containers","database migration","founder capabilities","development services","cost analysis"],

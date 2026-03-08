@@ -5,6 +5,8 @@ export const metadata: PostMeta = {
   title: "rZNjN: Building the Foundation for Human-AI Music Collaboration",
   description: "Introducing rZNjN, the foundational technology behind CyberWorld Media Studios. DrumNote, NotePulse, Music as Code, and why drums are the smartest place to start.",
   slug: "rznjn-human-ai-music-collaboration",
+  headerImage: "/images/rznjn-human-ai-music-collaboration-hero.png",
+  socialImage: "/images/rznjn-human-ai-music-collaboration-hero.png",
   publishedDate: "2026-03-06",
   modifiedDate: "2026-03-06",
   keywords: ["rznjn", "drum notation", "music as code", "ai music", "drum machine", "stem separation", "cyberworld media studios", "drumnote", "notepulse"],

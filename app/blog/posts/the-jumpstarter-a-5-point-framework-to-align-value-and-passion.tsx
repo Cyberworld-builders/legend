@@ -5,6 +5,8 @@ export const metadata: PostMeta = {
   title: "The Jumpstarter: A 5-Point Framework to Align Value and Passion",
   description: "A productivity framework for daily stand-up reports focusing on Action, Progress, Challenge, Intuition, and Strategy. Designed to capture ideas during downtime and align personal desires with professional value creation.",
   slug: "the-jumpstarter-a-5-point-framework-to-align-value-and-passion",
+  headerImage: "/images/the-jumpstarter-a-5-point-framework-to-align-value-and-passion-hero.png",
+  socialImage: "/images/the-jumpstarter-a-5-point-framework-to-align-value-and-passion-hero.png",
   publishedDate: "2024-01-14",
   modifiedDate: "2025-09-23",
   keywords: ["productivity framework","daily stand-up","value alignment","passion alignment","creative flow","idea capture","downtime utilization","voice memos","transcription tools","LLMs","productivity systems","goal setting","self-reflection"],

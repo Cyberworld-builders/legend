@@ -5,6 +5,8 @@ export const metadata: PostMeta = {
   title: "Stop Nickel-and-Diming Your AI Tools and Go All In",
   description: "How a desperate deal with a bad client led to a Claude Pro Max subscription that changed everything. Why spreading across cheap AI subscriptions is holding you back, and what happens when you commit.",
   slug: "stop-nickel-and-diming-ai-tools-go-all-in",
+  headerImage: "/images/stop-nickel-and-diming-ai-tools-go-all-in-hero.png",
+  socialImage: "/images/stop-nickel-and-diming-ai-tools-go-all-in-hero.png",
   publishedDate: "2026-03-07",
   modifiedDate: "2026-03-07",
   keywords: ["claude pro max", "claude code", "ai development tools", "coding agents", "automation", "subagents", "openclaw", "ai personal assistant", "freelance developer"],

@@ -5,6 +5,8 @@ export const metadata: PostMeta = {
   title: "My First Tech Job: The Evolution of the DocWorks EMR System (2011-2013)",
   description: "A biographical account of early software development experiences at a doctor's office, working on the DocWorks electronic medical records system. Covers the evolution from Perl-based flat files to a hybrid system incorporating Ruby on Rails, PHP, and MySQL across multiple operating systems.",
   slug: "my-first-tech-job-the-evolution-of-the-docworks-emr-system-2011-2013",
+  headerImage: "/images/my-first-tech-job-the-evolution-of-the-docworks-emr-system-2011-2013-hero.png",
+  socialImage: "/images/my-first-tech-job-the-evolution-of-the-docworks-emr-system-2011-2013-hero.png",
   publishedDate: "2024-01-07",
   modifiedDate: "2026-03-05",
   keywords: ["EMR system","electronic medical records","healthcare software","Perl","Ruby on Rails","PHP","MySQL","full-stack development","IT support","Windows Server","IIS","Cygwin","healthcare technology","early career","software evolution"],

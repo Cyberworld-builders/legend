@@ -32,7 +32,10 @@ export async function generateMetadata({ params }: BlogPostProps): Promise<Metad
   const ogParams = new URLSearchParams({ title });
   if (description) ogParams.set('description', description);
   const dynamicOgImage = `https://cyberworldbuilders.com/api/og?${ogParams.toString()}`;
-  const socialImage = metadata.socialImage?.trim() || dynamicOgImage;
+  const headerImageUrl = metadata.headerImage?.trim()
+    ? `https://cyberworldbuilders.com${metadata.headerImage}`
+    : null;
+  const socialImage = metadata.socialImage?.trim() || headerImageUrl || dynamicOgImage;
 
   return {
     title,
