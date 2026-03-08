@@ -71,7 +71,7 @@ function InlineCaptureForm({ onSubmit, disabled }: { onSubmit: (value: string) =
           placeholder={mode === 'email' ? 'you@company.com' : '(555) 123-4567'}
           required
           disabled={disabled}
-          className="flex-1 px-3 py-2 bg-[#0a0a0a] border border-[#00ff00]/30 rounded text-[#00ff00] text-sm placeholder-[#00ff00]/30 focus:border-[#00ff00] focus:ring-1 focus:ring-[#00ff00] outline-none transition"
+          className="flex-1 px-3 py-2 bg-[#0a0a0a] border border-[#00ff00]/30 rounded text-[#00ff00] text-base placeholder-[#00ff00]/30 focus:border-[#00ff00] focus:ring-1 focus:ring-[#00ff00] outline-none transition"
         />
         <button
           type="submit"
@@ -93,6 +93,7 @@ const ChatWidget = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [showEmailCapture, setShowEmailCapture] = useState(false);
   const [emailCaptured, setEmailCaptured] = useState(false);
+  const [hasOpened, setHasOpened] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const impressionFired = useRef(false);
 
@@ -116,6 +117,7 @@ const ChatWidget = () => {
     const willOpen = !isOpen;
     if (willOpen) {
       trackEvent('chat_open', {});
+      setHasOpened(true);
     }
     setIsOpen(willOpen);
   };
@@ -197,18 +199,35 @@ const ChatWidget = () => {
 
   return (
     <>
-      {/* Floating Chat Icon */}
+      {/* Floating Chat Launcher */}
       <button
         onClick={toggleChat}
-        className="fixed bottom-6 right-6 p-4 bg-[#00ff00] text-[#1a1a1a] rounded-full shadow-lg hover:bg-[#00cc00] transition z-50"
-        aria-label={isOpen ? 'Close chat' : 'Open chat'}
+        className={`fixed bottom-6 right-6 z-50 flex items-center gap-2 rounded-full shadow-lg shadow-[#00ff00]/20 transition-all duration-300 ${
+          isOpen
+            ? 'p-3 bg-[#1a1a1a] border border-[#00ff00]/50 text-[#00ff00] hover:border-[#00ff00]'
+            : 'px-4 py-3 bg-[#1a1a1a] border border-[#00ff00] text-[#00ff00] hover:bg-[#00ff00]/10 hover:shadow-[0_0_20px_rgba(0,255,0,0.3)]'
+        }`}
+        aria-label={isOpen ? 'Close chat' : 'Chat with us'}
       >
-        {isOpen ? <X size={24} /> : <MessageCircle size={24} />}
+        {isOpen ? (
+          <X size={20} />
+        ) : (
+          <>
+            <span className="relative flex h-3 w-3">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#00ff00] opacity-75" />
+              <span className="relative inline-flex rounded-full h-3 w-3 bg-[#00ff00]" />
+            </span>
+            <MessageCircle size={20} />
+            {!hasOpened && (
+              <span className="text-sm font-bold tracking-wide">Chat</span>
+            )}
+          </>
+        )}
       </button>
 
       {/* Chat Modal */}
       {isOpen && (
-        <div className="fixed inset-0 md:inset-auto md:bottom-20 md:right-6 md:w-[400px] md:h-[600px] bg-[#2a2a2a] border-2 border-[#00ff00] shadow-[0_0_10px_#00ff00] z-50 flex flex-col">
+        <div className="fixed inset-0 md:inset-auto md:bottom-20 md:right-6 md:w-[400px] md:h-[600px] md:rounded-lg bg-[#2a2a2a] border-2 border-[#00ff00] shadow-[0_0_15px_rgba(0,255,0,0.3)] z-50 flex flex-col overflow-hidden">
           {/* Header */}
           <div className="flex justify-between items-center p-4 bg-[#1a1a1a] border-b border-[#00ff00]">
             <h2 className="text-lg uppercase">CyberWorld Chat</h2>
@@ -264,7 +283,7 @@ const ChatWidget = () => {
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 onKeyDown={(e) => e.key === 'Enter' && handleSendMessage()}
-                className="flex-1 p-2 bg-[#1a1a1a] text-[#00ff00] border border-[#00ff00] rounded-sm focus:outline-none focus:ring-2 focus:ring-[#00ff00] placeholder-[#00ff00]/50 text-sm"
+                className="flex-1 p-2 bg-[#1a1a1a] text-[#00ff00] border border-[#00ff00] rounded-sm focus:outline-none focus:ring-2 focus:ring-[#00ff00] placeholder-[#00ff00]/50 text-base"
                 placeholder="Type your message..."
                 disabled={isLoading}
               />
@@ -280,10 +299,10 @@ const ChatWidget = () => {
         </div>
       )}
 
-      {/* Overlay for Mobile */}
+      {/* Backdrop for desktop */}
       {isOpen && (
         <div
-          className="fixed inset-0 bg-black/50 md:hidden z-40"
+          className="fixed inset-0 bg-black/30 hidden md:block z-40"
           onClick={toggleChat}
         />
       )}
