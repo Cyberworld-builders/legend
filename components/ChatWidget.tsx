@@ -19,6 +19,30 @@ const WELCOME_MESSAGE: Message = {
   quickReplies: ['Marketing & Lead Gen', 'Custom Software', 'Automation', 'Just Browsing'],
 };
 
+const CHAT_STATE_KEY = 'cwb_chat_state';
+
+interface ChatState {
+  messages: Message[];
+  isOpen: boolean;
+  hasOpened: boolean;
+  emailCaptured: boolean;
+  jayOnline: boolean;
+}
+
+function saveChatState(state: ChatState) {
+  try {
+    sessionStorage.setItem(CHAT_STATE_KEY, JSON.stringify(state));
+  } catch { /* ignore */ }
+}
+
+function loadChatState(): ChatState | null {
+  try {
+    const stored = sessionStorage.getItem(CHAT_STATE_KEY);
+    if (stored) return JSON.parse(stored) as ChatState;
+  } catch { /* ignore */ }
+  return null;
+}
+
 /** Inline email/phone capture form rendered inside the chat. */
 function InlineCaptureForm({ onSubmit, disabled }: { onSubmit: (value: string) => void; disabled: boolean }) {
   const [value, setValue] = useState('');
@@ -87,14 +111,15 @@ function InlineCaptureForm({ onSubmit, disabled }: { onSubmit: (value: string) =
 }
 
 const ChatWidget = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [messages, setMessages] = useState<Message[]>([WELCOME_MESSAGE]);
+  const restored = useRef(loadChatState());
+  const [isOpen, setIsOpen] = useState(restored.current?.isOpen ?? false);
+  const [messages, setMessages] = useState<Message[]>(restored.current?.messages ?? [WELCOME_MESSAGE]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [showEmailCapture, setShowEmailCapture] = useState(false);
-  const [emailCaptured, setEmailCaptured] = useState(false);
-  const [hasOpened, setHasOpened] = useState(false);
-  const [jayOnline, setJayOnline] = useState(false);
+  const [emailCaptured, setEmailCaptured] = useState(restored.current?.emailCaptured ?? false);
+  const [hasOpened, setHasOpened] = useState(restored.current?.hasOpened ?? false);
+  const [jayOnline, setJayOnline] = useState(restored.current?.jayOnline ?? false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const impressionFired = useRef(false);
   const pollRef = useRef<ReturnType<typeof setInterval> | null>(null);
@@ -106,6 +131,11 @@ const ChatWidget = () => {
       trackEvent('chat_impression', {});
     }
   }, []);
+
+  // Persist chat state to sessionStorage on every change
+  useEffect(() => {
+    saveChatState({ messages, isOpen, hasOpened, emailCaptured, jayOnline });
+  }, [messages, isOpen, hasOpened, emailCaptured, jayOnline]);
 
   // Poll for Jay's messages when chat is open and there's been interaction
   useEffect(() => {
