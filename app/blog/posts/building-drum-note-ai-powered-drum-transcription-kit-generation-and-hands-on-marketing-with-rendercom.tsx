@@ -5,6 +5,8 @@ export const metadata: PostMeta = {
   title: "Building Drum Note: AI-Powered Drum Transcription, Kit Generation, and Hands-On Marketing with Render.com",
   description: "An exploration of Drum Note, an AI-driven tool for bidirectional drum audio analysis and music creation. Covers audio-to-notation translation, granular drum kit extraction, and the inspiration from Star Power Drummer's manual transcription workflow.",
   slug: "building-drum-note-ai-powered-drum-transcription-kit-generation-and-hands-on-marketing-with-rendercom",
+  headerImage: "/images/building-drum-note-ai-powered-drum-transcription-kit-generation-and-hands-on-marketing-with-rendercom-hero.png",
+  socialImage: "/images/building-drum-note-ai-powered-drum-transcription-kit-generation-and-hands-on-marketing-with-rendercom-hero.png",
   publishedDate: "2024-01-18",
   modifiedDate: "2025-09-23",
   keywords: ["AI music tools","drum transcription","audio analysis","music notation","drum kit generation","audio-to-notation","music production","AI automation","drum and bass","jungle music","extreme metal","hip-hop beats","music technology","creative tools"],
