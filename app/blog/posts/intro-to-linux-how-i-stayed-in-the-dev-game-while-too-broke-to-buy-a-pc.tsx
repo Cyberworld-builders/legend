@@ -5,6 +5,7 @@ export const metadata: PostMeta = {
   title: "Intro to Linux: How I Stayed in the Dev Game While Too Broke to Buy a PC",
   description: "A personal journey learning Linux, from first exposure at DocWorks EMR startup to necessity-driven adoption after being laid off. Details how Ubuntu transformed an end-of-life Windows XP machine into a functional development workstation, providing foundational skills in command-line operations, networking, and server management.",
   slug: "intro-to-linux-how-i-stayed-in-the-dev-game-while-too-broke-to-buy-a-pc",
+  headerImage: "/images/intro-to-linux-how-i-stayed-in-the-dev-game-while-too-broke-to-buy-a-pc-hero.png",
   publishedDate: "2024-01-06",
   modifiedDate: "2026-03-05",
   keywords: ["Linux","Ubuntu","command line","networking","server management","development workstation","Windows XP","career development","self-directed learning","cloud architecture","full-stack development","enterprise development","Linux skills","career transition"],
