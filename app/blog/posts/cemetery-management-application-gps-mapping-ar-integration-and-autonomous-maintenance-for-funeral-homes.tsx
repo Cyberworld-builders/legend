@@ -5,6 +5,8 @@ export const metadata: PostMeta = {
   title: "Cemetery Management Application: GPS Mapping, AR Integration, and Autonomous Maintenance for Funeral Homes",
   description: "Exploring the development of a custom SaaS cemetery management app with GPS grave plotting, AR-assisted maintenance, and autonomous drone/UGV patrols, tying into Revenant Hollow's location-based AR ecosystem.",
   slug: "cemetery-management-application-gps-mapping-ar-integration-and-autonomous-maintenance-for-funeral-homes",
+  headerImage: "/images/cemetery-management-application-gps-mapping-ar-integration-and-autonomous-maintenance-for-funeral-homes-hero.png",
+  socialImage: "/images/cemetery-management-application-gps-mapping-ar-integration-and-autonomous-maintenance-for-funeral-homes-hero.png",
   publishedDate: "2025-09-28",
   modifiedDate: "2026-03-05",
   keywords: ["cemetery management software","GPS grave mapping","AR cemetery maintenance","autonomous mowers","drone cemetery patrols","UGV terrain mapping","funeral home CRM","Revenant Hollow","location-based AR","mixed reality experiences"],
