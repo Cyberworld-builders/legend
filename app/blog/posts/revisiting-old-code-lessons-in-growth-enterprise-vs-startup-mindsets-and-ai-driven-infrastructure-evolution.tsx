@@ -5,6 +5,8 @@ export const metadata: PostMeta = {
   title: "Revisiting Old Code: Lessons in Growth, Enterprise vs. Startup Mindsets, and AI-Driven Infrastructure Evolution",
   description: "Reflections on revisiting outdated code, the pitfalls of applying enterprise practices to startups, and how generative AI tools transform infrastructure as code, enabling faster, more pragmatic development workflows.",
   slug: "revisiting-old-code-lessons-in-growth-enterprise-vs-startup-mindsets-and-ai-driven-infrastructure-evolution",
+  headerImage: "/images/revisiting-old-code-lessons-in-growth-enterprise-vs-startup-mindsets-and-ai-driven-infrastructure-evolution-hero.png",
+  socialImage: "/images/revisiting-old-code-lessons-in-growth-enterprise-vs-startup-mindsets-and-ai-driven-infrastructure-evolution-hero.png",
   publishedDate: "2025-09-25",
   modifiedDate: "2026-03-05",
   keywords: ["code quality","infrastructure as code","generative AI","enterprise vs startup","DevOps practices","cloud architecture","security practices","startup agility","terraform","AI-assisted development"],
