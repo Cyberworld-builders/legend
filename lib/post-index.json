@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-03-08T18:16:31.528Z",
-  "count": 32,
+  "generatedAt": "2026-03-09T01:57:46.606Z",
+  "count": 33,
   "posts": [
     {
       "slug": "one-week-claude-code-publishing-pipeline",
@@ -48,6 +48,47 @@
       "fileModified": "2026-03-08T08:11:42.787Z"
     },
     {
+      "slug": "upwork-automation-strategy-insights",
+      "title": "What Crawling Upwork Every Day Taught Me About Where to Go Next",
+      "description": "How automating Upwork job searches with an AI agent revealed gaps in my skills, validated my business strategy, and surfaced a hosting opportunity I should have seen coming.",
+      "publishedDate": "2026-03-08",
+      "modifiedDate": "2026-03-08",
+      "isDraft": false,
+      "isFeatured": false,
+      "priority": 5,
+      "category": "Business & Marketing",
+      "series": "",
+      "topics": [
+        "Business & Marketing",
+        "AI & Automation",
+        "Career & Professional Development"
+      ],
+      "tags": [
+        "upwork",
+        "automation",
+        "freelance",
+        "n8n",
+        "aws",
+        "business-strategy",
+        "ai-agents",
+        "gusclaw"
+      ],
+      "keywords": [
+        "upwork automation",
+        "ai agent",
+        "freelance strategy",
+        "n8n",
+        "aws ecs",
+        "cyberworld builders",
+        "tech trends",
+        "small business it"
+      ],
+      "canonicalUrl": "https://cyberworldbuilders.com/blog/upwork-automation-strategy-insights",
+      "wordCount": 1237,
+      "fileSize": 8662,
+      "fileModified": "2026-03-09T01:57:46.359Z"
+    },
+    {
       "slug": "where-im-going-next",
       "title": "Where I'm Going Next",
       "description": "After building out the blog pipeline and SEO automations, here's the roadmap for CyberWorld — from generative search optimization to a unified dashboard to a three-tier service model that makes traditional SaaS obsolete.",
@@ -87,8 +128,8 @@
       ],
       "canonicalUrl": "https://cyberworldbuilders.com/blog/where-im-going-next",
       "wordCount": 2301,
-      "fileSize": 15087,
-      "fileModified": "2026-03-08T18:16:31.331Z"
+      "fileSize": 15088,
+      "fileModified": "2026-03-09T01:57:46.284Z"
     },
     {
       "slug": "code-first-n8n-custom-nodes-automation-workflow",
