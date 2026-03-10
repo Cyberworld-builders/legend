@@ -4,7 +4,7 @@ import Breadcrumb from '@/components/Breadcrumb';
 import PageBackground from '@/components/PageBackground';
 import { getAllPosts } from '@/lib/post-metadata';
 import type { PostIndexEntry } from '@/lib/post-metadata';
-import { slugifyTag, getTagDisplayName, getAllTagSlugs } from '@/lib/tag-utils';
+import { slugifyTag, getTagDisplayName, getAllTagSlugs, getPostCountForTag } from '@/lib/tag-utils';
 import type { Metadata } from 'next';
 
 export const revalidate = 3600;
@@ -33,9 +33,15 @@ export async function generateMetadata({ params }: TagPageProps): Promise<Metada
   const description = `Browse ${posts.length} blog post${posts.length === 1 ? '' : 's'} tagged with "${displayName}" — Software engineering insights from CyberWorld Builders.`;
   const canonical = `https://cyberworldbuilders.com/blog/tag/${tag}`;
 
+  const MIN_POSTS_FOR_INDEX = 3;
+  const postCount = getPostCountForTag(tag);
+
   return {
     title,
     description,
+    ...(postCount < MIN_POSTS_FOR_INDEX && {
+      robots: { index: false, follow: true },
+    }),
     openGraph: { title, description, url: canonical, type: 'website' },
     twitter: { card: 'summary_large_image', title, description },
     alternates: { canonical },

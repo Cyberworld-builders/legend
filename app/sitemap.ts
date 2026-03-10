@@ -1,6 +1,6 @@
 import { MetadataRoute } from 'next'
 import { getAllPosts } from '@/lib/post-metadata'
-import { getAllTagSlugs } from '@/lib/tag-utils'
+import { getTagSlugsWithMinPosts } from '@/lib/tag-utils'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = 'https://cyberworldbuilders.com'
@@ -41,8 +41,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: post.isFeatured ? 0.8 : 0.7,
     }))
 
-    // Collect unique tag slugs (deduped, hyphenated)
-    tagPages = getAllTagSlugs().map(slug => ({
+    // Only include tag pages with 3+ posts in sitemap (thin tags get noindex)
+    tagPages = getTagSlugsWithMinPosts(3).map(slug => ({
       url: `${baseUrl}/blog/tag/${slug}`,
       lastModified: new Date(),
       changeFrequency: 'weekly' as const,
