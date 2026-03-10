@@ -21,6 +21,12 @@ export async function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
+  // Block non-US traffic from all /admin routes
+  const country = request.headers.get('cf-ipcountry') || '';
+  if (country && country !== 'US') {
+    return new NextResponse('Forbidden', { status: 403 });
+  }
+
   // Allow login and password reset flow without auth
   if (
     request.nextUrl.pathname === '/admin/login' ||
