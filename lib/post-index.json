@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-10T02:03:45.768Z",
+  "generatedAt": "2026-03-10T02:28:10.706Z",
   "count": 34,
   "posts": [
     {
@@ -8,7 +8,7 @@
       "description": "A day of shipping an agent dashboard, an email-to-pull-request pipeline, GEO audits, and tech trend scanning — all while building Legos and folding laundry. The difference between talking about ideas and executing them is shrinking to zero.",
       "publishedDate": "2026-03-09",
       "modifiedDate": "2026-03-09",
-      "isDraft": true,
+      "isDraft": false,
       "isFeatured": false,
       "priority": 5,
       "category": "AI & Automation",
@@ -42,8 +42,8 @@
       ],
       "canonicalUrl": "https://cyberworldbuilders.com/blog/everything-compounds-now",
       "wordCount": 1572,
-      "fileSize": 10248,
-      "fileModified": "2026-03-10T02:03:45.548Z"
+      "fileSize": 10249,
+      "fileModified": "2026-03-10T02:28:02.294Z"
     },
     {
       "slug": "one-week-claude-code-publishing-pipeline",
