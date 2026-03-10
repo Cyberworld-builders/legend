@@ -1,7 +1,46 @@
 {
-  "generatedAt": "2026-03-10T02:28:10.706Z",
-  "count": 34,
+  "generatedAt": "2026-03-10T14:19:14.683Z",
+  "count": 35,
   "posts": [
+    {
+      "slug": "content-publishing-engine-voice-memos-to-video",
+      "title": "Building a Content Publishing Engine from Voice Memos to Video",
+      "description": "How I'm turning voice memos, blog posts, and screen recordings into an automated content pipeline that publishes across every platform and tracks performance in one place.",
+      "publishedDate": "2026-03-10",
+      "modifiedDate": "2026-03-10",
+      "isDraft": false,
+      "isFeatured": false,
+      "priority": 5,
+      "category": "AI & Automation",
+      "series": "",
+      "topics": [
+        "AI & Automation",
+        "Business & Marketing",
+        "Development & Tools"
+      ],
+      "tags": [
+        "content-pipeline",
+        "automation",
+        "social-media",
+        "video-publishing",
+        "analytics",
+        "cyberworld",
+        "blog-publishing"
+      ],
+      "keywords": [
+        "content publishing engine",
+        "voice memo pipeline",
+        "video content automation",
+        "social media analytics",
+        "blog publishing automation",
+        "content strategy",
+        "unified analytics dashboard"
+      ],
+      "canonicalUrl": "https://cyberworldbuilders.com/blog/content-publishing-engine-voice-memos-to-video",
+      "wordCount": 1716,
+      "fileSize": 11680,
+      "fileModified": "2026-03-10T14:19:14.415Z"
+    },
     {
       "slug": "everything-compounds-now",
       "title": "Everything Compounds Now",
@@ -43,7 +82,7 @@
       "canonicalUrl": "https://cyberworldbuilders.com/blog/everything-compounds-now",
       "wordCount": 1572,
       "fileSize": 10249,
-      "fileModified": "2026-03-10T02:28:02.294Z"
+      "fileModified": "2026-03-10T08:51:29.166Z"
     },
     {
       "slug": "one-week-claude-code-publishing-pipeline",
