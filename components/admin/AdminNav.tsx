@@ -4,10 +4,11 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { useRouter, usePathname } from 'next/navigation';
 import { createAuthBrowserClient } from '@/lib/supabase';
-import { LayoutDashboard, Users, FileText, BarChart3, Menu, X, LogOut, MessageCircle } from 'lucide-react';
+import { LayoutDashboard, Users, FileText, BarChart3, Menu, X, LogOut, MessageCircle, Newspaper } from 'lucide-react';
 
 const navItems = [
   { href: '/admin', label: 'Dashboard', icon: LayoutDashboard },
+  { href: '/admin/content', label: 'Content', icon: Newspaper },
   { href: '/admin/analytics', label: 'Analytics', icon: BarChart3 },
   { href: '/admin/leads', label: 'Leads', icon: Users },
   { href: '/admin/chats', label: 'Chats', icon: MessageCircle },
