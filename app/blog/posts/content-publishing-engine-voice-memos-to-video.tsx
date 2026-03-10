@@ -22,9 +22,7 @@ export const metadata: PostMeta = {
 export default function Post() {
   return (
     <PostLayout meta={metadata}>
-      <h1 className="text-4xl font-bold mb-6 text-[#00ff00]">Building a Content Publishing Engine from Voice Memos to Video</h1>
-
-      <h2 className="text-2xl font-bold mb-4 mt-8 text-[#00ff00]">Ideas Yesterday, Shipping Today</h2>
+      <h2 className="text-2xl font-bold mb-4 mt-8 text-[#00ff00]">What Happens When Ideas Ship the Same Day?</h2>
 
       <p className="mb-4 leading-relaxed">
         I have to say this again because it still hasn&apos;t fully sunk in. There are things I did yesterday that I&apos;ve not only documented the idea for but executed on and shipped. And I won&apos;t even remember them until later today, when at a certain time a scheduled task is going to run, data is going to get gathered, and the report is going to land in my Telegram. Part of the report will highlight what&apos;s new. And I&apos;ll be like, &quot;Oh yeah, I just thought of that yesterday. And here&apos;s the data on it already working.&quot;
@@ -58,7 +56,7 @@ export default function Post() {
         Right now, at the end of the blog pipeline, it sends me a Telegram message with copy-paste-ready text formatted for each social platform so each post appears optimally for each channel. But there&apos;s no reason it can&apos;t just go ahead and load up a draft post so all I have to do is approve it. I probably need API keys and authentication tokens with the right scopes for each platform, but that&apos;s so easy to do now. And once I&apos;m authenticated with the social platforms for posting, that same authentication opens the door to tracking the analytics of those posts.
       </p>
 
-      <h2 className="text-2xl font-bold mb-4 mt-8 text-[#00ff00]">Unified Analytics Across Every Channel</h2>
+      <h2 className="text-2xl font-bold mb-4 mt-8 text-[#00ff00]">What Does Unified Analytics Across Every Channel Look Like?</h2>
 
       <p className="mb-4 leading-relaxed">
         This connects back to the CyberWorld admin dashboard. I need to add a section, maybe under analytics or maybe its own dashboard, where we&apos;re tracking social posts. Every time I post something, I can pull the Google numbers on what that article is doing for site visits, and then compare that to the performance on Facebook, LinkedIn, X, everything. Picture a line graph with different colored lines for each metric so we can correlate them. When I post an article and share it across socials, I can see all the performance data right there in one place.
