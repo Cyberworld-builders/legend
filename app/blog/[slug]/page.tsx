@@ -133,6 +133,11 @@ export default async function BlogPost({ params }: BlogPostProps) {
           </div>
         )}
 
+        {/* Post title */}
+        <div className="w-full max-w-3xl px-4 sm:px-6 md:px-8 mb-4">
+          <h1 className="text-3xl sm:text-4xl font-bold text-[#00ff00]">{title}</h1>
+        </div>
+
         {/* Author + date info */}
         <div className="w-full max-w-3xl mb-6">
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 px-4 sm:px-6 md:px-8">
