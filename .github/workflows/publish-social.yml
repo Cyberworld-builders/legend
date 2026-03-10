@@ -1,0 +1,27 @@
+name: Publish Social Posts
+
+on:
+  pull_request:
+    types: [closed]
+    branches: [main]
+
+jobs:
+  publish-social:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    steps:
+      - name: Extract blog slug from PR
+        id: slug
+        run: |
+          # Try to extract slug from PR body (pipeline PRs include "Slug: `my-slug`")
+          SLUG=$(echo "${{ github.event.pull_request.body }}" | grep -oP 'Slug:\s*`\K[^`]+' || echo "")
+          echo "slug=$SLUG" >> "$GITHUB_OUTPUT"
+          echo "Extracted slug: $SLUG"
+
+      - name: Trigger social media publish
+        run: |
+          curl -sf -X POST \
+            "https://gusclaw-chat.cyberworldbuilders.com/webhook/blog-merged" \
+            -H "Content-Type: application/json" \
+            -H "X-Automation-Key: ${{ secrets.CYBERWORLD_AUTOMATION_API_KEY }}" \
+            -d "{\"slug\": \"${{ steps.slug.outputs.slug }}\"}"
