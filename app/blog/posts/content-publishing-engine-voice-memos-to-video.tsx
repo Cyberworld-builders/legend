@@ -6,7 +6,7 @@ export const metadata: PostMeta = {
   description: "How I'm turning voice memos, blog posts, and screen recordings into an automated content pipeline that publishes across every platform and tracks performance in one place.",
   slug: "content-publishing-engine-voice-memos-to-video",
   headerImage: "/images/content-publishing-engine-voice-memos-to-video-hero.png",
-  socialImage: "/images/content-publishing-engine-voice-memos-to-video-hero.png",
+  socialImage: "/images/content-publishing-engine-voice-memos-to-video-social.png",
   publishedDate: "2026-03-10",
   modifiedDate: "2026-03-10",
   keywords: ["content publishing engine", "voice memo pipeline", "video content automation", "social media analytics", "blog publishing automation", "content strategy", "unified analytics dashboard"],
