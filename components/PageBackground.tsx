@@ -19,10 +19,11 @@ export default function PageBackground({
     <div className={containerClass} style={{ opacity: opacity / 100 }}>
       <Image
         src="/images/article-background-circuits.webp"
-        alt=""
+        alt="Decorative circuit board background pattern"
         fill
         style={{ objectFit: 'cover' }}
         className="pointer-events-none"
+        role="presentation"
         priority
       />
     </div>
