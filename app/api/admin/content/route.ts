@@ -55,7 +55,6 @@ export async function GET(request: NextRequest) {
   const { searchParams } = request.nextUrl;
   const slugFilter = searchParams.get('slug');
   const platformFilter = searchParams.get('platform');
-  const days = parseInt(searchParams.get('days') || '90');
   const sort = searchParams.get('sort') || 'published';
 
   // Get blog posts from index

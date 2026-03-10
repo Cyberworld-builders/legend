@@ -67,7 +67,7 @@ function MetricCell({ value, label }: { value: number; label: string }) {
 export default async function ContentPage() {
   const posts: PostMeta[] = ((postIndex as { posts: PostMeta[] }).posts || []);
   let socialPosts: SocialPost[] = [];
-  let trafficBySlug: Record<string, { views: number; sessions: number; users: number }> = {};
+  const trafficBySlug: Record<string, { views: number; sessions: number; users: number }> = {};
 
   try {
     const supabase = await createAuthServerClient();
