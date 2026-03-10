@@ -1,7 +1,50 @@
 {
-  "generatedAt": "2026-03-09T01:57:46.606Z",
-  "count": 33,
+  "generatedAt": "2026-03-10T02:28:10.706Z",
+  "count": 34,
   "posts": [
+    {
+      "slug": "everything-compounds-now",
+      "title": "Everything Compounds Now",
+      "description": "A day of shipping an agent dashboard, an email-to-pull-request pipeline, GEO audits, and tech trend scanning — all while building Legos and folding laundry. The difference between talking about ideas and executing them is shrinking to zero.",
+      "publishedDate": "2026-03-09",
+      "modifiedDate": "2026-03-09",
+      "isDraft": false,
+      "isFeatured": false,
+      "priority": 5,
+      "category": "AI & Automation",
+      "series": "",
+      "topics": [
+        "AI & Automation",
+        "Development & Tools",
+        "Business & Marketing"
+      ],
+      "tags": [
+        "ai-agents",
+        "automation",
+        "developer-workflow",
+        "seo",
+        "geo",
+        "productivity",
+        "upwork",
+        "open-source"
+      ],
+      "keywords": [
+        "ai agents",
+        "automation",
+        "developer workflow",
+        "slack pipeline",
+        "email to pull request",
+        "seo audit",
+        "generative engine optimization",
+        "vpn",
+        "agent dashboard",
+        "compounding productivity"
+      ],
+      "canonicalUrl": "https://cyberworldbuilders.com/blog/everything-compounds-now",
+      "wordCount": 1572,
+      "fileSize": 10249,
+      "fileModified": "2026-03-10T02:28:02.294Z"
+    },
     {
       "slug": "one-week-claude-code-publishing-pipeline",
       "title": "One Week with Claude Code: Building an AI-Powered Publishing Pipeline",
@@ -86,7 +129,7 @@
       "canonicalUrl": "https://cyberworldbuilders.com/blog/upwork-automation-strategy-insights",
       "wordCount": 1237,
       "fileSize": 8662,
-      "fileModified": "2026-03-09T01:57:46.359Z"
+      "fileModified": "2026-03-10T02:03:45.473Z"
     },
     {
       "slug": "where-im-going-next",
