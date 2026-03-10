@@ -76,6 +76,41 @@ export default async function TagPage({ params }: TagPageProps) {
           />
         </div>
 
+        {/* CollectionPage Schema with freshness signals */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "CollectionPage",
+              name: `Posts tagged "${displayName}" — CyberWorld Builders Blog`,
+              description: `Browse ${posts.length} blog post${posts.length === 1 ? '' : 's'} tagged with "${displayName}".`,
+              url: `https://cyberworldbuilders.com/blog/tag/${tag}`,
+              dateModified: posts.length > 0
+                ? posts.reduce((latest, p) => {
+                    const d = new Date(p.modifiedDate || p.publishedDate);
+                    return d > latest ? d : latest;
+                  }, new Date(posts[0].modifiedDate || posts[0].publishedDate)).toISOString()
+                : new Date().toISOString(),
+              publisher: {
+                "@type": "Organization",
+                name: "CyberWorld Builders",
+                logo: { "@type": "ImageObject", url: "https://cyberworldbuilders.com/images/logo.png" },
+              },
+              mainEntity: {
+                "@type": "ItemList",
+                numberOfItems: posts.length,
+                itemListElement: posts.map((p, i) => ({
+                  "@type": "ListItem",
+                  position: i + 1,
+                  url: `https://cyberworldbuilders.com/blog/${p.slug}`,
+                  name: p.title,
+                })),
+              },
+            }),
+          }}
+        />
+
         <h1 className="text-4xl font-bold mb-2 text-[#00ff00]">
           #{displayName}
         </h1>

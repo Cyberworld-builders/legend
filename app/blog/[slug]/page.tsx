@@ -188,7 +188,7 @@ export default async function BlogPost({ params }: BlogPostProps) {
                 logo: { "@type": "ImageObject", url: "https://cyberworldbuilders.com/images/logo.png", width: 250, height: 250 },
               },
               datePublished: metadata.publishedDate,
-              dateModified: metadata.modifiedDate,
+              dateModified: metadata.modifiedDate || metadata.publishedDate,
               mainEntityOfPage: { "@type": "WebPage", "@id": metadata.canonicalUrl || `https://cyberworldbuilders.com/blog/${slug}` },
               url: metadata.canonicalUrl || `https://cyberworldbuilders.com/blog/${slug}`,
               articleSection: metadata.category || "Technology",

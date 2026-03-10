@@ -178,6 +178,44 @@ export default async function BlogIndex({ searchParams }: BlogIndexProps) {
         />
       </div>
       
+      {/* CollectionPage Schema with freshness signals */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "CollectionPage",
+            name: tagFilter
+              ? `Posts tagged with "${tagFilter}" - CyberWorld Builders Blog`
+              : "Blog - Software Engineering Insights & Technical Articles",
+            description: tagFilter
+              ? `Browse blog posts tagged with "${tagFilter}".`
+              : "Read the latest insights on software engineering, web development, AWS solutions, and SaaS development from CyberWorld Builders.",
+            url: tagFilter
+              ? `https://cyberworldbuilders.com/blog?tag=${encodeURIComponent(tagFilter)}`
+              : "https://cyberworldbuilders.com/blog",
+            dateModified: allPosts.length > 0
+              ? allPosts.reduce((latest, p) => p.mtime > latest ? p.mtime : latest, allPosts[0].mtime).toISOString()
+              : new Date().toISOString(),
+            publisher: {
+              "@type": "Organization",
+              name: "CyberWorld Builders",
+              logo: { "@type": "ImageObject", url: "https://cyberworldbuilders.com/images/logo.png" },
+            },
+            mainEntity: {
+              "@type": "ItemList",
+              numberOfItems: allPosts.length,
+              itemListElement: posts.map((p, i) => ({
+                "@type": "ListItem",
+                position: startIndex + i + 1,
+                url: `https://cyberworldbuilders.com/blog/${p.slug}`,
+                name: p.title,
+              })),
+            },
+          }),
+        }}
+      />
+
       <BlogPostList
         posts={posts.map((p) => ({ slug: p.slug, title: p.title, mtime: p.mtime.toISOString() }))}
         allPosts={allPosts.map((p) => ({ slug: p.slug, title: p.title, mtime: p.mtime.toISOString() }))}
