@@ -4,7 +4,7 @@ import Breadcrumb from '@/components/Breadcrumb';
 import PageBackground from '@/components/PageBackground';
 import { getAllPosts } from '@/lib/post-metadata';
 import type { PostIndexEntry } from '@/lib/post-metadata';
-import { slugifyTag, getTagDisplayName, getAllTagSlugs } from '@/lib/tag-utils';
+import { slugifyTag, getTagDisplayName, getAllTagSlugs, getPostCountForTag } from '@/lib/tag-utils';
 import type { Metadata } from 'next';
 
 export const revalidate = 3600;
@@ -33,9 +33,15 @@ export async function generateMetadata({ params }: TagPageProps): Promise<Metada
   const description = `Browse ${posts.length} blog post${posts.length === 1 ? '' : 's'} tagged with "${displayName}" — Software engineering insights from CyberWorld Builders.`;
   const canonical = `https://cyberworldbuilders.com/blog/tag/${tag}`;
 
+  const MIN_POSTS_FOR_INDEX = 3;
+  const postCount = getPostCountForTag(tag);
+
   return {
     title,
     description,
+    ...(postCount < MIN_POSTS_FOR_INDEX && {
+      robots: { index: false, follow: true },
+    }),
     openGraph: { title, description, url: canonical, type: 'website' },
     twitter: { card: 'summary_large_image', title, description },
     alternates: { canonical },
@@ -75,6 +81,41 @@ export default async function TagPage({ params }: TagPageProps) {
             ]}
           />
         </div>
+
+        {/* CollectionPage Schema with freshness signals */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "CollectionPage",
+              name: `Posts tagged "${displayName}" — CyberWorld Builders Blog`,
+              description: `Browse ${posts.length} blog post${posts.length === 1 ? '' : 's'} tagged with "${displayName}".`,
+              url: `https://cyberworldbuilders.com/blog/tag/${tag}`,
+              dateModified: posts.length > 0
+                ? posts.reduce((latest, p) => {
+                    const d = new Date(p.modifiedDate || p.publishedDate);
+                    return d > latest ? d : latest;
+                  }, new Date(posts[0].modifiedDate || posts[0].publishedDate)).toISOString()
+                : new Date().toISOString(),
+              publisher: {
+                "@type": "Organization",
+                name: "CyberWorld Builders",
+                logo: { "@type": "ImageObject", url: "https://cyberworldbuilders.com/images/logo.png" },
+              },
+              mainEntity: {
+                "@type": "ItemList",
+                numberOfItems: posts.length,
+                itemListElement: posts.map((p, i) => ({
+                  "@type": "ListItem",
+                  position: i + 1,
+                  url: `https://cyberworldbuilders.com/blog/${p.slug}`,
+                  name: p.title,
+                })),
+              },
+            }),
+          }}
+        />
 
         <h1 className="text-4xl font-bold mb-2 text-[#00ff00]">
           #{displayName}

@@ -39,6 +39,21 @@ export function getAllTagSlugs(): string[] {
   return Array.from(getTagMap().keys());
 }
 
+/** Count posts for a given tag slug. */
+export function getPostCountForTag(slug: string): number {
+  const posts = getAllPosts();
+  return posts.filter(
+    (p) =>
+      p.tags.some((t) => slugifyTag(t) === slug) ||
+      p.keywords.some((k) => slugifyTag(k) === slug)
+  ).length;
+}
+
+/** Get tag slugs that have at least `minPosts` posts. */
+export function getTagSlugsWithMinPosts(minPosts: number): string[] {
+  return getAllTagSlugs().filter((slug) => getPostCountForTag(slug) >= minPosts);
+}
+
 /** Get all slug→displayName pairs. */
 export function getAllTagEntries(): Array<[string, string]> {
   return Array.from(getTagMap().entries());
