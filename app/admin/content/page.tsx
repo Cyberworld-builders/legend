@@ -35,6 +35,7 @@ interface ContentRow {
   tags: string[];
   platforms: { x: SocialPost | null; linkedin: SocialPost | null; facebook: SocialPost | null };
   totals: { impressions: number; clicks: number; likes: number; comments: number; shares: number };
+  traffic: { views: number; sessions: number; users: number };
   score: number;
   socialPostCount: number;
   draftCount: number;
@@ -66,6 +67,7 @@ function MetricCell({ value, label }: { value: number; label: string }) {
 export default async function ContentPage() {
   const posts: PostMeta[] = ((postIndex as { posts: PostMeta[] }).posts || []);
   let socialPosts: SocialPost[] = [];
+  let trafficBySlug: Record<string, { views: number; sessions: number; users: number }> = {};
 
   try {
     const supabase = await createAuthServerClient();
@@ -74,6 +76,19 @@ export default async function ContentPage() {
       .select('*')
       .order('created_at', { ascending: false });
     socialPosts = data ?? [];
+
+    // Fetch GA4 traffic data
+    const { data: trafficData } = await supabase
+      .from('blog_traffic')
+      .select('slug, views, sessions, users')
+      .eq('period', 'daily');
+
+    for (const row of trafficData ?? []) {
+      if (!trafficBySlug[row.slug]) trafficBySlug[row.slug] = { views: 0, sessions: 0, users: 0 };
+      trafficBySlug[row.slug].views += row.views || 0;
+      trafficBySlug[row.slug].sessions += row.sessions || 0;
+      trafficBySlug[row.slug].users += row.users || 0;
+    }
   } catch {
     // Supabase may not be running
   }
@@ -96,6 +111,7 @@ export default async function ContentPage() {
       comments: posted.reduce((sum, s) => sum + (s.comments || 0), 0),
       shares: posted.reduce((sum, s) => sum + (s.shares || 0), 0),
     };
+    const traffic = trafficBySlug[post.slug] || { views: 0, sessions: 0, users: 0 };
     const score =
       totals.impressions * 0.1 + totals.clicks * 2 + totals.likes * 3 + totals.comments * 5 + totals.shares * 8;
 
@@ -110,16 +126,19 @@ export default async function ContentPage() {
         facebook: social.find((s) => s.platform === 'facebook') || null,
       },
       totals,
+      traffic,
       score,
       socialPostCount: posted.length,
       draftCount: social.filter((s) => s.status === 'draft').length,
     };
   });
 
-  // Sort by score descending
-  content.sort((a, b) => b.score - a.score);
+  // Sort by views descending (most useful default with GA4 data)
+  content.sort((a, b) => b.traffic.views - a.traffic.views);
 
   // Summary
+  const totalViews = content.reduce((s, c) => s + c.traffic.views, 0);
+  const totalUsers = content.reduce((s, c) => s + c.traffic.users, 0);
   const totalImpressions = content.reduce((s, c) => s + c.totals.impressions, 0);
   const totalEngagement = content.reduce((s, c) => s + c.totals.likes + c.totals.comments + c.totals.shares, 0);
   const withSocial = content.filter((c) => c.socialPostCount > 0).length;
@@ -131,42 +150,52 @@ export default async function ContentPage() {
       <h1 className="text-2xl font-bold text-[#00ff00] mb-8">Content Performance</h1>
 
       {/* Summary Cards */}
-      <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-8">
+      <div className="grid grid-cols-2 md:grid-cols-6 gap-4 mb-8">
         <div className="border border-[#00ff00]/20 bg-[#1a1a1a] rounded-lg p-4">
           <p className="text-[#00ff00]/50 text-xs">Blog Posts</p>
           <p className="text-2xl font-bold text-[#00ff00] mt-1">{content.length}</p>
         </div>
         <div className="border border-[#00ff00]/20 bg-[#1a1a1a] rounded-lg p-4">
-          <p className="text-[#00ff00]/50 text-xs">Shared to Social</p>
-          <p className="text-2xl font-bold text-[#00ff00] mt-1">{withSocial}</p>
+          <p className="text-[#00ff00]/50 text-xs">Total Views</p>
+          <p className="text-2xl font-bold text-[#00ff00] mt-1">{totalViews.toLocaleString()}</p>
         </div>
         <div className="border border-[#00ff00]/20 bg-[#1a1a1a] rounded-lg p-4">
-          <p className="text-[#00ff00]/50 text-xs">Total Impressions</p>
+          <p className="text-[#00ff00]/50 text-xs">Unique Visitors</p>
+          <p className="text-2xl font-bold text-[#00ff00] mt-1">{totalUsers.toLocaleString()}</p>
+        </div>
+        <div className="border border-[#00ff00]/20 bg-[#1a1a1a] rounded-lg p-4">
+          <p className="text-[#00ff00]/50 text-xs">Social Impressions</p>
           <p className="text-2xl font-bold text-[#00ff00] mt-1">{totalImpressions.toLocaleString()}</p>
         </div>
         <div className="border border-[#00ff00]/20 bg-[#1a1a1a] rounded-lg p-4">
-          <p className="text-[#00ff00]/50 text-xs">Total Engagement</p>
+          <p className="text-[#00ff00]/50 text-xs">Social Engagement</p>
           <p className="text-2xl font-bold text-[#00ff00] mt-1">{totalEngagement.toLocaleString()}</p>
         </div>
         <div className="border border-[#00ff00]/20 bg-[#1a1a1a] rounded-lg p-4">
-          <p className="text-[#00ff00]/50 text-xs">Pending Drafts</p>
-          <p className="text-2xl font-bold text-yellow-400 mt-1">{pendingDrafts}</p>
+          <p className="text-[#00ff00]/50 text-xs">Shared to Social</p>
+          <p className="text-2xl font-bold text-[#00ff00] mt-1">{withSocial}</p>
+          {pendingDrafts > 0 && (
+            <p className="text-yellow-400/70 text-[10px] mt-1">{pendingDrafts} drafts pending</p>
+          )}
         </div>
       </div>
 
       {/* Top Performer */}
-      {topPost && topPost.score > 0 && (
+      {topPost && topPost.traffic.views > 0 && (
         <div className="border border-[#00ff00]/30 bg-[#00ff00]/5 rounded-lg p-4 mb-8">
           <p className="text-[#00ff00]/50 text-xs uppercase mb-1">Top Performer</p>
           <Link href={`/blog/${topPost.slug}`} className="text-[#00ff00] font-bold hover:underline">
             {topPost.title}
           </Link>
           <div className="flex gap-6 mt-2">
-            <span className="text-[#00ff00]/60 text-xs">{topPost.totals.impressions.toLocaleString()} impressions</span>
-            <span className="text-[#00ff00]/60 text-xs">{topPost.totals.likes} likes</span>
-            <span className="text-[#00ff00]/60 text-xs">{topPost.totals.comments} comments</span>
-            <span className="text-[#00ff00]/60 text-xs">{topPost.totals.shares} shares</span>
-            <span className="text-[#00ff00]/40 text-xs">Score: {Math.round(topPost.score)}</span>
+            <span className="text-[#00ff00]/60 text-xs">{topPost.traffic.views.toLocaleString()} views</span>
+            <span className="text-[#00ff00]/60 text-xs">{topPost.traffic.users.toLocaleString()} users</span>
+            {topPost.totals.impressions > 0 && (
+              <span className="text-[#00ff00]/60 text-xs">{topPost.totals.impressions.toLocaleString()} impressions</span>
+            )}
+            {topPost.totals.likes > 0 && (
+              <span className="text-[#00ff00]/60 text-xs">{topPost.totals.likes} likes</span>
+            )}
           </div>
         </div>
       )}
@@ -178,11 +207,11 @@ export default async function ContentPage() {
             <thead>
               <tr className="border-b border-[#00ff00]/20 text-[#00ff00]/50 text-xs uppercase">
                 <th className="text-left p-3 font-normal">Post</th>
+                <th className="text-center p-3 font-normal">Views</th>
+                <th className="text-center p-3 font-normal">Users</th>
                 <th className="text-center p-3 font-normal">Platforms</th>
                 <th className="text-center p-3 font-normal">Impressions</th>
                 <th className="text-center p-3 font-normal">Likes</th>
-                <th className="text-center p-3 font-normal">Comments</th>
-                <th className="text-center p-3 font-normal">Shares</th>
                 <th className="text-center p-3 font-normal">Score</th>
               </tr>
             </thead>
@@ -197,6 +226,8 @@ export default async function ContentPage() {
                       {row.publishedDate ? new Date(row.publishedDate).toLocaleDateString() : 'No date'}
                     </p>
                   </td>
+                  <td className="p-3"><MetricCell value={row.traffic.views} label="views" /></td>
+                  <td className="p-3"><MetricCell value={row.traffic.users} label="users" /></td>
                   <td className="p-3">
                     <div className="flex gap-1 justify-center">
                       <PlatformBadge post={row.platforms.x} name="X" />
@@ -206,8 +237,6 @@ export default async function ContentPage() {
                   </td>
                   <td className="p-3"><MetricCell value={row.totals.impressions} label="imp" /></td>
                   <td className="p-3"><MetricCell value={row.totals.likes} label="likes" /></td>
-                  <td className="p-3"><MetricCell value={row.totals.comments} label="cmt" /></td>
-                  <td className="p-3"><MetricCell value={row.totals.shares} label="shr" /></td>
                   <td className="p-3 text-center">
                     <span className={`font-mono text-sm ${row.score > 0 ? 'text-[#00ff00]' : 'text-[#00ff00]/20'}`}>
                       {Math.round(row.score)}

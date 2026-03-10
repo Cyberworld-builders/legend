@@ -76,6 +76,22 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 
+  // Get GA4 traffic data
+  const { data: trafficData } = await supabase
+    .from('blog_traffic')
+    .select('slug, views, sessions, users')
+    .eq('period', 'daily')
+    .order('date', { ascending: false });
+
+  // Aggregate traffic by slug (sum across all dates)
+  const trafficBySlug: Record<string, { views: number; sessions: number; users: number }> = {};
+  for (const row of trafficData ?? []) {
+    if (!trafficBySlug[row.slug]) trafficBySlug[row.slug] = { views: 0, sessions: 0, users: 0 };
+    trafficBySlug[row.slug].views += row.views || 0;
+    trafficBySlug[row.slug].sessions += row.sessions || 0;
+    trafficBySlug[row.slug].users += row.users || 0;
+  }
+
   // Group social posts by slug
   const socialBySlug: Record<string, typeof socialPosts> = {};
   for (const sp of socialPosts ?? []) {
@@ -102,6 +118,8 @@ export async function GET(request: NextRequest) {
       totalComments * 5 +
       totalShares * 8;
 
+    const traffic = trafficBySlug[post.slug] || { views: 0, sessions: 0, users: 0 };
+
     return {
       slug: post.slug,
       title: post.title,
@@ -123,6 +141,7 @@ export async function GET(request: NextRequest) {
         comments: totalComments,
         shares: totalShares,
       },
+      traffic,
       score,
       socialPostCount: posted.length,
       draftCount: social.filter((s) => s.status === 'draft').length,
@@ -136,6 +155,8 @@ export async function GET(request: NextRequest) {
     content.sort((a, b) => b.totals.impressions - a.totals.impressions);
   } else if (sort === 'likes') {
     content.sort((a, b) => b.totals.likes - a.totals.likes);
+  } else if (sort === 'views') {
+    content.sort((a, b) => b.traffic.views - a.traffic.views);
   } else {
     // Default: most recently published first
     content.sort((a, b) => (b.publishedDate || '').localeCompare(a.publishedDate || ''));
@@ -147,6 +168,9 @@ export async function GET(request: NextRequest) {
     postsWithSocial: content.filter((c) => c.socialPostCount > 0).length,
     totalImpressions: content.reduce((sum, c) => sum + c.totals.impressions, 0),
     totalEngagement: content.reduce((sum, c) => sum + c.totals.likes + c.totals.comments + c.totals.shares, 0),
+    totalViews: content.reduce((sum, c) => sum + c.traffic.views, 0),
+    totalSessions: content.reduce((sum, c) => sum + c.traffic.sessions, 0),
+    totalUsers: content.reduce((sum, c) => sum + c.traffic.users, 0),
     topPerformer: content.length > 0
       ? content.reduce((best, c) => (c.score > best.score ? c : best))
       : null,
