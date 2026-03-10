@@ -15,7 +15,7 @@ export const metadata: PostMeta = {
   tags: ["ai-agents", "automation", "developer-workflow", "seo", "geo", "productivity", "upwork", "open-source"],
   category: "AI & Automation",
   isFeatured: false,
-  isDraft: true,
+  isDraft: false,
   priority: 5,
 };
 
