@@ -225,6 +225,102 @@ export default function RootLayout({
           }}
         />
 
+        {/* Service Schema — structured data for service offerings */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Service",
+              "name": "Custom Software & Automation Services",
+              "description": "Custom software development, marketing automation, and AI-powered systems that help service businesses capture more leads and scale faster.",
+              "url": "https://cyberworldbuilders.com",
+              "provider": {
+                "@type": "Organization",
+                "name": "CyberWorld Builders",
+                "url": "https://cyberworldbuilders.com"
+              },
+              "serviceType": "Software Development",
+              "areaServed": {
+                "@type": "Country",
+                "name": "United States"
+              },
+              "hasOfferCatalog": {
+                "@type": "OfferCatalog",
+                "name": "Software & Automation Services",
+                "itemListElement": [
+                  {
+                    "@type": "OfferCatalog",
+                    "name": "Custom Software Development",
+                    "itemListElement": [
+                      {
+                        "@type": "Offer",
+                        "itemOffered": {
+                          "@type": "Service",
+                          "name": "Web Application Development",
+                          "description": "Full-stack web application development using modern frameworks like Next.js, React, and Node.js."
+                        }
+                      },
+                      {
+                        "@type": "Offer",
+                        "itemOffered": {
+                          "@type": "Service",
+                          "name": "SaaS Development",
+                          "description": "Software as a Service application development from concept to deployment."
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "@type": "OfferCatalog",
+                    "name": "Automation & AI",
+                    "itemListElement": [
+                      {
+                        "@type": "Offer",
+                        "itemOffered": {
+                          "@type": "Service",
+                          "name": "Marketing Automation",
+                          "description": "Lead capture, nurturing, and conversion automation for service businesses."
+                        }
+                      },
+                      {
+                        "@type": "Offer",
+                        "itemOffered": {
+                          "@type": "Service",
+                          "name": "AI Integration",
+                          "description": "Integration of AI-powered features including chatbots, content generation, and intelligent automation."
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "@type": "OfferCatalog",
+                    "name": "Consulting",
+                    "itemListElement": [
+                      {
+                        "@type": "Offer",
+                        "itemOffered": {
+                          "@type": "Service",
+                          "name": "Technical Consulting",
+                          "description": "Architecture review, technology selection, and technical strategy consulting."
+                        }
+                      },
+                      {
+                        "@type": "Offer",
+                        "itemOffered": {
+                          "@type": "Service",
+                          "name": "AWS Cloud Solutions",
+                          "description": "Amazon Web Services implementation, optimization, and migration."
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            })
+          }}
+        />
+
         {/* LocalBusiness Schema — captures local intent queries */}
         <script
           type="application/ld+json"
