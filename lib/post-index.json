@@ -1,7 +1,49 @@
 {
-  "generatedAt": "2026-03-10T14:19:14.683Z",
-  "count": 35,
+  "generatedAt": "2026-03-11T13:45:26.011Z",
+  "count": 36,
   "posts": [
+    {
+      "slug": "gusclaw-observatory-watching-ai-team-work",
+      "title": "The GusClaw Observatory: Watching My AI Team Work",
+      "description": "A deep dive into the GusClaw Observatory, the web-based monitoring system I built to watch my agentic team operate in real time, and the hybrid architecture that makes it all possible.",
+      "publishedDate": "2026-03-11",
+      "modifiedDate": "2026-03-11",
+      "isDraft": false,
+      "isFeatured": false,
+      "priority": 5,
+      "category": "Development & Tools",
+      "series": "",
+      "topics": [
+        "Development & Tools",
+        "AI & Automation",
+        "Career & Professional Development"
+      ],
+      "tags": [
+        "gusclaw",
+        "observatory",
+        "claude-code",
+        "open-claw",
+        "ai-agents",
+        "monitoring",
+        "automation",
+        "freelance"
+      ],
+      "keywords": [
+        "gusclaw",
+        "observatory",
+        "ai agents",
+        "claude code",
+        "open claw",
+        "agentic team",
+        "developer tools",
+        "ai automation",
+        "freelance development"
+      ],
+      "canonicalUrl": "https://cyberworldbuilders.com/blog/gusclaw-observatory-watching-ai-team-work",
+      "wordCount": 2474,
+      "fileSize": 16548,
+      "fileModified": "2026-03-11T13:45:25.485Z"
+    },
     {
       "slug": "content-publishing-engine-voice-memos-to-video",
       "title": "Building a Content Publishing Engine from Voice Memos to Video",
@@ -37,9 +79,9 @@
         "unified analytics dashboard"
       ],
       "canonicalUrl": "https://cyberworldbuilders.com/blog/content-publishing-engine-voice-memos-to-video",
-      "wordCount": 1716,
-      "fileSize": 11680,
-      "fileModified": "2026-03-10T14:19:14.415Z"
+      "wordCount": 1710,
+      "fileSize": 11584,
+      "fileModified": "2026-03-10T14:58:23.569Z"
     },
     {
       "slug": "everything-compounds-now",
