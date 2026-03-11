@@ -12,9 +12,11 @@ jobs:
     steps:
       - name: Extract blog slug from PR
         id: slug
+        env:
+          PR_BODY: ${{ github.event.pull_request.body }}
         run: |
           # Try to extract slug from PR body (pipeline PRs include "Slug: `my-slug`")
-          SLUG=$(echo "${{ github.event.pull_request.body }}" | grep -oP 'Slug:\s*`\K[^`]+' || echo "")
+          SLUG=$(echo "$PR_BODY" | grep -oP 'Slug:\s*`\K[^`]+' || echo "")
           echo "slug=$SLUG" >> "$GITHUB_OUTPUT"
           echo "Extracted slug: $SLUG"
 
