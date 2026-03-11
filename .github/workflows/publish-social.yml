@@ -22,8 +22,16 @@ jobs:
 
       - name: Trigger social media publish
         run: |
-          curl -sf -X POST \
+          RESPONSE=$(curl -sf -X POST \
             "https://gusclaw-chat.cyberworldbuilders.com/webhook/blog-merged" \
             -H "Content-Type: application/json" \
             -H "X-Automation-Key: ${{ secrets.CYBERWORLD_AUTOMATION_API_KEY }}" \
-            -d "{\"slug\": \"${{ steps.slug.outputs.slug }}\"}"
+            -d "{\"slug\": \"${{ steps.slug.outputs.slug }}\"}")
+          echo "$RESPONSE"
+          POSTED=$(echo "$RESPONSE" | python3 -c "import sys,json; print(json.load(sys.stdin).get('posted',0))")
+          FAILED=$(echo "$RESPONSE" | python3 -c "import sys,json; print(json.load(sys.stdin).get('failed',0))")
+          echo "Posted: $POSTED, Failed: $FAILED"
+          if [ "$POSTED" -eq 0 ] && [ "$FAILED" -gt 0 ]; then
+            echo "::error::All social posts failed"
+            exit 1
+          fi
