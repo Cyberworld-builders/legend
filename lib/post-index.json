@@ -1,7 +1,49 @@
 {
-  "generatedAt": "2026-03-11T13:45:26.011Z",
-  "count": 36,
+  "generatedAt": "2026-03-11T14:35:08.937Z",
+  "count": 37,
   "posts": [
+    {
+      "slug": "gusclaw-observatory-watching-ai-agents-work",
+      "title": "GusClaw Observatory: Watching My AI Agents Work",
+      "description": "How I built a hybrid AI assistant platform between Claude Code and OpenClaw, created a real-time monitoring dashboard for my agent team, and why the freelance bet on AI is finally paying off.",
+      "publishedDate": "2026-03-11",
+      "modifiedDate": "2026-03-11",
+      "isDraft": false,
+      "isFeatured": false,
+      "priority": 5,
+      "category": "Development & Tools",
+      "series": "",
+      "topics": [
+        "Development & Tools",
+        "AI & Automation",
+        "Career & Professional Development"
+      ],
+      "tags": [
+        "gusclaw",
+        "claude-code",
+        "openclaw",
+        "ai-agents",
+        "monitoring",
+        "developer-tools",
+        "freelance",
+        "automation"
+      ],
+      "keywords": [
+        "gusclaw",
+        "claude code",
+        "openclaw",
+        "ai agents",
+        "observatory",
+        "developer tools",
+        "ai automation",
+        "freelance development",
+        "agentic workflows"
+      ],
+      "canonicalUrl": "https://cyberworldbuilders.com/blog/gusclaw-observatory-watching-ai-agents-work",
+      "wordCount": 2572,
+      "fileSize": 16573,
+      "fileModified": "2026-03-11T14:35:08.416Z"
+    },
     {
       "slug": "gusclaw-observatory-watching-ai-team-work",
       "title": "The GusClaw Observatory: Watching My AI Team Work",
@@ -42,7 +84,7 @@
       "canonicalUrl": "https://cyberworldbuilders.com/blog/gusclaw-observatory-watching-ai-team-work",
       "wordCount": 2474,
       "fileSize": 16548,
-      "fileModified": "2026-03-11T13:45:25.485Z"
+      "fileModified": "2026-03-11T14:35:08.336Z"
     },
     {
       "slug": "content-publishing-engine-voice-memos-to-video",
