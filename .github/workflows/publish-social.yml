@@ -1,9 +1,11 @@
 name: Publish Social Posts
 
-on:
-  pull_request:
-    types: [closed]
-    branches: [main]
+# Disabled — social posting is manual for now. Re-enable by uncommenting the trigger.
+# on:
+#   pull_request:
+#     types: [closed]
+#     branches: [main]
+on: workflow_dispatch
 
 jobs:
   publish-social:
