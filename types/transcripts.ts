@@ -13,6 +13,7 @@ export const transcriptUpdateSchema = z.object({
   title: z.string().min(2).max(500).optional(),
   transcript_text: z.string().min(1).optional(),
   is_processed: z.boolean().optional(),
+  status: z.enum(['pending', 'claimed', 'processed']).optional(),
 });
 
 export type TranscriptUpdateData = z.infer<typeof transcriptUpdateSchema>;

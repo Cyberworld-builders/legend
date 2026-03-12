@@ -16,6 +16,7 @@ export async function GET(request: Request) {
       .from('transcripts')
       .select('*')
       .eq('is_processed', false)
+      .or('status.is.null,status.eq.pending')
       .order('created_at', { ascending: true })
       .limit(1)
       .maybeSingle();

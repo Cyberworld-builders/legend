@@ -35,6 +35,7 @@ export async function PATCH(
   if (parsed.data.title !== undefined) updateData.title = parsed.data.title;
   if (parsed.data.transcript_text !== undefined) updateData.transcript_text = parsed.data.transcript_text;
   if (parsed.data.is_processed !== undefined) updateData.is_processed = parsed.data.is_processed;
+  if (parsed.data.status !== undefined) updateData.status = parsed.data.status;
 
   if (Object.keys(updateData).length === 0) {
     return NextResponse.json({ error: 'No fields to update' }, { status: 400 });
