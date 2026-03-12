@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-03-12T17:54:39.033Z",
-  "count": 37,
+  "generatedAt": "2026-03-12T19:03:58.127Z",
+  "count": 38,
   "posts": [
     {
       "slug": "first-real-outage-autonomous-systems",
@@ -38,7 +38,49 @@
       "canonicalUrl": "https://cyberworldbuilders.com/blog/first-real-outage-autonomous-systems",
       "wordCount": 2479,
       "fileSize": 16274,
-      "fileModified": "2026-03-12T17:54:38.830Z"
+      "fileModified": "2026-03-12T18:00:41.541Z"
+    },
+    {
+      "slug": "first-real-outage-claude-code-auth-went-down",
+      "title": "My First Real Outage: Claude Code Auth Went Down and Everything Stopped",
+      "description": "After weeks of building automations, I finally hit my first real problem — a Claude Code authentication failure took down every pipeline I had running. Here's what happened, what it revealed about fault tolerance, and why I'm actually glad it broke.",
+      "publishedDate": "2026-03-12",
+      "modifiedDate": "2026-03-12",
+      "isDraft": false,
+      "isFeatured": false,
+      "priority": 5,
+      "category": "Development",
+      "series": "",
+      "topics": [
+        "AI & Automation",
+        "Development & Tools"
+      ],
+      "tags": [
+        "claude-code",
+        "automation",
+        "fault-tolerance",
+        "troubleshooting",
+        "devops",
+        "ai-tools",
+        "self-healing",
+        "infrastructure"
+      ],
+      "keywords": [
+        "claude code",
+        "automation outage",
+        "fault tolerance",
+        "ai authentication",
+        "self-healing systems",
+        "api failover",
+        "agentic workflows",
+        "personal ai assistant",
+        "codex",
+        "redundancy"
+      ],
+      "canonicalUrl": "https://cyberworldbuilders.com/blog/first-real-outage-claude-code-auth-went-down",
+      "wordCount": 2221,
+      "fileSize": 14630,
+      "fileModified": "2026-03-12T19:03:57.923Z"
     },
     {
       "slug": "gusclaw-observatory-watching-ai-team-work",
