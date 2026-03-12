@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-03-12T17:54:39.033Z",
-  "count": 37,
+  "generatedAt": "2026-03-12T18:00:41.783Z",
+  "count": 38,
   "posts": [
     {
       "slug": "first-real-outage-autonomous-systems",
@@ -38,7 +38,47 @@
       "canonicalUrl": "https://cyberworldbuilders.com/blog/first-real-outage-autonomous-systems",
       "wordCount": 2479,
       "fileSize": 16274,
-      "fileModified": "2026-03-12T17:54:38.830Z"
+      "fileModified": "2026-03-12T18:00:41.541Z"
+    },
+    {
+      "slug": "first-real-outage-excited-about-it",
+      "title": "My First Real Outage and Why I'm Excited About It",
+      "description": "When all my automations went down because of a Claude Code authentication issue, it forced me to think about fault tolerance, failover strategies, and what it means to actually depend on the systems you've built.",
+      "publishedDate": "2026-03-12",
+      "modifiedDate": "2026-03-12",
+      "isDraft": false,
+      "isFeatured": false,
+      "priority": 5,
+      "category": "AI & Automation",
+      "series": "",
+      "topics": [
+        "Development & Tools",
+        "AI & Automation",
+        "Career & Professional Development"
+      ],
+      "tags": [
+        "automation",
+        "claude-code",
+        "fault-tolerance",
+        "devops",
+        "agentic-workflows",
+        "troubleshooting",
+        "self-healing"
+      ],
+      "keywords": [
+        "claude code authentication",
+        "automation outage",
+        "fault tolerance",
+        "self-healing systems",
+        "ai automation",
+        "agentic workflows",
+        "failover strategy",
+        "api key fallback"
+      ],
+      "canonicalUrl": "https://cyberworldbuilders.com/blog/first-real-outage-excited-about-it",
+      "wordCount": 2290,
+      "fileSize": 15059,
+      "fileModified": "2026-03-12T18:00:41.593Z"
     },
     {
       "slug": "gusclaw-observatory-watching-ai-team-work",
