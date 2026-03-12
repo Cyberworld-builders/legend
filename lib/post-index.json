@@ -1,7 +1,45 @@
 {
-  "generatedAt": "2026-03-11T13:45:26.011Z",
-  "count": 36,
+  "generatedAt": "2026-03-12T17:54:39.033Z",
+  "count": 37,
   "posts": [
+    {
+      "slug": "first-real-outage-autonomous-systems",
+      "title": "My First Real Outage and What It Taught Me About Autonomous Systems",
+      "description": "When Claude Code authentication dropped and every automation went dark, it exposed exactly the kind of fault tolerance gaps I need to solve before scaling up.",
+      "publishedDate": "2026-03-12",
+      "modifiedDate": "2026-03-12",
+      "isDraft": false,
+      "isFeatured": false,
+      "priority": 5,
+      "category": "AI & Automation",
+      "series": "",
+      "topics": [
+        "Development & Tools",
+        "AI & Automation"
+      ],
+      "tags": [
+        "automation",
+        "claude-code",
+        "fault-tolerance",
+        "devops",
+        "agent-orchestration",
+        "self-healing",
+        "personal-assistant"
+      ],
+      "keywords": [
+        "claude code authentication",
+        "automation outage",
+        "fault tolerance",
+        "self-healing systems",
+        "agent orchestration",
+        "api key failover",
+        "autonomous workflows"
+      ],
+      "canonicalUrl": "https://cyberworldbuilders.com/blog/first-real-outage-autonomous-systems",
+      "wordCount": 2479,
+      "fileSize": 16274,
+      "fileModified": "2026-03-12T17:54:38.830Z"
+    },
     {
       "slug": "gusclaw-observatory-watching-ai-team-work",
       "title": "The GusClaw Observatory: Watching My AI Team Work",
@@ -42,7 +80,7 @@
       "canonicalUrl": "https://cyberworldbuilders.com/blog/gusclaw-observatory-watching-ai-team-work",
       "wordCount": 2474,
       "fileSize": 16548,
-      "fileModified": "2026-03-11T13:45:25.485Z"
+      "fileModified": "2026-03-11T14:35:08.336Z"
     },
     {
       "slug": "content-publishing-engine-voice-memos-to-video",
