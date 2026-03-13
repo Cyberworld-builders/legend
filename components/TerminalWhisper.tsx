@@ -627,9 +627,9 @@ export default function TerminalWhisper() {
   return (
     <div
       className={`fixed bottom-0 left-0 z-50 font-mono text-xs select-none ${
-        phase === 'engaged' ? 'right-0 top-0' : ''
+        phase === 'engaged' ? 'right-0' : ''
       }`}
-      style={phase !== 'engaged' ? { maxWidth: 'min(520px, calc(100vw - 16px))' } : undefined}
+      style={phase !== 'engaged' ? { maxWidth: 'min(520px, calc(100vw - 16px))' } : { maxHeight: '100dvh' }}
     >
       {/* Whisper phase — ghostly text crawl, fading upward like credits */}
       {(phase === 'typing' || phase === 'whispered') && (
@@ -672,7 +672,7 @@ export default function TerminalWhisper() {
 
       {/* Engaged phase — full-screen conversational terminal */}
       {phase === 'engaged' && (
-        <div className="flex flex-col w-full h-full overflow-hidden bg-[#0a0a0a]/95 backdrop-blur-sm">
+        <div className="flex flex-col w-full overflow-hidden bg-[#0a0a0a]/95 backdrop-blur-sm" style={{ maxHeight: 'calc(100dvh - 60px)' }}>
           <div className="flex items-center justify-between px-4 py-2 border-b border-[#00ff00]/10 flex-shrink-0">
             <div className="flex items-center gap-2">
               <span className="text-[#00ff00]/40 text-[10px] tracking-widest uppercase">terminal</span>
