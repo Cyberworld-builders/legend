@@ -626,8 +626,10 @@ export default function TerminalWhisper() {
 
   return (
     <div
-      className="fixed bottom-0 left-0 z-50 font-mono text-xs select-none"
-      style={{ maxWidth: 'min(520px, calc(100vw - 16px))' }}
+      className={`fixed bottom-0 left-0 z-50 font-mono text-xs select-none ${
+        phase === 'engaged' ? 'right-0 top-0' : ''
+      }`}
+      style={phase !== 'engaged' ? { maxWidth: 'min(520px, calc(100vw - 16px))' } : undefined}
     >
       {/* Whisper phase — ghostly text crawl, fading upward like credits */}
       {(phase === 'typing' || phase === 'whispered') && (
@@ -668,10 +670,10 @@ export default function TerminalWhisper() {
         </div>
       )}
 
-      {/* Engaged phase — conversational terminal */}
+      {/* Engaged phase — full-screen conversational terminal */}
       {phase === 'engaged' && (
-        <div className="m-3 rounded-md overflow-hidden border border-[#00ff00]/15 shadow-[0_0_20px_rgba(0,255,0,0.05)]">
-          <div className="flex items-center justify-between px-3 py-1.5 bg-[#0a0a0a]/95 border-b border-[#00ff00]/10">
+        <div className="flex flex-col w-full h-full overflow-hidden bg-[#0a0a0a]/95 backdrop-blur-sm">
+          <div className="flex items-center justify-between px-4 py-2 border-b border-[#00ff00]/10 flex-shrink-0">
             <div className="flex items-center gap-2">
               <span className="text-[#00ff00]/40 text-[10px] tracking-widest uppercase">terminal</span>
               {jayOnline && (
@@ -691,8 +693,8 @@ export default function TerminalWhisper() {
           </div>
 
           <div
-            className="bg-[#0a0a0a]/95 backdrop-blur-sm px-3 py-2 overflow-y-auto break-words overflow-wrap-anywhere"
-            style={{ maxHeight: '360px', overflowWrap: 'anywhere', wordBreak: 'break-word' }}
+            className="flex-1 px-4 py-3 overflow-y-auto break-words"
+            style={{ overflowWrap: 'anywhere', wordBreak: 'break-word' }}
           >
             {messages.length === 0 && whisperLines.map((line, i) => (
               <div key={`w-${i}`} className="text-[#00ff00]/50 leading-relaxed">
@@ -726,7 +728,7 @@ export default function TerminalWhisper() {
             <div ref={messagesEndRef} />
           </div>
 
-          <form onSubmit={handleSubmit} className="flex items-center bg-[#0a0a0a]/95 border-t border-[#00ff00]/10 px-3 py-2">
+          <form onSubmit={handleSubmit} className="flex items-center border-t border-[#00ff00]/10 px-4 py-3 flex-shrink-0">
             <span className="text-[#00ff00]/40 mr-1.5 flex-shrink-0">{'>'}</span>
             <input
               ref={inputRef}
