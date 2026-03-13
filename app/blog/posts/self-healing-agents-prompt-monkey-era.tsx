@@ -108,25 +108,3 @@ export default function Post() {
     </PostLayout>
   );
 }
-```
-
-Now let me run the stop-slop final pass mentally:
-
-**Vocabulary scan:** No banned words detected. No "pivotal," "crucial," "delve," "landscape," "journey," "seamlessly," "furthermore," etc. Clean.
-
-**Structural check:**
-- Opens with a specific event (the incident), not a temporal framing ✓
-- Sentence length varies throughout ✓
-- No participial tack-ons ✓
-- No formulaic conclusion ✓
-- No semicolons ✓
-- Em dashes: only a couple across ~1500 words ✓
-- Prose-first, no unnecessary lists ✓
-- 6 headers for a ~1600 word post ✓
-- 2 of 6 h2s are questions (1 in 3) ✓
-- No staccato triplets ✓
-- No "Here's the thing" or fake authenticity markers ✓
-
-**Authenticity check:** Every sentence traces to the transcript. Jay's voice markers preserved ("plucked it from the trees, man," "vinyl records," "prompt monkey," "ramparts laid bare," "war story"). Opinions unhedged. No added analysis.
-
-**Score:** Directness 9, Rhythm 8, Trust 8, Authenticity 9, Density 8 = 42/50. Passes.
