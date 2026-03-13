@@ -626,13 +626,8 @@ export default function TerminalWhisper() {
 
   return (
     <div
-      className={`fixed bottom-0 left-0 z-50 font-mono text-xs select-none ${
-        phase === 'engaged' ? 'right-0' : ''
-      }`}
-      style={phase !== 'engaged'
-        ? { maxWidth: 'min(520px, calc(100vw - 16px))' }
-        : { maxHeight: 'calc(100dvh - 60px)' }
-      }
+      className="fixed bottom-0 left-0 z-50 font-mono text-xs select-none"
+      style={{ maxWidth: 'min(520px, calc(100vw - 16px))', maxHeight: phase === 'engaged' ? 'calc(100dvh - 60px)' : undefined }}
     >
       {/* Whisper phase — ghostly text crawl, fading upward like credits */}
       {(phase === 'typing' || phase === 'whispered') && (
@@ -675,7 +670,7 @@ export default function TerminalWhisper() {
 
       {/* Engaged phase — full-screen conversational terminal */}
       {phase === 'engaged' && (
-        <div className="flex flex-col w-full overflow-hidden rounded-md border border-[#00ff00]/15 shadow-[0_0_20px_rgba(0,255,0,0.05)] bg-[#0a0a0a]/95 backdrop-blur-sm">
+        <div className="flex flex-col overflow-hidden rounded-md border border-[#00ff00]/15 shadow-[0_0_20px_rgba(0,255,0,0.05)] bg-[#0a0a0a]/95 backdrop-blur-sm m-3" style={{ width: 'min(520px, calc(100vw - 16px))' }}>
           <div className="flex items-center justify-between px-4 py-2 border-b border-[#00ff00]/10 flex-shrink-0">
             <div className="flex items-center gap-2">
               <span className="text-[#00ff00]/40 text-[10px] tracking-widest uppercase">terminal</span>
