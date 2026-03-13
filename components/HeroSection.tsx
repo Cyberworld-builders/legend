@@ -89,8 +89,9 @@ export default function HeroSection() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
+                  aria-label="Email address"
                   placeholder="Enter your email"
-                  className="flex-1 px-4 py-3 bg-[#1a1a1a] border border-[#00ff00]/30 rounded-lg text-[#00ff00] placeholder-[#00ff00]/40 focus:border-[#00ff00] focus:ring-1 focus:ring-[#00ff00] outline-none transition"
+                  className="flex-1 px-4 py-3 bg-[#1a1a1a] border border-[#00ff00]/30 rounded-lg text-[#00ff00] placeholder-[#00ff00]/50 focus:border-[#00ff00] focus:ring-1 focus:ring-[#00ff00] outline-none transition"
                 />
                 <button
                   type="submit"
@@ -109,7 +110,7 @@ export default function HeroSection() {
         </div>
 
         {/* Trust Signal */}
-        <p className="mt-8 text-sm text-[#00ff00]/50">
+        <p className="mt-8 text-sm text-[#00ff00]/70">
           10+ years in tech | AWS Certified | Building systems for service businesses
         </p>
       </div>

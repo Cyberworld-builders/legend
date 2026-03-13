@@ -95,7 +95,8 @@ function InlineCaptureForm({ onSubmit, disabled }: { onSubmit: (value: string) =
           placeholder={mode === 'email' ? 'you@company.com' : '(555) 123-4567'}
           required
           disabled={disabled}
-          className="flex-1 px-3 py-2 bg-[#0a0a0a] border border-[#00ff00]/30 rounded text-[#00ff00] text-base placeholder-[#00ff00]/30 focus:border-[#00ff00] focus:ring-1 focus:ring-[#00ff00] outline-none transition"
+          aria-label={mode === 'email' ? 'Email address' : 'Phone number'}
+          className="flex-1 px-3 py-2 bg-[#0a0a0a] border border-[#00ff00]/30 rounded text-[#00ff00] text-base placeholder-[#00ff00]/50 focus:border-[#00ff00] focus:ring-1 focus:ring-[#00ff00] outline-none transition"
         />
         <button
           type="submit"
@@ -105,7 +106,7 @@ function InlineCaptureForm({ onSubmit, disabled }: { onSubmit: (value: string) =
           <Send size={14} />
         </button>
       </form>
-      <p className="text-xs text-[#00ff00]/30 mt-1.5">Jay will reach out within 24 hours</p>
+      <p className="text-xs text-[#00ff00]/70 mt-1.5">Jay will reach out within 24 hours</p>
     </div>
   );
 }
@@ -327,7 +328,7 @@ const ChatWidget = () => {
 
       {/* Chat Modal */}
       {isOpen && (
-        <div className="fixed inset-0 md:inset-auto md:bottom-20 md:right-6 md:w-[400px] md:h-[600px] md:rounded-lg bg-[#2a2a2a] border-2 border-[#00ff00] shadow-[0_0_15px_rgba(0,255,0,0.3)] z-50 flex flex-col overflow-hidden">
+        <div role="dialog" aria-label="Chat with CyberWorld Builders" className="fixed inset-0 md:inset-auto md:bottom-20 md:right-6 md:w-[400px] md:h-[600px] md:rounded-lg bg-[#2a2a2a] border-2 border-[#00ff00] shadow-[0_0_15px_rgba(0,255,0,0.3)] z-50 flex flex-col overflow-hidden">
           {/* Header */}
           <div className="flex justify-between items-center p-4 bg-[#1a1a1a] border-b border-[#00ff00]">
             <div>
@@ -339,7 +340,7 @@ const ChatWidget = () => {
                 </span>
               )}
             </div>
-            <button onClick={toggleChat} className="text-[#00ff00] hover:text-[#00cc00]">
+            <button onClick={toggleChat} className="text-[#00ff00] hover:text-[#00cc00]" aria-label="Close chat">
               <X size={24} />
             </button>
           </div>
@@ -400,6 +401,7 @@ const ChatWidget = () => {
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 onKeyDown={(e) => e.key === 'Enter' && handleSendMessage()}
+                aria-label="Chat message"
                 className="flex-1 p-2 bg-[#1a1a1a] text-[#00ff00] border border-[#00ff00] rounded-sm focus:outline-none focus:ring-2 focus:ring-[#00ff00] placeholder-[#00ff00]/50 text-base"
                 placeholder="Type your message..."
                 disabled={isLoading}
