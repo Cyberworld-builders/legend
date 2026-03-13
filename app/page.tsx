@@ -7,7 +7,6 @@ import ServicesSection from '../components/ServicesSection';
 import FeaturedCarousel from '../components/FeaturedCarousel';
 import AboutSection from '../components/AboutSection';
 import ContactCTA from '../components/ContactCTA';
-import SocialLinks from '../components/SocialLinks';
 import { getFeaturedPosts } from '../lib/post-metadata';
 import dynamic from 'next/dynamic';
 
@@ -16,6 +15,14 @@ const ScrollTracker = dynamic(() => import('../components/ScrollTracker'), { ssr
 const TRACKED_SECTIONS = ['hero', 'services', 'featured', 'about', 'contact', 'faq'];
 
 const featuredPosts = getFeaturedPosts();
+
+function ScanlineDivider() {
+  return (
+    <div className="relative h-px w-full overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#00ff00]/30 to-transparent" />
+    </div>
+  );
+}
 
 export default function Home() {
   return (
@@ -30,38 +37,30 @@ export default function Home() {
       <main className="relative z-10">
         <HeroSection />
 
+        <ScanlineDivider />
+
         <ServicesSection />
+
+        <ScanlineDivider />
 
         <FeaturedCarousel posts={featuredPosts} title="Featured" />
 
+        <ScanlineDivider />
+
         <AboutSection />
+
+        <ScanlineDivider />
 
         <ContactCTA />
 
+        <ScanlineDivider />
+
         {/* FAQ Section */}
-        <section className="py-16">
+        <section className="py-16 md:py-24 bg-[#0a0a0a]">
           <FAQ />
         </section>
 
-        {/* Footer */}
-        <footer className="py-8 border-t border-[#00ff00]/10">
-          <div className="max-w-4xl mx-auto px-4 text-center">
-            <SocialLinks />
-            <p className="mt-6 text-sm text-[#00ff00]/70">
-              <a
-                href="mailto:contact@cyberworldbuilders.com"
-                className="hover:underline"
-              >
-                contact@cyberworldbuilders.com
-              </a>
-            </p>
-            <p className="mt-4 text-sm text-[#00ff00]/50">
-              &copy; {new Date().getFullYear()} CyberWorld Builders, Inc. All rights reserved.
-            </p>
-          </div>
-        </footer>
       </main>
-
     </div>
   );
 }

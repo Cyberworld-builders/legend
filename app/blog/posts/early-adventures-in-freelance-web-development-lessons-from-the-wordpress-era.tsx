@@ -22,7 +22,6 @@ export default function Post() {
   return (
     <PostLayout meta={metadata}>
 
-      <h1 className="text-4xl font-bold mb-6 text-[#00ff00]">Early Adventures in Freelance Web Development: Lessons from the WordPress Era</h1>
       <p className="mb-4 leading-relaxed">After my first WordPress job, another came. Then another. Pretty soon it was all WordPress, all the time. With my experience in JavaScript, PHP, MySQL, and Linux servers, I started marketing myself as a full-stack developer, and that kept steady work coming in for years.</p>
       <h2 className="text-2xl font-bold mb-4 mt-8 text-[#00ff00]">Custom Plugins Became My Thing</h2>
       <p className="mb-4 leading-relaxed">Clients always had modified plugins, which was a constant headache. Updates would overwrite their customizations or blow open security holes. So I learned to write custom plugins, either hooking into existing ones or reverse-engineering their functionality to build something actually maintainable. That became my niche. I could work on themes if I had to, but I focused on back-end development. Data management was just more rewarding to me than design ever was.</p>

@@ -5,11 +5,6 @@ import {
   Brain,
   GitBranch,
   Shield,
-  Target,
-  Hammer,
-  TestTube,
-  Rocket,
-  Activity,
 } from 'lucide-react';
 import MetaServicePageLayout from '@/components/MetaServicePageLayout';
 

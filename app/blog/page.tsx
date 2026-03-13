@@ -7,7 +7,7 @@ import TopicClusters from '@/components/TopicClusters';
 import PageBackground from '@/components/PageBackground';
 import BlogPostList from '@/components/BlogPostList';
 import FeaturedCarousel from '@/components/FeaturedCarousel';
-import { getAllPostsWithMetadata, getFeaturedPosts } from '@/lib/post-metadata';
+import { getAllPosts, getAllPostsWithMetadata, getFeaturedPosts } from '@/lib/post-metadata';
 import type { Metadata } from 'next';
 
 const POSTS_PER_PAGE = 5;
@@ -100,6 +100,10 @@ export default async function BlogIndex({ searchParams }: BlogIndexProps) {
     }
     
     // Convert to the format expected by the component
+    // Build a wordCount lookup from the raw index entries
+    const indexEntries = getAllPosts();
+    const wordCountMap = new Map(indexEntries.map(e => [e.slug, e.wordCount || 0]));
+
     const allPosts = allPostsWithMetadata.map(post => ({
       slug: post.slug,
       title: post.metadata.title || post.slug
@@ -108,6 +112,10 @@ export default async function BlogIndex({ searchParams }: BlogIndexProps) {
         .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
         .join(' '),
       mtime: new Date(post.metadata.publishedDate || ''),
+      headerImage: post.metadata.headerImage || '',
+      description: post.metadata.description || '',
+      category: post.metadata.category || '',
+      wordCount: wordCountMap.get(post.slug) || 0,
     }));
 
   const totalPages = Math.ceil(allPosts.length / POSTS_PER_PAGE);
@@ -228,8 +236,8 @@ export default async function BlogIndex({ searchParams }: BlogIndexProps) {
       />
 
       <BlogPostList
-        posts={posts.map((p) => ({ slug: p.slug, title: p.title, mtime: p.mtime.toISOString() }))}
-        allPosts={allPosts.map((p) => ({ slug: p.slug, title: p.title, mtime: p.mtime.toISOString() }))}
+        posts={posts.map((p) => ({ slug: p.slug, title: p.title, mtime: p.mtime.toISOString(), headerImage: p.headerImage, description: p.description, category: p.category, wordCount: p.wordCount }))}
+        allPosts={allPosts.map((p) => ({ slug: p.slug, title: p.title, mtime: p.mtime.toISOString(), headerImage: p.headerImage, description: p.description, category: p.category, wordCount: p.wordCount }))}
         totalPages={totalPages}
         currentPage={currentPage}
         paginationBase={paginationBase}

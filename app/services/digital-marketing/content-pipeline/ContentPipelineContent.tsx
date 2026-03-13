@@ -5,10 +5,6 @@ import {
   BrainCircuit,
   Image,
   Share2,
-  FileInput,
-  Sparkles,
-  Eye,
-  Send,
 } from 'lucide-react';
 import MetaServicePageLayout from '@/components/MetaServicePageLayout';
 

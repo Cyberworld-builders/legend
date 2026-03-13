@@ -21,7 +21,6 @@ export const metadata: PostMeta = {
 export default function Post() {
   return (
     <PostLayout meta={metadata}>
-      <h1 className="text-4xl font-bold mb-6 text-[#00ff00]">The Last Cycle: Why Founder-Engineer Partnerships Are Nearing Their End</h1>
       <h2 className="text-2xl font-bold mb-4 mt-8 text-[#00ff00]">The Final Cycle of Founder-Engineer Collaboration</h2>
       <p className="mb-4 leading-relaxed">I believe we’re approaching the end of an era—potentially the last cycle where I, as an engineer, partner with founders to build their products while they fund the development. My intuition suggests this shift could happen within the next six months to three years, though exceptions will always exist. We’ve entered a phase where relying on large teams and big budgets is becoming unwise. Instead, the future favors small, agile teams—sometimes as small as one founder and one engineer, both leveraging AI tools to maximize efficiency.</p>
       <p className="mb-4 leading-relaxed">This cycle is defined by a transition to minimal teams. A single, capable engineer with a strong software development background can now use emerging AI tools to achieve what once required entire teams. The current iteration of this cycle likely began in the past three to six months, marked by the maturation of tools like Cursor, GitHub Copilot, and Grok 3—IDEs and LLMs natively built for coding tasks such as code prediction and automation.</p>

@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
+import Image from 'next/image';
 import { LucideIcon, ArrowRight } from 'lucide-react';
 import PageBackground from '@/components/PageBackground';
 import Breadcrumb from '@/components/Breadcrumb';
@@ -137,11 +138,13 @@ export default function ServicePageLayout({
         <section id="hero" className="relative overflow-hidden">
           {heroImage && (
             <div className="absolute inset-0">
-              <img
+              <Image
                 src={heroImage}
                 alt=""
-                className="w-full h-full object-cover opacity-50"
-                loading="eager"
+                fill
+                className="object-cover opacity-50"
+                priority
+                sizes="100vw"
               />
               {/* Bottom fade to content */}
               <div className="absolute inset-0 bg-gradient-to-t from-[#1a1a1a] via-[#1a1a1a]/60 to-[#1a1a1a]/20" />
@@ -279,12 +282,14 @@ export default function ServicePageLayout({
                       className="group block border border-[#00ff00]/20 rounded-lg hover:border-[#00ff00]/40 transition-colors bg-[#1a1a1a] overflow-hidden"
                     >
                       {post.image && (
-                        <div className="overflow-hidden">
-                          <img
+                        <div className="relative overflow-hidden h-40">
+                          <Image
                             src={post.image}
                             alt=""
-                            className="w-full h-40 object-cover group-hover:scale-105 transition-transform duration-300"
+                            fill
+                            className="object-cover group-hover:scale-105 transition-transform duration-300"
                             loading="lazy"
+                            sizes="(max-width: 768px) 100vw, 50vw"
                           />
                         </div>
                       )}

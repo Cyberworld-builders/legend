@@ -21,7 +21,6 @@ export const metadata: PostMeta = {
 export default function Post() {
   return (
     <PostLayout meta={metadata}>
-      <h1 className="text-4xl font-bold mb-6 text-[#00ff00]">The Jumpstarter: A 5-Point Framework to Align Value and Passion</h1>
       <blockquote className="border-l-4 border-[#00ff00] pl-4 italic mb-4">
         <p><em>Or... How the alignment of what you desire with what makes you valuable can drastically increase productivity.</em></p>
       </blockquote>

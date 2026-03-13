@@ -22,7 +22,6 @@ export default function Post() {
   return (
     <PostLayout meta={metadata}>
 
-      <h1 className="text-4xl font-bold mb-6 text-[#00ff00]">The DocWorks Franken-System</h1>
       <p className="mb-4 leading-relaxed">I don&apos;t usually get to tell these stories. When you&apos;ve got profiles online and you want people to know about you quickly, you stick with the most recent specialties, the most recent tech. That makes sense because those are the most relevant. But I never get time to dig into the older stuff, and some of these stories are just fun to talk about. The way problems were solved, what was smart and what was stupid, things I did and things I was compelled to do.</p>
       <p className="mb-4 leading-relaxed">One story I always wanted to tell is about one of the first jobs I ever had in technology: building and maintaining an electronic medical records system called DocWorks at a doctor&apos;s office here in town. This was around 2011 to 2013, maybe bleeding a bit into 2014. I was a full-time employee, primarily a programmer but also kind of general IT staff because it was a doctor&apos;s office on a hospital campus. Pretty much what I did all day was code. Full-stack development.</p>
       <h2 className="text-2xl font-bold mb-4 mt-8 text-[#00ff00]">The Stack That Time Forgot</h2>

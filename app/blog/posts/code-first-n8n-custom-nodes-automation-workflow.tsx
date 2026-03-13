@@ -21,7 +21,6 @@ export const metadata: PostMeta = {
 export default function Post() {
   return (
     <PostLayout meta={metadata}>
-      <h1 className="text-4xl font-bold mb-6 text-[#00ff00]">Code-First N8N: Why I Build Custom Nodes Instead of Searching the Marketplace</h1>
 
       <p className="mb-4 leading-relaxed">
         I&apos;ve got a lot going on with automations right now. This might end up being a whole series, but I want to talk about where I&apos;m at, what I achieved yesterday, and where I&apos;m taking all of this. Some of what I&apos;m about to describe is short-term stuff I&apos;ll execute on in the coming days. Some of it is a bit more crackpot, with engineering challenges I may not even have the resources for yet. And part of getting it all out loud is figuring out which is which.

@@ -22,7 +22,6 @@ export default function Post() {
   return (
     <PostLayout meta={metadata}>
 
-      <h1 className="text-4xl font-bold mb-6 text-[#00ff00]">I Spent an Hour with Cursor and My Blog&apos;s SEO Got Real</h1>
       <p className="mb-4 leading-relaxed">Late last night I sat down with the Cursor agent and pointed it at my company landing site. I&apos;ve been doing a lot of research and practice with marketing stuff lately. Lead capture, SEO, sales funnels, studying the tools that digital marketers use and figuring out where, as an engineer, I might fit in. Marketing is a weak point of mine that I want to strengthen, and I think it&apos;s going to be absolutely necessary as engineering gets more automated.</p>
       <p className="mb-4 leading-relaxed">So I basically told Cursor: scan the landing site, see what kind of improvements we can make. It helped me come up with a plan document and we just started busting out items on the list. I&apos;m really happy with its ability to understand my style, my brand, and my objective with the website. Most of the improvements were centered around the blog, because that&apos;s where most of my pages are. We added meta tags, breadcrumbs, social links, a ton of page speed optimization. We added schema objects that I wasn&apos;t even aware of, like a full author object with details and tags about the author. And it built a categorization system. In less than an hour.</p>
       <h2 className="text-2xl font-bold mb-4 mt-8 text-[#00ff00]">The Most Developer-Friendly Blog of All Time</h2>

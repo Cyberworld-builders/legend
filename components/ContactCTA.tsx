@@ -13,7 +13,7 @@ export default function ContactCTA() {
   };
 
   return (
-    <section id="contact" className="py-16 bg-[#0a0a0a]">
+    <section id="contact" className="py-16 md:py-24">
       <div className="max-w-2xl mx-auto px-4">
         <div className="text-center mb-8">
           <h2 className="text-2xl md:text-3xl font-bold mb-4 text-[#00ff00]">
