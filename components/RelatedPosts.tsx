@@ -1,10 +1,11 @@
 import Link from 'next/link';
-// import { getPostWithMetadata } from '@/lib/post-metadata';
+import Image from 'next/image';
 
 interface Post {
   slug: string;
   title: string;
   mtime: Date;
+  headerImage?: string;
   metadata?: {
     topics?: string[];
     tags?: string[];
@@ -83,18 +84,36 @@ export default function RelatedPosts({ currentSlug, allPosts }: RelatedPostsProp
           <Link
             key={post.slug}
             href={`/blog/${post.slug}`}
-            className="block p-4 border border-[#00ff00]/20 rounded-lg hover:border-[#00ff00]/40 hover:bg-[#00ff00]/5 transition-all duration-200"
+            className="block border border-[#00ff00]/20 rounded-lg overflow-hidden hover:border-[#00ff00]/40 hover:bg-[#00ff00]/5 transition-all duration-200"
           >
-            <h4 className="text-lg font-semibold mb-2 text-[#00ff00] hover:text-[#00cc00] transition-colors">
-              {post.title}
-            </h4>
-            <p className="text-sm text-[#00ff00]/70">
-              {new Date(post.mtime).toLocaleDateString('en-US', {
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric'
-              })}
-            </p>
+            {post.headerImage && (
+              <div className="relative aspect-[16/9]">
+                <Image
+                  src={post.headerImage}
+                  alt={post.title}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
+              </div>
+            )}
+            <div className="p-4">
+              {post.metadata?.category && (
+                <span className="inline-block px-2 py-0.5 text-xs font-medium bg-[#00ff00]/10 text-[#00ff00] border border-[#00ff00]/20 rounded-full mb-2">
+                  {post.metadata.category}
+                </span>
+              )}
+              <h4 className="text-lg font-semibold mb-2 text-[#00ff00] hover:text-[#00cc00] transition-colors line-clamp-2">
+                {post.title}
+              </h4>
+              <p className="text-sm text-[#00ff00]/70">
+                {new Date(post.mtime).toLocaleDateString('en-US', {
+                  year: 'numeric',
+                  month: 'long',
+                  day: 'numeric'
+                })}
+              </p>
+            </div>
           </Link>
         ))}
       </div>
