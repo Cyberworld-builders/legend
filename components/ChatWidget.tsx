@@ -105,7 +105,7 @@ function InlineCaptureForm({ onSubmit, disabled }: { onSubmit: (value: string) =
           <Send size={14} />
         </button>
       </form>
-      <p className="text-[10px] text-[#00ff00]/30 mt-1.5">Jay will reach out within 24 hours</p>
+      <p className="text-xs text-[#00ff00]/30 mt-1.5">Jay will reach out within 24 hours</p>
     </div>
   );
 }
@@ -333,7 +333,7 @@ const ChatWidget = () => {
             <div>
               <h2 className="text-lg uppercase">CyberWorld Chat</h2>
               {jayOnline && (
-                <span className="text-[10px] text-[#00ff00]/70 flex items-center gap-1">
+                <span className="text-xs text-[#00ff00]/70 flex items-center gap-1">
                   <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#00ff00] animate-pulse" />
                   Jay is online
                 </span>
@@ -350,7 +350,7 @@ const ChatWidget = () => {
               msg.role === 'jay' ? (
                 <div key={index} className="mb-3 text-left">
                   <div className="inline-block p-2 rounded-lg bg-[#003300] border border-[#00ff00]/60 text-[#00ff00] max-w-[85%]">
-                    <span className="text-[10px] text-[#00ff00]/70 block mb-1 font-bold uppercase tracking-wider">Jay is online</span>
+                    <span className="text-xs text-[#00ff00]/70 block mb-1 font-bold uppercase tracking-wider">Jay is online</span>
                     {msg.content}
                   </div>
                 </div>
