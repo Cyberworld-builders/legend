@@ -31,6 +31,79 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: 'monthly' as const,
       priority: 0.9,
     },
+    // Service pages
+    {
+      url: `${baseUrl}/services`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/services/digital-marketing`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/services/automation`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/services/custom-saas`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/services/digital-marketing/geo-optimization`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/services/digital-marketing/seo-audit`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/services/digital-marketing/content-pipeline`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/services/automation/ai-agents`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/services/automation/n8n-workflows`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/services/automation/ai-chatbots`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/services/custom-saas/nextjs-apps`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/services/custom-saas/mvp-development`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.8,
+    },
   ]
 
   // Dynamic blog posts

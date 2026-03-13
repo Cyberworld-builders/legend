@@ -1,23 +1,27 @@
+import Link from 'next/link';
 import { TrendingUp, Workflow, Code2 } from 'lucide-react';
 
 const services = [
   {
+    href: '/services/digital-marketing',
     icon: TrendingUp,
-    title: 'Digital Marketing Systems',
-    description: 'Automated lead capture, content pipelines, and reporting dashboards that keep your marketing running 24/7.',
-    examples: ['Lead generation', 'Content automation', 'Analytics dashboards'],
+    title: 'Digital Marketing',
+    description: 'Automated content pipelines, AI-powered SEO audits, and GEO optimization that keep your marketing running 24/7.',
+    examples: ['SEO Audit', 'Content Pipeline', 'GEO Optimization'],
   },
   {
+    href: '/services/automation',
     icon: Workflow,
-    title: 'Business Process Automation',
-    description: 'Connect your tools, eliminate manual data entry, and let your team focus on high-value work.',
-    examples: ['CRM integrations', 'Invoice processing', 'Scheduling'],
+    title: 'Automation',
+    description: 'AI agents, n8n workflow orchestration, and chatbot development that eliminate manual work and connect your tools.',
+    examples: ['AI Agents', 'n8n Workflows', 'AI Chatbots'],
   },
   {
+    href: '/services/custom-saas',
     icon: Code2,
-    title: 'Software Engineering',
-    description: 'Web applications, cloud infrastructure, and SaaS products built with modern tech stacks.',
-    examples: ['Next.js / React', 'AWS & cloud', 'API development'],
+    title: 'Custom SaaS',
+    description: 'Full-stack Next.js applications, cloud infrastructure, and MVP development built around your business.',
+    examples: ['Next.js Apps', 'MVP Development', 'API Development'],
   },
 ];
 
@@ -34,14 +38,15 @@ export default function ServicesSection() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {services.map((service, index) => (
-            <div
+            <Link
               key={index}
-              className="p-6 border border-[#00ff00]/20 rounded-lg hover:border-[#00ff00]/40 transition-colors bg-[#1a1a1a]"
+              href={service.href}
+              className="block p-6 border border-[#00ff00]/20 rounded-lg hover:border-[#00ff00]/40 transition-colors bg-[#1a1a1a] group"
             >
               <service.icon className="w-10 h-10 text-[#00ff00] mb-4" />
               <h3 className="text-xl font-bold mb-2 text-[#00ff00]">{service.title}</h3>
               <p className="text-[#00ff00]/70 mb-4">{service.description}</p>
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-2 mb-3">
                 {service.examples.map((example, i) => (
                   <span
                     key={i}
@@ -51,7 +56,10 @@ export default function ServicesSection() {
                   </span>
                 ))}
               </div>
-            </div>
+              <span className="text-sm text-[#00ff00]/50 group-hover:text-[#00ff00]/80 transition-colors">
+                Learn more &rarr;
+              </span>
+            </Link>
           ))}
         </div>
       </div>
