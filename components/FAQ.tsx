@@ -50,21 +50,23 @@ export default function FAQ() {
 
   return (
     <div id="faq" className="w-full max-w-4xl mx-auto">
-      <h2 className="text-3xl font-bold mb-8 text-[#00ff00] text-center">Frequently Asked Questions</h2>
+      <h2 className="text-2xl md:text-4xl font-bold mb-12 text-[#00ff00] text-center">
+        Frequently Asked Questions
+      </h2>
 
-      <div className="space-y-4">
+      <div className="space-y-3">
         {faqData.map((item, index) => (
-          <div key={index} className="border border-[#00ff00]/30 rounded-lg overflow-hidden">
+          <div key={index} className="border border-[#00ff00]/20 rounded-lg overflow-hidden">
             <button
               onClick={() => toggleItem(index)}
-              className="w-full px-6 py-4 text-left bg-[#1a1a1a] hover:bg-[#2a2a2a] transition-colors flex justify-between items-center"
+              className="w-full px-6 py-4 text-left bg-[#1a1a1a] hover:bg-[#1a1a1a]/80 transition-colors flex justify-between items-center"
               aria-expanded={openItems.has(index)}
             >
-              <span className="text-lg font-semibold text-[#00ff00] pr-4">
+              <span className="text-base font-semibold text-[#00ff00] pr-4">
                 {item.question}
               </span>
               <svg
-                className={`w-5 h-5 text-[#00ff00] transition-transform duration-200 ${
+                className={`w-4 h-4 text-[#00ff00]/50 transition-transform duration-200 flex-shrink-0 ${
                   openItems.has(index) ? 'rotate-180' : ''
                 }`}
                 fill="none"
@@ -76,8 +78,8 @@ export default function FAQ() {
             </button>
 
             {openItems.has(index) && (
-              <div className="px-6 py-4 bg-[#2a2a2a] border-t border-[#00ff00]/20">
-                <p className="text-[#00ff00]/90 leading-relaxed">
+              <div className="px-6 py-4 border-t border-[#00ff00]/10">
+                <p className="text-[#00ff00]/70 leading-relaxed">
                   {item.answer}
                 </p>
               </div>
@@ -87,14 +89,12 @@ export default function FAQ() {
       </div>
 
       <div className="mt-8 text-center">
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Link
-            href="/blog"
-            className="px-8 py-3 border border-[#00ff00]/50 text-[#00ff00]/70 font-bold rounded-lg hover:bg-[#00ff00]/10 transition-colors"
-          >
-            Read the Blog
-          </Link>
-        </div>
+        <Link
+          href="/blog"
+          className="group inline-flex items-center gap-2 px-6 py-3 border border-[#00ff00]/30 text-[#00ff00]/70 rounded hover:bg-[#00ff00]/10 hover:text-[#00ff00] transition-colors"
+        >
+          Read the Blog &rarr;
+        </Link>
       </div>
     </div>
   );

@@ -73,7 +73,7 @@ export default function FeaturedCarousel({
   if (!posts || posts.length === 0) return null;
 
   return (
-    <section id="featured" className="py-16">
+    <section id="featured" className="py-16 md:py-24">
       <div className="max-w-5xl mx-auto px-4">
         <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 text-[#00ff00]">
           {title}

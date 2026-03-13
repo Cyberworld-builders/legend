@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from 'next';
 import Script from 'next/script';
 import '../app/globals.css';
 import AuthorSchema from '@/components/AuthorSchema';
+import SiteFooter from '@/components/SiteFooter';
 import AnalyticsClient from '@/components/AnalyticsClient';
 import FAQSchema from '@/components/FAQSchema';
 import DeferredWidgets from '@/components/DeferredWidgets';
@@ -405,8 +406,9 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="flex flex-col items-center justify-center min-h-screen bg-[#1a1a1a] text-[#00ff00] font-mono">
+      <body className="min-h-screen bg-[#1a1a1a] text-[#00ff00] font-mono">
         {children}
+        <SiteFooter />
         <AnalyticsClient />
         <AuthorSchema />
         <FAQSchema />

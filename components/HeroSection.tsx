@@ -3,6 +3,7 @@
 import { useState, useCallback } from 'react';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
+import { ArrowRight } from 'lucide-react';
 import { trackEvent } from '@/lib/tracking';
 import TurnstileField from './TurnstileField';
 
@@ -72,10 +73,10 @@ export default function HeroSection() {
           blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
         />
 
-        {/* Headline - loaded client-only with correct variant before first paint */}
+        {/* Headline */}
         <HeroHeadline />
 
-        {/* Email-only CTA */}
+        {/* Terminal-style CTA or email form */}
         <div className="max-w-md mx-auto mb-6">
           {submitted ? (
             <div className="text-[#00ff00] font-semibold py-3">
@@ -91,14 +92,20 @@ export default function HeroSection() {
                   required
                   aria-label="Email address"
                   placeholder="Enter your email"
-                  className="flex-1 px-4 py-3 bg-[#1a1a1a] border border-[#00ff00]/30 rounded-lg text-[#00ff00] placeholder-[#00ff00]/50 focus:border-[#00ff00] focus:ring-1 focus:ring-[#00ff00] outline-none transition"
+                  className="flex-1 px-4 py-3 bg-[#1a1a1a] border border-[#00ff00]/30 rounded text-[#00ff00] placeholder-[#00ff00]/50 focus:border-[#00ff00] focus:ring-1 focus:ring-[#00ff00] outline-none transition"
                 />
                 <button
                   type="submit"
                   disabled={isSubmitting || !canSubmit}
-                className="px-6 py-3 bg-[#00ff00] text-[#1a1a1a] font-bold rounded-lg hover:bg-[#00cc00] transition-colors disabled:opacity-50 whitespace-nowrap"
+                  className="group inline-flex items-center gap-2 px-5 py-3 border border-[#00ff00]/50 rounded text-[#00ff00] hover:bg-[#00ff00]/10 transition-all duration-200 disabled:opacity-50 whitespace-nowrap font-bold"
                 >
-                  {isSubmitting ? '...' : "Let's Talk"}
+                  {isSubmitting ? '...' : (
+                    <>
+                      <span className="text-[#00ff00]/50 select-none">$</span>
+                      connect
+                      <ArrowRight className="w-4 h-4 opacity-50 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all duration-200" />
+                    </>
+                  )}
                 </button>
               </div>
               <TurnstileField onVerify={handleTurnstileVerify} onExpire={handleTurnstileExpire} />
