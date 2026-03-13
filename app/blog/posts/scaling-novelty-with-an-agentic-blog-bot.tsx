@@ -22,7 +22,7 @@ export const metadata: PostMeta = {
 export default function Post() {
   return (
     <PostLayout meta={metadata}>
-      <h1 className="text-4xl font-bold mb-6 text-[#00ff00]">Scaling Novelty with an Agentic Blog Bot</h1>
+      <h2 className="text-4xl font-bold mb-6 text-[#00ff00]">Scaling Novelty with an Agentic Blog Bot</h2>
       <h2 className="text-2xl font-bold mb-4 mt-8 text-[#00ff00]">From Blog to Bots: Crafting a Digital Legacy with AI</h2>
       <p className="mb-4 leading-relaxed">Yesterday, I achieved a small but meaningful milestone: I launched a blog on my website. It’s not just a collection of posts—it’s a foundation for something much bigger. This blog is a step toward harnessing AI to amplify my creativity, capture my ideas, and build tools that could one day reflect my voice and vision. Here’s a reflection on why this matters, the technical architecture behind it, and where I’m headed next.</p>
       <h3 className="text-xl font-bold mb-3 mt-6 text-[#00ff00]">Why the Blog Matters</h3>

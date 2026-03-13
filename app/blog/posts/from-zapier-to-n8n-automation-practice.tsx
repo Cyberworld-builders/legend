@@ -21,7 +21,7 @@ export const metadata: PostMeta = {
 export default function Post() {
   return (
     <PostLayout meta={metadata}>
-      <h1 className="text-4xl font-bold mb-6 text-[#00ff00]">From Zapier to n8n: Why I&apos;m Building an Automation Practice</h1>
+      <h2 className="text-4xl font-bold mb-6 text-[#00ff00]">From Zapier to n8n: Why I&apos;m Building an Automation Practice</h2>
 
       <h2 className="text-2xl font-bold mb-4 mt-8 text-[#00ff00]">The Bitbucket Pipeline That Broke Me</h2>
 

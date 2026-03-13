@@ -21,7 +21,7 @@ export const metadata: PostMeta = {
 export default function Post() {
   return (
     <PostLayout meta={metadata}>
-      <h1 className="text-4xl font-bold mb-6 text-[#00ff00]">Building Drum Note: AI-Powered Drum Transcription, Kit Generation, and Hands-On Marketing with Render.com</h1>
+      <h2 className="text-4xl font-bold mb-6 text-[#00ff00]">Building Drum Note: AI-Powered Drum Transcription, Kit Generation, and Hands-On Marketing with Render.com</h2>
       <h2 className="text-2xl font-bold mb-4 mt-8 text-[#00ff00]">Drum Note App Concept</h2>
       <p className="mb-4 leading-relaxed">Drum Note is an AI-driven tool designed to bridge audio analysis and music creation for drummers and producers. Its core functionality revolves around bidirectional generation: converting drum and percussion audio samples into editable notation, and regenerating audio beats from that notation.</p>
       <h3 className="text-xl font-bold mb-3 mt-6 text-[#00ff00]">Key Features</h3>

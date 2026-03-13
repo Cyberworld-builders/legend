@@ -21,7 +21,7 @@ export const metadata: PostMeta = {
 export default function Post() {
   return (
     <PostLayout meta={metadata}>
-      <h1 className="text-4xl font-bold mb-6 text-[#00ff00]">Chatbot Breakthrough: How OpenAI&apos;s Web Crawling Validates Generative SEO for Smarter Site Interactions</h1>
+      <h2 className="text-4xl font-bold mb-6 text-[#00ff00]">Chatbot Breakthrough: How OpenAI&apos;s Web Crawling Validates Generative SEO for Smarter Site Interactions</h2>
       <h2 className="text-2xl font-bold mb-4 mt-8 text-[#00ff00]">Reviving the Forgotten Chatbot</h2>
       <p className="mb-4 leading-relaxed">Last night, while wrapping up SEO maintenance—posting a new blog article and optimizing scripts—I revisited a long-dormant chatbot widget on my site. Built earlier this year with LangChain and OpenAI&apos;s GPT, it&apos;s a bare-bones setup: no retrieval-augmented generation (RAG), just branded ChatGPT with minimal prompting from the site&apos;s meta description. Essentially, &quot;You are the chatbot for cyberworldbuilders.com.&quot;</p>
       <p className="mb-4 leading-relaxed">Curious, I asked my coding agent for ideas. It eagerly suggested upgrades, from short-term prompt tweaks to long-term RAG with a vector database. This sparked an explosion of insights after sleeping on it.</p>

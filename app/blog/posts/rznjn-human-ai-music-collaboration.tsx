@@ -21,7 +21,7 @@ export const metadata: PostMeta = {
 export default function Post() {
   return (
     <PostLayout meta={metadata}>
-      <h1 className="text-4xl font-bold mb-6 text-[#00ff00]">rZNjN: Building the Foundation for Human-AI Music Collaboration</h1>
+      <h2 className="text-4xl font-bold mb-6 text-[#00ff00]">rZNjN: Building the Foundation for Human-AI Music Collaboration</h2>
 
       <h2 className="text-2xl font-bold mb-4 mt-8 text-[#00ff00]">What Is rZNjN?</h2>
 

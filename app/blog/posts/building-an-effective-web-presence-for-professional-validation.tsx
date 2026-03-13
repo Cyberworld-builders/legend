@@ -23,7 +23,7 @@ export default function Post() {
   return (
     <PostLayout meta={metadata}>
 
-      <h1 className="text-4xl font-bold mb-6 text-[#00ff00]">Building a Web Presence That Actually Proves You Know What You&apos;re Doing</h1>
+      <h2 className="text-4xl font-bold mb-6 text-[#00ff00]">Building a Web Presence That Actually Proves You Know What You&apos;re Doing</h2>
       <p className="mb-4 leading-relaxed">I&apos;ve been thinking a lot about how to make my online presence work harder for me. Not in a &quot;personal brand&quot; LinkedIn influencer way, but in a practical way. When someone searches for a software engineer with specific skills, like AWS or SaaS development, I want my name to show up. And I want what they find to be real.</p>
       <p className="mb-4 leading-relaxed">Here&apos;s what I&apos;ve landed on: two blogs, working together.</p>
       <h2 className="text-2xl font-bold mb-4 mt-8 text-[#00ff00]">The Biographical Blog</h2>

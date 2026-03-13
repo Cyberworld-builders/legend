@@ -22,7 +22,7 @@ export default function Post() {
   return (
     <PostLayout meta={metadata}>
 
-      <h1 className="text-4xl font-bold mb-6 text-[#00ff00]">Revisiting Old Code and the Enterprise Brain Trap</h1>
+      <h2 className="text-4xl font-bold mb-6 text-[#00ff00]">Revisiting Old Code and the Enterprise Brain Trap</h2>
       <p className="mb-4 leading-relaxed">Every developer knows the feeling. You open a project you built a few years back, and the first thing that hits you is disgust. Pure, visceral disgust with yourself. As a freelancer, I get this constantly, but I imagine lifers at companies feel it too. If you&apos;ve never experienced it, you&apos;re not learning. You&apos;re not growing. The community around you, the tools, the patterns, the workflows, all of it keeps moving. Sometimes something disruptive comes along and forces you to rethink everything. To stay the same, you actually have to get better, because everyone else is optimizing.</p>
       <p className="mb-4 leading-relaxed">Yesterday I revisited a startup project from years ago, and it wrecked me. Multiple factors made it painful. Years had passed and standards had shifted. The founder&apos;s budget was tight, so corners got cut. And I was in the middle of transitioning to enterprise work at the time, which meant I was applying all these rigorous practices that had no business being in a startup codebase.</p>
       <h2 className="text-2xl font-bold mb-4 mt-8 text-[#00ff00]">Enterprise Brain Is Real</h2>

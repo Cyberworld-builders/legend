@@ -23,7 +23,7 @@ export default function Post() {
   return (
     <PostLayout meta={metadata}>
 
-      <h1 className="text-4xl font-bold mb-6 text-[#00ff00]">From Cable Trucks to Code: How I Left Contracting Behind</h1>
+      <h2 className="text-4xl font-bold mb-6 text-[#00ff00]">From Cable Trucks to Code: How I Left Contracting Behind</h2>
       <p className="mb-4 leading-relaxed">For over three years, circa 2012 to 2015, I worked as a cable installation contractor for Charter Communications (now Spectrum) through a company called Southern Cable. I say &quot;contractor,&quot; but that&apos;s generous. There was actually a class action lawsuit over it because the lines between employee and contractor were basically nonexistent. They controlled our schedules, assigned our jobs, held us to rigid standards. But when it came to payroll taxes, equipment costs, and the volatility of the pay? That was on us.</p>
       <p className="mb-4 leading-relaxed">The money was brutal. Some jobs paid $20 for four or five hours of work just to meet their technical quality assurance standards. If you failed TQA, you got chargebacks. During slow periods, I&apos;d make $20 in a day. And if you even thought about working for someone else, they&apos;d punish you for it. I once applied to a satellite company and suddenly a colleague&apos;s &quot;lost&quot; equipment started showing up on my account. That&apos;s the kind of operation it was.</p>
       <h2 className="text-2xl font-bold mb-4 mt-8 text-[#00ff00]">Coding After 16-Hour Shifts</h2>

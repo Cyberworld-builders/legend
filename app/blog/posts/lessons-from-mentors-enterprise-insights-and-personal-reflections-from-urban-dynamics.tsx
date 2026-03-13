@@ -22,7 +22,7 @@ export default function Post() {
   return (
     <PostLayout meta={metadata}>
 
-      <h1 className="text-4xl font-bold mb-6 text-[#00ff00]">What Ferris at Urban Dynamics Taught Me About Enterprise Work</h1>
+      <h2 className="text-4xl font-bold mb-6 text-[#00ff00]">What Ferris at Urban Dynamics Taught Me About Enterprise Work</h2>
       <p className="mb-4 leading-relaxed">I&apos;ve been thinking about mentors. Not mentors in the formal sense, but certain people you work with who are just on another level. Looking back across all the companies and projects and contracts I&apos;ve been part of, there are all kinds of people. Some great, some terrible. And then some so exceptional they stick with you long after the work ends.</p>
       <p className="mb-4 leading-relaxed">Ferris was one of those people.</p>
       <h2 className="text-2xl font-bold mb-4 mt-8 text-[#00ff00]">Urban Dynamics and My First Real Enterprise Gig</h2>

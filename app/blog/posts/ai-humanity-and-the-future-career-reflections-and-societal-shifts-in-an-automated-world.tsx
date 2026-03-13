@@ -21,7 +21,7 @@ export const metadata: PostMeta = {
 export default function Post() {
   return (
     <PostLayout meta={metadata}>
-      <h1 className="text-4xl font-bold mb-6 text-[#00ff00]">AI, Humanity, and the Future: Career Reflections and Societal Shifts in an Automated World</h1>
+      <h2 className="text-4xl font-bold mb-6 text-[#00ff00]">AI, Humanity, and the Future: Career Reflections and Societal Shifts in an Automated World</h2>
       <h2 className="text-2xl font-bold mb-4 mt-8 text-[#00ff00]">Current Tech Challenges and Blog Improvements</h2>
       <p className="mb-4 leading-relaxed">I&apos;m currently dealing with some frustrations in maintaining and updating my blog, particularly with Vercel deployments. The platform isn&apos;t reliably picking up new articles in the post index, forcing me to sort by modified dates of Markdown files, which is unreliable due to deployment timestamps. This has stalled my posting schedule, impacting SEO rankings and growth.</p>
       <h3 className="text-xl font-bold mb-3 mt-6 text-[#00ff00]">Potential Solutions</h3>

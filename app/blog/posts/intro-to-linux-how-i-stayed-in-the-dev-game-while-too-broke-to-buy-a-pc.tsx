@@ -21,7 +21,7 @@ export default function Post() {
   return (
     <PostLayout meta={metadata}>
 
-      <h1 className="text-4xl font-bold mb-6 text-[#00ff00]">Intro to Linux: How I Stayed in the Dev Game While Too Broke to Buy a PC</h1>
+      <h2 className="text-4xl font-bold mb-6 text-[#00ff00]">Intro to Linux: How I Stayed in the Dev Game While Too Broke to Buy a PC</h2>
       <p className="mb-4 leading-relaxed">My first full-time development job was at DocWorks, and I was surrounded by developers with computer science degrees, certifications, formal training. I was self-taught. One colleague there was deep into hacker culture, had his CCNA, had done time in local computer shops. He introduced me to Ubuntu. Showed me the graphical interface, probably right around the transition from Unity to GNOME. That was the first time I saw Linux as something a regular person could just install and use. I was a Windows guy, too broke for a Mac, and up until that point my only exposure to Linux was vague references in movies and hacker culture.</p>
       <h2 className="text-2xl font-bold mb-4 mt-8 text-[#00ff00]">The Colleague Who Gatekept Everything</h2>
       <p className="mb-4 leading-relaxed">I didn&apos;t learn much from him. He was the type to gatekeep information, send you down rabbit holes, and let you waste time figuring out things he could have explained in two minutes. His name was Justin. He was finishing a master&apos;s degree and seemed like he&apos;d have job offers lined up, but his personality made him impossible to learn from. He bragged about students failing his classes like it was a badge of honor. Teaching is a skill, and he didn&apos;t have it.</p>

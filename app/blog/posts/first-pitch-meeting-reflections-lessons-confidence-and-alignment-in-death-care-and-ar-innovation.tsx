@@ -22,7 +22,7 @@ export default function Post() {
   return (
     <PostLayout meta={metadata}>
 
-      <h1 className="text-4xl font-bold mb-6 text-[#00ff00]">My First Pitch Meeting (and Why I Don&apos;t Need Their Money)</h1>
+      <h2 className="text-4xl font-bold mb-6 text-[#00ff00]">My First Pitch Meeting (and Why I Don&apos;t Need Their Money)</h2>
       <p className="mb-4 leading-relaxed">I had my first pitch meeting yesterday. Wild experience. I didn&apos;t even realize it was my first until afterward. I&apos;ve always been the CTO, the lead engineer. Someone else does the pitching. This time it was me, and I didn&apos;t clock that until the drive home.</p>
       <p className="mb-4 leading-relaxed">It went well. No funding agreement came out of it, but my confidence is through the roof. Which is funny, because right after the meeting I felt like the whole thing was a disaster.</p>
       <h2 className="text-2xl font-bold mb-4 mt-8 text-[#00ff00]">The Setup Was Already Off</h2>
