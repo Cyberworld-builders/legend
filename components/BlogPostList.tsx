@@ -13,6 +13,8 @@ interface BlogPost {
   description?: string;
   category?: string;
   wordCount?: number;
+  keywords?: string[];
+  tags?: string[];
 }
 
 interface BlogPostListProps {
@@ -39,13 +41,22 @@ export default function BlogPostList({ posts, allPosts, totalPages, currentPage,
 
   const isSearching = query.length > 0;
   const displayPosts = isSearching
-    ? allPosts.filter((p) => p.title.toLowerCase().includes(query.toLowerCase()))
+    ? allPosts.filter((p) => {
+        const q = query.toLowerCase();
+        return (
+          p.title.toLowerCase().includes(q) ||
+          (p.description?.toLowerCase().includes(q)) ||
+          (p.keywords?.some(k => k.toLowerCase().includes(q))) ||
+          (p.tags?.some(t => t.toLowerCase().includes(q))) ||
+          (p.category?.toLowerCase().includes(q))
+        );
+      })
     : posts;
 
   return (
     <>
       <div className="w-full max-w-2xl px-4 mb-6 flex justify-center">
-        <SearchInput placeholder="Search posts by title..." onSearch={setQuery} />
+        <SearchInput placeholder="Search posts..." onSearch={setQuery} />
       </div>
 
       <div className="w-full max-w-2xl px-4">

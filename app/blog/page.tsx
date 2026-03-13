@@ -2,7 +2,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import Breadcrumb from '@/components/Breadcrumb';
-import SimpleSocialShare from '@/components/SimpleSocialShare';
 import TopicClusters from '@/components/TopicClusters';
 import PageBackground from '@/components/PageBackground';
 import BlogPostList from '@/components/BlogPostList';
@@ -116,6 +115,8 @@ export default async function BlogIndex({ searchParams }: BlogIndexProps) {
       description: post.metadata.description || '',
       category: post.metadata.category || '',
       wordCount: wordCountMap.get(post.slug) || 0,
+      keywords: post.metadata.keywords || [],
+      tags: post.metadata.tags || [],
     }));
 
   const totalPages = Math.ceil(allPosts.length / POSTS_PER_PAGE);
@@ -131,19 +132,6 @@ export default async function BlogIndex({ searchParams }: BlogIndexProps) {
       
       {/* Content with higher z-index */}
       <div className="relative z-10 w-full flex flex-col items-center">
-      <div className="flex justify-center mb-4">
-        <Link href="/">
-          <Image
-            src="/icons/favicon.ico"
-            alt="CyberWorld Builders - Software Engineering & Consulting Services"
-            className="w-12 h-12 rounded-full"
-            width={48}
-            height={48}
-            loading="lazy"
-          />
-        </Link>
-      </div>
-      
       {/* Breadcrumb Navigation */}
       <div className="w-full max-w-2xl mb-6">
         <Breadcrumb 
@@ -170,26 +158,6 @@ export default async function BlogIndex({ searchParams }: BlogIndexProps) {
         </p>
       )}
       
-      {/* Blog Navigation */}
-      <div className="w-full max-w-2xl mb-6">
-        <div className="flex justify-center gap-4">
-          <Link
-            href="/blog/tags"
-            className="px-4 py-2 bg-[#00ff00]/10 border border-[#00ff00]/30 rounded-lg text-[#00ff00] hover:bg-[#00ff00]/20 hover:text-[#00ff00] transition-colors"
-          >
-            Browse by Tags
-          </Link>
-        </div>
-      </div>
-      
-      {/* Blog Sharing */}
-      <div className="w-full max-w-2xl mb-6">
-        <SimpleSocialShare
-          url="https://cyberworldbuilders.com/blog"
-          title="Blog — Real Engineering, Not AI Fluff"
-        />
-      </div>
-
       {/* Featured Posts Carousel */}
       {!tagFilter && featuredPosts.length > 0 && (
         <div className="w-full max-w-5xl mb-8">
@@ -236,8 +204,8 @@ export default async function BlogIndex({ searchParams }: BlogIndexProps) {
       />
 
       <BlogPostList
-        posts={posts.map((p) => ({ slug: p.slug, title: p.title, mtime: p.mtime.toISOString(), headerImage: p.headerImage, description: p.description, category: p.category, wordCount: p.wordCount }))}
-        allPosts={allPosts.map((p) => ({ slug: p.slug, title: p.title, mtime: p.mtime.toISOString(), headerImage: p.headerImage, description: p.description, category: p.category, wordCount: p.wordCount }))}
+        posts={posts.map((p) => ({ slug: p.slug, title: p.title, mtime: p.mtime.toISOString(), headerImage: p.headerImage, description: p.description, category: p.category, wordCount: p.wordCount, keywords: p.keywords, tags: p.tags }))}
+        allPosts={allPosts.map((p) => ({ slug: p.slug, title: p.title, mtime: p.mtime.toISOString(), headerImage: p.headerImage, description: p.description, category: p.category, wordCount: p.wordCount, keywords: p.keywords, tags: p.tags }))}
         totalPages={totalPages}
         currentPage={currentPage}
         paginationBase={paginationBase}
@@ -247,6 +215,20 @@ export default async function BlogIndex({ searchParams }: BlogIndexProps) {
       <div className="w-full max-w-4xl">
         <TopicClusters allPosts={allPosts} />
       </div>
+
+      {/* Browse by Tags — bottom of page, least prominent discovery path */}
+      {!tagFilter && (
+        <div className="w-full max-w-2xl mt-8 mb-4">
+          <div className="flex justify-center">
+            <Link
+              href="/blog/tags"
+              className="px-4 py-2 text-sm text-[#00ff00]/50 hover:text-[#00ff00] border border-[#00ff00]/15 hover:border-[#00ff00]/30 rounded-lg transition-colors"
+            >
+              Browse by Tags
+            </Link>
+          </div>
+        </div>
+      )}
       </div>
     </div>
   );
