@@ -151,7 +151,7 @@ export default async function TagPage({ params }: TagPageProps) {
                     <Link
                       key={t}
                       href={`/blog/tag/${slugifyTag(t)}`}
-                      className="px-2 py-0.5 bg-[#00ff00]/10 border border-[#00ff00]/20 rounded-full text-xs text-[#00ff00]/60 hover:text-[#00ff00] transition-colors"
+                      className="px-3 py-1.5 bg-[#00ff00]/10 border border-[#00ff00]/20 rounded-full text-xs text-[#00ff00]/60 hover:text-[#00ff00] transition-colors"
                     >
                       #{t}
                     </Link>
