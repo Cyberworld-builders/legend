@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef, useCallback } from 'react';
+import { usePathname } from 'next/navigation';
 import { trackEvent, getSession } from '@/lib/tracking';
 
 // ---------------------------------------------------------------------------
@@ -160,6 +161,7 @@ const _isDebug = typeof window !== 'undefined' && new URLSearchParams(window.loc
 const LINGER_DELAY = _isDebug ? 5_000 : 45_000;
 const PREFETCH_DELAY = _isDebug ? 2_000 : 35_000;
 const JAY_TIMEOUT = 300_000;    // 5 minutes before funnel fallback kicks in
+const REWHISPER_INTERVAL = _isDebug ? 15_000 : 90_000; // Periodic re-whisper every 90s
 const CHAT_STATE_KEY = 'cwb_terminal_state';
 
 // ---------------------------------------------------------------------------
@@ -191,19 +193,19 @@ function loadState(): TerminalState | null {
 // ---------------------------------------------------------------------------
 
 export default function TerminalWhisper() {
-  const restored = useRef(loadState());
-  const [phase, setPhase] = useState<'waiting' | 'typing' | 'whispered' | 'engaged' | 'minimized'>(
-    restored.current?.minimized ? 'minimized' : 'waiting'
-  );
+  const pathname = usePathname();
+  const restored = useRef<TerminalState | null>(null);
+  const [phase, setPhase] = useState<'waiting' | 'typing' | 'whispered' | 'engaged' | 'minimized'>('waiting');
   const [whisperLines, setWhisperLines] = useState<WhisperLine[]>([]);
   const [currentLineIdx, setCurrentLineIdx] = useState(0);
   const [typingStarted, setTypingStarted] = useState<boolean[]>([]);
-  const [messages, setMessages] = useState<Message[]>(restored.current?.messages ?? []);
+  const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [jayOnline, setJayOnline] = useState(false);
-  const [engagedAt, setEngagedAt] = useState<number | null>(restored.current?.engagedAt ?? null);
+  const [engagedAt, setEngagedAt] = useState<number | null>(null);
   const [jayResponded, setJayResponded] = useState(false);
+  const restoredOnce = useRef(false);
 
   const pageContextRef = useRef<PageContext | null>(null);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -211,12 +213,30 @@ export default function TerminalWhisper() {
   const pollRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const impressionFired = useRef(false);
   const whisperFetched = useRef(false);
+  const autoSubmitTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const lastWhisperPath = useRef<string | null>(null);
+  const rewhisperTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const nudgeFired = useRef(false);
 
-  // Build page context on mount
+  // Restore session state client-side only (avoids hydration mismatch)
+  useEffect(() => {
+    if (restoredOnce.current) return;
+    restoredOnce.current = true;
+    const state = loadState();
+    if (state) {
+      restored.current = state;
+      if (state.messages.length > 0) setMessages(state.messages);
+      if (state.engagedAt) setEngagedAt(state.engagedAt);
+      if (state.minimized) setPhase('minimized');
+      else if (state.messages.length > 0) setPhase('engaged');
+    }
+  }, []);
+
+  // Build page context on mount + navigation
   useEffect(() => {
     if (typeof window === 'undefined') return;
-    pageContextRef.current = buildPageContext(window.location.pathname);
-  }, []);
+    pageContextRef.current = buildPageContext(pathname);
+  }, [pathname]);
 
   // Persist state
   useEffect(() => {
@@ -227,59 +247,106 @@ export default function TerminalWhisper() {
     });
   }, [messages, phase, engagedAt]);
 
-  // Pre-fetch whisper from GusClaw at 10s (5s before reveal)
+  // Fetch a fresh whisper from GusClaw (used by initial prefetch, navigation, and periodic re-whisper)
+  const fetchWhisper = useCallback(async () => {
+    try {
+      const ctx = buildPageContext(pathname);
+      pageContextRef.current = ctx;
+      const session = getSession();
+      const res = await fetch('/api/chat/whisper', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          sessionId: session.session_id,
+          pageContext: ctx,
+        }),
+      });
+
+      if (res.ok) {
+        const data = await res.json();
+        if (data.lines && Array.isArray(data.lines) && data.lines.length >= 2) {
+          const lines: WhisperLine[] = data.lines.map((line: string, i: number) => ({
+            text: `> ${line}`,
+            delay: i === 0 ? 0 : 4000,
+          }));
+          setWhisperLines(lines);
+          setTypingStarted(new Array(lines.length).fill(false));
+          setCurrentLineIdx(0);
+          return;
+        }
+        if (data.hook && data.followUp) {
+          setWhisperLines([
+            { text: `> ${data.hook}`, delay: 0 },
+            { text: `> ${data.followUp}`, delay: 4000 },
+          ]);
+          setTypingStarted([false, false]);
+          setCurrentLineIdx(0);
+          return;
+        }
+      }
+    } catch { /* fall through to fallback */ }
+
+    setWhisperLines([
+      { text: '> systems online', delay: 0 },
+      { text: '> monitoring page activity', delay: 3000 },
+      { text: '> something on your mind? [y/n]', delay: 4000 },
+    ]);
+    setTypingStarted([false, false, false]);
+    setCurrentLineIdx(0);
+  }, [pathname]);
+
+  // Pre-fetch whisper from GusClaw (initial load only — no callback deps to avoid timer resets)
   useEffect(() => {
     if (phase !== 'waiting' || whisperFetched.current) return;
 
     const timer = setTimeout(async () => {
       if (whisperFetched.current) return;
       whisperFetched.current = true;
-
-      try {
-        const ctx = pageContextRef.current ?? buildPageContext(window.location.pathname);
-        const session = getSession();
-        const res = await fetch('/api/chat/whisper', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            sessionId: session.session_id,
-            pageContext: ctx,
-          }),
-        });
-
-        if (res.ok) {
-          const data = await res.json();
-          if (data.hook && data.followUp) {
-            setWhisperLines([
-              { text: `> ${data.hook}`, delay: 0 },
-              { text: `> ${data.followUp}`, delay: 4000 },
-            ]);
-            setTypingStarted([false, false]);
-            return;
-          }
-        }
-      } catch { /* fall through to fallback */ }
-
-      // Minimal fallback — still not canned, just bare-bones
-      setWhisperLines([
-        { text: '> ...', delay: 0 },
-        { text: '> still reading?', delay: 3000 },
-      ]);
-      setTypingStarted([false, false]);
+      lastWhisperPath.current = window.location.pathname;
+      await fetchWhisper();
     }, PREFETCH_DELAY);
 
     return () => clearTimeout(timer);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [phase]);
 
-  // Linger timer — reveal at 15s
+  // Re-fire whisper on page navigation (only when not engaged/minimized)
   useEffect(() => {
-    if (phase !== 'waiting') return;
+    if (phase === 'engaged' || phase === 'minimized' || phase === 'waiting') return;
+    if (!lastWhisperPath.current || lastWhisperPath.current === pathname) return;
 
-    // Restore previous engaged session
-    if (restored.current?.messages && restored.current.messages.length > 0 && !restored.current.minimized) {
-      setPhase('engaged');
+    // New page — reset and fetch fresh whisper
+    lastWhisperPath.current = pathname;
+    nudgeFired.current = false;
+    setPhase('typing');
+    fetchWhisper();
+    trackEvent('terminal_whisper_refire', { page: pathname, trigger: 'navigation' });
+  }, [pathname, phase, fetchWhisper]);
+
+  // Periodic re-whisper every ~90s while idle (typing/whispered but not engaged/minimized)
+  useEffect(() => {
+    if (phase !== 'whispered') {
+      if (rewhisperTimer.current) { clearTimeout(rewhisperTimer.current); rewhisperTimer.current = null; }
       return;
     }
+
+    rewhisperTimer.current = setTimeout(async () => {
+      // Don't re-whisper if they engaged or minimized while waiting
+      lastWhisperPath.current = pathname;
+      nudgeFired.current = false;
+      await fetchWhisper();
+      setPhase('typing');
+      trackEvent('terminal_whisper_refire', { page: pathname, trigger: 'periodic' });
+    }, REWHISPER_INTERVAL);
+
+    return () => {
+      if (rewhisperTimer.current) { clearTimeout(rewhisperTimer.current); rewhisperTimer.current = null; }
+    };
+  }, [phase, pathname, fetchWhisper]);
+
+  // Linger timer — reveal after delay
+  useEffect(() => {
+    if (phase !== 'waiting') return;
 
     const timer = setTimeout(() => {
       setPhase('typing');
@@ -320,6 +387,27 @@ export default function TerminalWhisper() {
       setPhase('whispered');
     }
   }, [whisperLines]);
+
+  // Nudge if they sit at the whispered y/n without clicking
+  useEffect(() => {
+    if (phase !== 'whispered' || nudgeFired.current) return;
+
+    const nudgeDelay = _isDebug ? 8_000 : 30_000;
+    const timer = setTimeout(() => {
+      if (nudgeFired.current) return;
+      nudgeFired.current = true;
+      // Append a nudge line and switch back to typing to animate it
+      setWhisperLines(prev => [
+        ...prev,
+        { text: '> jay built this — want me to get him on the line? [y/n]', delay: 0 },
+      ]);
+      setCurrentLineIdx(prev => prev + 1);
+      setTypingStarted(prev => [...prev, true]);
+      setPhase('typing');
+    }, nudgeDelay);
+
+    return () => clearTimeout(timer);
+  }, [phase]);
 
   // Poll for Jay's messages when engaged
   useEffect(() => {
@@ -374,6 +462,8 @@ export default function TerminalWhisper() {
   // Send message
   const sendMessage = async (text: string) => {
     if (!text.trim() || isLoading) return;
+    // Clear auto-submit timer to prevent double-fire
+    if (autoSubmitTimer.current) { clearTimeout(autoSubmitTimer.current); autoSubmitTimer.current = null; }
 
     const userMsg: Message = { role: 'user', content: text };
     const updated = [...messages, userMsg];
@@ -537,35 +627,40 @@ export default function TerminalWhisper() {
   return (
     <div
       className="fixed bottom-0 left-0 z-50 font-mono text-xs select-none"
-      style={{ maxWidth: 'min(420px, calc(100vw - 32px))' }}
+      style={{ maxWidth: 'min(520px, calc(100vw - 16px))', maxHeight: phase === 'engaged' ? 'calc(100dvh - 60px)' : undefined }}
     >
-      {/* Whisper phase — tiny terminal text */}
+      {/* Whisper phase — ghostly text crawl, fading upward like credits */}
       {(phase === 'typing' || phase === 'whispered') && (
         <div
           onClick={handleWhisperClick}
-          className="group cursor-pointer p-3 pb-4 pl-4"
+          className="cursor-pointer pb-3 pl-4 pr-6"
           role="button"
           tabIndex={0}
           aria-label="Open terminal"
           onKeyDown={(e) => { if (e.key === 'Enter') handleWhisperClick(); }}
+          style={{
+            /*
+             * Single mask fades BOTH text and its background together.
+             * The bg is on this same element so it grows with content — no
+             * empty dark box visible before text appears.
+             * Vertical: ghost at top → solid at bottom.
+             * Horizontal: fade on both left and right edges.
+             */
+            background: 'linear-gradient(to bottom, transparent 0%, rgba(10,10,10,0.1) 35%, rgba(10,10,10,0.5) 52%, rgba(10,10,10,0.85) 64%, rgba(10,10,10,0.98) 100%)',
+            maskImage: 'linear-gradient(to bottom, rgba(0,0,0,0.03) 0%, rgba(0,0,0,0.05) 8%, rgba(0,0,0,0.1) 18%, rgba(0,0,0,0.2) 28%, rgba(0,0,0,0.4) 40%, rgba(0,0,0,0.65) 50%, rgba(0,0,0,0.85) 58%, black 66%), linear-gradient(to right, black 0%, black 80%, rgba(0,0,0,0.5) 92%, transparent 100%)',
+            maskComposite: 'intersect',
+            WebkitMaskImage: 'linear-gradient(to bottom, rgba(0,0,0,0.03) 0%, rgba(0,0,0,0.05) 8%, rgba(0,0,0,0.1) 18%, rgba(0,0,0,0.2) 28%, rgba(0,0,0,0.4) 40%, rgba(0,0,0,0.65) 50%, rgba(0,0,0,0.85) 58%, black 66%), linear-gradient(to right, black 0%, black 80%, rgba(0,0,0,0.5) 92%, transparent 100%)',
+            WebkitMaskComposite: 'source-in',
+          }}
         >
-          <button
-            onClick={handleMinimize}
-            className="absolute top-1 right-1 w-4 h-4 flex items-center justify-center text-[#00ff00]/0 group-hover:text-[#00ff00]/30 hover:!text-[#00ff00]/60 transition-colors text-[10px]"
-            aria-label="Dismiss"
-          >
-            x
-          </button>
-
-          <div className="absolute inset-0 bg-[#0a0a0a]/80 backdrop-blur-sm rounded-tr-md" />
-
-          <div className="relative space-y-0.5">
+          <div className="space-y-1">
             {whisperLines.map((line, i) => (
               <WhisperLineRenderer
                 key={i}
                 text={line.text}
                 startTyping={typingStarted[i] ?? false}
                 isLast={i === whisperLines.length - 1 || i === currentLineIdx}
+                isFinalLine={i === whisperLines.length - 1}
                 onDone={() => handleLineDone(i)}
               />
             ))}
@@ -573,10 +668,10 @@ export default function TerminalWhisper() {
         </div>
       )}
 
-      {/* Engaged phase — conversational terminal */}
+      {/* Engaged phase — full-screen conversational terminal */}
       {phase === 'engaged' && (
-        <div className="m-3 rounded-md overflow-hidden border border-[#00ff00]/15 shadow-[0_0_20px_rgba(0,255,0,0.05)]">
-          <div className="flex items-center justify-between px-3 py-1.5 bg-[#0a0a0a]/95 border-b border-[#00ff00]/10">
+        <div className="flex flex-col overflow-hidden rounded-md border border-[#00ff00]/15 shadow-[0_0_20px_rgba(0,255,0,0.05)] bg-[#0a0a0a]/95 backdrop-blur-sm m-3" style={{ width: 'min(520px, calc(100vw - 16px))' }}>
+          <div className="flex items-center justify-between px-4 py-2 border-b border-[#00ff00]/10 flex-shrink-0">
             <div className="flex items-center gap-2">
               <span className="text-[#00ff00]/40 text-[10px] tracking-widest uppercase">terminal</span>
               {jayOnline && (
@@ -596,8 +691,8 @@ export default function TerminalWhisper() {
           </div>
 
           <div
-            className="bg-[#0a0a0a]/95 backdrop-blur-sm px-3 py-2 overflow-y-auto"
-            style={{ maxHeight: '200px' }}
+            className="px-4 py-3 overflow-y-auto break-words"
+            style={{ overflowWrap: 'anywhere', wordBreak: 'break-word' }}
           >
             {messages.length === 0 && whisperLines.map((line, i) => (
               <div key={`w-${i}`} className="text-[#00ff00]/50 leading-relaxed">
@@ -631,13 +726,23 @@ export default function TerminalWhisper() {
             <div ref={messagesEndRef} />
           </div>
 
-          <form onSubmit={handleSubmit} className="flex items-center bg-[#0a0a0a]/95 border-t border-[#00ff00]/10 px-3 py-2">
+          <form onSubmit={handleSubmit} className="flex items-center border-t border-[#00ff00]/10 px-4 py-3 flex-shrink-0">
             <span className="text-[#00ff00]/40 mr-1.5 flex-shrink-0">{'>'}</span>
             <input
               ref={inputRef}
               type="text"
               value={input}
-              onChange={(e) => setInput(e.target.value)}
+              onChange={(e) => {
+                const val = e.target.value;
+                setInput(val);
+                // Auto-submit after 2.5s typing pause (helps mobile users who can't find Enter)
+                if (autoSubmitTimer.current) clearTimeout(autoSubmitTimer.current);
+                if (val.trim()) {
+                  autoSubmitTimer.current = setTimeout(() => {
+                    if (val.trim() && !isLoading) sendMessage(val);
+                  }, 5000);
+                }
+              }}
               disabled={isLoading}
               className="flex-1 bg-transparent text-[#00ff00] text-xs outline-none placeholder-[#00ff00]/20 caret-[#00ff00]"
               placeholder=""
@@ -672,11 +777,13 @@ function WhisperLineRenderer({
   text,
   startTyping,
   isLast,
+  isFinalLine,
   onDone,
 }: {
   text: string;
   startTyping: boolean;
   isLast: boolean;
+  isFinalLine: boolean;
   onDone: () => void;
 }) {
   const { displayed, done } = useTypewriter(text, 30, startTyping);
@@ -691,14 +798,25 @@ function WhisperLineRenderer({
 
   if (!startTyping) return null;
 
+  // Final line (the y/n question) is fully bright — all others are ghostly
+  const textClass = isFinalLine
+    ? 'text-[#00ff00] leading-relaxed'
+    : 'text-[#00ff00]/50 leading-relaxed';
+
   return (
-    <div className="text-[#00ff00]/60 leading-relaxed whitespace-nowrap">
+    <div className={textClass}>
       {displayed}
       {isLast && !done && (
-        <span className="inline-block w-1.5 h-3 bg-[#00ff00]/60 align-middle ml-px animate-pulse" />
+        <span
+          className="inline-block w-2 h-3.5 bg-[#00ff00] align-middle ml-px"
+          style={{ animation: 'pulse 0.6s cubic-bezier(0.4, 0, 0.6, 1) infinite' }}
+        />
       )}
       {isLast && done && (
-        <span className="inline-block w-1.5 h-3 bg-[#00ff00]/40 align-middle ml-px animate-pulse" />
+        <span
+          className="inline-block w-2 h-3.5 bg-[#00ff00]/80 align-middle ml-px"
+          style={{ animation: 'pulse 0.6s cubic-bezier(0.4, 0, 0.6, 1) infinite' }}
+        />
       )}
     </div>
   );

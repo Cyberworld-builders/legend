@@ -47,10 +47,8 @@ export async function POST(request: NextRequest) {
     }
 
     const data = await gusResponse.json();
-    return NextResponse.json({
-      hook: data.hook || '',
-      followUp: data.followUp || '',
-    });
+    // Forward whatever GusClaw returns — lines array or legacy hook/followUp
+    return NextResponse.json(data);
   } catch (error: unknown) {
     console.error('[whisper] error:', error);
     return NextResponse.json({ error: 'Internal error' }, { status: 500 });

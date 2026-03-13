@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import Image from 'next/image';
+import Breadcrumb from '@/components/Breadcrumb';
 import PageBackground from '@/components/PageBackground';
 
 export const metadata: Metadata = {
@@ -17,17 +17,13 @@ export default function PrivacyPolicy() {
       <PageBackground opacity={20} fullWidth={true} />
 
       <div className="relative z-10 w-full flex flex-col items-center">
-        <div className="flex justify-center mb-4">
-          <Link href="/">
-            <Image
-              src="/icons/favicon.ico"
-              alt="CyberWorld Builders"
-              className="w-12 h-12 rounded-full"
-              width={48}
-              height={48}
-              loading="lazy"
-            />
-          </Link>
+        <div className="w-full max-w-3xl px-4 sm:px-6 md:px-8 mb-6">
+          <Breadcrumb
+            items={[
+              { label: 'Home', href: '/' },
+              { label: 'Privacy Policy' },
+            ]}
+          />
         </div>
 
         <div className="w-full max-w-3xl px-4 sm:px-6 md:px-8">

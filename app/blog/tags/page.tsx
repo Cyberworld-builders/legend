@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import Image from 'next/image';
 import Breadcrumb from '@/components/Breadcrumb';
 import PageBackground from '@/components/PageBackground';
 import TagGrid from '@/components/TagGrid';
@@ -90,19 +89,6 @@ export default async function TagsPage() {
         <PageBackground opacity={20} fullWidth={true} />
 
         <div className="relative z-10 w-full flex flex-col items-center">
-          <div className="flex justify-center mb-4">
-            <Link href="/">
-              <Image
-                src="/icons/favicon.ico"
-                alt="CyberWorld Builders - Software Engineering & Consulting Services"
-                className="w-12 h-12 rounded-full"
-                width={48}
-                height={48}
-                loading="lazy"
-              />
-            </Link>
-          </div>
-
           <div className="w-full max-w-4xl mb-6">
             <Breadcrumb
               items={[
