@@ -233,8 +233,8 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "Service",
               "name": "Custom Software & Automation Services",
-              "description": "Custom software development, marketing automation, and AI-powered systems that help service businesses capture more leads and scale faster.",
-              "url": "https://cyberworldbuilders.com",
+              "description": "Digital marketing systems, AI-powered automation, and custom SaaS development for service businesses.",
+              "url": "https://cyberworldbuilders.com/services",
               "provider": {
                 "@type": "Organization",
                 "name": "CyberWorld Builders",
@@ -251,66 +251,93 @@ export default function RootLayout({
                 "itemListElement": [
                   {
                     "@type": "OfferCatalog",
-                    "name": "Custom Software Development",
+                    "name": "Digital Marketing",
+                    "url": "https://cyberworldbuilders.com/services/digital-marketing",
                     "itemListElement": [
                       {
                         "@type": "Offer",
                         "itemOffered": {
                           "@type": "Service",
-                          "name": "Web Application Development",
-                          "description": "Full-stack web application development using modern frameworks like Next.js, React, and Node.js."
+                          "name": "GEO Optimization",
+                          "url": "https://cyberworldbuilders.com/services/digital-marketing/geo-optimization",
+                          "description": "Generative Engine Optimization for AI search visibility."
                         }
                       },
                       {
                         "@type": "Offer",
                         "itemOffered": {
                           "@type": "Service",
-                          "name": "SaaS Development",
-                          "description": "Software as a Service application development from concept to deployment."
+                          "name": "Automated SEO Audit",
+                          "url": "https://cyberworldbuilders.com/services/digital-marketing/seo-audit",
+                          "description": "Continuous automated SEO audits with auto-fix capabilities."
+                        }
+                      },
+                      {
+                        "@type": "Offer",
+                        "itemOffered": {
+                          "@type": "Service",
+                          "name": "Content Pipeline Automation",
+                          "url": "https://cyberworldbuilders.com/services/digital-marketing/content-pipeline",
+                          "description": "Transcript-to-blog publishing with social distribution."
                         }
                       }
                     ]
                   },
                   {
                     "@type": "OfferCatalog",
-                    "name": "Automation & AI",
+                    "name": "Automation",
+                    "url": "https://cyberworldbuilders.com/services/automation",
                     "itemListElement": [
                       {
                         "@type": "Offer",
                         "itemOffered": {
                           "@type": "Service",
-                          "name": "Marketing Automation",
-                          "description": "Lead capture, nurturing, and conversion automation for service businesses."
+                          "name": "AI Agent Development",
+                          "url": "https://cyberworldbuilders.com/services/automation/ai-agents",
+                          "description": "Custom AI agents with tool-use, memory, and multi-step reasoning."
                         }
                       },
                       {
                         "@type": "Offer",
                         "itemOffered": {
                           "@type": "Service",
-                          "name": "AI Integration",
-                          "description": "Integration of AI-powered features including chatbots, content generation, and intelligent automation."
+                          "name": "n8n Workflow Automation",
+                          "url": "https://cyberworldbuilders.com/services/automation/n8n-workflows",
+                          "description": "Visual workflow automation with 400+ integrations."
+                        }
+                      },
+                      {
+                        "@type": "Offer",
+                        "itemOffered": {
+                          "@type": "Service",
+                          "name": "AI Chatbot Development",
+                          "url": "https://cyberworldbuilders.com/services/automation/ai-chatbots",
+                          "description": "Intelligent chatbots with RAG knowledge bases and lead qualification."
                         }
                       }
                     ]
                   },
                   {
                     "@type": "OfferCatalog",
-                    "name": "Consulting",
+                    "name": "Custom SaaS",
+                    "url": "https://cyberworldbuilders.com/services/custom-saas",
                     "itemListElement": [
                       {
                         "@type": "Offer",
                         "itemOffered": {
                           "@type": "Service",
-                          "name": "Technical Consulting",
-                          "description": "Architecture review, technology selection, and technical strategy consulting."
+                          "name": "Next.js Web Applications",
+                          "url": "https://cyberworldbuilders.com/services/custom-saas/nextjs-apps",
+                          "description": "Full-stack Next.js applications with SSR, App Router, and Supabase."
                         }
                       },
                       {
                         "@type": "Offer",
                         "itemOffered": {
                           "@type": "Service",
-                          "name": "AWS Cloud Solutions",
-                          "description": "Amazon Web Services implementation, optimization, and migration."
+                          "name": "MVP Development",
+                          "url": "https://cyberworldbuilders.com/services/custom-saas/mvp-development",
+                          "description": "Rapid prototyping and lean validation — ship in 4 weeks."
                         }
                       }
                     ]
