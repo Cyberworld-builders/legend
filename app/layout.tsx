@@ -338,29 +338,19 @@ export default function RootLayout({
               "priceRange": "$$",
               "address": {
                 "@type": "PostalAddress",
-                "addressLocality": "Collinsville",
-                "addressRegion": "IL",
+                "addressLocality": "Guntersville",
+                "addressRegion": "AL",
                 "addressCountry": "US"
               },
               "geo": {
                 "@type": "GeoCoordinates",
-                "latitude": 38.6703,
-                "longitude": -89.9845
+                "latitude": 34.3582,
+                "longitude": -86.2947
               },
-              "areaServed": [
-                {
-                  "@type": "Country",
-                  "name": "United States"
-                },
-                {
-                  "@type": "City",
-                  "name": "Collinsville",
-                  "containedInPlace": {
-                    "@type": "State",
-                    "name": "Illinois"
-                  }
-                }
-              ],
+              "areaServed": {
+                "@type": "Country",
+                "name": "United States"
+              },
               "serviceType": [
                 "Custom Software Development",
                 "Marketing Automation",
