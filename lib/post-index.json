@@ -1,7 +1,47 @@
 {
-  "generatedAt": "2026-03-13T13:50:38.847Z",
-  "count": 37,
+  "generatedAt": "2026-03-13T18:22:17.372Z",
+  "count": 38,
   "posts": [
+    {
+      "slug": "self-healing-agents-prompt-monkey-era",
+      "title": "Self-Healing Agents and the End of the Prompt Monkey Era",
+      "description": "After an authentication outage, my AI agents built their own health monitoring and failover system. Then I discovered skills that work like hiring an expert on the spot.",
+      "publishedDate": "2026-03-13",
+      "modifiedDate": "2026-03-13",
+      "isDraft": false,
+      "isFeatured": false,
+      "priority": 5,
+      "category": "AI & Automation",
+      "series": "",
+      "topics": [
+        "AI & Automation",
+        "Development & Tools",
+        "Career & Professional Development"
+      ],
+      "tags": [
+        "ai-agent-automation",
+        "claude-code-skills",
+        "self-healing-infrastructure",
+        "observability-pipeline",
+        "solo-developer",
+        "ai-coding-workflow",
+        "front-end-design"
+      ],
+      "keywords": [
+        "ai agent self-healing",
+        "claude code skills",
+        "ai coding automation",
+        "operational vs productive services",
+        "ai agent observability",
+        "solo developer ai workflow",
+        "prompt engineering authenticity"
+      ],
+      "canonicalUrl": "https://cyberworldbuilders.com/blog/self-healing-agents-prompt-monkey-era",
+      "headerImage": "/images/self-healing-agents-prompt-monkey-era-hero.png",
+      "wordCount": 1797,
+      "fileSize": 12275,
+      "fileModified": "2026-03-13T18:22:17.180Z"
+    },
     {
       "slug": "first-real-outage-autonomous-systems",
       "title": "My First Real Outage and What It Taught Me About Autonomous Systems",
@@ -39,7 +79,7 @@
       "headerImage": "/images/first-real-outage-autonomous-systems-hero.png",
       "wordCount": 2479,
       "fileSize": 16274,
-      "fileModified": "2026-03-12T19:07:12.684Z"
+      "fileModified": "2026-03-12T18:00:41.541Z"
     },
     {
       "slug": "gusclaw-observatory-watching-ai-team-work",
@@ -82,7 +122,7 @@
       "headerImage": "/images/gusclaw-observatory-watching-ai-team-work-hero.png",
       "wordCount": 2474,
       "fileSize": 16548,
-      "fileModified": "2026-03-12T19:07:12.684Z"
+      "fileModified": "2026-03-11T14:35:08.336Z"
     },
     {
       "slug": "content-publishing-engine-voice-memos-to-video",
@@ -122,7 +162,7 @@
       "headerImage": "/images/content-publishing-engine-voice-memos-to-video-hero.png",
       "wordCount": 1710,
       "fileSize": 11584,
-      "fileModified": "2026-03-12T19:07:12.684Z"
+      "fileModified": "2026-03-10T14:58:23.569Z"
     },
     {
       "slug": "everything-compounds-now",
@@ -166,7 +206,7 @@
       "headerImage": "/images/everything-compounds-now-hero.png",
       "wordCount": 1572,
       "fileSize": 10249,
-      "fileModified": "2026-03-12T19:07:12.684Z"
+      "fileModified": "2026-03-10T08:51:29.166Z"
     },
     {
       "slug": "one-week-claude-code-publishing-pipeline",
@@ -254,7 +294,7 @@
       "headerImage": "/images/upwork-automation-strategy-insights-hero.png",
       "wordCount": 1237,
       "fileSize": 8662,
-      "fileModified": "2026-03-12T19:07:12.684Z"
+      "fileModified": "2026-03-10T02:03:45.473Z"
     },
     {
       "slug": "where-im-going-next",
@@ -298,7 +338,7 @@
       "headerImage": "/images/where-im-going-next-hero.png",
       "wordCount": 2301,
       "fileSize": 15088,
-      "fileModified": "2026-03-12T19:07:12.685Z"
+      "fileModified": "2026-03-09T01:57:46.284Z"
     },
     {
       "slug": "code-first-n8n-custom-nodes-automation-workflow",
@@ -340,9 +380,9 @@
       ],
       "canonicalUrl": "https://cyberworldbuilders.com/blog/code-first-n8n-custom-nodes-automation-workflow",
       "headerImage": "/images/code-first-n8n-custom-nodes-automation-workflow-hero.png",
-      "wordCount": 2559,
-      "fileSize": 17318,
-      "fileModified": "2026-03-08T02:01:20.840Z"
+      "wordCount": 2543,
+      "fileSize": 17174,
+      "fileModified": "2026-03-13T17:37:08.687Z"
     },
     {
       "slug": "custom-n8n-nodes-transcript-cleanup-xai-grok",
@@ -512,9 +552,9 @@
       ],
       "canonicalUrl": "https://cyberworldbuilders.com/blog/from-zapier-to-n8n-automation-practice",
       "headerImage": "/images/from-zapier-to-n8n-automation-practice-hero.png",
-      "wordCount": 2370,
-      "fileSize": 15629,
-      "fileModified": "2026-03-08T02:01:20.843Z"
+      "wordCount": 2356,
+      "fileSize": 15498,
+      "fileModified": "2026-03-13T17:37:08.688Z"
     },
     {
       "slug": "stop-nickel-and-diming-ai-tools-go-all-in",
@@ -597,9 +637,9 @@
       ],
       "canonicalUrl": "https://cyberworldbuilders.com/blog/rznjn-human-ai-music-collaboration",
       "headerImage": "/images/rznjn-human-ai-music-collaboration-hero.png",
-      "wordCount": 2050,
-      "fileSize": 14420,
-      "fileModified": "2026-03-08T02:01:20.846Z"
+      "wordCount": 2038,
+      "fileSize": 14290,
+      "fileModified": "2026-03-13T17:37:08.689Z"
     },
     {
       "slug": "first-pitch-meeting-reflections-lessons-confidence-and-alignment-in-death-care-and-ar-innovation",
@@ -638,9 +678,9 @@
       ],
       "canonicalUrl": "https://cyberworldbuilders.com/blog/first-pitch-meeting-reflections-lessons-confidence-and-alignment-in-death-care-and-ar-innovation",
       "headerImage": "/images/first-pitch-meeting-reflections-lessons-confidence-and-alignment-in-death-care-and-ar-innovation-hero.png",
-      "wordCount": 703,
-      "fileSize": 5696,
-      "fileModified": "2026-03-08T02:01:20.843Z"
+      "wordCount": 688,
+      "fileSize": 5567,
+      "fileModified": "2026-03-13T17:37:08.687Z"
     },
     {
       "slug": "chatbot-breakthrough-how-openais-web-crawling-validates-generative-seo-for-smarter-site-interactions",
@@ -677,9 +717,9 @@
       ],
       "canonicalUrl": "https://cyberworldbuilders.com/blog/chatbot-breakthrough-how-openais-web-crawling-validates-generative-seo-for-smarter-site-interactions",
       "headerImage": "/images/chatbot-breakthrough-how-openais-web-crawling-validates-generative-seo-for-smarter-site-interactions-hero.png",
-      "wordCount": 2404,
-      "fileSize": 17376,
-      "fileModified": "2026-03-08T02:01:20.839Z"
+      "wordCount": 2387,
+      "fileSize": 17202,
+      "fileModified": "2026-03-13T17:37:08.687Z"
     },
     {
       "slug": "from-hybrid-intel-trio-to-drum-note-evolving-ai-human-synergy-in-music-collaboration",
@@ -718,9 +758,9 @@
       ],
       "canonicalUrl": "https://cyberworldbuilders.com/blog/from-hybrid-intel-trio-to-drum-note-evolving-ai-human-synergy-in-music-collaboration",
       "headerImage": "/images/from-hybrid-intel-trio-to-drum-note-evolving-ai-human-synergy-in-music-collaboration-hero.png",
-      "wordCount": 5345,
-      "fileSize": 33924,
-      "fileModified": "2026-03-08T02:01:20.843Z"
+      "wordCount": 5328,
+      "fileSize": 33772,
+      "fileModified": "2026-03-13T17:37:08.688Z"
     },
     {
       "slug": "ai-humanity-and-the-future-career-reflections-and-societal-shifts-in-an-automated-world",
@@ -758,9 +798,9 @@
       ],
       "canonicalUrl": "https://cyberworldbuilders.com/blog/ai-humanity-and-the-future-career-reflections-and-societal-shifts-in-an-automated-world",
       "headerImage": "/images/ai-humanity-and-the-future-career-reflections-and-societal-shifts-in-an-automated-world-hero.png",
-      "wordCount": 5095,
-      "fileSize": 33086,
-      "fileModified": "2026-03-08T02:01:20.837Z"
+      "wordCount": 5077,
+      "fileSize": 32929,
+      "fileModified": "2026-03-13T17:37:08.686Z"
     },
     {
       "slug": "cemetery-management-application-gps-mapping-ar-integration-and-autonomous-maintenance-for-funeral-homes",
@@ -798,9 +838,9 @@
       ],
       "canonicalUrl": "https://cyberworldbuilders.com/blog/cemetery-management-application-gps-mapping-ar-integration-and-autonomous-maintenance-for-funeral-homes",
       "headerImage": "/images/cemetery-management-application-gps-mapping-ar-integration-and-autonomous-maintenance-for-funeral-homes-hero.png",
-      "wordCount": 949,
-      "fileSize": 7726,
-      "fileModified": "2026-03-08T02:01:20.839Z"
+      "wordCount": 935,
+      "fileSize": 7594,
+      "fileModified": "2026-03-13T17:37:08.686Z"
     },
     {
       "slug": "revisiting-old-code-lessons-in-growth-enterprise-vs-startup-mindsets-and-ai-driven-infrastructure-evolution",
@@ -838,9 +878,9 @@
       ],
       "canonicalUrl": "https://cyberworldbuilders.com/blog/revisiting-old-code-lessons-in-growth-enterprise-vs-startup-mindsets-and-ai-driven-infrastructure-evolution",
       "headerImage": "/images/revisiting-old-code-lessons-in-growth-enterprise-vs-startup-mindsets-and-ai-driven-infrastructure-evolution-hero.png",
-      "wordCount": 792,
-      "fileSize": 6660,
-      "fileModified": "2026-03-08T02:01:20.846Z"
+      "wordCount": 780,
+      "fileSize": 6544,
+      "fileModified": "2026-03-13T17:37:08.689Z"
     },
     {
       "slug": "lessons-from-mentors-enterprise-insights-and-personal-reflections-from-urban-dynamics",
@@ -878,9 +918,9 @@
       ],
       "canonicalUrl": "https://cyberworldbuilders.com/blog/lessons-from-mentors-enterprise-insights-and-personal-reflections-from-urban-dynamics",
       "headerImage": "/images/lessons-from-mentors-enterprise-insights-and-personal-reflections-from-urban-dynamics-hero.png",
-      "wordCount": 1078,
-      "fileSize": 8425,
-      "fileModified": "2026-03-08T02:01:20.844Z"
+      "wordCount": 1064,
+      "fileSize": 8297,
+      "fileModified": "2026-03-13T17:37:08.688Z"
     },
     {
       "slug": "building-a-generative-framework-evolving-ai-coding-agents-and-human-ai-collaboration",
@@ -918,9 +958,9 @@
       ],
       "canonicalUrl": "https://cyberworldbuilders.com/blog/building-a-generative-framework-evolving-ai-coding-agents-and-human-ai-collaboration",
       "headerImage": "/images/building-a-generative-framework-evolving-ai-coding-agents-and-human-ai-collaboration-hero.png",
-      "wordCount": 1999,
-      "fileSize": 13513,
-      "fileModified": "2026-03-08T02:01:20.838Z"
+      "wordCount": 1992,
+      "fileSize": 13422,
+      "fileModified": "2026-03-13T17:37:08.686Z"
     },
     {
       "slug": "the-power-of-flat-files-in-blogging-repurposing-coding-tools-for-content-creation-and-ai-optimization",
@@ -958,9 +998,9 @@
       ],
       "canonicalUrl": "https://cyberworldbuilders.com/blog/the-power-of-flat-files-in-blogging-repurposing-coding-tools-for-content-creation-and-ai-optimization",
       "headerImage": "/images/the-power-of-flat-files-in-blogging-repurposing-coding-tools-for-content-creation-and-ai-optimization-hero.png",
-      "wordCount": 1962,
-      "fileSize": 13520,
-      "fileModified": "2026-03-08T02:01:20.848Z"
+      "wordCount": 1945,
+      "fileSize": 13385,
+      "fileModified": "2026-03-13T17:37:08.690Z"
     },
     {
       "slug": "troubleshooting-n8n-workflows-integrated-with-supabase-vapi-and-lovable-for-ai-driven-sales-automation",
@@ -1010,9 +1050,9 @@
       ],
       "canonicalUrl": "https://cyberworldbuilders.com/blog/troubleshooting-n8n-workflows-integrated-with-supabase-vapi-and-lovable-for-ai-driven-sales-automation",
       "headerImage": "/images/troubleshooting-n8n-workflows-integrated-with-supabase-vapi-and-lovable-for-ai-driven-sales-automation-hero.png",
-      "wordCount": 1667,
-      "fileSize": 11829,
-      "fileModified": "2026-03-08T02:01:20.849Z"
+      "wordCount": 1655,
+      "fileSize": 11705,
+      "fileModified": "2026-03-13T17:37:08.691Z"
     },
     {
       "slug": "building-drum-note-ai-powered-drum-transcription-kit-generation-and-hands-on-marketing-with-rendercom",
@@ -1061,9 +1101,9 @@
       ],
       "canonicalUrl": "https://cyberworldbuilders.com/blog/building-drum-note-ai-powered-drum-transcription-kit-generation-and-hands-on-marketing-with-rendercom",
       "headerImage": "/images/building-drum-note-ai-powered-drum-transcription-kit-generation-and-hands-on-marketing-with-rendercom-hero.png",
-      "wordCount": 3768,
-      "fileSize": 26329,
-      "fileModified": "2026-03-08T02:01:20.838Z"
+      "wordCount": 3751,
+      "fileSize": 26157,
+      "fileModified": "2026-03-13T17:37:08.686Z"
     },
     {
       "slug": "replit-test-drive",
@@ -1110,9 +1150,9 @@
       ],
       "canonicalUrl": "https://cyberworldbuilders.com/blog/replit-test-drive",
       "headerImage": "/images/replit-test-drive-hero.png",
-      "wordCount": 1232,
-      "fileSize": 12686,
-      "fileModified": "2026-03-08T02:01:20.845Z"
+      "wordCount": 1220,
+      "fileSize": 12553,
+      "fileModified": "2026-03-13T17:37:08.689Z"
     },
     {
       "slug": "the-last-cycle-why-founder-engineer-partnerships-are-nearing-their-end",
@@ -1162,9 +1202,9 @@
       ],
       "canonicalUrl": "https://cyberworldbuilders.com/blog/the-last-cycle-why-founder-engineer-partnerships-are-nearing-their-end",
       "headerImage": "/images/the-last-cycle-why-founder-engineer-partnerships-are-nearing-their-end-hero.png",
-      "wordCount": 1604,
-      "fileSize": 13839,
-      "fileModified": "2026-03-08T02:01:20.848Z"
+      "wordCount": 1590,
+      "fileSize": 13701,
+      "fileModified": "2026-03-13T17:37:08.690Z"
     },
     {
       "slug": "revenant-hollow-integrating-technology-into-location-based-horror-experiences",
@@ -1212,9 +1252,9 @@
       ],
       "canonicalUrl": "https://cyberworldbuilders.com/blog/revenant-hollow-integrating-technology-into-location-based-horror-experiences",
       "headerImage": "/images/revenant-hollow-integrating-technology-into-location-based-horror-experiences-hero.png",
-      "wordCount": 1640,
-      "fileSize": 12218,
-      "fileModified": "2026-03-08T02:01:20.846Z"
+      "wordCount": 1628,
+      "fileSize": 12073,
+      "fileModified": "2026-03-13T17:37:08.689Z"
     },
     {
       "slug": "the-jumpstarter-a-5-point-framework-to-align-value-and-passion",
@@ -1262,9 +1302,9 @@
       ],
       "canonicalUrl": "https://cyberworldbuilders.com/blog/the-jumpstarter-a-5-point-framework-to-align-value-and-passion",
       "headerImage": "/images/the-jumpstarter-a-5-point-framework-to-align-value-and-passion-hero.png",
-      "wordCount": 1484,
-      "fileSize": 12277,
-      "fileModified": "2026-03-08T02:01:20.848Z"
+      "wordCount": 1470,
+      "fileSize": 12147,
+      "fileModified": "2026-03-13T17:37:08.690Z"
     },
     {
       "slug": "enhancing-seo-on-my-company-landing-site-with-ai-agents",
@@ -1312,9 +1352,9 @@
       ],
       "canonicalUrl": "https://cyberworldbuilders.com/blog/enhancing-seo-on-my-company-landing-site-with-ai-agents",
       "headerImage": "/images/enhancing-seo-on-my-company-landing-site-with-ai-agents-hero.png",
-      "wordCount": 1736,
-      "fileSize": 11871,
-      "fileModified": "2026-03-08T02:01:20.841Z"
+      "wordCount": 1720,
+      "fileSize": 11745,
+      "fileModified": "2026-03-13T17:37:08.687Z"
     },
     {
       "slug": "scaling-novelty-with-an-agentic-blog-bot",
@@ -1360,9 +1400,9 @@
       ],
       "canonicalUrl": "https://cyberworldbuilders.com/blog/scaling-novelty-with-an-agentic-blog-bot",
       "headerImage": "/images/scaling-novelty-with-an-agentic-blog-bot-hero.png",
-      "wordCount": 1228,
-      "fileSize": 10417,
-      "fileModified": "2026-03-08T02:01:20.847Z"
+      "wordCount": 1217,
+      "fileSize": 10310,
+      "fileModified": "2026-03-13T17:37:08.690Z"
     },
     {
       "slug": "building-an-effective-web-presence-for-professional-validation",
@@ -1410,9 +1450,9 @@
       ],
       "canonicalUrl": "https://cyberworldbuilders.com/blog/building-an-effective-web-presence-for-professional-validation",
       "headerImage": "/images/building-an-effective-web-presence-for-professional-validation-hero.png",
-      "wordCount": 816,
-      "fileSize": 6826,
-      "fileModified": "2026-03-08T02:01:20.838Z"
+      "wordCount": 800,
+      "fileSize": 6683,
+      "fileModified": "2026-03-13T17:37:08.686Z"
     },
     {
       "slug": "transitioning-from-cable-contracting-to-freelance-web-development-a-career-pivot",
@@ -1464,9 +1504,9 @@
       ],
       "canonicalUrl": "https://cyberworldbuilders.com/blog/transitioning-from-cable-contracting-to-freelance-web-development-a-career-pivot",
       "headerImage": "/images/transitioning-from-cable-contracting-to-freelance-web-development-a-career-pivot-hero.png",
-      "wordCount": 802,
-      "fileSize": 6174,
-      "fileModified": "2026-03-08T02:01:20.849Z"
+      "wordCount": 788,
+      "fileSize": 6051,
+      "fileModified": "2026-03-13T17:37:08.691Z"
     },
     {
       "slug": "early-adventures-in-freelance-web-development-lessons-from-the-wordpress-era",
@@ -1515,9 +1555,9 @@
       ],
       "canonicalUrl": "https://cyberworldbuilders.com/blog/early-adventures-in-freelance-web-development-lessons-from-the-wordpress-era",
       "headerImage": "/images/early-adventures-in-freelance-web-development-lessons-from-the-wordpress-era-hero.png",
-      "wordCount": 736,
-      "fileSize": 5915,
-      "fileModified": "2026-03-08T02:01:20.841Z"
+      "wordCount": 721,
+      "fileSize": 5771,
+      "fileModified": "2026-03-13T17:37:08.687Z"
     },
     {
       "slug": "my-first-tech-job-the-evolution-of-the-docworks-emr-system-2011-2013",
@@ -1570,9 +1610,9 @@
       ],
       "canonicalUrl": "https://cyberworldbuilders.com/blog/my-first-tech-job-the-evolution-of-the-docworks-emr-system-2011-2013",
       "headerImage": "/images/my-first-tech-job-the-evolution-of-the-docworks-emr-system-2011-2013-hero.png",
-      "wordCount": 1631,
-      "fileSize": 11340,
-      "fileModified": "2026-03-08T02:01:20.845Z"
+      "wordCount": 1624,
+      "fileSize": 11246,
+      "fileModified": "2026-03-13T17:37:08.689Z"
     },
     {
       "slug": "intro-to-linux-how-i-stayed-in-the-dev-game-while-too-broke-to-buy-a-pc",
@@ -1621,9 +1661,9 @@
       ],
       "canonicalUrl": "https://cyberworldbuilders.com/blog/intro-to-linux-how-i-stayed-in-the-dev-game-while-too-broke-to-buy-a-pc",
       "headerImage": "/images/intro-to-linux-how-i-stayed-in-the-dev-game-while-too-broke-to-buy-a-pc-hero.png",
-      "wordCount": 773,
-      "fileSize": 6105,
-      "fileModified": "2026-03-08T02:01:20.844Z"
+      "wordCount": 752,
+      "fileSize": 5966,
+      "fileModified": "2026-03-13T17:37:08.688Z"
     },
     {
       "slug": "my-first-steps-into-coding",
@@ -1665,9 +1705,9 @@
       ],
       "canonicalUrl": "https://cyberworldbuilders.com/blog/my-first-steps-into-coding",
       "headerImage": "/images/my-first-steps-into-coding-hero.png",
-      "wordCount": 1124,
-      "fileSize": 7792,
-      "fileModified": "2026-03-08T02:01:20.844Z"
+      "wordCount": 1115,
+      "fileSize": 7699,
+      "fileModified": "2026-03-13T17:37:08.689Z"
     }
   ]
 }
