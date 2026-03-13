@@ -35,11 +35,11 @@ export async function generateMetadata({
   }
 
   return {
-    title: 'Blog - Software Engineering Insights & Technical Articles',
-    description: 'Read the latest insights on software engineering, web development, AWS solutions, and SaaS development from CyberWorld Builders.',
+    title: 'Blog — Real Engineering, Not AI Fluff',
+    description: 'Dispatches from building production software with AI agents, automating SEO pipelines, and running a one-person dev shop. Written by a human who ships.',
     openGraph: {
-      title: 'Blog - Software Engineering Insights & Technical Articles',
-      description: 'Read the latest insights on software engineering, web development, AWS solutions, and SaaS development from CyberWorld Builders.',
+      title: 'Blog — Real Engineering, Not AI Fluff | CyberWorld Builders',
+      description: 'Dispatches from building production software with AI agents, automating SEO pipelines, and running a one-person dev shop. Written by a human who ships.',
       url: canonical,
       type: 'website',
       siteName: 'CyberWorld Builders',
@@ -52,8 +52,8 @@ export async function generateMetadata({
       card: 'summary_large_image',
       site: '@cyberbuilders',
       creator: '@cyberbuilders',
-      title: 'Blog - Software Engineering Insights & Technical Articles',
-      description: 'Read the latest insights on software engineering, web development, AWS solutions, and SaaS development from CyberWorld Builders.',
+      title: 'Blog — Real Engineering, Not AI Fluff | CyberWorld Builders',
+      description: 'Dispatches from building production software with AI agents, automating SEO pipelines, and running a one-person dev shop. Written by a human who ships.',
     },
     alternates: { canonical },
   };
@@ -174,7 +174,7 @@ export default async function BlogIndex({ searchParams }: BlogIndexProps) {
       <div className="w-full max-w-2xl mb-6">
         <SimpleSocialShare 
           url="https://cyberworldbuilders.com/blog"
-          title="Software Engineering Insights & Technical Articles"
+          title="Blog — Real Engineering, Not AI Fluff"
         />
       </div>
       
@@ -187,10 +187,10 @@ export default async function BlogIndex({ searchParams }: BlogIndexProps) {
             "@type": "CollectionPage",
             name: tagFilter
               ? `Posts tagged with "${tagFilter}" - CyberWorld Builders Blog`
-              : "Blog - Software Engineering Insights & Technical Articles",
+              : "Blog — Real Engineering, Not AI Fluff | CyberWorld Builders",
             description: tagFilter
               ? `Browse blog posts tagged with "${tagFilter}".`
-              : "Read the latest insights on software engineering, web development, AWS solutions, and SaaS development from CyberWorld Builders.",
+              : "Dispatches from building production software with AI agents, automating SEO pipelines, and running a one-person dev shop.",
             url: tagFilter
               ? `https://cyberworldbuilders.com/blog?tag=${encodeURIComponent(tagFilter)}`
               : "https://cyberworldbuilders.com/blog",

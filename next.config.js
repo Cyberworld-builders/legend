@@ -14,7 +14,7 @@ const nextConfig = {
   compress: true,
   // Optimize bundle
   experimental: {
-    // optimizePackageImports: ['@vercel/analytics', 'react-markdown'],
+    optimizePackageImports: ['lucide-react', '@vercel/analytics'],
   },
   async redirects() {
     return [

@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: BlogPostProps): Promise<Metad
 
   const { metadata } = post;
   const title = metadata.title;
-  const description = metadata.description || `Read about ${title} - Software engineering insights from CyberWorld Builders.`;
+  const description = metadata.description || `${title} — an engineer's take on building real software. From CyberWorld Builders.`;
   const url = metadata.canonicalUrl || `https://cyberworldbuilders.com/blog/${slug}`;
   const ogParams = new URLSearchParams({ title });
   if (description) ogParams.set('description', description);
@@ -76,7 +76,7 @@ export default async function BlogPost({ params }: BlogPostProps) {
 
   const { metadata, Component } = post;
   const title = metadata.title;
-  const description = metadata.description || `Read about ${title} - Software engineering insights from CyberWorld Builders.`;
+  const description = metadata.description || `${title} — an engineer's take on building real software. From CyberWorld Builders.`;
 
   // Build allPosts list for related posts and navigation
   const allPostEntries = getAllPosts();
@@ -129,6 +129,7 @@ export default async function BlogPost({ params }: BlogPostProps) {
               height={630}
               className="w-full h-auto rounded-lg shadow-lg"
               priority
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 896px"
             />
           </div>
         )}

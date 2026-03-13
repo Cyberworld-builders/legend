@@ -17,10 +17,10 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL('https://cyberworldbuilders.com'),
   title: {
-    default: 'Custom Software & Automation for Service Businesses | CyberWorld Builders',
+    default: 'Custom Software, AI Automation & Web Development | CyberWorld Builders',
     template: '%s | CyberWorld Builders'
   },
-  description: 'We build custom software, marketing automation, and AI-powered systems that help service businesses capture more leads and scale faster. Free consultation available.',
+  description: 'CyberWorld Builders ships custom software, AI-powered automation, and full-stack web apps for service businesses. From lead capture to deployment — talk to an engineer, not a salesperson.',
   keywords: ['custom software development', 'marketing automation', 'lead generation', 'business automation', 'software engineering', 'web development', 'consulting', 'AI automation', 'cyberworld builders'],
   authors: [{ name: 'Jay Long', url: 'https://cyberworldbuilders.com' }],
   creator: 'Jay Long',
@@ -41,14 +41,14 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: 'https://cyberworldbuilders.com',
     siteName: 'CyberWorld Builders',
-    title: 'Custom Software & Automation for Service Businesses | CyberWorld Builders',
-    description: 'We build custom software, marketing automation, and AI-powered systems that help service businesses capture more leads and scale faster.',
+    title: 'Custom Software, AI Automation & Web Development | CyberWorld Builders',
+    description: 'CyberWorld Builders ships custom software, AI-powered automation, and full-stack web apps for service businesses. From lead capture to deployment — talk to an engineer, not a salesperson.',
     images: [
       {
         url: 'https://cyberworldbuilders.com/images/social-card.png',
         width: 1200,
         height: 630,
-        alt: 'CyberWorld Builders - Custom Software & Automation for Service Businesses',
+        alt: 'CyberWorld Builders - Custom Software, AI Automation & Web Development',
       },
     ],
   },
@@ -56,8 +56,8 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     site: '@cyberbuilders',
     creator: '@cyberbuilders',
-    title: 'Custom Software & Automation for Service Businesses | CyberWorld Builders',
-    description: 'We build custom software, marketing automation, and AI-powered systems that help service businesses capture more leads and scale faster.',
+    title: 'Custom Software, AI Automation & Web Development | CyberWorld Builders',
+    description: 'CyberWorld Builders ships custom software, AI-powered automation, and full-stack web apps for service businesses. Talk to an engineer, not a salesperson.',
     images: ['https://cyberworldbuilders.com/images/social-card.png'],
   },
   icons: {
@@ -321,24 +321,46 @@ export default function RootLayout({
           }}
         />
 
-        {/* LocalBusiness Schema — captures local intent queries */}
+        {/* LocalBusiness Schema — captures local intent queries like "it companies near me" */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "ProfessionalService",
+              "@id": "https://cyberworldbuilders.com/#business",
               "name": "CyberWorld Builders",
               "url": "https://cyberworldbuilders.com",
               "logo": "https://cyberworldbuilders.com/images/logo.png",
               "image": "https://cyberworldbuilders.com/images/social-card.png",
-              "description": "Custom software development, marketing automation, and AI-powered systems for service businesses.",
+              "description": "Custom software development, AI automation, and full-stack web apps for service businesses. Talk to an engineer, not a salesperson.",
               "email": "contact@cyberworldbuilders.com",
               "priceRange": "$$",
-              "areaServed": {
-                "@type": "Country",
-                "name": "United States"
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Collinsville",
+                "addressRegion": "IL",
+                "addressCountry": "US"
               },
+              "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": 38.6703,
+                "longitude": -89.9845
+              },
+              "areaServed": [
+                {
+                  "@type": "Country",
+                  "name": "United States"
+                },
+                {
+                  "@type": "City",
+                  "name": "Collinsville",
+                  "containedInPlace": {
+                    "@type": "State",
+                    "name": "Illinois"
+                  }
+                }
+              ],
               "serviceType": [
                 "Custom Software Development",
                 "Marketing Automation",
@@ -346,6 +368,14 @@ export default function RootLayout({
                 "AI Integration",
                 "Business Automation",
                 "Technical Consulting"
+              ],
+              "knowsAbout": [
+                "Next.js",
+                "React",
+                "AWS",
+                "AI Agents",
+                "SEO Automation",
+                "Cemetery Management Software"
               ],
               "sameAs": [
                 "https://github.com/CyberWorld-builders",
