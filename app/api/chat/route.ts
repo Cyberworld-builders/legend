@@ -91,6 +91,8 @@ export async function POST(request: NextRequest) {
     const history: ChatMessage[] = Array.isArray(body.history) ? body.history : [];
     const sessionId: string | undefined = body.sessionId;
     const page: string | undefined = body.page;
+    const pageContext: Record<string, unknown> | undefined = body.pageContext;
+    const funnelActive: boolean = body.funnelActive ?? false;
 
     if (!message) {
       return NextResponse.json({ error: 'Message is required' }, { status: 400 });
@@ -108,15 +110,28 @@ export async function POST(request: NextRequest) {
       headers['X-Chat-Secret'] = CHAT_API_SECRET;
     }
 
+    const gusPayload: Record<string, unknown> = {
+      message,
+      history,
+      contactCaptured,
+      sessionId: sessionId || '',
+    };
+
+    // Forward full page context so GusClaw knows what the visitor is viewing
+    if (pageContext) {
+      gusPayload.pageContext = pageContext;
+    }
+    if (page) {
+      gusPayload.page = page;
+    }
+    // Signal whether Jay has timed out — GusClaw should only push
+    // for contact capture after this goes true
+    gusPayload.funnelActive = funnelActive;
+
     const gusResponse = await fetch(`${GUSCLAW_CHAT_URL}/chat`, {
       method: 'POST',
       headers,
-      body: JSON.stringify({
-        message,
-        history,
-        contactCaptured,
-        sessionId: sessionId || '',
-      }),
+      body: JSON.stringify(gusPayload),
     });
 
     if (!gusResponse.ok) {
