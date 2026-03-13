@@ -166,13 +166,13 @@ export default async function BlogPost({ params }: BlogPostProps) {
           </div>
         </div>
 
-        {/* Article Schema */}
+        {/* BlogPosting Schema — more specific than Article, unlocks richer SERP results */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "Article",
+              "@type": "BlogPosting",
               headline: title,
               description,
               image: metadata.socialImage || "https://cyberworldbuilders.com/images/logo.png",
