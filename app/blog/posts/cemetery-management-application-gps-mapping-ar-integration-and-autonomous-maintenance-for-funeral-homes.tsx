@@ -22,7 +22,6 @@ export default function Post() {
   return (
     <PostLayout meta={metadata}>
 
-      <h2 className="text-4xl font-bold mb-6 text-[#00ff00]">Building a Cemetery Management App from the Ground Up (Literally)</h2>
       <p className="mb-4 leading-relaxed">This is an unexpected one. I&apos;ve been talking a lot lately about location-based experiences and mixed reality, and this idea comes from the same technology space as Revenant Hollow and the augmented reality sports complex. But it started with mowing grass at a cemetery.</p>
       <p className="mb-4 leading-relaxed">My wife is apprenticing at Marshall Memorial Funeral Home in Albertville, and they need website work. Most of what they need is digital marketing stuff: website, sales funnels, lead capture, social dashboards, SEO, blogging. Second nature for me. Old-school skills, basically a CRM with industry-specific features bolted on.</p>
       <p className="mb-4 leading-relaxed">But Marshall Memorial is a hybrid. They&apos;re a funeral home that also operates several cemeteries. Usually those are separate businesses. Cemeteries are city-owned, church-owned, or public. For-profit ones sell burial plots and markers. Very few businesses combine both under one roof, and that&apos;s where it gets interesting from a software perspective.</p>

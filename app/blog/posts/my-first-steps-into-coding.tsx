@@ -23,7 +23,6 @@ export default function Post() {
   return (
     <PostLayout meta={metadata}>
 
-      <h2 className="text-4xl font-bold mb-6 text-[#00ff00]">My First Steps into Coding</h2>
       <p className="mb-4 leading-relaxed">It&apos;s kind of shameful that it took so long. If I could talk to my younger self, I&apos;d say: with that first computer, that basic word-processing Tandy machine from the &apos;80s or early &apos;90s, or those Apple IIe machines at school, I could have gone all in for computers and programming. The teachers were there, I had one at home. I should have gotten more into code. But it is what it is.</p>
       <h2 className="text-2xl font-bold mb-4 mt-8 text-[#00ff00]">HTML in a Crash Pad</h2>
       <p className="mb-4 leading-relaxed">The first time I actually did anything code-related was at this apartment I used to crash at in my early 20s. I didn&apos;t live there. I was basically homeless, by choice, really. Just kind of a drifter, and that was one of the apartments I stayed at a lot. There was a girl who&apos;d visit someone who lived there, and she&apos;d taken classes on HTML and CSS. She showed me a few things, and I just went off on my own, nerding out, seeing what I could do with this basic foundational knowledge.</p>

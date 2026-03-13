@@ -22,7 +22,6 @@ export default function Post() {
   return (
     <PostLayout meta={metadata}>
 
-      <h2 className="text-4xl font-bold mb-6 text-[#00ff00]">Flat Files and Coding Agents: Why I Ditched the Database for My Blog</h2>
       <p className="mb-4 leading-relaxed">I&apos;m working on a blog framework right now. Next.js, Jamstack, deploying to Vercel. Development server is Docker Composed with Traefik for reverse proxy and SSL certificates through Let&apos;s Encrypt. Tailwind CSS. Pretty standard stuff.</p>
       <p className="mb-4 leading-relaxed">But here&apos;s where it gets interesting. There&apos;s something about having it all in files that I&apos;m really enjoying. I think it&apos;s powerful, and I think it might lead to a shift in how more people do this, which sounds strange because databases have been so useful for so long. But something about having all of my blog articles, all of the files, all of the information in flat files just feels right. And I know exactly why.</p>
       <h2 className="text-2xl font-bold mb-4 mt-8 text-[#00ff00]">Your Coding Agent Already Knows How to Do This</h2>

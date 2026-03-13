@@ -23,7 +23,6 @@ export default function Post() {
   return (
     <PostLayout meta={metadata}>
 
-      <h2 className="text-4xl font-bold mb-6 text-[#00ff00]">Revenant Hollow: Integrating Technology into Location-Based Horror Experiences</h2>
       <p className="mb-4 leading-relaxed">I&apos;ve been wanting to talk about Revenant Hollow from a technological standpoint for a while now. I know I&apos;ve talked about this a lot, maybe just never published anything. If so, that ends today.</p>
       <p className="mb-4 leading-relaxed">So let me start with the short version. Revenant Hollow is an interactive location-based entertainment experience, initially focused on the horror genre. The seasonal Halloween market. Haunted houses, scare attractions, thriller stuff. It&apos;s a way to incorporate technology into the more theatrical, story-based attractions, the jump-scare, walkthrough kind of experience.</p>
       <p className="mb-4 leading-relaxed">From a broad technological view, the experience involves virtual reality, augmented reality, automation, robotics, and Internet of Things. It&apos;s a way to connect mixed reality software with physical space, and because it&apos;s location-based, we can wire IoT devices into anything mechanical. Scare props, lighting rigs, whatever you can imagine. There will be an IoT component in all of it.</p>

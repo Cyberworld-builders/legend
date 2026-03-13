@@ -22,7 +22,6 @@ export default function Post() {
   return (
     <PostLayout meta={metadata}>
 
-      <h2 className="text-4xl font-bold mb-6 text-[#00ff00]">When Your Most Complex Code Isn&apos;t Version Controlled</h2>
       <p className="mb-4 leading-relaxed">I had a client session last night that I&apos;m still chewing on. We haven&apos;t solved the problem yet, and I&apos;ll probably do a follow-up once we reach resolution. But I&apos;m hoping I can work some of it out just by talking through it, and this will be a good review for when I jump back into the troubleshooting effort.</p>
       <p className="mb-4 leading-relaxed">The stack is n8n, Supabase, Lovable for the frontend, and Vapi for AI voice calls. The app itself is fairly simple. The Supabase database isn&apos;t super complex either. Really just a handful of tables with a few relations, though some of them have an extraordinary number of columns. Where most of the complexity lives is in the n8n automation workflows. That&apos;s where the magic happens. That&apos;s the secret sauce. And naturally, it&apos;s the one thing that&apos;s not version controlled.</p>
       <h2 className="text-2xl font-bold mb-4 mt-8 text-[#00ff00]">What the System Actually Does</h2>

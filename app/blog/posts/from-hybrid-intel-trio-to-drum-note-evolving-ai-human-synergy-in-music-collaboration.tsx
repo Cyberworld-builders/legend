@@ -21,7 +21,6 @@ export const metadata: PostMeta = {
 export default function Post() {
   return (
     <PostLayout meta={metadata}>
-      <h2 className="text-4xl font-bold mb-6 text-[#00ff00]">From Hybrid Intel Trio to Drum Note: Evolving AI-Human Synergy in Music Collaboration</h2>
       <h2 className="text-2xl font-bold mb-4 mt-8 text-[#00ff00]">The Genesis: Lessons from Pandora and Early AI Music Recommendations</h2>
       <p className="mb-4 leading-relaxed">The roots of Drum Note trace back to early frustrations with Pandora&apos;s AI-driven radio stations. In its nascent days, Pandora exemplified the pitfalls of reinforcement learning from human feedback (RLHF) in music discovery: binary thumbs-up/down inputs led to erratic recommendations, requiring massive datasets—far beyond what individual users could provide—to yield meaningful intelligence. A &quot;Rancid station&quot; without interference often outperformed active curation, highlighting how neural nets derailed without hyper-dimensional, granular data like listen duration, skips, and sequential plays.</p>
       <p className="mb-4 leading-relaxed">Modern platforms like Spotify have advanced this through RL for playlist generation and diverse content shifting, using simulated environments and non-binary signals (e.g., replays, session flows) to build richer vector spaces. This evolution underscores a key insight: fuzzy, relational data fosters intuitive inferences, mirroring human musical intuition over rigid binaries.</p>
