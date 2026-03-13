@@ -5,10 +5,6 @@ import {
   MessageSquare,
   UserCheck,
   BookOpen,
-  User,
-  Hammer,
-  Rocket,
-  RefreshCw,
 } from 'lucide-react';
 import MetaServicePageLayout from '@/components/MetaServicePageLayout';
 

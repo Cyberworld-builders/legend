@@ -5,10 +5,6 @@ import {
   Quote,
   UserCheck,
   Bot,
-  Search,
-  Wrench,
-  Activity,
-  RefreshCw,
 } from 'lucide-react';
 import MetaServicePageLayout from '@/components/MetaServicePageLayout';
 

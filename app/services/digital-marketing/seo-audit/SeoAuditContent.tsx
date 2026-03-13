@@ -5,10 +5,6 @@ import {
   FileCode,
   CheckCircle,
   BarChart3,
-  ScanLine,
-  Star,
-  AlertTriangle,
-  FileText,
 } from 'lucide-react';
 import MetaServicePageLayout from '@/components/MetaServicePageLayout';
 

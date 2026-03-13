@@ -5,10 +5,6 @@ import {
   Plug,
   AlertTriangle,
   BarChart3,
-  Map,
-  Hammer,
-  TestTube,
-  Rocket,
 } from 'lucide-react';
 import MetaServicePageLayout from '@/components/MetaServicePageLayout';
 

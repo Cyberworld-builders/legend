@@ -5,10 +5,6 @@ import {
   Target,
   RefreshCw,
   Truck,
-  Compass,
-  Hammer,
-  Users,
-  TrendingUp,
 } from 'lucide-react';
 import MetaServicePageLayout from '@/components/MetaServicePageLayout';
 

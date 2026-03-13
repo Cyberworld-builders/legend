@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import SearchInput from './SearchInput';
 
 interface BlogPost {
@@ -61,11 +62,14 @@ export default function BlogPostList({ posts, allPosts, totalPages, currentPage,
               <div className="flex items-center gap-3">
                 {post.headerImage && (
                   <div className="flex-shrink-0 w-12 h-12 rounded overflow-hidden border border-[#00ff00]/20 group-hover:border-[#00ff00]/40 transition-colors">
-                    <img
+                    <Image
                       src={post.headerImage}
                       alt=""
+                      width={48}
+                      height={48}
                       className="w-full h-full object-cover"
                       loading="lazy"
+                      sizes="48px"
                     />
                   </div>
                 )}

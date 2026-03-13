@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { LucideIcon } from 'lucide-react';
 
 interface ServiceCardProps {
@@ -17,12 +18,14 @@ export default function ServiceCard({ href, icon: Icon, title, description, tags
       className="block border border-[#00ff00]/20 rounded-lg hover:border-[#00ff00]/40 transition-colors bg-[#1a1a1a] group overflow-hidden"
     >
       {image && (
-        <div className="overflow-hidden">
-          <img
+        <div className="relative overflow-hidden h-36">
+          <Image
             src={image}
             alt=""
-            className="w-full h-36 object-cover group-hover:scale-105 transition-transform duration-300"
+            fill
+            className="object-cover group-hover:scale-105 transition-transform duration-300"
             loading="lazy"
+            sizes="(max-width: 768px) 100vw, 33vw"
           />
         </div>
       )}

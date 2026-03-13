@@ -5,10 +5,6 @@ import {
   FileCode,
   Plug,
   Palette,
-  Search,
-  Layers,
-  Hammer,
-  Rocket,
 } from 'lucide-react';
 import MetaServicePageLayout from '@/components/MetaServicePageLayout';
 
