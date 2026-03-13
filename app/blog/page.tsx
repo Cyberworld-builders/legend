@@ -6,7 +6,8 @@ import SimpleSocialShare from '@/components/SimpleSocialShare';
 import TopicClusters from '@/components/TopicClusters';
 import PageBackground from '@/components/PageBackground';
 import BlogPostList from '@/components/BlogPostList';
-import { getAllPostsWithMetadata } from '@/lib/post-metadata';
+import FeaturedCarousel from '@/components/FeaturedCarousel';
+import { getAllPostsWithMetadata, getFeaturedPosts } from '@/lib/post-metadata';
 import type { Metadata } from 'next';
 
 const POSTS_PER_PAGE = 5;
@@ -72,6 +73,9 @@ interface BlogIndexProps {
 export default async function BlogIndex({ searchParams }: BlogIndexProps) {
   const { page, tag: tagFilter } = await searchParams;
   const currentPage = Number(page) || 1;
+
+  const featuredPosts = getFeaturedPosts();
+
   try {
     // Get all posts with metadata (already sorted by published date and priority)
     let allPostsWithMetadata = await getAllPostsWithMetadata();
@@ -172,12 +176,19 @@ export default async function BlogIndex({ searchParams }: BlogIndexProps) {
       
       {/* Blog Sharing */}
       <div className="w-full max-w-2xl mb-6">
-        <SimpleSocialShare 
+        <SimpleSocialShare
           url="https://cyberworldbuilders.com/blog"
           title="Blog — Real Engineering, Not AI Fluff"
         />
       </div>
-      
+
+      {/* Featured Posts Carousel */}
+      {!tagFilter && featuredPosts.length > 0 && (
+        <div className="w-full max-w-5xl mb-8">
+          <FeaturedCarousel posts={featuredPosts} title="Top Posts" />
+        </div>
+      )}
+
       {/* CollectionPage Schema with freshness signals */}
       <script
         type="application/ld+json"

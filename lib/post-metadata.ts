@@ -1,5 +1,6 @@
 import type { PostMeta } from './post-types';
 import postIndex from './post-index.json';
+import featuredPosts from './featured-posts.json';
 
 export type { PostMeta };
 
@@ -18,6 +19,7 @@ export interface PostIndexEntry {
   tags: string[];
   keywords: string[];
   canonicalUrl: string;
+  headerImage: string;
   wordCount: number;
   fileSize: number;
   fileModified: string;
@@ -63,6 +65,7 @@ export async function getAllPostsWithMetadata(): Promise<PostWithMetadata[]> {
       modifiedDate: entry.modifiedDate,
       keywords: entry.keywords,
       canonicalUrl: entry.canonicalUrl,
+      headerImage: entry.headerImage,
       topics: entry.topics,
       tags: entry.tags,
       series: entry.series,
@@ -74,6 +77,23 @@ export async function getAllPostsWithMetadata(): Promise<PostWithMetadata[]> {
     },
     Component: () => null,
   }));
+}
+
+export interface FeaturedPost {
+  slug: string;
+  title: string;
+  description: string;
+  headerImage: string;
+  category: string;
+  publishedDate: string;
+}
+
+/**
+ * Get featured posts from the static JSON file (committed by GusClaw scorer).
+ * Returns empty array if no featured posts exist yet.
+ */
+export function getFeaturedPosts(): FeaturedPost[] {
+  return featuredPosts as FeaturedPost[];
 }
 
 /**

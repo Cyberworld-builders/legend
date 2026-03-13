@@ -1,0 +1,50 @@
+[
+  {
+    "slug": "first-real-outage-autonomous-systems",
+    "title": "My First Real Outage and What It Taught Me About Autonomous Systems",
+    "description": "When Claude Code authentication dropped and every automation went dark, it exposed exactly the kind of fault tolerance gaps I need to solve before scaling up.",
+    "headerImage": "",
+    "category": "AI & Automation",
+    "publishedDate": "2026-03-12"
+  },
+  {
+    "slug": "gusclaw-observatory-watching-ai-team-work",
+    "title": "The GusClaw Observatory: Watching My AI Team Work",
+    "description": "A deep dive into the GusClaw Observatory, the web-based monitoring system I built to watch my agentic team operate in real time, and the hybrid architecture that makes it all possible.",
+    "headerImage": "",
+    "category": "Development & Tools",
+    "publishedDate": "2026-03-11"
+  },
+  {
+    "slug": "content-publishing-engine-voice-memos-to-video",
+    "title": "Building a Content Publishing Engine from Voice Memos to Video",
+    "description": "How I'm turning voice memos, blog posts, and screen recordings into an automated content pipeline that publishes across every platform and tracks performance in one place.",
+    "headerImage": "",
+    "category": "AI & Automation",
+    "publishedDate": "2026-03-10"
+  },
+  {
+    "slug": "everything-compounds-now",
+    "title": "Everything Compounds Now",
+    "description": "A day of shipping an agent dashboard, an email-to-pull-request pipeline, GEO audits, and tech trend scanning \u2014 all while building Legos and folding laundry. The difference between talking about ideas and executing them is shrinking to zero.",
+    "headerImage": "",
+    "category": "AI & Automation",
+    "publishedDate": "2026-03-09"
+  },
+  {
+    "slug": "one-week-claude-code-publishing-pipeline",
+    "title": "One Week with Claude Code: Building an AI-Powered Publishing Pipeline",
+    "description": "After seven days of building with Claude Code and my AI assistant Gus, I shipped an end-to-end blog pipeline, an SEO auditor, and a chatbot \u2014 most of it while cleaning my office.",
+    "headerImage": "",
+    "category": "AI & Automation",
+    "publishedDate": "2026-03-08"
+  },
+  {
+    "slug": "upwork-automation-strategy-insights",
+    "title": "What Crawling Upwork Every Day Taught Me About Where to Go Next",
+    "description": "How automating Upwork job searches with an AI agent revealed gaps in my skills, validated my business strategy, and surfaced a hosting opportunity I should have seen coming.",
+    "headerImage": "",
+    "category": "Business & Marketing",
+    "publishedDate": "2026-03-08"
+  }
+]

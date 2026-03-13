@@ -90,6 +90,7 @@ for (const file of tsxFiles) {
     tags: meta.tags || [],
     keywords: meta.keywords || [],
     canonicalUrl: meta.canonicalUrl || '',
+    headerImage: meta.headerImage || '',
     wordCount: content.split(/\s+/).length, // rough approximation from JSX
     fileSize: stats.size,
     fileModified: stats.mtime.toISOString(),

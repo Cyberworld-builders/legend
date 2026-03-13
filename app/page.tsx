@@ -4,15 +4,18 @@ import FAQ from '../components/FAQ';
 import PageBackground from '../components/PageBackground';
 import HeroSection from '../components/HeroSection';
 import ServicesSection from '../components/ServicesSection';
-import ProofSection from '../components/ProofSection';
+import FeaturedCarousel from '../components/FeaturedCarousel';
 import AboutSection from '../components/AboutSection';
 import ContactCTA from '../components/ContactCTA';
 import SocialLinks from '../components/SocialLinks';
+import { getFeaturedPosts } from '../lib/post-metadata';
 import dynamic from 'next/dynamic';
 
 const ScrollTracker = dynamic(() => import('../components/ScrollTracker'), { ssr: false });
 
-const TRACKED_SECTIONS = ['hero', 'services', 'proof', 'about', 'contact', 'faq'];
+const TRACKED_SECTIONS = ['hero', 'services', 'featured', 'about', 'contact', 'faq'];
+
+const featuredPosts = getFeaturedPosts();
 
 export default function Home() {
   return (
@@ -29,7 +32,7 @@ export default function Home() {
 
         <ServicesSection />
 
-        <ProofSection />
+        <FeaturedCarousel posts={featuredPosts} title="Featured" />
 
         <AboutSection />
 
