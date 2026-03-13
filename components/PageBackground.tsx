@@ -24,7 +24,7 @@ export default function PageBackground({
         style={{ objectFit: 'cover' }}
         className="pointer-events-none"
         role="presentation"
-        priority
+        loading="eager"
       />
     </div>
   );
