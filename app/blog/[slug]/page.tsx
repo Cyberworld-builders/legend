@@ -84,6 +84,12 @@ export default async function BlogPost({ params }: BlogPostProps) {
     slug: p.slug,
     title: p.title,
     mtime: new Date(p.publishedDate),
+    metadata: {
+      topics: p.topics,
+      tags: p.tags,
+      category: p.category,
+    },
+    headerImage: p.headerImage || '',
   }));
 
   const currentIndex = allPosts.findIndex(p => p.slug === slug);
