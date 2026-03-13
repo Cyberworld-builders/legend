@@ -96,7 +96,7 @@ export default function FeaturedCarousel({
               <Link
                 key={post.slug}
                 href={`/blog/${post.slug}`}
-                className="flex-none w-full snap-center"
+                className="flex-none w-full snap-center px-1"
               >
                 <div className="relative aspect-[16/9] md:aspect-[21/9] rounded-lg overflow-hidden border border-[#00ff00]/20">
                   {post.headerImage ? (
