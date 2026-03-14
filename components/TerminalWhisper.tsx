@@ -622,6 +622,9 @@ export default function TerminalWhisper() {
     );
   };
 
+  // Don't render on admin pages
+  if (pathname.startsWith('/admin')) return null;
+
   if (phase === 'waiting') return null;
 
   return (
