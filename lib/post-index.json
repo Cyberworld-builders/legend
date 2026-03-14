@@ -1,7 +1,49 @@
 {
-  "generatedAt": "2026-03-13T18:22:17.372Z",
-  "count": 38,
+  "generatedAt": "2026-03-14T15:47:08.192Z",
+  "count": 39,
   "posts": [
+    {
+      "slug": "keep-one-foot-on-the-ground",
+      "title": "Keep One Foot on the Ground",
+      "description": "When AI can reverse-engineer your SaaS from a spec and flood the internet with optimized content, what's your moat? Balance short-term hustle with long-term purpose — and evolve daily.",
+      "publishedDate": "2026-03-14",
+      "modifiedDate": "2026-03-14",
+      "isDraft": false,
+      "isFeatured": false,
+      "priority": 5,
+      "category": "AI & Automation",
+      "series": "",
+      "topics": [
+        "AI & Automation",
+        "Career & Professional Development",
+        "Business & Marketing"
+      ],
+      "tags": [
+        "ai-disruption",
+        "content-strategy",
+        "saas-moat",
+        "generative-optimization",
+        "career-adaptation",
+        "ai-content-automation",
+        "open-source",
+        "future-of-work"
+      ],
+      "keywords": [
+        "ai content creation future",
+        "saas moat ai disruption",
+        "content strategy ai automation",
+        "generative engine optimization",
+        "reverse engineering from spec",
+        "ai replacing software engineers",
+        "future of content marketing",
+        "adapting to ai economy"
+      ],
+      "canonicalUrl": "https://cyberworldbuilders.com/blog/keep-one-foot-on-the-ground",
+      "headerImage": "/images/keep-one-foot-on-the-ground-hero.png",
+      "wordCount": 2002,
+      "fileSize": 13718,
+      "fileModified": "2026-03-14T15:47:07.991Z"
+    },
     {
       "slug": "self-healing-agents-prompt-monkey-era",
       "title": "Self-Healing Agents and the End of the Prompt Monkey Era",
@@ -38,9 +80,9 @@
       ],
       "canonicalUrl": "https://cyberworldbuilders.com/blog/self-healing-agents-prompt-monkey-era",
       "headerImage": "/images/self-healing-agents-prompt-monkey-era-hero.png",
-      "wordCount": 1797,
-      "fileSize": 12275,
-      "fileModified": "2026-03-13T18:22:17.180Z"
+      "wordCount": 1640,
+      "fileSize": 11279,
+      "fileModified": "2026-03-14T15:03:34.195Z"
     },
     {
       "slug": "first-real-outage-autonomous-systems",
