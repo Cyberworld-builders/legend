@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { TranscriptRecord } from '@/types/transcripts';
 import TranscriptEditModal from './TranscriptEditModal';
-import { Pencil, Trash2, Check, X } from 'lucide-react';
+import { Pencil, Trash2, Check, X, RotateCcw } from 'lucide-react';
 
 interface TranscriptsTableProps {
   refreshKey: number;
@@ -97,6 +97,24 @@ export default function TranscriptsTable({ refreshKey }: TranscriptsTableProps) 
     }
   };
 
+  const handleResetStatus = async (id: string) => {
+    try {
+      const res = await fetch(`/api/admin/transcripts/${id}`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ status: 'pending', is_processed: false }),
+      });
+      if (res.ok) {
+        const data = await res.json();
+        setTranscripts((prev) =>
+          prev.map((t) => (t.id === id ? data.transcript : t))
+        );
+      }
+    } catch {
+      // Network error
+    }
+  };
+
   const handleTitleSave = async (id: string) => {
     if (!editingTitleValue.trim()) {
       setEditingTitleId(null);
@@ -164,6 +182,7 @@ export default function TranscriptsTable({ refreshKey }: TranscriptsTableProps) 
           <option value="">All Status</option>
           <option value="false">Pending</option>
           <option value="true">Processed</option>
+          <option value="stuck">Stuck</option>
         </select>
       </div>
 
@@ -234,19 +253,39 @@ export default function TranscriptsTable({ refreshKey }: TranscriptsTableProps) 
                     )}
                   </td>
                   <td className="py-3 px-2">
-                    <button
-                      onClick={() => handleToggleProcessed(t.id, t.is_processed)}
-                      className={`w-10 h-5 rounded-full transition-colors relative ${
-                        t.is_processed ? 'bg-[#00ff00]/30' : 'bg-[#00ff00]/10'
-                      }`}
-                      title={t.is_processed ? 'Processed' : 'Pending'}
-                    >
-                      <span
-                        className={`absolute top-0.5 w-4 h-4 rounded-full transition-transform ${
-                          t.is_processed ? 'translate-x-5 bg-[#00ff00]' : 'translate-x-0.5 bg-[#00ff00]/50'
-                        }`}
-                      />
-                    </button>
+                    <div className="flex items-center gap-2">
+                      <span className={`text-xs font-mono ${
+                        t.status === 'claimed' ? 'text-yellow-400' :
+                        t.status === 'processed' || t.is_processed ? 'text-[#00ff00]' :
+                        'text-[#00ff00]/50'
+                      }`}>
+                        {t.status === 'claimed' ? 'STUCK' : t.is_processed ? 'done' : 'pending'}
+                      </span>
+                      {(t.status === 'claimed' || (t.is_processed && t.status !== 'processed')) && (
+                        <button
+                          onClick={() => handleResetStatus(t.id)}
+                          className="p-0.5 text-yellow-400 hover:text-yellow-300"
+                          title="Reset to pending (clear stuck state)"
+                        >
+                          <RotateCcw size={12} />
+                        </button>
+                      )}
+                      {t.status !== 'claimed' && (
+                        <button
+                          onClick={() => handleToggleProcessed(t.id, t.is_processed)}
+                          className={`w-8 h-4 rounded-full transition-colors relative ${
+                            t.is_processed ? 'bg-[#00ff00]/30' : 'bg-[#00ff00]/10'
+                          }`}
+                          title={t.is_processed ? 'Mark as pending' : 'Mark as processed'}
+                        >
+                          <span
+                            className={`absolute top-0.5 w-3 h-3 rounded-full transition-transform ${
+                              t.is_processed ? 'translate-x-4 bg-[#00ff00]' : 'translate-x-0.5 bg-[#00ff00]/50'
+                            }`}
+                          />
+                        </button>
+                      )}
+                    </div>
                   </td>
                   <td className="py-3 px-2 text-[#00ff00]/50 hidden md:table-cell">
                     {new Date(t.created_at).toLocaleDateString()}

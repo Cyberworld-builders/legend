@@ -27,6 +27,7 @@ export interface TranscriptRecord {
   title: string;
   transcript_text: string;
   is_processed: boolean;
+  status: 'pending' | 'claimed' | 'processed';
 }
 
 // Paginated response

@@ -48,8 +48,13 @@ export async function GET(request: NextRequest) {
     .from('transcripts')
     .select('*', { count: 'exact' });
 
-  if (isProcessed === 'true') query = query.eq('is_processed', true);
-  if (isProcessed === 'false') query = query.eq('is_processed', false);
+  if (isProcessed === 'stuck') {
+    query = query.eq('status', 'claimed');
+  } else if (isProcessed === 'true') {
+    query = query.eq('is_processed', true);
+  } else if (isProcessed === 'false') {
+    query = query.eq('is_processed', false);
+  }
 
   if (search) {
     query = query.or(`title.ilike.%${search}%,transcript_text.ilike.%${search}%`);
