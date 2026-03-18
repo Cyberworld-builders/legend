@@ -1,7 +1,49 @@
 {
-  "generatedAt": "2026-03-14T15:47:08.192Z",
-  "count": 39,
+  "generatedAt": "2026-03-18T21:21:35.887Z",
+  "count": 40,
   "posts": [
+    {
+      "slug": "from-cursor-to-agent-teams",
+      "title": "From Cursor to Agent Teams",
+      "description": "How loading one design skill into Claude Code changed everything about my client work. A story about test suites, deleted cloud architecture, and AI agents that smell like real experts.",
+      "publishedDate": "2026-03-18",
+      "modifiedDate": "2026-03-18",
+      "isDraft": false,
+      "isFeatured": false,
+      "priority": 5,
+      "category": "AI & Automation",
+      "series": "",
+      "topics": [
+        "AI & Automation",
+        "Development & Tools",
+        "Career & Professional Development"
+      ],
+      "tags": [
+        "claude-code",
+        "ai-coding-agents",
+        "playwright-testing",
+        "agent-orchestration",
+        "cursor-ide",
+        "specialist-subagents",
+        "code-review-workflow",
+        "digital-marketing-automation"
+      ],
+      "keywords": [
+        "claude code workflow",
+        "ai coding agents",
+        "specialist ai agents",
+        "playwright test automation",
+        "ai code review process",
+        "cursor vs claude code",
+        "agent orchestration",
+        "ai team of experts"
+      ],
+      "canonicalUrl": "https://cyberworldbuilders.com/blog/from-cursor-to-agent-teams",
+      "headerImage": "/images/from-cursor-to-agent-teams-hero.png",
+      "wordCount": 2695,
+      "fileSize": 18141,
+      "fileModified": "2026-03-18T21:21:35.640Z"
+    },
     {
       "slug": "keep-one-foot-on-the-ground",
       "title": "Keep One Foot on the Ground",
@@ -42,7 +84,7 @@
       "headerImage": "/images/keep-one-foot-on-the-ground-hero.png",
       "wordCount": 2002,
       "fileSize": 13718,
-      "fileModified": "2026-03-14T15:47:07.991Z"
+      "fileModified": "2026-03-15T05:50:40.627Z"
     },
     {
       "slug": "self-healing-agents-prompt-monkey-era",
