@@ -1,7 +1,49 @@
 {
-  "generatedAt": "2026-03-14T15:47:08.192Z",
-  "count": 39,
+  "generatedAt": "2026-03-18T21:42:47.237Z",
+  "count": 40,
   "posts": [
+    {
+      "slug": "agent-specialists-changed-how-i-build-software",
+      "title": "Agent Specialists Changed How I Build Software",
+      "description": "How loading design and QA skills into coding agents created expert teammates I couldn't afford to hire — and why the human role is shifting to generalist.",
+      "publishedDate": "2026-03-18",
+      "modifiedDate": "2026-03-18",
+      "isDraft": false,
+      "isFeatured": false,
+      "priority": 5,
+      "category": "AI & Automation",
+      "series": "",
+      "topics": [
+        "AI & Automation",
+        "Development & Tools",
+        "Business & Marketing"
+      ],
+      "tags": [
+        "ai-agent-automation",
+        "claude-code",
+        "automated-testing",
+        "code-review",
+        "multi-agent-orchestration",
+        "playwright",
+        "digital-marketing",
+        "freelance-engineering"
+      ],
+      "keywords": [
+        "ai coding agents",
+        "claude code skills",
+        "ai agent specialists",
+        "automated testing playwright",
+        "ai code review workflow",
+        "multi-agent orchestration",
+        "ai design review",
+        "human in the loop ai"
+      ],
+      "canonicalUrl": "https://cyberworldbuilders.com/blog/agent-specialists-changed-how-i-build-software",
+      "headerImage": "/images/agent-specialists-changed-how-i-build-software-hero.png",
+      "wordCount": 2658,
+      "fileSize": 17399,
+      "fileModified": "2026-03-18T21:42:46.948Z"
+    },
     {
       "slug": "keep-one-foot-on-the-ground",
       "title": "Keep One Foot on the Ground",
@@ -42,7 +84,7 @@
       "headerImage": "/images/keep-one-foot-on-the-ground-hero.png",
       "wordCount": 2002,
       "fileSize": 13718,
-      "fileModified": "2026-03-14T15:47:07.991Z"
+      "fileModified": "2026-03-15T05:50:40.627Z"
     },
     {
       "slug": "self-healing-agents-prompt-monkey-era",
