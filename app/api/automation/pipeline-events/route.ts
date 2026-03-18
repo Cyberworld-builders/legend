@@ -1,21 +1,15 @@
 import { NextResponse } from 'next/server';
 import { createServerClient, isServerSupabaseConfigured } from '@/lib/supabase';
 import { validateAutomationApiKey } from '@/lib/automation-auth';
-import { transcriptUpdateSchema } from '@/types/transcripts';
-import { prepareTranscriptUpdate } from '@/lib/transcript-utils';
+import { pipelineEventCreateSchema } from '@/types/transcripts';
 
-export async function PATCH(
-  request: Request,
-  { params }: { params: Promise<{ id: string }> }
-) {
+export async function POST(request: Request) {
   const authError = validateAutomationApiKey(request);
   if (authError) return authError;
 
   if (!isServerSupabaseConfigured()) {
     return NextResponse.json({ error: 'Supabase is not configured' }, { status: 500 });
   }
-
-  const { id } = await params;
 
   let body: unknown;
   try {
@@ -24,7 +18,7 @@ export async function PATCH(
     return NextResponse.json({ error: 'Invalid JSON body' }, { status: 400 });
   }
 
-  const parsed = transcriptUpdateSchema.safeParse(body);
+  const parsed = pipelineEventCreateSchema.safeParse(body);
   if (!parsed.success) {
     return NextResponse.json(
       { error: 'Validation failed', details: parsed.error.flatten().fieldErrors },
@@ -32,18 +26,18 @@ export async function PATCH(
     );
   }
 
-  const updateData = prepareTranscriptUpdate(parsed.data);
-
-  if (Object.keys(updateData).length === 0) {
-    return NextResponse.json({ error: 'No fields to update' }, { status: 400 });
-  }
-
   try {
     const supabase = createServerClient();
     const { data, error } = await supabase
-      .from('transcripts')
-      .update(updateData)
-      .eq('id', id)
+      .from('pipeline_events')
+      .insert({
+        transcript_id: parsed.data.transcript_id,
+        event_type: parsed.data.event_type,
+        step_name: parsed.data.step_name ?? null,
+        status: parsed.data.status,
+        event_data: parsed.data.event_data ?? {},
+        triggered_by: parsed.data.triggered_by,
+      })
       .select()
       .single();
 
@@ -51,13 +45,7 @@ export async function PATCH(
       return NextResponse.json({ error: error.message }, { status: 500 });
     }
 
-    if (!data) {
-      return NextResponse.json({ error: 'Transcript not found' }, { status: 404 });
-    }
-
-    return NextResponse.json({ transcript: data }, {
-      headers: { 'Cache-Control': 'private, no-store' },
-    });
+    return NextResponse.json({ event: data }, { status: 201 });
   } catch (err) {
     const message = err instanceof Error ? err.message : 'Unknown error';
     return NextResponse.json({ error: message }, { status: 500 });

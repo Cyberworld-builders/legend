@@ -183,6 +183,7 @@ export default function TranscriptsTable({ refreshKey }: TranscriptsTableProps) 
           <option value="false">Pending</option>
           <option value="true">Processed</option>
           <option value="stuck">Stuck</option>
+          <option value="failed">Failed</option>
         </select>
       </div>
 
@@ -255,22 +256,28 @@ export default function TranscriptsTable({ refreshKey }: TranscriptsTableProps) 
                   <td className="py-3 px-2">
                     <div className="flex items-center gap-2">
                       <span className={`text-xs font-mono ${
+                        t.status === 'failed' ? 'text-red-400' :
                         t.status === 'claimed' ? 'text-yellow-400' :
                         t.status === 'processed' || t.is_processed ? 'text-[#00ff00]' :
                         'text-[#00ff00]/50'
-                      }`}>
-                        {t.status === 'claimed' ? 'STUCK' : t.is_processed ? 'done' : 'pending'}
+                      }`} title={t.error_message || undefined}>
+                        {t.status === 'failed' ? 'FAILED' : t.status === 'claimed' ? 'STUCK' : t.is_processed ? 'done' : 'pending'}
                       </span>
-                      {(t.status === 'claimed' || (t.is_processed && t.status !== 'processed')) && (
+                      {t.error_message && (
+                        <span className="text-red-400/60 text-xs font-mono truncate max-w-[120px]" title={t.error_message}>
+                          {t.error_message.length > 20 ? t.error_message.substring(0, 20) + '...' : t.error_message}
+                        </span>
+                      )}
+                      {(t.status === 'claimed' || t.status === 'failed' || (t.is_processed && t.status !== 'processed')) && (
                         <button
                           onClick={() => handleResetStatus(t.id)}
-                          className="p-0.5 text-yellow-400 hover:text-yellow-300"
-                          title="Reset to pending (clear stuck state)"
+                          className={`p-0.5 ${t.status === 'failed' ? 'text-red-400 hover:text-red-300' : 'text-yellow-400 hover:text-yellow-300'}`}
+                          title="Reset to pending"
                         >
                           <RotateCcw size={12} />
                         </button>
                       )}
-                      {t.status !== 'claimed' && (
+                      {t.status !== 'claimed' && t.status !== 'failed' && (
                         <button
                           onClick={() => handleToggleProcessed(t.id, t.is_processed)}
                           className={`w-8 h-4 rounded-full transition-colors relative ${

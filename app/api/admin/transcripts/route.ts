@@ -50,6 +50,8 @@ export async function GET(request: NextRequest) {
 
   if (isProcessed === 'stuck') {
     query = query.eq('status', 'claimed');
+  } else if (isProcessed === 'failed') {
+    query = query.eq('status', 'failed');
   } else if (isProcessed === 'true') {
     query = query.eq('is_processed', true);
   } else if (isProcessed === 'false') {
