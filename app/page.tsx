@@ -1,3 +1,4 @@
+import { Suspense } from 'react';
 import FAQ from '../components/FAQ';
 import PageBackground from '../components/PageBackground';
 import HeroSection from '../components/HeroSection';
@@ -26,7 +27,9 @@ export default function Home() {
       <PageBackground opacity={15} fullWidth={true} />
 
       {/* Scroll & behavior tracking (client-only) */}
-      <ClientShell />
+      <Suspense fallback={null}>
+        <ClientShell />
+      </Suspense>
 
       {/* Content with higher z-index */}
       <main className="relative z-10">
@@ -38,7 +41,9 @@ export default function Home() {
 
         <ScanlineDivider />
 
-        <FeaturedCarousel posts={featuredPosts} title="Featured" />
+        <Suspense fallback={<div className="py-16 md:py-24" />}>
+          <FeaturedCarousel posts={featuredPosts} title="Featured" />
+        </Suspense>
 
         <ScanlineDivider />
 
@@ -50,13 +55,17 @@ export default function Home() {
 
         <ScanlineDivider />
 
-        <ContactCTA />
+        <Suspense fallback={<div className="py-16 md:py-24" />}>
+          <ContactCTA />
+        </Suspense>
 
         <ScanlineDivider />
 
         {/* FAQ Section */}
         <section className="py-16 md:py-24 bg-[#0a0a0a]">
-          <FAQ />
+          <Suspense fallback={<div className="h-96" />}>
+            <FAQ />
+          </Suspense>
         </section>
 
       </main>

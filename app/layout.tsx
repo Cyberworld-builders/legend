@@ -86,6 +86,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        {/* Preload hero logo for faster LCP */}
+        <link
+          rel="preload"
+          href="/images/logo.png"
+          as="image"
+          type="image/png"
+          fetchPriority="high"
+        />
+
         {/* WebSite Schema with Search Action */}
         <script
           type="application/ld+json"
