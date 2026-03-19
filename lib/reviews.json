@@ -1,0 +1,60 @@
+{
+  "stats": {
+    "rating": 5.0,
+    "jobSuccessScore": 100,
+    "topRatedPlus": true,
+    "totalEarnings": "$1M+",
+    "totalContracts": 145,
+    "profileUrl": "https://www.upwork.com/freelancers/jaylongcyberworld"
+  },
+  "reviews": [
+    {
+      "id": "aws-consulting",
+      "comment": "We have worked with James a few times on AWS related consulting regarding Networking, EC2s, Infrastructure as Code, and general AWS architecture. He has been an excellent resource for consulting us on DevOps, SRE, and AWS Cloud Architecture.",
+      "score": 5.0,
+      "projectTitle": "Cloud Networking & AWS Architecture",
+      "totalCharge": "$1,314",
+      "endDate": "2023-12"
+    },
+    {
+      "id": "fullstack-laravel",
+      "comment": "Working with Jay was like enjoying a corona on the beach with a lime while reading a good science fiction book. I'm closing out this contract just to clean up our account but I would love to work with him again.",
+      "score": 5.0,
+      "projectTitle": "Full Stack Development",
+      "totalCharge": "$43,947",
+      "endDate": "2021-06"
+    },
+    {
+      "id": "wordpress-calculator",
+      "comment": "James has excellent work ethic, communication and tenacity. We worked on a project that had many challenging scale requirements. James kept us informed of challenges but was still well within budget. Looking forward to hiring him again for the project!",
+      "score": 5.0,
+      "projectTitle": "WordPress Calculator Development",
+      "totalCharge": "$1,730",
+      "endDate": "2018-03"
+    },
+    {
+      "id": "senior-wordpress",
+      "comment": "Just excellent. Really great work. Timely, responsive, efficient, easy to work with, knowledgable. Will work with James again!",
+      "score": 5.0,
+      "projectTitle": "Senior WordPress Developer",
+      "totalCharge": "$2,184",
+      "endDate": "2017-06"
+    },
+    {
+      "id": "ninjaforms",
+      "comment": "I couldn't find anyone with NinjaForms experience. James came into this job with little experience in the task at hand. He put in the time to do it right and he fixed any issues that were found. I am on my third milestone with James, and am looking at how I can work with him for my other projects.",
+      "score": 5.0,
+      "projectTitle": "Custom Forms Integration",
+      "totalCharge": "$120",
+      "endDate": "2016-04"
+    },
+    {
+      "id": "jquery-fix",
+      "comment": "James took care of our WordPress bug quickly and easily. He was great at communicating and understanding our problem. We will definitely be working with him again! Highly recommended.",
+      "score": 5.0,
+      "projectTitle": "Frontend Bug Fix",
+      "totalCharge": "$50",
+      "endDate": "2016-05"
+    }
+  ]
+}

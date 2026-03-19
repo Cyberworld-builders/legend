@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
 import { trackEvent } from '@/lib/tracking';
 import TurnstileField from './TurnstileField';
+import ReviewStrip from './ReviewStrip';
 
 const HeroHeadline = dynamic(() => import('./HeroHeadline'), {
   ssr: false,
@@ -127,9 +128,9 @@ export default function HeroSection() {
         </div>
 
         {/* Trust Signal */}
-        <p className="mt-8 text-sm text-[#00ff00]/70">
-          10+ years in tech | AWS Certified | Building systems for service businesses
-        </p>
+        <div className="mt-8">
+          <ReviewStrip />
+        </div>
       </div>
     </section>
   );

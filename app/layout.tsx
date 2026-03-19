@@ -6,6 +6,7 @@ import SiteFooter from '@/components/SiteFooter';
 import AnalyticsClient from '@/components/AnalyticsClient';
 import FAQSchema from '@/components/FAQSchema';
 import DeferredWidgets from '@/components/DeferredWidgets';
+import TerminalNav from '@/components/TerminalNav';
 
 export const viewport: Viewport = {
   width: 'device-width',
@@ -398,13 +399,24 @@ export default function RootLayout({
                 "https://x.com/cyberbuilders",
                 "https://www.facebook.com/cyberworldbuilders",
                 "https://www.upwork.com/freelancers/jaylongcyberworld"
-              ]
+              ],
+              "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": "5.0",
+                "bestRating": "5",
+                "worstRating": "1",
+                "ratingCount": "18",
+                "reviewCount": "18"
+              }
             })
           }}
         />
       </head>
       <body className="min-h-screen bg-[#1a1a1a] text-[#00ff00] font-mono">
-        {children}
+        <TerminalNav />
+        <div className="pt-12">
+          {children}
+        </div>
         <SiteFooter />
         <AnalyticsClient />
         <AuthorSchema />

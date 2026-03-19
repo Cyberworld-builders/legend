@@ -4,6 +4,7 @@ import HeroSection from '../components/HeroSection';
 import ServicesSection from '../components/ServicesSection';
 import FeaturedCarousel from '../components/FeaturedCarousel';
 import AboutSection from '../components/AboutSection';
+import ReviewsSection from '../components/ReviewsSection';
 import ContactCTA from '../components/ContactCTA';
 import ClientShell from '../components/ClientShell';
 import { getFeaturedPosts } from '../lib/post-metadata';
@@ -42,6 +43,10 @@ export default function Home() {
         <ScanlineDivider />
 
         <AboutSection />
+
+        <ScanlineDivider />
+
+        <ReviewsSection />
 
         <ScanlineDivider />
 
