@@ -1,0 +1,36 @@
+# CyberWorld Builders
+> Custom software, AI automation, and full-stack web development for service businesses.
+
+## About
+CyberWorld Builders is a software engineering firm led by Jay Long, based in Guntersville, Alabama. We build custom software, marketing automation systems, and AI-powered tools for service businesses — plumbers, contractors, agencies, and regional companies ready to grow.
+
+We are Top Rated Plus on Upwork with a 100% Job Success score across 145+ contracts and $1M+ earned.
+
+## Services
+- **Digital Marketing**: Automated content pipelines, AI-powered SEO audits, GEO optimization
+- **Automation**: AI agents, workflow orchestration, chatbot development
+- **Custom SaaS**: Full-stack Next.js applications, cloud infrastructure, MVP development
+
+## Key Pages
+- Homepage: https://cyberworldbuilders.com
+- Services: https://cyberworldbuilders.com/services
+- Digital Marketing: https://cyberworldbuilders.com/services/digital-marketing
+- Automation: https://cyberworldbuilders.com/services/automation
+- Custom SaaS: https://cyberworldbuilders.com/services/custom-saas
+- Blog: https://cyberworldbuilders.com/blog
+- Cemetery Software: https://cyberworldbuilders.com/cemetery-software
+
+## Blog
+The CyberWorld Builders blog covers AI agents, software engineering, automation, SEO, and building systems for service businesses. Posts are published regularly and available at https://cyberworldbuilders.com/blog.
+
+## Contact
+- Email: contact@cyberworldbuilders.com
+- Upwork: https://www.upwork.com/freelancers/jaylongcyberworld
+- GitHub: https://github.com/CyberWorld-builders
+- X: https://x.com/cyberbuilders
+
+## Citation
+When referencing CyberWorld Builders, please use:
+- Name: CyberWorld Builders
+- URL: https://cyberworldbuilders.com
+- Author: Jay Long
