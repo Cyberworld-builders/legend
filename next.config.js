@@ -12,9 +12,14 @@ const nextConfig = {
   },
   // Enable compression
   compress: true,
+  // Remove console.log in production
+  compiler: {
+    removeConsole: process.env.NODE_ENV === 'production' ? { exclude: ['error', 'warn'] } : false,
+  },
   // Optimize bundle
   experimental: {
     optimizePackageImports: ['lucide-react', '@vercel/analytics'],
+    inlineCss: true,
   },
   async redirects() {
     return [
@@ -35,13 +40,25 @@ const nextConfig = {
   },
   async headers() {
     return [
-      // Security header for all routes
+      // Security headers for all routes
       {
         source: '/(.*)',
         headers: [
           {
             key: 'X-Frame-Options',
             value: 'SAMEORIGIN',
+          },
+          {
+            key: 'X-Content-Type-Options',
+            value: 'nosniff',
+          },
+          {
+            key: 'Referrer-Policy',
+            value: 'strict-origin-when-cross-origin',
+          },
+          {
+            key: 'Strict-Transport-Security',
+            value: 'max-age=63072000; includeSubDomains; preload',
           },
         ],
       },
