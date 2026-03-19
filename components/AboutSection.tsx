@@ -22,7 +22,7 @@ export default function AboutSection() {
   return (
     <section id="about" className="py-16 md:py-24 bg-[#0a0a0a]">
       <div className="max-w-4xl mx-auto px-4">
-        <p className="text-sm uppercase tracking-widest text-[#00ff00]/40 text-center mb-3">
+        <p className="text-sm uppercase tracking-widest text-[#00ff00]/60 text-center mb-3">
           The difference
         </p>
         <h2 className="text-2xl md:text-4xl font-bold mb-12 text-[#00ff00] text-center">
@@ -43,7 +43,7 @@ export default function AboutSection() {
         </div>
 
         <div className="mt-12 text-center">
-          <p className="text-sm text-[#00ff00]/50">
+          <p className="text-sm text-[#00ff00]/60">
             CyberWorld Builders, Inc. &middot; Based in the USA, working with clients worldwide.
           </p>
         </div>

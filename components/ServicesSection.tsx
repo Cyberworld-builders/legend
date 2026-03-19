@@ -32,7 +32,7 @@ export default function ServicesSection() {
   return (
     <section id="services" className="py-16 md:py-24 bg-[#0a0a0a]">
       <div className="max-w-6xl mx-auto px-4">
-        <p className="text-sm uppercase tracking-widest text-[#00ff00]/40 text-center mb-3">
+        <p className="text-sm uppercase tracking-widest text-[#00ff00]/60 text-center mb-3">
           What we build
         </p>
         <h2 className="text-2xl md:text-4xl font-bold text-center mb-4 text-[#00ff00]">

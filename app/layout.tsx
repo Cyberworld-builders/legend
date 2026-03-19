@@ -10,8 +10,7 @@ import DeferredWidgets from '@/components/DeferredWidgets';
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
-  maximumScale: 1,
-  userScalable: false,
+  maximumScale: 5,
   themeColor: '#1a1a1a',
 };
 
@@ -113,23 +112,21 @@ export default function RootLayout({
           }}
         />
         
-        {/* Google tag (gtag.js) - Content-focused tracking */}
+        {/* Google tag (gtag.js) - Deferred to idle to avoid blocking LCP */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-NF9SF0PSM9"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
         <Script
           id="google-analytics"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
           dangerouslySetInnerHTML={{
             __html: `
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
               gtag('config', 'G-NF9SF0PSM9', {
-                // Focus on content engagement, not e-commerce
                 send_page_view: true,
-                // Custom parameters for content tracking
                 custom_map: {
                   'custom_parameter_1': 'content_type',
                   'custom_parameter_2': 'blog_category'

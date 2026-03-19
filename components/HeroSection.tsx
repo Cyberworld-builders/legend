@@ -8,7 +8,17 @@ import { trackEvent } from '@/lib/tracking';
 import TurnstileField from './TurnstileField';
 
 const HeroHeadline = dynamic(() => import('./HeroHeadline'), {
-  ssr: true,
+  ssr: false,
+  loading: () => (
+    <div>
+      <h1 className="text-3xl md:text-5xl font-bold mb-4 text-[#00ff00]">
+        Turn Marketing Into a Machine.
+      </h1>
+      <p className="text-lg md:text-xl text-[#00ff00]/70 mb-8 max-w-2xl mx-auto">
+        Custom digital systems that capture leads, nurture prospects, and measure what matters.
+      </p>
+    </div>
+  ),
 });
 
 export default function HeroSection() {
