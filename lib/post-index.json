@@ -1,7 +1,47 @@
 {
-  "generatedAt": "2026-03-18T21:42:47.237Z",
-  "count": 40,
+  "generatedAt": "2026-03-19T13:15:28.855Z",
+  "count": 41,
   "posts": [
+    {
+      "slug": "n8n-inside-ai-agent-team",
+      "title": "n8n Inside an AI Agent Team: Keep It or Kill It?",
+      "description": "I wired n8n into my AI agent stack and now the agents maintain the workflows. Here's why that changes everything about local automation architecture.",
+      "publishedDate": "2026-03-19",
+      "modifiedDate": "2026-03-19",
+      "isDraft": false,
+      "isFeatured": false,
+      "priority": 5,
+      "category": "AI & Automation",
+      "series": "",
+      "topics": [
+        "AI & Automation",
+        "Development & Tools"
+      ],
+      "tags": [
+        "n8n",
+        "ai-agents",
+        "automation-pipelines",
+        "claude-code",
+        "local-first-architecture",
+        "workflow-orchestration",
+        "self-healing-automation"
+      ],
+      "keywords": [
+        "n8n ai agent integration",
+        "local automation architecture",
+        "ai agent workflow orchestration",
+        "n8n custom nodes",
+        "claude code automation",
+        "self-healing automation pipelines",
+        "n8n api programmatic workflows",
+        "gusclaw ai assistant"
+      ],
+      "canonicalUrl": "https://cyberworldbuilders.com/blog/n8n-inside-ai-agent-team",
+      "headerImage": "/images/n8n-inside-ai-agent-team-hero.png",
+      "wordCount": 1727,
+      "fileSize": 11638,
+      "fileModified": "2026-03-19T13:15:28.564Z"
+    },
     {
       "slug": "agent-specialists-changed-how-i-build-software",
       "title": "Agent Specialists Changed How I Build Software",
@@ -42,7 +82,7 @@
       "headerImage": "/images/agent-specialists-changed-how-i-build-software-hero.png",
       "wordCount": 2658,
       "fileSize": 17399,
-      "fileModified": "2026-03-18T21:42:46.948Z"
+      "fileModified": "2026-03-19T13:15:28.468Z"
     },
     {
       "slug": "keep-one-foot-on-the-ground",
