@@ -1,18 +1,13 @@
-'use client';
-
 import FAQ from '../components/FAQ';
 import PageBackground from '../components/PageBackground';
 import HeroSection from '../components/HeroSection';
 import ServicesSection from '../components/ServicesSection';
 import FeaturedCarousel from '../components/FeaturedCarousel';
 import AboutSection from '../components/AboutSection';
+import ReviewsSection from '../components/ReviewsSection';
 import ContactCTA from '../components/ContactCTA';
+import ClientShell from '../components/ClientShell';
 import { getFeaturedPosts } from '../lib/post-metadata';
-import dynamic from 'next/dynamic';
-
-const ScrollTracker = dynamic(() => import('../components/ScrollTracker'), { ssr: false });
-
-const TRACKED_SECTIONS = ['hero', 'services', 'featured', 'about', 'contact', 'faq'];
 
 const featuredPosts = getFeaturedPosts();
 
@@ -30,8 +25,8 @@ export default function Home() {
       {/* Page Background */}
       <PageBackground opacity={15} fullWidth={true} />
 
-      {/* Scroll & behavior tracking */}
-      <ScrollTracker sections={TRACKED_SECTIONS} />
+      {/* Scroll & behavior tracking (client-only) */}
+      <ClientShell />
 
       {/* Content with higher z-index */}
       <main className="relative z-10">
@@ -48,6 +43,10 @@ export default function Home() {
         <ScanlineDivider />
 
         <AboutSection />
+
+        <ScanlineDivider />
+
+        <ReviewsSection />
 
         <ScanlineDivider />
 

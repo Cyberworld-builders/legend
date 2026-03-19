@@ -6,12 +6,12 @@ import SiteFooter from '@/components/SiteFooter';
 import AnalyticsClient from '@/components/AnalyticsClient';
 import FAQSchema from '@/components/FAQSchema';
 import DeferredWidgets from '@/components/DeferredWidgets';
+import TerminalNav from '@/components/TerminalNav';
 
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
-  maximumScale: 1,
-  userScalable: false,
+  maximumScale: 5,
   themeColor: '#1a1a1a',
 };
 
@@ -113,23 +113,21 @@ export default function RootLayout({
           }}
         />
         
-        {/* Google tag (gtag.js) - Content-focused tracking */}
+        {/* Google tag (gtag.js) - Deferred to idle to avoid blocking LCP */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-NF9SF0PSM9"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
         <Script
           id="google-analytics"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
           dangerouslySetInnerHTML={{
             __html: `
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
               gtag('config', 'G-NF9SF0PSM9', {
-                // Focus on content engagement, not e-commerce
                 send_page_view: true,
-                // Custom parameters for content tracking
                 custom_map: {
                   'custom_parameter_1': 'content_type',
                   'custom_parameter_2': 'blog_category'
@@ -401,13 +399,24 @@ export default function RootLayout({
                 "https://x.com/cyberbuilders",
                 "https://www.facebook.com/cyberworldbuilders",
                 "https://www.upwork.com/freelancers/jaylongcyberworld"
-              ]
+              ],
+              "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": "5.0",
+                "bestRating": "5",
+                "worstRating": "1",
+                "ratingCount": "18",
+                "reviewCount": "18"
+              }
             })
           }}
         />
       </head>
       <body className="min-h-screen bg-[#1a1a1a] text-[#00ff00] font-mono">
-        {children}
+        <TerminalNav />
+        <div className="pt-12">
+          {children}
+        </div>
         <SiteFooter />
         <AnalyticsClient />
         <AuthorSchema />

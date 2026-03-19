@@ -6,9 +6,20 @@ import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
 import { trackEvent } from '@/lib/tracking';
 import TurnstileField from './TurnstileField';
+import ReviewStrip from './ReviewStrip';
 
 const HeroHeadline = dynamic(() => import('./HeroHeadline'), {
-  ssr: true,
+  ssr: false,
+  loading: () => (
+    <div>
+      <h1 className="text-3xl md:text-5xl font-bold mb-4 text-[#00ff00]">
+        Turn Marketing Into a Machine.
+      </h1>
+      <p className="text-lg md:text-xl text-[#00ff00]/70 mb-8 max-w-2xl mx-auto">
+        Custom digital systems that capture leads, nurture prospects, and measure what matters.
+      </p>
+    </div>
+  ),
 });
 
 export default function HeroSection() {
@@ -117,9 +128,9 @@ export default function HeroSection() {
         </div>
 
         {/* Trust Signal */}
-        <p className="mt-8 text-sm text-[#00ff00]/70">
-          10+ years in tech | AWS Certified | Building systems for service businesses
-        </p>
+        <div className="mt-8">
+          <ReviewStrip />
+        </div>
       </div>
     </section>
   );

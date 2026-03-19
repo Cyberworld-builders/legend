@@ -37,7 +37,7 @@ export default function ContactCTA() {
             >
               Start a Conversation
             </button>
-            <p className="mt-4 text-sm text-[#00ff00]/50">
+            <p className="mt-4 text-sm text-[#00ff00]/60">
               No commitment required. Just exploring is fine.
             </p>
           </div>

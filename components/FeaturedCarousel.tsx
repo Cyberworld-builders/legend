@@ -157,18 +157,20 @@ export default function FeaturedCarousel({
 
         {/* Dot indicators */}
         {count > 1 && (
-          <div className="flex justify-center gap-2 mt-4">
+          <div className="flex justify-center gap-1 mt-4">
             {posts.map((_, i) => (
               <button
                 key={i}
                 onClick={() => goTo(i)}
-                className={`w-2 h-2 rounded-full transition-all ${
-                  i === current
-                    ? 'bg-[#00ff00] w-6'
-                    : 'bg-[#00ff00]/30 hover:bg-[#00ff00]/50'
-                }`}
+                className="flex items-center justify-center w-8 h-8"
                 aria-label={`Go to slide ${i + 1}`}
-              />
+              >
+                <span className={`block rounded-full transition-all ${
+                  i === current
+                    ? 'bg-[#00ff00] w-6 h-2'
+                    : 'bg-[#00ff00]/30 hover:bg-[#00ff00]/60 w-2 h-2'
+                }`} />
+              </button>
             ))}
           </div>
         )}

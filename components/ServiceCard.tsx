@@ -43,7 +43,7 @@ export default function ServiceCard({ href, icon: Icon, title, description, tags
           </span>
         ))}
       </div>
-      <span className="text-sm text-[#00ff00]/50 group-hover:text-[#00ff00]/80 transition-colors">
+      <span className="text-sm text-[#00ff00]/60 group-hover:text-[#00ff00]/80 transition-colors">
         Learn more &rarr;
       </span>
       </div>
