@@ -9,9 +9,10 @@ interface ServiceCardProps {
   description: string;
   tags: string[];
   image?: string;
+  priority?: boolean;
 }
 
-export default function ServiceCard({ href, icon: Icon, title, description, tags, image }: ServiceCardProps) {
+export default function ServiceCard({ href, icon: Icon, title, description, tags, image, priority = false }: ServiceCardProps) {
   return (
     <Link
       href={href}
@@ -24,8 +25,8 @@ export default function ServiceCard({ href, icon: Icon, title, description, tags
             alt={title}
             fill
             className="object-cover group-hover:scale-105 transition-transform duration-300"
-            loading="lazy"
             sizes="(max-width: 768px) 100vw, 33vw"
+            {...(priority ? { priority: true } : { loading: 'lazy' as const })}
           />
         </div>
       )}
