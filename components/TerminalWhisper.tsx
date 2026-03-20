@@ -596,7 +596,7 @@ export default function TerminalWhisper() {
           {img && (
             <img
               src={img}
-              alt=""
+              alt={post?.title ?? slug}
               className="w-10 h-10 rounded object-cover flex-shrink-0 opacity-70 group-hover/link:opacity-100 transition-opacity"
             />
           )}

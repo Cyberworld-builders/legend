@@ -8,6 +8,11 @@ export default function robots(): MetadataRoute.Robots {
         allow: '/',
         disallow: ['/admin/', '/api/', '/forgot-password', '/reset-password'],
       },
+      {
+        userAgent: ['GPTBot', 'ChatGPT-User', 'Google-Extended', 'PerplexityBot', 'ClaudeBot', 'anthropic-ai', 'Applebot-Extended', 'cohere-ai'],
+        allow: '/',
+        disallow: ['/admin/', '/api/'],
+      },
     ],
     sitemap: 'https://cyberworldbuilders.com/sitemap.xml',
   }
