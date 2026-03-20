@@ -78,6 +78,12 @@ export default async function TagPage({ params }: TagPageProps) {
               name: `Posts tagged "${displayName}" — CyberWorld Builders Blog`,
               description: `Browse ${posts.length} blog post${posts.length === 1 ? '' : 's'} tagged with "${displayName}".`,
               url: `https://cyberworldbuilders.com/blog/tag/${tag}`,
+              datePublished: posts.length > 0
+                ? posts.reduce((oldest, p) => {
+                    const d = new Date(p.publishedDate);
+                    return d < oldest ? d : oldest;
+                  }, new Date(posts[0].publishedDate)).toISOString()
+                : new Date().toISOString(),
               dateModified: posts.length > 0
                 ? posts.reduce((latest, p) => {
                     const d = new Date(p.modifiedDate || p.publishedDate);

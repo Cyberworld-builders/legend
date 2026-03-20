@@ -150,6 +150,12 @@ export default async function BlogIndex({ searchParams }: BlogIndexProps) {
         )}
       </h1>
 
+      {!tagFilter && allPosts.length > 0 && (
+        <p className="text-[#00ff00]/50 text-sm mb-4">
+          Last updated {allPosts.reduce((latest, p) => p.mtime > latest ? p.mtime : latest, allPosts[0].mtime).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+        </p>
+      )}
+
       {tagFilter && (
         <p className="text-[#00ff00]/70 mb-4">
           <Link href="/blog" className="hover:text-[#00ff00] underline">
@@ -181,6 +187,9 @@ export default async function BlogIndex({ searchParams }: BlogIndexProps) {
             url: tagFilter
               ? `https://cyberworldbuilders.com/blog?tag=${encodeURIComponent(tagFilter)}`
               : "https://cyberworldbuilders.com/blog",
+            datePublished: allPosts.length > 0
+              ? allPosts.reduce((oldest, p) => p.mtime < oldest ? p.mtime : oldest, allPosts[0].mtime).toISOString()
+              : new Date().toISOString(),
             dateModified: allPosts.length > 0
               ? allPosts.reduce((latest, p) => p.mtime > latest ? p.mtime : latest, allPosts[0].mtime).toISOString()
               : new Date().toISOString(),
