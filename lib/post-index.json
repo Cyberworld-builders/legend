@@ -1,7 +1,48 @@
 {
-  "generatedAt": "2026-03-20T13:12:47.375Z",
-  "count": 43,
+  "generatedAt": "2026-03-23T15:23:21.383Z",
+  "count": 44,
   "posts": [
+    {
+      "slug": "one-hour-ai-network-overhaul",
+      "title": "One Hour, One AI, One Destroyed Network Config",
+      "description": "I let Claude loose on my janky home network and it fixed years of accumulated mess in 60 minutes. Then I started thinking about what this means for software itself.",
+      "publishedDate": "2026-03-23",
+      "modifiedDate": "2026-03-23",
+      "isDraft": false,
+      "isFeatured": false,
+      "priority": 5,
+      "category": "AI & Automation",
+      "series": "",
+      "topics": [
+        "AI & Automation",
+        "Development & Tools"
+      ],
+      "tags": [
+        "ai-force-multiplier",
+        "home-network-optimization",
+        "claude-code",
+        "openwrt",
+        "bespoke-software",
+        "developer-productivity",
+        "network-security",
+        "future-of-apps"
+      ],
+      "keywords": [
+        "ai network administration",
+        "claude code home network",
+        "openwrt configuration",
+        "ai force multiplier",
+        "bespoke software future",
+        "home network optimization",
+        "ai productivity",
+        "sideloading apps"
+      ],
+      "canonicalUrl": "https://cyberworldbuilders.com/blog/one-hour-ai-network-overhaul",
+      "headerImage": "/images/one-hour-ai-network-overhaul-hero.png",
+      "wordCount": 2200,
+      "fileSize": 14775,
+      "fileModified": "2026-03-23T15:23:21.118Z"
+    },
     {
       "slug": "why-assembling-freelancers-kills-web-projects",
       "title": "Why Assembling Freelancers Kills Web Projects",
@@ -42,7 +83,7 @@
       "headerImage": "/images/why-assembling-freelancers-kills-web-projects-hero.png",
       "wordCount": 2356,
       "fileSize": 15968,
-      "fileModified": "2026-03-20T13:12:47.073Z"
+      "fileModified": "2026-03-23T06:51:56.837Z"
     },
     {
       "slug": "n8n-inside-ai-agent-team",
