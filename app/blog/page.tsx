@@ -111,6 +111,7 @@ export default async function BlogIndex({ searchParams }: BlogIndexProps) {
         .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
         .join(' '),
       mtime: new Date(post.metadata.publishedDate || ''),
+      modifiedDate: post.metadata.modifiedDate || post.metadata.publishedDate || '',
       headerImage: post.metadata.headerImage || '',
       description: post.metadata.description || '',
       category: post.metadata.category || '',
@@ -182,7 +183,10 @@ export default async function BlogIndex({ searchParams }: BlogIndexProps) {
               ? `https://cyberworldbuilders.com/blog?tag=${encodeURIComponent(tagFilter)}`
               : "https://cyberworldbuilders.com/blog",
             dateModified: allPosts.length > 0
-              ? allPosts.reduce((latest, p) => p.mtime > latest ? p.mtime : latest, allPosts[0].mtime).toISOString()
+              ? allPosts.reduce((latest, p) => {
+                  const d = new Date(p.modifiedDate);
+                  return d > latest ? d : latest;
+                }, new Date(allPosts[0].modifiedDate)).toISOString()
               : new Date().toISOString(),
             publisher: {
               "@type": "Organization",
@@ -204,8 +208,8 @@ export default async function BlogIndex({ searchParams }: BlogIndexProps) {
       />
 
       <BlogPostList
-        posts={posts.map((p) => ({ slug: p.slug, title: p.title, mtime: p.mtime.toISOString(), headerImage: p.headerImage, description: p.description, category: p.category, wordCount: p.wordCount, keywords: p.keywords, tags: p.tags }))}
-        allPosts={allPosts.map((p) => ({ slug: p.slug, title: p.title, mtime: p.mtime.toISOString(), headerImage: p.headerImage, description: p.description, category: p.category, wordCount: p.wordCount, keywords: p.keywords, tags: p.tags }))}
+        posts={posts.map((p) => ({ slug: p.slug, title: p.title, mtime: p.mtime.toISOString(), modifiedDate: p.modifiedDate, headerImage: p.headerImage, description: p.description, category: p.category, wordCount: p.wordCount, keywords: p.keywords, tags: p.tags }))}
+        allPosts={allPosts.map((p) => ({ slug: p.slug, title: p.title, mtime: p.mtime.toISOString(), modifiedDate: p.modifiedDate, headerImage: p.headerImage, description: p.description, category: p.category, wordCount: p.wordCount, keywords: p.keywords, tags: p.tags }))}
         totalPages={totalPages}
         currentPage={currentPage}
         paginationBase={paginationBase}

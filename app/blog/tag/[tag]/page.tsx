@@ -128,6 +128,15 @@ export default async function TagPage({ params }: TagPageProps) {
                     month: 'long',
                     day: 'numeric',
                   })}
+                  {post.modifiedDate && post.modifiedDate !== post.publishedDate && (
+                    <span className="text-[#00ff00]/30 ml-2">
+                      · Updated {new Date(post.modifiedDate).toLocaleDateString('en-US', {
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric',
+                      })}
+                    </span>
+                  )}
                 </p>
                 {post.description && (
                   <p className="text-[#00ff00]/70 mt-2 text-sm">{post.description}</p>

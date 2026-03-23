@@ -9,6 +9,7 @@ interface BlogPost {
   slug: string;
   title: string;
   mtime: string;
+  modifiedDate?: string;
   headerImage?: string;
   description?: string;
   category?: string;
@@ -100,6 +101,12 @@ export default function BlogPostList({ posts, allPosts, totalPages, currentPage,
               <div className="flex flex-wrap items-center gap-x-2 gap-y-0.5 mt-1.5 text-xs text-[#00ff00]/40">
                 {post.mtime && formatDate(post.mtime) && (
                   <span>{formatDate(post.mtime)}</span>
+                )}
+                {post.modifiedDate && post.modifiedDate !== post.mtime?.split('T')[0] && formatDate(post.modifiedDate) && (
+                  <>
+                    <span className="text-[#00ff00]/20">&middot;</span>
+                    <span>Updated {formatDate(post.modifiedDate)}</span>
+                  </>
                 )}
                 {post.category && (
                   <>
