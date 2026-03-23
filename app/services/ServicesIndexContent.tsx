@@ -69,7 +69,7 @@ export default function ServicesIndexContent() {
           <div className="max-w-6xl mx-auto px-4">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {SERVICES.map((service) => (
-                <ServiceCard key={service.href} {...service} />
+                <ServiceCard key={service.href} {...service} priority />
               ))}
             </div>
           </div>
