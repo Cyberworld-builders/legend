@@ -130,7 +130,7 @@ export default function MetaServicePageLayout({
             <div className="absolute inset-0">
               <Image
                 src={heroImage}
-                alt=""
+                alt={heroTitle}
                 fill
                 className="object-cover opacity-50"
                 priority
@@ -255,7 +255,7 @@ export default function MetaServicePageLayout({
                         <div className="relative overflow-hidden h-36">
                           <Image
                             src={post.image}
-                            alt=""
+                            alt={post.title}
                             fill
                             className="object-cover group-hover:scale-105 transition-transform duration-300"
                             loading="lazy"
