@@ -1,7 +1,48 @@
 {
-  "generatedAt": "2026-03-23T15:23:21.383Z",
-  "count": 44,
+  "generatedAt": "2026-03-25T04:33:26.476Z",
+  "count": 45,
   "posts": [
+    {
+      "slug": "software-engineers-got-disrupted-first",
+      "title": "Software Engineers Got Disrupted First",
+      "description": "A software engineer who survived multiple waves of AI disruption shares what each wave actually looked like from the inside — and why the things you've been suppressing might be your biggest asset.",
+      "publishedDate": "2026-03-24",
+      "modifiedDate": "2026-03-24",
+      "isDraft": false,
+      "isFeatured": false,
+      "priority": 5,
+      "category": "Career & Professional Development",
+      "series": "",
+      "topics": [
+        "Career & Professional Development",
+        "AI & Automation"
+      ],
+      "tags": [
+        "ai-disruption",
+        "software-engineering",
+        "vibe-coding",
+        "freelancing",
+        "ai-agents",
+        "career-adaptation",
+        "developer-layoffs",
+        "force-multiplier"
+      ],
+      "keywords": [
+        "ai disruption software engineers",
+        "vibe coding consequences",
+        "ai replacing developers",
+        "freelance developer ai impact",
+        "ai agent orchestration career",
+        "adapting to ai disruption",
+        "software engineer layoffs ai",
+        "creative force ai era"
+      ],
+      "canonicalUrl": "https://cyberworldbuilders.com/blog/software-engineers-got-disrupted-first",
+      "headerImage": "/images/software-engineers-got-disrupted-first-hero.png",
+      "wordCount": 2499,
+      "fileSize": 16693,
+      "fileModified": "2026-03-25T04:33:26.232Z"
+    },
     {
       "slug": "one-hour-ai-network-overhaul",
       "title": "One Hour, One AI, One Destroyed Network Config",
@@ -41,7 +82,7 @@
       "headerImage": "/images/one-hour-ai-network-overhaul-hero.png",
       "wordCount": 2200,
       "fileSize": 14775,
-      "fileModified": "2026-03-23T15:23:21.118Z"
+      "fileModified": "2026-03-25T04:33:26.164Z"
     },
     {
       "slug": "why-assembling-freelancers-kills-web-projects",
