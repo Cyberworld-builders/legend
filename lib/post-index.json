@@ -1,7 +1,50 @@
 {
-  "generatedAt": "2026-03-25T04:33:26.476Z",
-  "count": 45,
+  "generatedAt": "2026-03-26T14:44:05.465Z",
+  "count": 46,
   "posts": [
+    {
+      "slug": "ai-revealed-tech-debt-security-in-an-hour",
+      "title": "AI Revealed Our Tech Debt, So I Fixed My Security in an Hour",
+      "description": "WireGuard VPN, Keycloak zero trust, and OIDC across every service — deployed in one hour with Claude. A wake-up call on the tech debt AI is exposing.",
+      "publishedDate": "2026-03-26",
+      "modifiedDate": "2026-03-26",
+      "isDraft": false,
+      "isFeatured": false,
+      "priority": 5,
+      "category": "Development & Tools",
+      "series": "",
+      "topics": [
+        "Development & Tools",
+        "AI & Automation"
+      ],
+      "tags": [
+        "tech-debt",
+        "wireguard-vpn",
+        "keycloak-zero-trust",
+        "ai-assisted-security",
+        "home-lab",
+        "network-security",
+        "oidc-authentication",
+        "claude-code"
+      ],
+      "keywords": [
+        "tech debt",
+        "ai productivity",
+        "wireguard vpn setup",
+        "keycloak zero trust",
+        "oidc authentication",
+        "home lab security",
+        "claude code",
+        "ai assisted development",
+        "network security",
+        "self-hosted infrastructure"
+      ],
+      "canonicalUrl": "https://cyberworldbuilders.com/blog/ai-revealed-tech-debt-security-in-an-hour",
+      "headerImage": "/images/ai-revealed-tech-debt-security-in-an-hour-hero.png",
+      "wordCount": 2513,
+      "fileSize": 17470,
+      "fileModified": "2026-03-26T14:44:05.248Z"
+    },
     {
       "slug": "software-engineers-got-disrupted-first",
       "title": "Software Engineers Got Disrupted First",
@@ -41,7 +84,7 @@
       "headerImage": "/images/software-engineers-got-disrupted-first-hero.png",
       "wordCount": 2499,
       "fileSize": 16693,
-      "fileModified": "2026-03-25T04:33:26.232Z"
+      "fileModified": "2026-03-26T14:44:05.186Z"
     },
     {
       "slug": "one-hour-ai-network-overhaul",
