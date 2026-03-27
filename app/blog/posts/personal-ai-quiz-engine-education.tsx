@@ -43,7 +43,7 @@ export default function Post() {
       <h2 className="text-2xl font-bold mb-4 mt-8 text-[#00ff00]">Nobody&apos;s Talking About What Education Actually Looks Like Now</h2>
 
       <p className="mb-4 leading-relaxed">
-        When people talk about education, it&apos;s the same recycled conversation every time. You&apos;ve got people feeding you a load of crap to make political gains, and then you&apos;ve got people who genuinely care but have bought into all the political crap. Very few people are talking about what education actually looks like going forward. Not the policy debates. Not the funding fights. What it looks like when you sit down and actually learn something in 2026.
+        When people talk about education, it&apos;s the same recycled conversation every time. You&apos;ve got people feeding you a load of garbage to make political gains, and then you&apos;ve got people who genuinely care but have bought into all the same talking points because what else are you going to do. Very few people are talking about what education actually looks like going forward. Not the policy debates. Not the funding fights. What it looks like when you sit down and actually learn something in 2026.
       </p>
 
       <p className="mb-4 leading-relaxed">
