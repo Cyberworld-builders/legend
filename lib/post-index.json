@@ -1,7 +1,48 @@
 {
-  "generatedAt": "2026-03-26T14:44:05.465Z",
-  "count": 46,
+  "generatedAt": "2026-03-27T13:14:13.609Z",
+  "count": 47,
   "posts": [
+    {
+      "slug": "personal-ai-quiz-engine-education",
+      "title": "I Built a Personal Quiz Engine That Knows My Gaps",
+      "description": "How spare minutes, an AI assistant with memory, and years of freelancing data turned into a personalized education system with two distinct tracks.",
+      "publishedDate": "2026-03-27",
+      "modifiedDate": "2026-03-27",
+      "isDraft": false,
+      "isFeatured": false,
+      "priority": 5,
+      "category": "AI & Automation",
+      "series": "",
+      "topics": [
+        "AI & Automation",
+        "Career & Professional Development"
+      ],
+      "tags": [
+        "ai-education",
+        "personalized-learning",
+        "freelancing-automation",
+        "self-taught-developer",
+        "telegram-bot",
+        "ai-agent-automation",
+        "career-development",
+        "gusclaw"
+      ],
+      "keywords": [
+        "ai education engine",
+        "personalized learning ai",
+        "self-taught developer gaps",
+        "freelancer training automation",
+        "ai quiz system",
+        "telegram ai assistant",
+        "spaced repetition engineering",
+        "ai-powered curriculum"
+      ],
+      "canonicalUrl": "https://cyberworldbuilders.com/blog/personal-ai-quiz-engine-education",
+      "headerImage": "/images/personal-ai-quiz-engine-education-hero.png",
+      "wordCount": 2025,
+      "fileSize": 14029,
+      "fileModified": "2026-03-27T13:14:13.358Z"
+    },
     {
       "slug": "ai-revealed-tech-debt-security-in-an-hour",
       "title": "AI Revealed Our Tech Debt, So I Fixed My Security in an Hour",
@@ -43,7 +84,7 @@
       "headerImage": "/images/ai-revealed-tech-debt-security-in-an-hour-hero.png",
       "wordCount": 2513,
       "fileSize": 17470,
-      "fileModified": "2026-03-26T14:44:05.248Z"
+      "fileModified": "2026-03-27T13:14:13.283Z"
     },
     {
       "slug": "software-engineers-got-disrupted-first",
