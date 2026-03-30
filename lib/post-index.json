@@ -1,7 +1,48 @@
 {
-  "generatedAt": "2026-03-27T13:14:13.609Z",
-  "count": 47,
+  "generatedAt": "2026-03-30T14:27:19.100Z",
+  "count": 48,
   "posts": [
+    {
+      "slug": "ai-quiz-engine-dead-minutes-education",
+      "title": "Kill Your Dead Minutes: Building an AI Quiz Engine from Your Own Work",
+      "description": "How a Telegram chat with my AI assistant turned into a personalized education system that quizzes me on real engineering gaps using my own project history.",
+      "publishedDate": "2026-03-30",
+      "modifiedDate": "2026-03-30",
+      "isDraft": false,
+      "isFeatured": false,
+      "priority": 5,
+      "category": "AI & Automation",
+      "series": "",
+      "topics": [
+        "AI & Automation",
+        "Career & Professional Development"
+      ],
+      "tags": [
+        "ai-education",
+        "personalized-learning",
+        "freelancing",
+        "ai-agent-automation",
+        "self-taught-developer",
+        "telegram-bot",
+        "knowledge-gaps",
+        "developer-productivity"
+      ],
+      "keywords": [
+        "ai personalized education",
+        "ai quiz engine",
+        "self-taught developer knowledge gaps",
+        "freelancer client scenarios",
+        "ai assistant telegram",
+        "spaced repetition engineering",
+        "personalized curriculum ai",
+        "developer self-improvement automation"
+      ],
+      "canonicalUrl": "https://cyberworldbuilders.com/blog/ai-quiz-engine-dead-minutes-education",
+      "headerImage": "/images/ai-quiz-engine-dead-minutes-education-hero.png",
+      "wordCount": 1964,
+      "fileSize": 13570,
+      "fileModified": "2026-03-30T14:27:18.780Z"
+    },
     {
       "slug": "personal-ai-quiz-engine-education",
       "title": "I Built a Personal Quiz Engine That Knows My Gaps",
@@ -39,9 +80,9 @@
       ],
       "canonicalUrl": "https://cyberworldbuilders.com/blog/personal-ai-quiz-engine-education",
       "headerImage": "/images/personal-ai-quiz-engine-education-hero.png",
-      "wordCount": 2025,
-      "fileSize": 14029,
-      "fileModified": "2026-03-27T13:14:13.358Z"
+      "wordCount": 2035,
+      "fileSize": 14076,
+      "fileModified": "2026-03-30T11:31:52.026Z"
     },
     {
       "slug": "ai-revealed-tech-debt-security-in-an-hour",
