@@ -99,7 +99,7 @@ export default function BlogPostList({ posts, allPosts, totalPages, currentPage,
               {/* Row 3: Meta line — full width */}
               <div className="flex flex-wrap items-center gap-x-2 gap-y-0.5 mt-1.5 text-xs text-[#00ff00]/40">
                 {post.mtime && formatDate(post.mtime) && (
-                  <span>{formatDate(post.mtime)}</span>
+                  <time dateTime={post.mtime}>{formatDate(post.mtime)}</time>
                 )}
                 {post.category && (
                   <>

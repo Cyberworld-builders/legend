@@ -148,11 +148,17 @@ export default async function BlogPost({ params }: BlogPostProps) {
             </div>
             <div className="flex flex-col sm:items-end gap-1">
               <p className="text-[#00ff00]/70 text-sm">
-                Published {new Date(metadata.publishedDate).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+                Published{' '}
+                <time dateTime={metadata.publishedDate}>
+                  {new Date(metadata.publishedDate).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+                </time>
               </p>
               {metadata.modifiedDate && metadata.modifiedDate !== metadata.publishedDate && (
                 <p className="text-[#00ff00]/50 text-xs">
-                  Updated {new Date(metadata.modifiedDate).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+                  Updated{' '}
+                  <time dateTime={metadata.modifiedDate}>
+                    {new Date(metadata.modifiedDate).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+                  </time>
                 </p>
               )}
             </div>

@@ -111,6 +111,7 @@ export default async function BlogIndex({ searchParams }: BlogIndexProps) {
         .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
         .join(' '),
       mtime: new Date(post.metadata.publishedDate || ''),
+      modifiedDate: post.metadata.modifiedDate || post.metadata.publishedDate || '',
       headerImage: post.metadata.headerImage || '',
       description: post.metadata.description || '',
       category: post.metadata.category || '',
@@ -157,6 +158,16 @@ export default async function BlogIndex({ searchParams }: BlogIndexProps) {
           </Link>
         </p>
       )}
+
+      {/* Visible freshness signal for AI crawlers and users */}
+      {allPosts.length > 0 && (
+        <p className="text-[#00ff00]/50 text-sm mb-6">
+          Last updated{' '}
+          <time dateTime={allPosts.reduce((latest, p) => p.modifiedDate > latest ? p.modifiedDate : latest, allPosts[0].modifiedDate)}>
+            {new Date(allPosts.reduce((latest, p) => p.modifiedDate > latest ? p.modifiedDate : latest, allPosts[0].modifiedDate)).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+          </time>
+        </p>
+      )}
       
       {/* Featured Posts Carousel */}
       {!tagFilter && featuredPosts.length > 0 && (
@@ -166,42 +177,51 @@ export default async function BlogIndex({ searchParams }: BlogIndexProps) {
       )}
 
       {/* CollectionPage Schema with freshness signals */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "CollectionPage",
-            name: tagFilter
-              ? `Posts tagged with "${tagFilter}" - CyberWorld Builders Blog`
-              : "Blog — Real Engineering, Not AI Fluff | CyberWorld Builders",
-            description: tagFilter
-              ? `Browse blog posts tagged with "${tagFilter}".`
-              : "Dispatches from building production software with AI agents, automating SEO pipelines, and running a one-person dev shop.",
-            url: tagFilter
-              ? `https://cyberworldbuilders.com/blog?tag=${encodeURIComponent(tagFilter)}`
-              : "https://cyberworldbuilders.com/blog",
-            dateModified: allPosts.length > 0
-              ? allPosts.reduce((latest, p) => p.mtime > latest ? p.mtime : latest, allPosts[0].mtime).toISOString()
-              : new Date().toISOString(),
-            publisher: {
-              "@type": "Organization",
-              name: "CyberWorld Builders",
-              logo: { "@type": "ImageObject", url: "https://cyberworldbuilders.com/images/logo.png" },
-            },
-            mainEntity: {
-              "@type": "ItemList",
-              numberOfItems: allPosts.length,
-              itemListElement: posts.map((p, i) => ({
-                "@type": "ListItem",
-                position: startIndex + i + 1,
-                url: `https://cyberworldbuilders.com/blog/${p.slug}`,
-                name: p.title,
-              })),
-            },
-          }),
-        }}
-      />
+      {(() => {
+        const oldestPublished = allPosts.length > 0
+          ? allPosts.reduce((oldest, p) => p.mtime < oldest ? p.mtime : oldest, allPosts[0].mtime).toISOString()
+          : new Date().toISOString();
+        const newestModified = allPosts.length > 0
+          ? allPosts.reduce((latest, p) => p.modifiedDate > latest ? p.modifiedDate : latest, allPosts[0].modifiedDate)
+          : new Date().toISOString();
+        return (
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "CollectionPage",
+                name: tagFilter
+                  ? `Posts tagged with "${tagFilter}" - CyberWorld Builders Blog`
+                  : "Blog — Real Engineering, Not AI Fluff | CyberWorld Builders",
+                description: tagFilter
+                  ? `Browse blog posts tagged with "${tagFilter}".`
+                  : "Dispatches from building production software with AI agents, automating SEO pipelines, and running a one-person dev shop.",
+                url: tagFilter
+                  ? `https://cyberworldbuilders.com/blog?tag=${encodeURIComponent(tagFilter)}`
+                  : "https://cyberworldbuilders.com/blog",
+                datePublished: oldestPublished,
+                dateModified: newestModified,
+                publisher: {
+                  "@type": "Organization",
+                  name: "CyberWorld Builders",
+                  logo: { "@type": "ImageObject", url: "https://cyberworldbuilders.com/images/logo.png" },
+                },
+                mainEntity: {
+                  "@type": "ItemList",
+                  numberOfItems: allPosts.length,
+                  itemListElement: posts.map((p, i) => ({
+                    "@type": "ListItem",
+                    position: startIndex + i + 1,
+                    url: `https://cyberworldbuilders.com/blog/${p.slug}`,
+                    name: p.title,
+                  })),
+                },
+              }),
+            }}
+          />
+        );
+      })()}
 
       <BlogPostList
         posts={posts.map((p) => ({ slug: p.slug, title: p.title, mtime: p.mtime.toISOString(), headerImage: p.headerImage, description: p.description, category: p.category, wordCount: p.wordCount, keywords: p.keywords, tags: p.tags }))}
