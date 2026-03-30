@@ -107,6 +107,35 @@ export default async function TagsPage() {
               </p>
             </div>
 
+            {/* CollectionPage Schema */}
+            <script
+              type="application/ld+json"
+              dangerouslySetInnerHTML={{
+                __html: JSON.stringify({
+                  "@context": "https://schema.org",
+                  "@type": "CollectionPage",
+                  name: "All Tags - CyberWorld Builders Blog",
+                  description: "Browse all tags and categories from the CyberWorld Builders blog. Find posts by topic, technology, or interest area.",
+                  url: "https://cyberworldbuilders.com/blog/tags",
+                  publisher: {
+                    "@type": "Organization",
+                    name: "CyberWorld Builders",
+                    logo: { "@type": "ImageObject", url: "https://cyberworldbuilders.com/images/logo.png" },
+                  },
+                  mainEntity: {
+                    "@type": "ItemList",
+                    numberOfItems: sortedTags.length,
+                    itemListElement: sortedTags.slice(0, 50).map(([tag, count], i) => ({
+                      "@type": "ListItem",
+                      position: i + 1,
+                      url: `https://cyberworldbuilders.com/blog/tag/${tag}`,
+                      name: tag,
+                    })),
+                  },
+                }),
+              }}
+            />
+
             <TagGrid
               categorizedTags={categorizedTags}
               totalTags={sortedTags.length}
