@@ -68,8 +68,8 @@ export default function ServicesIndexContent() {
         <section id="services" className="py-16 md:py-24 bg-[#0a0a0a]">
           <div className="max-w-6xl mx-auto px-4">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {SERVICES.map((service) => (
-                <ServiceCard key={service.href} {...service} />
+              {SERVICES.map((service, index) => (
+                <ServiceCard key={service.href} {...service} priority={index < 3} />
               ))}
             </div>
           </div>
