@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-03-31T06:59:02.141Z",
-  "count": 48,
+  "generatedAt": "2026-03-31T13:19:23.292Z",
+  "count": 49,
   "posts": [
     {
       "slug": "command-line-video-editing-claude-ffmpeg",
@@ -42,7 +42,49 @@
       "headerImage": "/images/command-line-video-editing-claude-ffmpeg-hero.png",
       "wordCount": 1569,
       "fileSize": 10815,
-      "fileModified": "2026-03-31T06:59:01.883Z"
+      "fileModified": "2026-03-31T13:19:22.923Z"
+    },
+    {
+      "slug": "saved-client-5k-aws-ai-agents",
+      "title": "I Saved a Client $5K/Year on AWS in 2 Hours",
+      "description": "How AI agents turned years of backlogged cloud optimization ideas into real savings on Redshift and Aurora — and what I'm doing with the headroom.",
+      "publishedDate": "2026-03-31",
+      "modifiedDate": "2026-03-31",
+      "isDraft": false,
+      "isFeatured": false,
+      "priority": 5,
+      "category": "Cloud Infrastructure",
+      "series": "",
+      "topics": [
+        "Development & Tools",
+        "AI & Automation",
+        "Business & Marketing"
+      ],
+      "tags": [
+        "aws-cost-optimization",
+        "ai-agents",
+        "cloud-infrastructure",
+        "redshift",
+        "aurora-serverless",
+        "agentic-devops",
+        "terraform",
+        "observability"
+      ],
+      "keywords": [
+        "AWS cost optimization",
+        "AI agents cloud infrastructure",
+        "Redshift cost savings",
+        "Aurora serverless optimization",
+        "agentic AI DevOps",
+        "cloud cleanup automation",
+        "startup cloud costs",
+        "AWS observability dashboard"
+      ],
+      "canonicalUrl": "https://cyberworldbuilders.com/blog/saved-client-5k-aws-ai-agents",
+      "headerImage": "/images/saved-client-5k-aws-ai-agents-hero.png",
+      "wordCount": 2187,
+      "fileSize": 14741,
+      "fileModified": "2026-03-31T13:19:22.994Z"
     },
     {
       "slug": "personal-ai-quiz-engine-education",
