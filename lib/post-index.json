@@ -1,7 +1,49 @@
 {
-  "generatedAt": "2026-03-27T13:14:13.609Z",
-  "count": 47,
+  "generatedAt": "2026-03-31T06:59:02.141Z",
+  "count": 48,
   "posts": [
+    {
+      "slug": "command-line-video-editing-claude-ffmpeg",
+      "title": "Command-Line Video Editing with Claude Changed Everything",
+      "description": "How I turned a 10-minute screen recording into a polished short using nothing but Claude and FFmpeg. No GUI, no video editor, under an hour.",
+      "publishedDate": "2026-03-31",
+      "modifiedDate": "2026-03-31",
+      "isDraft": false,
+      "isFeatured": false,
+      "priority": 5,
+      "category": "AI & Automation",
+      "series": "",
+      "topics": [
+        "AI & Automation",
+        "Development & Tools",
+        "Business & Marketing"
+      ],
+      "tags": [
+        "claude-code",
+        "ffmpeg",
+        "video-editing-automation",
+        "ai-content-pipeline",
+        "command-line-tools",
+        "python",
+        "video-shorts",
+        "content-marketing"
+      ],
+      "keywords": [
+        "claude video editing",
+        "ffmpeg command line video editing",
+        "ai video editing automation",
+        "video publishing pipeline",
+        "claude code cli",
+        "automated video shorts",
+        "ffmpeg python scripting",
+        "ai content pipeline"
+      ],
+      "canonicalUrl": "https://cyberworldbuilders.com/blog/command-line-video-editing-claude-ffmpeg",
+      "headerImage": "/images/command-line-video-editing-claude-ffmpeg-hero.png",
+      "wordCount": 1569,
+      "fileSize": 10815,
+      "fileModified": "2026-03-31T06:59:01.883Z"
+    },
     {
       "slug": "personal-ai-quiz-engine-education",
       "title": "I Built a Personal Quiz Engine That Knows My Gaps",
@@ -39,9 +81,9 @@
       ],
       "canonicalUrl": "https://cyberworldbuilders.com/blog/personal-ai-quiz-engine-education",
       "headerImage": "/images/personal-ai-quiz-engine-education-hero.png",
-      "wordCount": 2025,
-      "fileSize": 14029,
-      "fileModified": "2026-03-27T13:14:13.358Z"
+      "wordCount": 2035,
+      "fileSize": 14076,
+      "fileModified": "2026-03-30T11:31:52.026Z"
     },
     {
       "slug": "ai-revealed-tech-debt-security-in-an-hour",
