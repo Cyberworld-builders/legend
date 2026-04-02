@@ -1,7 +1,50 @@
 {
-  "generatedAt": "2026-03-31T13:19:23.292Z",
-  "count": 49,
+  "generatedAt": "2026-04-02T12:16:21.396Z",
+  "count": 50,
   "posts": [
+    {
+      "slug": "no-code-automators-saas-engineers-converging",
+      "title": "No-Code Automators and SaaS Engineers Are Converging",
+      "description": "Agentic AI is forcing no-code automators to learn code and engineers to learn automation. Here's what each side brings to the table and why the exchange matters.",
+      "publishedDate": "2026-04-02",
+      "modifiedDate": "2026-04-02",
+      "isDraft": false,
+      "isFeatured": false,
+      "priority": 5,
+      "category": "AI & Automation",
+      "series": "",
+      "topics": [
+        "AI & Automation",
+        "Career & Professional Development",
+        "Business & Marketing"
+      ],
+      "tags": [
+        "agentic-ai",
+        "no-code-automation",
+        "saas-engineering",
+        "automation-pipelines",
+        "lead-recovery",
+        "ai-agents",
+        "career-convergence",
+        "digital-marketing-automation"
+      ],
+      "keywords": [
+        "agentic AI",
+        "no-code automation",
+        "SaaS engineering",
+        "AI agents",
+        "n8n",
+        "automation pipelines",
+        "lead recovery automation",
+        "vibe coding",
+        "software engineering AI"
+      ],
+      "canonicalUrl": "https://cyberworldbuilders.com/blog/no-code-automators-saas-engineers-converging",
+      "headerImage": "/images/no-code-automators-saas-engineers-converging-hero.png",
+      "wordCount": 1560,
+      "fileSize": 10893,
+      "fileModified": "2026-04-02T12:16:21.103Z"
+    },
     {
       "slug": "command-line-video-editing-claude-ffmpeg",
       "title": "Command-Line Video Editing with Claude Changed Everything",
@@ -84,7 +127,7 @@
       "headerImage": "/images/saved-client-5k-aws-ai-agents-hero.png",
       "wordCount": 2187,
       "fileSize": 14741,
-      "fileModified": "2026-03-31T13:19:22.994Z"
+      "fileModified": "2026-04-02T12:16:21.029Z"
     },
     {
       "slug": "personal-ai-quiz-engine-education",
