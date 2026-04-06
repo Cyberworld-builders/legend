@@ -1,7 +1,49 @@
 {
-  "generatedAt": "2026-04-02T12:16:21.396Z",
-  "count": 50,
+  "generatedAt": "2026-04-03T13:32:35.607Z",
+  "count": 51,
   "posts": [
+    {
+      "slug": "what-a-100k-employee-costs-me-now",
+      "title": "What a $100K Employee Costs Me Now",
+      "description": "AI gave me a dev team I could never afford to hire. But the two years getting here nearly broke me. A freelancer's real story of surviving the tidal forces.",
+      "publishedDate": "2026-04-03",
+      "modifiedDate": "2026-04-03",
+      "isDraft": false,
+      "isFeatured": false,
+      "priority": 5,
+      "category": "AI & Automation",
+      "series": "",
+      "topics": [
+        "AI & Automation",
+        "Career & Professional Development",
+        "Business & Marketing"
+      ],
+      "tags": [
+        "ai-agent-automation",
+        "freelance-development",
+        "ai-disruption",
+        "claude-code",
+        "startup-founder-mindset",
+        "hiring-developers",
+        "singularity",
+        "career-survival"
+      ],
+      "keywords": [
+        "ai replacing developers",
+        "freelance web developer ai disruption",
+        "claude code team",
+        "cost of hiring developers",
+        "ai singularity tidal forces",
+        "ai automation freelancer",
+        "democratized software development",
+        "surviving ai disruption"
+      ],
+      "canonicalUrl": "https://cyberworldbuilders.com/blog/what-a-100k-employee-costs-me-now",
+      "headerImage": "/images/what-a-100k-employee-costs-me-now-hero.png",
+      "wordCount": 2524,
+      "fileSize": 16191,
+      "fileModified": "2026-04-03T13:32:35.372Z"
+    },
     {
       "slug": "no-code-automators-saas-engineers-converging",
       "title": "No-Code Automators and SaaS Engineers Are Converging",
@@ -43,7 +85,7 @@
       "headerImage": "/images/no-code-automators-saas-engineers-converging-hero.png",
       "wordCount": 1560,
       "fileSize": 10893,
-      "fileModified": "2026-04-02T12:16:21.103Z"
+      "fileModified": "2026-04-03T13:32:35.291Z"
     },
     {
       "slug": "command-line-video-editing-claude-ffmpeg",
