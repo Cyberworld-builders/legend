@@ -83,7 +83,7 @@ export default async function BlogPost({ params }: BlogPostProps) {
   const allPosts = allPostEntries.map(p => ({
     slug: p.slug,
     title: p.title,
-    mtime: new Date(p.publishedDate),
+    mtime: new Date(p.modifiedDate || p.publishedDate),
     metadata: {
       topics: p.topics,
       tags: p.tags,

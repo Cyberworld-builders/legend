@@ -110,7 +110,7 @@ export default async function BlogIndex({ searchParams }: BlogIndexProps) {
         .split(' ')
         .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
         .join(' '),
-      mtime: new Date(post.metadata.publishedDate || ''),
+      mtime: new Date(post.metadata.modifiedDate || post.metadata.publishedDate || ''),
       headerImage: post.metadata.headerImage || '',
       description: post.metadata.description || '',
       category: post.metadata.category || '',

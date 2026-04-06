@@ -99,6 +99,31 @@ export default async function TagsPage() {
             />
           </div>
 
+          {/* CollectionPage Schema with freshness signals */}
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "CollectionPage",
+                name: "All Tags - CyberWorld Builders Blog",
+                description: "Browse all tags and categories from the CyberWorld Builders blog.",
+                url: "https://cyberworldbuilders.com/blog/tags",
+                dateModified: allPosts.length > 0
+                  ? allPosts.reduce((latest, post) => {
+                      const d = new Date(post.metadata.modifiedDate || post.metadata.publishedDate);
+                      return d > latest ? d : latest;
+                    }, new Date(allPosts[0].metadata.modifiedDate || allPosts[0].metadata.publishedDate)).toISOString()
+                  : new Date().toISOString(),
+                publisher: {
+                  "@type": "Organization",
+                  name: "CyberWorld Builders",
+                  logo: { "@type": "ImageObject", url: "https://cyberworldbuilders.com/images/logo.png" },
+                },
+              }),
+            }}
+          />
+
           <div className="w-full max-w-4xl">
             <div className="text-center mb-8">
               <h1 className="text-4xl font-bold mb-4 text-[#00ff00]">All Tags</h1>
