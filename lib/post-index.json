@@ -1,7 +1,47 @@
 {
-  "generatedAt": "2026-04-03T13:32:35.607Z",
-  "count": 51,
+  "generatedAt": "2026-04-06T17:07:16.768Z",
+  "count": 52,
   "posts": [
+    {
+      "slug": "why-my-ai-os-survived-anthropics-harness-lockdown",
+      "title": "Why My AI OS Survived Anthropic's Harness Lockdown",
+      "description": "Anthropic killed 3rd party harness support and broke everyone running OpenClaw. My custom setup didn't flinch. Here's the architecture that made the difference.",
+      "publishedDate": "2026-04-06",
+      "modifiedDate": "2026-04-06",
+      "isDraft": false,
+      "isFeatured": false,
+      "priority": 5,
+      "category": "AI & Automation",
+      "series": "",
+      "topics": [
+        "AI & Automation",
+        "Development & Tools"
+      ],
+      "tags": [
+        "ai-operating-system",
+        "claude-code",
+        "openclaw",
+        "custom-harness",
+        "vpn-development-workflow",
+        "agentic-automation",
+        "self-hosted-ai"
+      ],
+      "keywords": [
+        "claude code third party harness",
+        "ai operating system architecture",
+        "openclaw alternative",
+        "claude code single machine setup",
+        "custom ai harness",
+        "wireguard vpn development workflow",
+        "agentic automation setup",
+        "anthropic harness lockdown"
+      ],
+      "canonicalUrl": "https://cyberworldbuilders.com/blog/why-my-ai-os-survived-anthropics-harness-lockdown",
+      "headerImage": "/images/why-my-ai-os-survived-anthropics-harness-lockdown-hero.png",
+      "wordCount": 1509,
+      "fileSize": 10397,
+      "fileModified": "2026-04-06T17:07:16.474Z"
+    },
     {
       "slug": "what-a-100k-employee-costs-me-now",
       "title": "What a $100K Employee Costs Me Now",
@@ -42,7 +82,7 @@
       "headerImage": "/images/what-a-100k-employee-costs-me-now-hero.png",
       "wordCount": 2524,
       "fileSize": 16191,
-      "fileModified": "2026-04-03T13:32:35.372Z"
+      "fileModified": "2026-04-06T17:07:16.398Z"
     },
     {
       "slug": "no-code-automators-saas-engineers-converging",
