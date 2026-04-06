@@ -14,28 +14,28 @@ const SERVICES = [
   {
     href: '/services/digital-marketing',
     icon: TrendingUp,
-    title: 'Digital Marketing',
+    title: 'Digital Marketing & SEO',
     description:
-      'Automated content pipelines, AI-powered SEO audits, and GEO optimization that keep your marketing running 24/7.',
-    tags: ['SEO Audit', 'Content Pipeline', 'GEO Optimization'],
+      'Automated SEO audits, content pipelines, and generative engine optimization (GEO) that keep your site visible to both search engines and AI platforms.',
+    tags: ['SEO Audit', 'Content Pipeline', 'GEO Optimization', 'AI Search Readiness'],
     image: '/images/services/digital-marketing-hero.png',
   },
   {
     href: '/services/automation',
     icon: Workflow,
-    title: 'Automation',
+    title: 'Custom AI Agents',
     description:
-      'AI agents, n8n workflow orchestration, and chatbot development that eliminate manual work and connect your tools.',
-    tags: ['AI Agents', 'n8n Workflows', 'AI Chatbots'],
+      'Purpose-built AI agents that take action on your behalf. From autonomous workflows to API integrations, code-first automation that goes beyond chatbots and visual tools.',
+    tags: ['AI Agent Development', 'API Integration', 'Claude Integration', 'Autonomous Workflows'],
     image: '/images/services/automation-hero.png',
   },
   {
     href: '/services/custom-saas',
     icon: Code2,
-    title: 'Custom SaaS',
+    title: 'Custom SaaS & MVPs',
     description:
-      'Full-stack Next.js applications, cloud infrastructure, and MVP development built around your business.',
-    tags: ['Next.js Apps', 'MVP Development', 'API Development'],
+      'Full-stack Next.js + Supabase applications with CI/CD, cloud infrastructure on AWS, and production-ready MVP development.',
+    tags: ['Next.js Apps', 'MVP Development', 'Supabase', 'AWS & DevOps'],
     image: '/images/services/custom-saas-hero.png',
   },
 ];
