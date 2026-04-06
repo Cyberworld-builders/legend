@@ -78,6 +78,12 @@ export default async function TagPage({ params }: TagPageProps) {
               name: `Posts tagged "${displayName}" — CyberWorld Builders Blog`,
               description: `Browse ${posts.length} blog post${posts.length === 1 ? '' : 's'} tagged with "${displayName}".`,
               url: `https://cyberworldbuilders.com/blog/tag/${tag}`,
+              datePublished: posts.length > 0
+                ? posts.reduce((oldest, p) => {
+                    const d = new Date(p.publishedDate);
+                    return d < oldest ? d : oldest;
+                  }, new Date(posts[0].publishedDate)).toISOString()
+                : new Date().toISOString(),
               dateModified: posts.length > 0
                 ? posts.reduce((latest, p) => {
                     const d = new Date(p.modifiedDate || p.publishedDate);
@@ -128,6 +134,15 @@ export default async function TagPage({ params }: TagPageProps) {
                     month: 'long',
                     day: 'numeric',
                   })}
+                  {post.modifiedDate && post.modifiedDate !== post.publishedDate && (
+                    <span className="text-[#00ff00]/30 ml-2">
+                      · Updated {new Date(post.modifiedDate).toLocaleDateString('en-US', {
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric',
+                      })}
+                    </span>
+                  )}
                 </p>
                 {post.description && (
                   <p className="text-[#00ff00]/70 mt-2 text-sm">{post.description}</p>

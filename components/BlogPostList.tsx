@@ -75,7 +75,7 @@ export default function BlogPostList({ posts, allPosts, totalPages, currentPage,
                   <div className="flex-shrink-0 w-12 h-12 rounded overflow-hidden border border-[#00ff00]/20 group-hover:border-[#00ff00]/40 transition-colors">
                     <Image
                       src={post.headerImage}
-                      alt=""
+                      alt={post.title}
                       width={48}
                       height={48}
                       className="w-full h-full object-cover"

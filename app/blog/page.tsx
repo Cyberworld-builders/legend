@@ -111,6 +111,7 @@ export default async function BlogIndex({ searchParams }: BlogIndexProps) {
         .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
         .join(' '),
       mtime: new Date(post.metadata.publishedDate || ''),
+      modifiedDate: post.metadata.modifiedDate || post.metadata.publishedDate || '',
       headerImage: post.metadata.headerImage || '',
       description: post.metadata.description || '',
       category: post.metadata.category || '',
@@ -157,7 +158,17 @@ export default async function BlogIndex({ searchParams }: BlogIndexProps) {
           </Link>
         </p>
       )}
-      
+
+      {/* Visible freshness signal for AI crawlers and users */}
+      {!tagFilter && allPosts.length > 0 && (
+        <p className="text-[#00ff00]/50 text-sm mb-6">
+          Last updated{' '}
+          <time dateTime={allPosts.reduce((latest, p) => p.modifiedDate > latest ? p.modifiedDate : latest, allPosts[0].modifiedDate)}>
+            {new Date(allPosts.reduce((latest, p) => p.modifiedDate > latest ? p.modifiedDate : latest, allPosts[0].modifiedDate)).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+          </time>
+        </p>
+      )}
+
       {/* Featured Posts Carousel */}
       {!tagFilter && featuredPosts.length > 0 && (
         <div className="w-full max-w-5xl mb-8">
@@ -181,8 +192,11 @@ export default async function BlogIndex({ searchParams }: BlogIndexProps) {
             url: tagFilter
               ? `https://cyberworldbuilders.com/blog?tag=${encodeURIComponent(tagFilter)}`
               : "https://cyberworldbuilders.com/blog",
+            datePublished: allPosts.length > 0
+              ? allPosts.reduce((oldest, p) => p.mtime < oldest ? p.mtime : oldest, allPosts[0].mtime).toISOString()
+              : new Date().toISOString(),
             dateModified: allPosts.length > 0
-              ? allPosts.reduce((latest, p) => p.mtime > latest ? p.mtime : latest, allPosts[0].mtime).toISOString()
+              ? new Date(allPosts.reduce((latest, p) => p.modifiedDate > latest ? p.modifiedDate : latest, allPosts[0].modifiedDate)).toISOString()
               : new Date().toISOString(),
             publisher: {
               "@type": "Organization",
