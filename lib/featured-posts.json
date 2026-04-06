@@ -1,58 +1,58 @@
 [
   {
+    "slug": "what-a-100k-employee-costs-me-now",
+    "title": "What a $100K Employee Costs Me Now",
+    "description": "Breaking down how AI agents replaced traditional hiring math. Real numbers from running a one-person operation that outputs like a team.",
+    "headerImage": "/images/what-a-100k-employee-costs-me-now-hero.png",
+    "category": "AI & Automation",
+    "publishedDate": "2026-04-03"
+  },
+  {
+    "slug": "saved-client-5k-aws-ai-agents",
+    "title": "I Saved a Client $5K/Year on AWS in 2 Hours",
+    "description": "A real client engagement where AI agents audited an AWS account, found $5K in annual waste, and produced a remediation plan in a single afternoon.",
+    "headerImage": "/images/saved-client-5k-aws-ai-agents-hero.png",
+    "category": "Cloud Infrastructure",
+    "publishedDate": "2026-03-31"
+  },
+  {
+    "slug": "why-my-ai-os-survived-anthropics-harness-lockdown",
+    "title": "Why My AI OS Survived Anthropic's Harness Lockdown",
+    "description": "Anthropic cut off third-party harness access to Claude Code subscriptions. My custom AI agent setup kept running. Here's why the architecture held up, and where it's still vulnerable.",
+    "headerImage": "/images/why-my-ai-os-survived-anthropics-harness-lockdown-hero.png",
+    "category": "AI & Automation",
+    "publishedDate": "2026-04-06"
+  },
+  {
+    "slug": "agent-specialists-changed-how-i-build-software",
+    "title": "Agent Specialists Changed How I Build Software",
+    "description": "How I stopped treating AI as one generic assistant and started building specialized agents for different parts of the development lifecycle.",
+    "headerImage": "/images/agent-specialists-changed-how-i-build-software-hero.png",
+    "category": "AI & Automation",
+    "publishedDate": "2026-03-18"
+  },
+  {
+    "slug": "why-assembling-freelancers-kills-web-projects",
+    "title": "Why Assembling Freelancers Kills Web Projects",
+    "description": "The hidden cost of piecing together freelancers for web projects. Why a single engineer with AI agents delivers better results than a team of specialists who don't talk to each other.",
+    "headerImage": "/images/why-assembling-freelancers-kills-web-projects-hero.png",
+    "category": "Business & Marketing",
+    "publishedDate": "2026-03-20"
+  },
+  {
+    "slug": "software-engineers-got-disrupted-first",
+    "title": "Software Engineers Got Disrupted First",
+    "description": "Everyone's talking about AI replacing jobs. They're missing the real story: software engineers were the first profession to get fundamentally restructured, and most of us are better for it.",
+    "headerImage": "/images/software-engineers-got-disrupted-first-hero.png",
+    "category": "Career & Professional Development",
+    "publishedDate": "2026-03-24"
+  },
+  {
     "slug": "one-week-claude-code-publishing-pipeline",
     "title": "One Week with Claude Code: Building an AI-Powered Publishing Pipeline",
-    "description": "After seven days of building with Claude Code and my AI assistant Gus, I shipped an end-to-end blog pipeline, an SEO auditor, and a chatbot \u2014 most of it while cleaning my office.",
+    "description": "After seven days of building with Claude Code and my AI assistant Gus, I shipped an end-to-end blog pipeline, an SEO auditor, and a chatbot — most of it while cleaning my office.",
     "headerImage": "/images/one-week-claude-code-publishing-pipeline-hero.png",
     "category": "AI & Automation",
     "publishedDate": "2026-03-08"
-  },
-  {
-    "slug": "upwork-automation-strategy-insights",
-    "title": "What Crawling Upwork Every Day Taught Me About Where to Go Next",
-    "description": "How automating Upwork job searches with an AI agent revealed gaps in my skills, validated my business strategy, and surfaced a hosting opportunity I should have seen coming.",
-    "headerImage": "/images/upwork-automation-strategy-insights-hero.png",
-    "category": "Business & Marketing",
-    "publishedDate": "2026-03-08"
-  },
-  {
-    "slug": "stop-nickel-and-diming-ai-tools-go-all-in",
-    "title": "Stop Nickel-and-Diming Your AI Tools and Go All In",
-    "description": "How a desperate deal with a bad client led to a Claude Pro Max subscription that changed everything. Why spreading across cheap AI subscriptions is holding you back, and what happens when you commit.",
-    "headerImage": "/images/stop-nickel-and-diming-ai-tools-go-all-in-hero.png",
-    "category": "AI & Automation",
-    "publishedDate": "2026-03-07"
-  },
-  {
-    "slug": "where-im-going-next",
-    "title": "Where I'm Going Next",
-    "description": "After building out the blog pipeline and SEO automations, here's the roadmap for CyberWorld \u2014 from generative search optimization to a unified dashboard to a three-tier service model that makes traditional SaaS obsolete.",
-    "headerImage": "/images/where-im-going-next-hero.png",
-    "category": "Business & Marketing",
-    "publishedDate": "2026-03-08"
-  },
-  {
-    "slug": "first-pitch-meeting-reflections-lessons-confidence-and-alignment-in-death-care-and-ar-innovation",
-    "title": "First Pitch Meeting Reflections: Lessons, Confidence, and Alignment in Death Care and AR Innovation",
-    "description": "Reflections on my first investor pitch meeting, its unexpected value as a forcing function for prototyping, and the alignment of death care solutions with augmented reality (AR) location-based experiences, reinforcing confidence to pursue the vision independently.",
-    "headerImage": "/images/first-pitch-meeting-reflections-lessons-confidence-and-alignment-in-death-care-and-ar-innovation-hero.png",
-    "category": "Technology",
-    "publishedDate": "2025-10-15"
-  },
-  {
-    "slug": "chatbot-breakthrough-how-openais-web-crawling-validates-generative-seo-for-smarter-site-interactions",
-    "title": "Chatbot Breakthrough: How OpenAI's Web Crawling Validates Generative SEO for Smarter Site Interactions",
-    "description": "Uncovering the power of simple LangChain chatbots enhanced by OpenAI's training data, turning basic prompts into accurate, linked responses\u2014proving the value of generative search optimization for blogs.",
-    "headerImage": "/images/chatbot-breakthrough-how-openais-web-crawling-validates-generative-seo-for-smarter-site-interactions-hero.png",
-    "category": "Technology",
-    "publishedDate": "2025-10-04"
-  },
-  {
-    "slug": "from-hybrid-intel-trio-to-drum-note-evolving-ai-human-synergy-in-music-collaboration",
-    "title": "From Hybrid Intel Trio to Drum Note: Evolving AI-Human Synergy in Music Collaboration",
-    "description": "Tracing the evolution of AI-music ideas from Pandora's lessons in RLHF to BotBand and Drum Note, exploring optimal human-AI collaboration in creativity, relationships, and education for meaningful alignment.",
-    "headerImage": "/images/from-hybrid-intel-trio-to-drum-note-evolving-ai-human-synergy-in-music-collaboration-hero.png",
-    "category": "Technology",
-    "publishedDate": "2025-10-03"
   }
 ]
