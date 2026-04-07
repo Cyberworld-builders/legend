@@ -2,9 +2,39 @@ import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 import { createServerClient } from '@supabase/ssr';
 
+// AI crawler user agent patterns
+const AI_BOT_PATTERNS = [
+  'GPTBot', 'ChatGPT-User', 'PerplexityBot', 'ClaudeBot', 'Claude-Web',
+  'GoogleOther', 'Google-Extended', 'Amazonbot', 'Bytespider', 'cohere-ai',
+  'Applebot-Extended', 'anthropic-ai',
+];
+
 export async function middleware(request: NextRequest) {
-  // 301 redirect %20-encoded tag URLs to hyphenated slugs
   const pathname = request.nextUrl.pathname;
+
+  // --- AI crawler detection (runs on all paths, no blocking) ---
+  const ua = request.headers.get('user-agent') || '';
+  const matchedBot = AI_BOT_PATTERNS.find(bot => ua.includes(bot));
+  if (matchedBot && !pathname.startsWith('/api/')) {
+    // Fire-and-forget: log to the track endpoint
+    const trackUrl = new URL('/api/track', request.url);
+    try {
+      fetch(trackUrl.toString(), {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          events: [{
+            session_id: `bot-${matchedBot}-${Date.now()}`,
+            event_name: 'ai_crawler_visit',
+            page: pathname,
+            event_data: { bot_name: matchedBot, user_agent: ua.slice(0, 512) },
+          }],
+        }),
+      }).catch(() => {}); // truly fire-and-forget
+    } catch {}
+  }
+
+  // 301 redirect %20-encoded tag URLs to hyphenated slugs
   if (pathname.startsWith('/blog/tag/') && pathname.includes('%20')) {
     const tagPart = pathname.slice('/blog/tag/'.length);
     const slugified = decodeURIComponent(tagPart)
@@ -73,5 +103,8 @@ export async function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/admin/:path*', '/blog/tag/:path*'],
+  matcher: [
+    // AI crawler detection needs all content paths
+    '/((?!_next/static|_next/image|favicon.ico|images/).*)',
+  ],
 };
