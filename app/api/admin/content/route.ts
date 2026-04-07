@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createServerClient as createSSRClient } from '@supabase/ssr';
 import { createServerClient } from '@/lib/supabase';
+import { validateAutomationApiKey } from '@/lib/automation-auth';
 import { cookies } from 'next/headers';
 import postIndex from '@/lib/post-index.json';
 
@@ -46,9 +47,14 @@ interface PostMeta {
  * Query params: slug, platform, status, days (default 30), sort (default: published)
  */
 export async function GET(request: NextRequest) {
-  const user = await verifyAuth();
-  if (!user) {
-    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+  // Allow automation API key (for GusClaw) or browser cookie auth (for admin UI)
+  const apiKeyError = validateAutomationApiKey(request);
+  if (apiKeyError) {
+    // API key missing or invalid — fall through to cookie auth
+    const user = await verifyAuth();
+    if (!user) {
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+    }
   }
 
   const supabase = createServerClient();
