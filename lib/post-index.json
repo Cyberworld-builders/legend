@@ -1,11 +1,51 @@
 {
-  "generatedAt": "2026-04-06T17:07:16.768Z",
-  "count": 52,
+  "generatedAt": "2026-04-08T14:25:32.273Z",
+  "count": 53,
   "posts": [
+    {
+      "slug": "over-automation-is-the-new-over-engineering",
+      "title": "Over-Automation Is the New Over-Engineering",
+      "description": "Why the smartest AI strategy is knowing where to keep humans in the loop. From social posting friction to browser scraping, lessons from building a cross-platform content analytics system.",
+      "publishedDate": "2026-04-08",
+      "modifiedDate": "2026-04-08",
+      "isDraft": false,
+      "isFeatured": false,
+      "priority": 5,
+      "category": "AI & Automation",
+      "series": "",
+      "topics": [
+        "AI & Automation",
+        "Business & Marketing"
+      ],
+      "tags": [
+        "human-in-the-loop",
+        "ai-automation-strategy",
+        "content-pipeline",
+        "social-media-analytics",
+        "browser-scraping",
+        "over-engineering",
+        "cross-platform-tracking"
+      ],
+      "keywords": [
+        "human in the loop AI",
+        "over-automation",
+        "AI content pipeline",
+        "social media automation",
+        "cross-platform analytics",
+        "browser scraping with AI",
+        "content marketing automation",
+        "AI slop prevention"
+      ],
+      "canonicalUrl": "https://cyberworldbuilders.com/blog/over-automation-is-the-new-over-engineering",
+      "headerImage": "/images/over-automation-is-the-new-over-engineering-hero.png",
+      "wordCount": 2293,
+      "fileSize": 15625,
+      "fileModified": "2026-04-08T14:25:32.004Z"
+    },
     {
       "slug": "why-my-ai-os-survived-anthropics-harness-lockdown",
       "title": "Why My AI OS Survived Anthropic's Harness Lockdown",
-      "description": "Anthropic killed 3rd party harness support and broke everyone running OpenClaw. My custom setup didn't flinch. Here's the architecture that made the difference.",
+      "description": "Anthropic cut off third-party harness access to Claude Code subscriptions. My custom AI agent setup kept running. Here's why the architecture held up, and where it's still vulnerable.",
       "publishedDate": "2026-04-06",
       "modifiedDate": "2026-04-06",
       "isDraft": false,
@@ -38,9 +78,9 @@
       ],
       "canonicalUrl": "https://cyberworldbuilders.com/blog/why-my-ai-os-survived-anthropics-harness-lockdown",
       "headerImage": "/images/why-my-ai-os-survived-anthropics-harness-lockdown-hero.png",
-      "wordCount": 1509,
-      "fileSize": 10397,
-      "fileModified": "2026-04-06T17:07:16.474Z"
+      "wordCount": 1718,
+      "fileSize": 12116,
+      "fileModified": "2026-04-08T14:25:31.929Z"
     },
     {
       "slug": "what-a-100k-employee-costs-me-now",
