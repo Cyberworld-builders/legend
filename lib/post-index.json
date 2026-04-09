@@ -1,7 +1,48 @@
 {
-  "generatedAt": "2026-04-08T14:25:32.273Z",
-  "count": 53,
+  "generatedAt": "2026-04-09T13:26:09.788Z",
+  "count": 54,
   "posts": [
+    {
+      "slug": "show-up-with-the-solution-already-built",
+      "title": "Show Up With the Solution Already Built",
+      "description": "How AI agents changed my Upwork fixed-price strategy from career worst to competitive advantage. Build first, pitch second, post the demo either way.",
+      "publishedDate": "2026-04-09",
+      "modifiedDate": "2026-04-09",
+      "isDraft": false,
+      "isFeatured": false,
+      "priority": 5,
+      "category": "Career & Professional Development",
+      "series": "",
+      "topics": [
+        "Career & Professional Development",
+        "AI & Automation",
+        "Business & Marketing"
+      ],
+      "tags": [
+        "upwork",
+        "fixed-price-strategy",
+        "agentic-ai-freelancing",
+        "ai-automation-services",
+        "freelance-risk-mitigation",
+        "small-business-clients",
+        "content-marketing-loop"
+      ],
+      "keywords": [
+        "upwork fixed price strategy",
+        "agentic ai freelancing",
+        "ai automation services",
+        "freelance risk mitigation",
+        "upwork portfolio strategy",
+        "fixed price gigs ai",
+        "small business ai automation",
+        "freelance lead funnel"
+      ],
+      "canonicalUrl": "https://cyberworldbuilders.com/blog/show-up-with-the-solution-already-built",
+      "headerImage": "",
+      "wordCount": 1828,
+      "fileSize": 12354,
+      "fileModified": "2026-04-09T13:26:09.497Z"
+    },
     {
       "slug": "over-automation-is-the-new-over-engineering",
       "title": "Over-Automation Is the New Over-Engineering",
@@ -40,7 +81,7 @@
       "headerImage": "/images/over-automation-is-the-new-over-engineering-hero.png",
       "wordCount": 2293,
       "fileSize": 15625,
-      "fileModified": "2026-04-08T14:25:32.004Z"
+      "fileModified": "2026-04-09T05:00:23.826Z"
     },
     {
       "slug": "why-my-ai-os-survived-anthropics-harness-lockdown",
