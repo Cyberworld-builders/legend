@@ -5,6 +5,8 @@ export const metadata: PostMeta = {
   title: "Show Up With the Solution Already Built",
   description: "How AI agents changed my Upwork fixed-price strategy from career worst to competitive advantage. Build first, pitch second, post the demo either way.",
   slug: "show-up-with-the-solution-already-built",
+  headerImage: "/images/show-up-with-the-solution-already-built-hero.png",
+  socialImage: "/images/show-up-with-the-solution-already-built-hero.png",
   publishedDate: "2026-04-09",
   modifiedDate: "2026-04-09",
   keywords: [
