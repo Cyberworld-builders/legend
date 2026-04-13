@@ -1,7 +1,47 @@
 {
-  "generatedAt": "2026-04-09T16:08:20.965Z",
-  "count": 54,
+  "generatedAt": "2026-04-13T20:35:50.091Z",
+  "count": 55,
   "posts": [
+    {
+      "slug": "built-native-app-in-an-hour",
+      "title": "I Built a Native App in an Hour and It Changed Everything",
+      "description": "How Claude Code let me build a custom mobile app with SSH terminal, voice memos, and a scanner in under an hour — despite almost zero native dev experience.",
+      "publishedDate": "2026-04-13",
+      "modifiedDate": "2026-04-13",
+      "isDraft": false,
+      "isFeatured": false,
+      "priority": 5,
+      "category": "Development & Tools",
+      "series": "",
+      "topics": [
+        "Development & Tools",
+        "AI & Automation"
+      ],
+      "tags": [
+        "claude-code",
+        "mobile-development",
+        "ai-assisted-coding",
+        "native-app",
+        "personalized-software",
+        "ssh-terminal",
+        "zero-trust-networking"
+      ],
+      "keywords": [
+        "claude code mobile app",
+        "build native app with ai",
+        "custom mobile app development",
+        "ssh terminal mobile",
+        "ai coding assistant",
+        "personalized software",
+        "react native claude code",
+        "future of software development"
+      ],
+      "canonicalUrl": "https://cyberworldbuilders.com/blog/built-native-app-in-an-hour",
+      "headerImage": "",
+      "wordCount": 1872,
+      "fileSize": 12143,
+      "fileModified": "2026-04-13T20:35:49.814Z"
+    },
     {
       "slug": "show-up-with-the-solution-already-built",
       "title": "Show Up With the Solution Already Built",
@@ -41,7 +81,7 @@
       "headerImage": "/images/show-up-with-the-solution-already-built-hero.png",
       "wordCount": 1832,
       "fileSize": 12504,
-      "fileModified": "2026-04-09T16:08:17.563Z"
+      "fileModified": "2026-04-13T20:06:34.422Z"
     },
     {
       "slug": "over-automation-is-the-new-over-engineering",
