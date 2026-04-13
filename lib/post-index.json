@@ -1,7 +1,47 @@
 {
-  "generatedAt": "2026-04-09T16:08:20.965Z",
-  "count": 54,
+  "generatedAt": "2026-04-13T20:06:34.748Z",
+  "count": 55,
   "posts": [
+    {
+      "slug": "built-mobile-app-in-an-hour",
+      "title": "I Built a Mobile App in an Hour and It Changed Everything",
+      "description": "How Claude Code turned a terminal emulator idea into a native app on my phone in under 60 minutes — and why building software for yourself is the future.",
+      "publishedDate": "2026-04-13",
+      "modifiedDate": "2026-04-13",
+      "isDraft": false,
+      "isFeatured": false,
+      "priority": 5,
+      "category": "Development & Tools",
+      "series": "",
+      "topics": [
+        "Development & Tools",
+        "AI & Automation"
+      ],
+      "tags": [
+        "claude-code",
+        "mobile-development",
+        "ai-assisted-coding",
+        "personal-software",
+        "native-app-development",
+        "zero-trust-security",
+        "future-of-software"
+      ],
+      "keywords": [
+        "claude code mobile app",
+        "build your own app with ai",
+        "native app development ai",
+        "personal software engineering",
+        "ssh terminal mobile app",
+        "ai coding assistant",
+        "custom software development",
+        "future of software"
+      ],
+      "canonicalUrl": "https://cyberworldbuilders.com/blog/built-mobile-app-in-an-hour",
+      "headerImage": "/images/built-mobile-app-in-an-hour-hero.png",
+      "wordCount": 1706,
+      "fileSize": 11185,
+      "fileModified": "2026-04-13T20:06:34.491Z"
+    },
     {
       "slug": "show-up-with-the-solution-already-built",
       "title": "Show Up With the Solution Already Built",
@@ -41,7 +81,7 @@
       "headerImage": "/images/show-up-with-the-solution-already-built-hero.png",
       "wordCount": 1832,
       "fileSize": 12504,
-      "fileModified": "2026-04-09T16:08:17.563Z"
+      "fileModified": "2026-04-13T20:06:34.422Z"
     },
     {
       "slug": "over-automation-is-the-new-over-engineering",
