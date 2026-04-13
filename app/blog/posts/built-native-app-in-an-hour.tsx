@@ -5,6 +5,8 @@ export const metadata: PostMeta = {
   title: "I Built a Native App in an Hour and It Changed Everything",
   description: "How Claude Code let me build a custom mobile app with SSH terminal, voice memos, and a scanner in under an hour — despite almost zero native dev experience.",
   slug: "built-native-app-in-an-hour",
+  headerImage: "/images/built-native-app-in-an-hour-hero.png",
+  socialImage: "/images/built-native-app-in-an-hour-hero.png",
   publishedDate: "2026-04-13",
   modifiedDate: "2026-04-13",
   keywords: [
