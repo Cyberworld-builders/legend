@@ -1,7 +1,48 @@
 {
-  "generatedAt": "2026-04-09T16:08:20.965Z",
-  "count": 54,
+  "generatedAt": "2026-04-16T21:13:05.146Z",
+  "count": 55,
   "posts": [
+    {
+      "slug": "claude-code-in-my-pocket-two-hour-internal-ios-app",
+      "title": "Claude Code in My Pocket: A Two-Hour Internal iOS App",
+      "description": "Two-hour build, no App Store, Claude Code in my pocket through a VPN. Why I'm building internal tools instead of shipping products.",
+      "publishedDate": "2026-04-16",
+      "modifiedDate": "2026-04-16",
+      "isDraft": false,
+      "isFeatured": false,
+      "priority": 5,
+      "category": "Development & Tools",
+      "series": "",
+      "topics": [
+        "Development & Tools",
+        "AI & Automation"
+      ],
+      "tags": [
+        "native-ios-app",
+        "claude-code",
+        "internal-tools",
+        "ai-agent-automation",
+        "wireguard-vpn",
+        "tools-not-products",
+        "vibe-coding",
+        "mobile-development"
+      ],
+      "keywords": [
+        "native iOS app without App Store",
+        "Claude Code mobile terminal",
+        "internal tools vs products",
+        "WireGuard VPN private app",
+        "Keycloak OIDC authentication",
+        "Whisper transcription timestamps",
+        "AI agent operating system",
+        "vibe coding native app"
+      ],
+      "canonicalUrl": "https://cyberworldbuilders.com/blog/claude-code-in-my-pocket-two-hour-internal-ios-app",
+      "headerImage": "/images/claude-code-in-my-pocket-two-hour-internal-ios-app-hero.png",
+      "wordCount": 1617,
+      "fileSize": 11575,
+      "fileModified": "2026-04-16T21:13:04.908Z"
+    },
     {
       "slug": "show-up-with-the-solution-already-built",
       "title": "Show Up With the Solution Already Built",
@@ -41,7 +82,7 @@
       "headerImage": "/images/show-up-with-the-solution-already-built-hero.png",
       "wordCount": 1832,
       "fileSize": 12504,
-      "fileModified": "2026-04-09T16:08:17.563Z"
+      "fileModified": "2026-04-13T20:06:34.422Z"
     },
     {
       "slug": "over-automation-is-the-new-over-engineering",
