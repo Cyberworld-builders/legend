@@ -153,14 +153,12 @@ export default async function BlogPost({ params }: BlogPostProps) {
                   {new Date(metadata.publishedDate).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
                 </time>
               </p>
-              {metadata.modifiedDate && metadata.modifiedDate !== metadata.publishedDate && (
-                <p className="text-[#00ff00]/50 text-xs">
-                  Updated{' '}
-                  <time dateTime={metadata.modifiedDate}>
-                    {new Date(metadata.modifiedDate).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
-                  </time>
-                </p>
-              )}
+              <p className="text-[#00ff00]/50 text-xs">
+                Last updated{' '}
+                <time dateTime={metadata.modifiedDate || metadata.publishedDate}>
+                  {new Date(metadata.modifiedDate || metadata.publishedDate).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+                </time>
+              </p>
             </div>
           </div>
         </div>
