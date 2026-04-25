@@ -8,12 +8,28 @@
     "publishedDate": "2026-03-08"
   },
   {
+    "slug": "claude-code-in-my-pocket-two-hour-internal-ios-app",
+    "title": "Claude Code in My Pocket: A Two-Hour Internal iOS App",
+    "description": "Two-hour build, no App Store, Claude Code in my pocket through a VPN. Why I'm building internal tools instead of shipping products.",
+    "headerImage": "/images/claude-code-in-my-pocket-two-hour-internal-ios-app-hero.png",
+    "category": "Development & Tools",
+    "publishedDate": "2026-04-16"
+  },
+  {
     "slug": "upwork-automation-strategy-insights",
     "title": "What Crawling Upwork Every Day Taught Me About Where to Go Next",
     "description": "How automating Upwork job searches with an AI agent revealed gaps in my skills, validated my business strategy, and surfaced a hosting opportunity I should have seen coming.",
     "headerImage": "/images/upwork-automation-strategy-insights-hero.png",
     "category": "Business & Marketing",
     "publishedDate": "2026-03-08"
+  },
+  {
+    "slug": "show-up-with-the-solution-already-built",
+    "title": "Show Up With the Solution Already Built",
+    "description": "How AI agents changed my Upwork fixed-price strategy from career worst to competitive advantage. Build first, pitch second, post the demo either way.",
+    "headerImage": "/images/show-up-with-the-solution-already-built-hero.png",
+    "category": "Career & Professional Development",
+    "publishedDate": "2026-04-09"
   },
   {
     "slug": "stop-nickel-and-diming-ai-tools-go-all-in",
@@ -24,12 +40,12 @@
     "publishedDate": "2026-03-07"
   },
   {
-    "slug": "where-im-going-next",
-    "title": "Where I'm Going Next",
-    "description": "After building out the blog pipeline and SEO automations, here's the roadmap for CyberWorld \u2014 from generative search optimization to a unified dashboard to a three-tier service model that makes traditional SaaS obsolete.",
-    "headerImage": "/images/where-im-going-next-hero.png",
-    "category": "Business & Marketing",
-    "publishedDate": "2026-03-08"
+    "slug": "over-automation-is-the-new-over-engineering",
+    "title": "Over-Automation Is the New Over-Engineering",
+    "description": "Why the smartest AI strategy is knowing where to keep humans in the loop. From social posting friction to browser scraping, lessons from building a cross-platform content analytics system.",
+    "headerImage": "/images/over-automation-is-the-new-over-engineering-hero.png",
+    "category": "AI & Automation",
+    "publishedDate": "2026-04-08"
   },
   {
     "slug": "first-pitch-meeting-reflections-lessons-confidence-and-alignment-in-death-care-and-ar-innovation",
