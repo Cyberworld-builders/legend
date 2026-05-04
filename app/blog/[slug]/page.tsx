@@ -78,6 +78,14 @@ export default async function BlogPost({ params }: BlogPostProps) {
   const title = metadata.title;
   const description = metadata.description || `${title} — an engineer's take on building real software. From CyberWorld Builders.`;
 
+  // Schema image must be an absolute URL — relative paths fail structured-data validation.
+  const toAbsoluteUrl = (path?: string) =>
+    !path ? null : path.startsWith('http') ? path : `https://cyberworldbuilders.com${path}`;
+  const schemaImageUrl =
+    toAbsoluteUrl(metadata.socialImage) ||
+    toAbsoluteUrl(metadata.headerImage) ||
+    'https://cyberworldbuilders.com/images/logo.png';
+
   // Build allPosts list for related posts and navigation
   const allPostEntries = getAllPosts();
   const allPosts = allPostEntries.map(p => ({
@@ -153,14 +161,12 @@ export default async function BlogPost({ params }: BlogPostProps) {
                   {new Date(metadata.publishedDate).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
                 </time>
               </p>
-              {metadata.modifiedDate && metadata.modifiedDate !== metadata.publishedDate && (
-                <p className="text-[#00ff00]/50 text-xs">
-                  Updated{' '}
-                  <time dateTime={metadata.modifiedDate}>
-                    {new Date(metadata.modifiedDate).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
-                  </time>
-                </p>
-              )}
+              <p className="text-[#00ff00]/50 text-xs">
+                Last updated{' '}
+                <time dateTime={metadata.modifiedDate || metadata.publishedDate}>
+                  {new Date(metadata.modifiedDate || metadata.publishedDate).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+                </time>
+              </p>
             </div>
           </div>
         </div>
@@ -174,7 +180,12 @@ export default async function BlogPost({ params }: BlogPostProps) {
               "@type": "BlogPosting",
               headline: title,
               description,
-              image: metadata.socialImage || "https://cyberworldbuilders.com/images/logo.png",
+              image: {
+                "@type": "ImageObject",
+                url: schemaImageUrl,
+                width: 1200,
+                height: 630,
+              },
               author: {
                 "@type": "Person",
                 name: "Jay Long",
