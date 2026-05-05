@@ -1,26 +1,12 @@
 'use client';
 
 import { useState, useCallback } from 'react';
-import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
 import { trackEvent } from '@/lib/tracking';
 import TurnstileField from './TurnstileField';
 import ReviewStrip from './ReviewStrip';
-
-const HeroHeadline = dynamic(() => import('./HeroHeadline'), {
-  ssr: false,
-  loading: () => (
-    <div>
-      <h1 className="text-3xl md:text-5xl font-bold mb-4 text-[#00ff00]">
-        Turn Marketing Into a Machine.
-      </h1>
-      <p className="text-lg md:text-xl text-[#00ff00]/70 mb-8 max-w-2xl mx-auto">
-        Custom digital systems that capture leads, nurture prospects, and measure what matters.
-      </p>
-    </div>
-  ),
-});
+import HeroHeadline from './HeroHeadline';
 
 export default function HeroSection() {
   const [email, setEmail] = useState('');
