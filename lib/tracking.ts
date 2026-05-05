@@ -9,7 +9,7 @@
  * so it persists across soft navigations but resets on new tabs.
  */
 
-import { getVariant, type ExperimentResult } from './ab-test';
+import { type ExperimentResult } from './ab-test';
 
 // ---------------------------------------------------------------------------
 // Types
@@ -89,7 +89,6 @@ export function initSession(): SessionContext {
   }
 
   const utms = parseUTMs();
-  const experiment = getVariant('hero_headline_v1');
 
   const ctx: SessionContext = {
     session_id: generateSessionId(),
@@ -99,7 +98,6 @@ export function initSession(): SessionContext {
     ...(utms.utm_campaign && { utm_campaign: utms.utm_campaign }),
     ...(utms.utm_term && { utm_term: utms.utm_term }),
     ...(utms.utm_content && { utm_content: utms.utm_content }),
-    experiment,
   };
 
   try {
