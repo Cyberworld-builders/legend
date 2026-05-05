@@ -146,7 +146,7 @@ export default function Post() {
       </p>
 
       <p className="mb-4 leading-relaxed">
-        That&apos;s where I&apos;m landing. The work is in the middle and it always has been. The engineers who are quietly building production systems and using AI tools where they help and ignoring them where they don&apos;t — they&apos;re not on Twitter arguing. The founders who are quietly shipping products and respecting the engineering process and treating AI as a productivity boost rather than a replacement for judgment — they&apos;re not on Twitter either. The work is happening, just not where the hype-and-troll feedback loop wants you to look.
+        That&apos;s where I&apos;m landing. The work is in the middle and it always has been. The engineers who matter are the ones quietly building production systems, using AI tools where they help, and ignoring them where they don&apos;t. The founders who matter are the ones quietly shipping products, respecting the engineering process, and treating AI as a productivity boost rather than a replacement for judgment. They&apos;re on every platform — LinkedIn, X, Facebook, the rest — but they&apos;re posting the work, not the drama. They&apos;re sharing what they shipped, what they learned, what surprised them, what they&apos;d do differently. The signal is there if you know to look for it. It just doesn&apos;t move as loud as the feedback loop, because real work usually doesn&apos;t.
       </p>
 
       <h2 className="text-2xl font-bold mb-4 mt-8 text-[#00ff00]">What to Actually Do</h2>
