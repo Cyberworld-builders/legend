@@ -1,7 +1,48 @@
 {
-  "generatedAt": "2026-04-16T21:13:05.146Z",
-  "count": 55,
+  "generatedAt": "2026-05-05T16:31:44.908Z",
+  "count": 56,
   "posts": [
+    {
+      "slug": "ai-neuroticism-tidal-forces-singularity",
+      "title": "AI Neuroticism and the Tidal Forces of the Singularity",
+      "description": "It's not the singularity that spaghettifies you. It's the tidal forces — the differential rate of change that's tearing engineers and founders apart. Here's how to step out of the hype-vs-trolls feedback loop.",
+      "publishedDate": "2026-05-05",
+      "modifiedDate": "2026-05-05",
+      "isDraft": false,
+      "isFeatured": false,
+      "priority": 5,
+      "category": "AI & Automation",
+      "series": "",
+      "topics": [
+        "AI & Automation",
+        "Career & Professional Development",
+        "Business & Marketing"
+      ],
+      "tags": [
+        "ai-hype",
+        "ai-neuroticism",
+        "engineers-vs-founders",
+        "human-in-the-loop",
+        "tidal-forces",
+        "engineering-pragmatism",
+        "ai-singularity"
+      ],
+      "keywords": [
+        "ai neuroticism",
+        "ai hype cycle",
+        "engineers vs founders",
+        "ai singularity criticism",
+        "human in the loop ai",
+        "ai engineering pragmatism",
+        "tidal forces metaphor",
+        "vibe coded mvp"
+      ],
+      "canonicalUrl": "https://cyberworldbuilders.com/blog/ai-neuroticism-tidal-forces-singularity",
+      "headerImage": "/images/ai-neuroticism-tidal-forces-singularity-hero.png",
+      "wordCount": 2887,
+      "fileSize": 19478,
+      "fileModified": "2026-05-05T16:23:48.157Z"
+    },
     {
       "slug": "claude-code-in-my-pocket-two-hour-internal-ios-app",
       "title": "Claude Code in My Pocket: A Two-Hour Internal iOS App",
@@ -41,7 +82,7 @@
       "headerImage": "/images/claude-code-in-my-pocket-two-hour-internal-ios-app-hero.png",
       "wordCount": 1617,
       "fileSize": 11575,
-      "fileModified": "2026-04-16T21:13:04.908Z"
+      "fileModified": "2026-05-05T01:40:20.749Z"
     },
     {
       "slug": "show-up-with-the-solution-already-built",
@@ -82,7 +123,7 @@
       "headerImage": "/images/show-up-with-the-solution-already-built-hero.png",
       "wordCount": 1832,
       "fileSize": 12504,
-      "fileModified": "2026-04-13T20:06:34.422Z"
+      "fileModified": "2026-05-05T01:40:20.783Z"
     },
     {
       "slug": "over-automation-is-the-new-over-engineering",
@@ -122,7 +163,7 @@
       "headerImage": "/images/over-automation-is-the-new-over-engineering-hero.png",
       "wordCount": 2293,
       "fileSize": 15625,
-      "fileModified": "2026-04-09T05:00:23.826Z"
+      "fileModified": "2026-05-05T01:40:20.768Z"
     },
     {
       "slug": "why-my-ai-os-survived-anthropics-harness-lockdown",
@@ -162,7 +203,7 @@
       "headerImage": "/images/why-my-ai-os-survived-anthropics-harness-lockdown-hero.png",
       "wordCount": 1718,
       "fileSize": 12116,
-      "fileModified": "2026-04-08T14:25:31.929Z"
+      "fileModified": "2026-04-06T17:40:30.477Z"
     },
     {
       "slug": "what-a-100k-employee-costs-me-now",
@@ -204,7 +245,7 @@
       "headerImage": "/images/what-a-100k-employee-costs-me-now-hero.png",
       "wordCount": 2524,
       "fileSize": 16191,
-      "fileModified": "2026-04-06T17:07:16.398Z"
+      "fileModified": "2026-04-06T17:40:30.477Z"
     },
     {
       "slug": "no-code-automators-saas-engineers-converging",
@@ -247,7 +288,7 @@
       "headerImage": "/images/no-code-automators-saas-engineers-converging-hero.png",
       "wordCount": 1560,
       "fileSize": 10893,
-      "fileModified": "2026-04-03T13:32:35.291Z"
+      "fileModified": "2026-04-06T17:40:30.476Z"
     },
     {
       "slug": "command-line-video-editing-claude-ffmpeg",
@@ -289,7 +330,7 @@
       "headerImage": "/images/command-line-video-editing-claude-ffmpeg-hero.png",
       "wordCount": 1569,
       "fileSize": 10815,
-      "fileModified": "2026-03-31T13:19:22.923Z"
+      "fileModified": "2026-04-06T17:40:30.476Z"
     },
     {
       "slug": "saved-client-5k-aws-ai-agents",
@@ -331,7 +372,7 @@
       "headerImage": "/images/saved-client-5k-aws-ai-agents-hero.png",
       "wordCount": 2187,
       "fileSize": 14741,
-      "fileModified": "2026-04-02T12:16:21.029Z"
+      "fileModified": "2026-04-06T17:40:30.477Z"
     },
     {
       "slug": "personal-ai-quiz-engine-education",
@@ -372,7 +413,7 @@
       "headerImage": "/images/personal-ai-quiz-engine-education-hero.png",
       "wordCount": 2035,
       "fileSize": 14076,
-      "fileModified": "2026-03-30T11:31:52.026Z"
+      "fileModified": "2026-04-06T17:40:30.476Z"
     },
     {
       "slug": "ai-revealed-tech-debt-security-in-an-hour",
@@ -415,7 +456,7 @@
       "headerImage": "/images/ai-revealed-tech-debt-security-in-an-hour-hero.png",
       "wordCount": 2513,
       "fileSize": 17470,
-      "fileModified": "2026-03-27T13:14:13.283Z"
+      "fileModified": "2026-04-06T17:40:30.476Z"
     },
     {
       "slug": "software-engineers-got-disrupted-first",
@@ -456,7 +497,7 @@
       "headerImage": "/images/software-engineers-got-disrupted-first-hero.png",
       "wordCount": 2499,
       "fileSize": 16693,
-      "fileModified": "2026-03-26T14:44:05.186Z"
+      "fileModified": "2026-04-06T17:40:30.477Z"
     },
     {
       "slug": "one-hour-ai-network-overhaul",
@@ -497,7 +538,7 @@
       "headerImage": "/images/one-hour-ai-network-overhaul-hero.png",
       "wordCount": 2200,
       "fileSize": 14775,
-      "fileModified": "2026-03-25T04:33:26.164Z"
+      "fileModified": "2026-04-06T17:40:30.476Z"
     },
     {
       "slug": "why-assembling-freelancers-kills-web-projects",
@@ -539,7 +580,7 @@
       "headerImage": "/images/why-assembling-freelancers-kills-web-projects-hero.png",
       "wordCount": 2356,
       "fileSize": 15968,
-      "fileModified": "2026-03-23T06:51:56.837Z"
+      "fileModified": "2026-04-06T17:40:30.477Z"
     },
     {
       "slug": "n8n-inside-ai-agent-team",
@@ -579,7 +620,7 @@
       "headerImage": "/images/n8n-inside-ai-agent-team-hero.png",
       "wordCount": 1727,
       "fileSize": 11638,
-      "fileModified": "2026-03-19T13:28:25.087Z"
+      "fileModified": "2026-03-19T14:58:19.361Z"
     },
     {
       "slug": "three-terminals-zero-myth",
@@ -619,7 +660,7 @@
       "headerImage": "/images/three-terminals-zero-myth-hero.png",
       "wordCount": 1304,
       "fileSize": 8973,
-      "fileModified": "2026-03-20T09:38:58.825Z"
+      "fileModified": "2026-04-06T17:40:30.477Z"
     },
     {
       "slug": "agent-specialists-changed-how-i-build-software",
@@ -661,7 +702,7 @@
       "headerImage": "/images/agent-specialists-changed-how-i-build-software-hero.png",
       "wordCount": 2658,
       "fileSize": 17399,
-      "fileModified": "2026-03-19T13:15:28.468Z"
+      "fileModified": "2026-03-19T04:20:12.974Z"
     },
     {
       "slug": "keep-one-foot-on-the-ground",
@@ -703,7 +744,7 @@
       "headerImage": "/images/keep-one-foot-on-the-ground-hero.png",
       "wordCount": 2002,
       "fileSize": 13718,
-      "fileModified": "2026-03-15T05:50:40.627Z"
+      "fileModified": "2026-03-18T17:02:40.165Z"
     },
     {
       "slug": "self-healing-agents-prompt-monkey-era",
@@ -743,7 +784,7 @@
       "headerImage": "/images/self-healing-agents-prompt-monkey-era-hero.png",
       "wordCount": 1640,
       "fileSize": 11279,
-      "fileModified": "2026-03-14T15:03:34.195Z"
+      "fileModified": "2026-03-18T17:02:40.167Z"
     },
     {
       "slug": "first-real-outage-autonomous-systems",
@@ -782,7 +823,7 @@
       "headerImage": "/images/first-real-outage-autonomous-systems-hero.png",
       "wordCount": 2479,
       "fileSize": 16274,
-      "fileModified": "2026-03-12T18:00:41.541Z"
+      "fileModified": "2026-03-12T19:07:12.684Z"
     },
     {
       "slug": "gusclaw-observatory-watching-ai-team-work",
@@ -825,7 +866,7 @@
       "headerImage": "/images/gusclaw-observatory-watching-ai-team-work-hero.png",
       "wordCount": 2474,
       "fileSize": 16548,
-      "fileModified": "2026-03-11T14:35:08.336Z"
+      "fileModified": "2026-03-12T19:07:12.684Z"
     },
     {
       "slug": "content-publishing-engine-voice-memos-to-video",
@@ -865,7 +906,7 @@
       "headerImage": "/images/content-publishing-engine-voice-memos-to-video-hero.png",
       "wordCount": 1710,
       "fileSize": 11584,
-      "fileModified": "2026-03-10T14:58:23.569Z"
+      "fileModified": "2026-03-12T19:07:12.684Z"
     },
     {
       "slug": "everything-compounds-now",
@@ -909,7 +950,7 @@
       "headerImage": "/images/everything-compounds-now-hero.png",
       "wordCount": 1572,
       "fileSize": 10249,
-      "fileModified": "2026-03-10T08:51:29.166Z"
+      "fileModified": "2026-03-12T19:07:12.684Z"
     },
     {
       "slug": "one-week-claude-code-publishing-pipeline",
@@ -997,7 +1038,7 @@
       "headerImage": "/images/upwork-automation-strategy-insights-hero.png",
       "wordCount": 1237,
       "fileSize": 8662,
-      "fileModified": "2026-03-10T02:03:45.473Z"
+      "fileModified": "2026-03-12T19:07:12.684Z"
     },
     {
       "slug": "where-im-going-next",
@@ -1041,7 +1082,7 @@
       "headerImage": "/images/where-im-going-next-hero.png",
       "wordCount": 2301,
       "fileSize": 15088,
-      "fileModified": "2026-03-09T01:57:46.284Z"
+      "fileModified": "2026-03-12T19:07:12.685Z"
     },
     {
       "slug": "code-first-n8n-custom-nodes-automation-workflow",
@@ -1085,7 +1126,7 @@
       "headerImage": "/images/code-first-n8n-custom-nodes-automation-workflow-hero.png",
       "wordCount": 2543,
       "fileSize": 17174,
-      "fileModified": "2026-03-13T17:37:08.687Z"
+      "fileModified": "2026-03-13T16:37:56.383Z"
     },
     {
       "slug": "custom-n8n-nodes-transcript-cleanup-xai-grok",
@@ -1257,7 +1298,7 @@
       "headerImage": "/images/from-zapier-to-n8n-automation-practice-hero.png",
       "wordCount": 2356,
       "fileSize": 15498,
-      "fileModified": "2026-03-13T17:37:08.688Z"
+      "fileModified": "2026-03-13T16:37:56.385Z"
     },
     {
       "slug": "stop-nickel-and-diming-ai-tools-go-all-in",
@@ -1342,7 +1383,7 @@
       "headerImage": "/images/rznjn-human-ai-music-collaboration-hero.png",
       "wordCount": 2038,
       "fileSize": 14290,
-      "fileModified": "2026-03-13T17:37:08.689Z"
+      "fileModified": "2026-03-13T16:37:56.387Z"
     },
     {
       "slug": "first-pitch-meeting-reflections-lessons-confidence-and-alignment-in-death-care-and-ar-innovation",
@@ -1383,7 +1424,7 @@
       "headerImage": "/images/first-pitch-meeting-reflections-lessons-confidence-and-alignment-in-death-care-and-ar-innovation-hero.png",
       "wordCount": 688,
       "fileSize": 5567,
-      "fileModified": "2026-03-13T17:37:08.687Z"
+      "fileModified": "2026-03-13T16:37:56.384Z"
     },
     {
       "slug": "chatbot-breakthrough-how-openais-web-crawling-validates-generative-seo-for-smarter-site-interactions",
@@ -1422,7 +1463,7 @@
       "headerImage": "/images/chatbot-breakthrough-how-openais-web-crawling-validates-generative-seo-for-smarter-site-interactions-hero.png",
       "wordCount": 2387,
       "fileSize": 17202,
-      "fileModified": "2026-03-13T17:37:08.687Z"
+      "fileModified": "2026-03-13T16:37:56.383Z"
     },
     {
       "slug": "from-hybrid-intel-trio-to-drum-note-evolving-ai-human-synergy-in-music-collaboration",
@@ -1463,7 +1504,7 @@
       "headerImage": "/images/from-hybrid-intel-trio-to-drum-note-evolving-ai-human-synergy-in-music-collaboration-hero.png",
       "wordCount": 5328,
       "fileSize": 33772,
-      "fileModified": "2026-03-13T17:37:08.688Z"
+      "fileModified": "2026-03-13T16:37:56.385Z"
     },
     {
       "slug": "ai-humanity-and-the-future-career-reflections-and-societal-shifts-in-an-automated-world",
@@ -1503,7 +1544,7 @@
       "headerImage": "/images/ai-humanity-and-the-future-career-reflections-and-societal-shifts-in-an-automated-world-hero.png",
       "wordCount": 5077,
       "fileSize": 32929,
-      "fileModified": "2026-03-13T17:37:08.686Z"
+      "fileModified": "2026-03-13T16:37:56.382Z"
     },
     {
       "slug": "cemetery-management-application-gps-mapping-ar-integration-and-autonomous-maintenance-for-funeral-homes",
@@ -1543,7 +1584,7 @@
       "headerImage": "/images/cemetery-management-application-gps-mapping-ar-integration-and-autonomous-maintenance-for-funeral-homes-hero.png",
       "wordCount": 935,
       "fileSize": 7594,
-      "fileModified": "2026-03-13T17:37:08.686Z"
+      "fileModified": "2026-03-13T16:37:56.383Z"
     },
     {
       "slug": "revisiting-old-code-lessons-in-growth-enterprise-vs-startup-mindsets-and-ai-driven-infrastructure-evolution",
@@ -1583,7 +1624,7 @@
       "headerImage": "/images/revisiting-old-code-lessons-in-growth-enterprise-vs-startup-mindsets-and-ai-driven-infrastructure-evolution-hero.png",
       "wordCount": 780,
       "fileSize": 6544,
-      "fileModified": "2026-03-13T17:37:08.689Z"
+      "fileModified": "2026-03-13T16:37:56.387Z"
     },
     {
       "slug": "lessons-from-mentors-enterprise-insights-and-personal-reflections-from-urban-dynamics",
@@ -1623,7 +1664,7 @@
       "headerImage": "/images/lessons-from-mentors-enterprise-insights-and-personal-reflections-from-urban-dynamics-hero.png",
       "wordCount": 1064,
       "fileSize": 8297,
-      "fileModified": "2026-03-13T17:37:08.688Z"
+      "fileModified": "2026-03-13T16:37:56.385Z"
     },
     {
       "slug": "building-a-generative-framework-evolving-ai-coding-agents-and-human-ai-collaboration",
@@ -1663,7 +1704,7 @@
       "headerImage": "/images/building-a-generative-framework-evolving-ai-coding-agents-and-human-ai-collaboration-hero.png",
       "wordCount": 1992,
       "fileSize": 13422,
-      "fileModified": "2026-03-13T17:37:08.686Z"
+      "fileModified": "2026-03-13T16:37:56.382Z"
     },
     {
       "slug": "the-power-of-flat-files-in-blogging-repurposing-coding-tools-for-content-creation-and-ai-optimization",
@@ -1703,7 +1744,7 @@
       "headerImage": "/images/the-power-of-flat-files-in-blogging-repurposing-coding-tools-for-content-creation-and-ai-optimization-hero.png",
       "wordCount": 1945,
       "fileSize": 13385,
-      "fileModified": "2026-03-13T17:37:08.690Z"
+      "fileModified": "2026-03-13T16:37:56.388Z"
     },
     {
       "slug": "troubleshooting-n8n-workflows-integrated-with-supabase-vapi-and-lovable-for-ai-driven-sales-automation",
@@ -1755,7 +1796,7 @@
       "headerImage": "/images/troubleshooting-n8n-workflows-integrated-with-supabase-vapi-and-lovable-for-ai-driven-sales-automation-hero.png",
       "wordCount": 1655,
       "fileSize": 11705,
-      "fileModified": "2026-03-13T17:37:08.691Z"
+      "fileModified": "2026-03-13T16:37:56.388Z"
     },
     {
       "slug": "building-drum-note-ai-powered-drum-transcription-kit-generation-and-hands-on-marketing-with-rendercom",
@@ -1806,7 +1847,7 @@
       "headerImage": "/images/building-drum-note-ai-powered-drum-transcription-kit-generation-and-hands-on-marketing-with-rendercom-hero.png",
       "wordCount": 3751,
       "fileSize": 26157,
-      "fileModified": "2026-03-13T17:37:08.686Z"
+      "fileModified": "2026-03-13T16:37:56.383Z"
     },
     {
       "slug": "replit-test-drive",
@@ -1855,7 +1896,7 @@
       "headerImage": "/images/replit-test-drive-hero.png",
       "wordCount": 1220,
       "fileSize": 12553,
-      "fileModified": "2026-03-13T17:37:08.689Z"
+      "fileModified": "2026-03-13T16:37:56.386Z"
     },
     {
       "slug": "the-last-cycle-why-founder-engineer-partnerships-are-nearing-their-end",
@@ -1907,7 +1948,7 @@
       "headerImage": "/images/the-last-cycle-why-founder-engineer-partnerships-are-nearing-their-end-hero.png",
       "wordCount": 1590,
       "fileSize": 13701,
-      "fileModified": "2026-03-13T17:37:08.690Z"
+      "fileModified": "2026-03-13T16:37:56.388Z"
     },
     {
       "slug": "revenant-hollow-integrating-technology-into-location-based-horror-experiences",
@@ -1957,7 +1998,7 @@
       "headerImage": "/images/revenant-hollow-integrating-technology-into-location-based-horror-experiences-hero.png",
       "wordCount": 1628,
       "fileSize": 12073,
-      "fileModified": "2026-03-13T17:37:08.689Z"
+      "fileModified": "2026-03-13T16:37:56.386Z"
     },
     {
       "slug": "the-jumpstarter-a-5-point-framework-to-align-value-and-passion",
@@ -2007,7 +2048,7 @@
       "headerImage": "/images/the-jumpstarter-a-5-point-framework-to-align-value-and-passion-hero.png",
       "wordCount": 1470,
       "fileSize": 12147,
-      "fileModified": "2026-03-13T17:37:08.690Z"
+      "fileModified": "2026-03-13T16:37:56.387Z"
     },
     {
       "slug": "enhancing-seo-on-my-company-landing-site-with-ai-agents",
@@ -2057,7 +2098,7 @@
       "headerImage": "/images/enhancing-seo-on-my-company-landing-site-with-ai-agents-hero.png",
       "wordCount": 1720,
       "fileSize": 11745,
-      "fileModified": "2026-03-13T17:37:08.687Z"
+      "fileModified": "2026-03-13T16:37:56.384Z"
     },
     {
       "slug": "scaling-novelty-with-an-agentic-blog-bot",
@@ -2105,7 +2146,7 @@
       "headerImage": "/images/scaling-novelty-with-an-agentic-blog-bot-hero.png",
       "wordCount": 1217,
       "fileSize": 10310,
-      "fileModified": "2026-03-13T17:37:08.690Z"
+      "fileModified": "2026-03-13T16:37:56.387Z"
     },
     {
       "slug": "building-an-effective-web-presence-for-professional-validation",
@@ -2155,7 +2196,7 @@
       "headerImage": "/images/building-an-effective-web-presence-for-professional-validation-hero.png",
       "wordCount": 800,
       "fileSize": 6683,
-      "fileModified": "2026-03-13T17:37:08.686Z"
+      "fileModified": "2026-03-13T16:37:56.382Z"
     },
     {
       "slug": "transitioning-from-cable-contracting-to-freelance-web-development-a-career-pivot",
@@ -2209,7 +2250,7 @@
       "headerImage": "/images/transitioning-from-cable-contracting-to-freelance-web-development-a-career-pivot-hero.png",
       "wordCount": 788,
       "fileSize": 6051,
-      "fileModified": "2026-03-13T17:37:08.691Z"
+      "fileModified": "2026-03-13T16:37:56.388Z"
     },
     {
       "slug": "early-adventures-in-freelance-web-development-lessons-from-the-wordpress-era",
@@ -2260,7 +2301,7 @@
       "headerImage": "/images/early-adventures-in-freelance-web-development-lessons-from-the-wordpress-era-hero.png",
       "wordCount": 721,
       "fileSize": 5771,
-      "fileModified": "2026-03-13T17:37:08.687Z"
+      "fileModified": "2026-03-13T16:37:56.384Z"
     },
     {
       "slug": "my-first-tech-job-the-evolution-of-the-docworks-emr-system-2011-2013",
@@ -2315,7 +2356,7 @@
       "headerImage": "/images/my-first-tech-job-the-evolution-of-the-docworks-emr-system-2011-2013-hero.png",
       "wordCount": 1624,
       "fileSize": 11246,
-      "fileModified": "2026-03-13T17:37:08.689Z"
+      "fileModified": "2026-03-13T16:37:56.386Z"
     },
     {
       "slug": "intro-to-linux-how-i-stayed-in-the-dev-game-while-too-broke-to-buy-a-pc",
@@ -2366,7 +2407,7 @@
       "headerImage": "/images/intro-to-linux-how-i-stayed-in-the-dev-game-while-too-broke-to-buy-a-pc-hero.png",
       "wordCount": 752,
       "fileSize": 5966,
-      "fileModified": "2026-03-13T17:37:08.688Z"
+      "fileModified": "2026-03-13T16:37:56.385Z"
     },
     {
       "slug": "my-first-steps-into-coding",
@@ -2410,7 +2451,7 @@
       "headerImage": "/images/my-first-steps-into-coding-hero.png",
       "wordCount": 1115,
       "fileSize": 7699,
-      "fileModified": "2026-03-13T17:37:08.689Z"
+      "fileModified": "2026-03-13T16:37:56.386Z"
     }
   ]
 }
