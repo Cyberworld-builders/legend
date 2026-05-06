@@ -155,7 +155,7 @@ export default function Post() {
       </p>
 
       <p className="mb-4 leading-relaxed">
-        The same week I was looking at that announcement, two more pieces fell into place. Niantic&apos;s Lightship VPS for Web shipped, which means centimeter-precision AR through a browser with no app install required. And 8th Wall, Niantic&apos;s multi-user WebAR runtime, went open source. The infrastructure I would have had to invent in 2020 is now free to self-host on top of a vendor&apos;s centimeter-anchoring service. The conditions for this project finally caught up with the project.
+        The same week I was looking at that announcement, two more pieces moved into place. Niantic&apos;s Lightship VPS for Web shipped — centimeter-precision AR through a browser, no app install required. And 8th Wall, Niantic&apos;s multi-user WebAR runtime, began its transition off the paid hosted platform. The story there is messier than a clean open-source headline. The engine framework is MIT-licensed, but the SLAM core is a binary-only commercial license, the deeper venue-anchoring pieces stay on Niantic&apos;s paid VPS service, and the broader WebAR community is mid-migration to alternatives like Blippar, Mattercraft, and others. The trajectory is still clear. Infrastructure I would have had to invent in 2020 is becoming buyable, self-hostable, or open in some combination. The conditions for this project are catching up with the project.
       </p>
 
       <p className="mb-4 leading-relaxed">
