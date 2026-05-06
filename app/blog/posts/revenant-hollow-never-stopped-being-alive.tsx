@@ -107,8 +107,6 @@ export default function Post() {
         A few weeks after that conversation I went and looked at the actual numbers on what I&apos;d been posting and how it was performing. Not the warm-fuzzy version. The real version. I&apos;ve been gathering data on all the content I publish across every channel for a while now, partly because I&apos;ve been building a market-intelligence layer on top of my own work to find overlap between what I want to do and what people are actually paying for. The shape of what I found surprised me.
       </p>
 
-      <PostCard slug="over-automation-is-the-new-over-engineering" />
-
       <p className="mb-4 leading-relaxed">
         The stuff I was working on years ago for my own projects, with no marketing push and no recent activity, was getting more views and more engagement than the new content I was publishing about technologies I&apos;m currently being paid to work on. It&apos;s nothing mind-blowing. Honestly, the numbers are actually tiny. The shape is what matters: dormant content from a tabled project quietly pacing live content from active client work.
       </p>
@@ -166,12 +164,6 @@ export default function Post() {
       </p>
 
       <p className="mb-4 leading-relaxed">
-        And the same instincts have already started spilling sideways into adjacent work. Cemetery management with GPS plotting and AR-assisted grave maintenance. Death-care and AR investor pitches. The location-based-AR ecosystem isn&apos;t just haunted attractions — it&apos;s any place where the physical environment and the digital layer need to be locked together.
-      </p>
-
-      <PostCard slug="cemetery-management-application-gps-mapping-ar-integration-and-autonomous-maintenance-for-funeral-homes" />
-
-      <p className="mb-4 leading-relaxed">
         The same week I was looking at that announcement, two more pieces moved into place. Niantic&apos;s Lightship VPS for Web shipped — centimeter-precision AR through a browser, no app install required. And 8th Wall, Niantic&apos;s multi-user WebAR runtime, began its transition off the paid hosted platform. The story there is messier than a clean open-source headline. The engine framework is MIT-licensed, but the SLAM core is a binary-only commercial license, the deeper venue-anchoring pieces stay on Niantic&apos;s paid VPS service, and the broader WebAR community is mid-migration to alternatives like Blippar, Mattercraft, and others. The trajectory is still clear. Infrastructure I would have had to invent in 2020 is becoming buyable, self-hostable, or open in some combination. The conditions for this project are catching up with the project.
       </p>
 
@@ -214,8 +206,6 @@ export default function Post() {
       <p className="mb-4 leading-relaxed">
         That&apos;s the actual thesis. The signals just gave it permission to surface again.
       </p>
-
-      <PostCard slug="keep-one-foot-on-the-ground" />
 
       <p className="mb-4 leading-relaxed">
         So that&apos;s what I&apos;m doing now.
