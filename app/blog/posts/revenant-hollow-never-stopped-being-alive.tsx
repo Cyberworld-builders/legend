@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import type { PostMeta } from '@/lib/post-types';
 import PostLayout from '@/components/PostLayout';
 
@@ -105,7 +106,7 @@ export default function Post() {
       </p>
 
       <p className="mb-4 leading-relaxed">
-        The stuff I was working on years ago for my own projects, with no marketing push and no recent activity, was getting more views and more engagement than the new content I was publishing about technologies I&apos;m currently being paid to work on. It's Nothing mind-blowing. Honestly, the numbers are actually tiny. The shape is what matters: dormant content from a tabled project quietly pacing live content from active client work.
+        The stuff I was working on years ago for my own projects, with no marketing push and no recent activity, was getting more views and more engagement than the new content I was publishing about technologies I&apos;m currently being paid to work on. It&apos;s nothing mind-blowing. Honestly, the numbers are actually tiny. The shape is what matters: dormant content from a tabled project quietly pacing live content from active client work.
       </p>
 
       <p className="mb-4 leading-relaxed">
@@ -133,7 +134,7 @@ export default function Post() {
       <h2 className="text-2xl font-bold mb-4 mt-8 text-[#00ff00]">I Already Wrote the Long Version of This Once</h2>
 
       <p className="mb-4 leading-relaxed">
-        I wrote the long-form technical pitch for Revenant Hollow back in 2024. It covers the AR ghost rendering, the facade-wall nodes, the augmented-reality sports complex it eventually scales into, and the matrix-pod observation about why this matters in the first place. The piece is <a href="/blog/revenant-hollow-integrating-technology-into-location-based-horror-experiences" className="text-[#00ff00] underline">here</a>. I&apos;m not going to recap it. The thesis hasn&apos;t changed. What&apos;s changed is everything around it, and that&apos;s what the rest of this post is about.
+        I wrote the long-form technical pitch for Revenant Hollow back in 2024. It covers the AR ghost rendering, the facade-wall nodes, the augmented-reality sports complex it eventually scales into, and the matrix-pod observation about why this matters in the first place. The piece is <Link href="/blog/revenant-hollow-integrating-technology-into-location-based-horror-experiences" className="text-[#00ff00] underline">here</Link>. I&apos;m not going to recap it. The thesis hasn&apos;t changed. What&apos;s changed is everything around it, and that&apos;s what the rest of this post is about.
       </p>
 
       <h2 className="text-2xl font-bold mb-4 mt-8 text-[#00ff00]">What&apos;s Changed Since</h2>
