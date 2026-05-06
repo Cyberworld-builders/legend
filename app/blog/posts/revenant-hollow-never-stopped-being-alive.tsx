@@ -1,6 +1,6 @@
-import Link from 'next/link';
 import type { PostMeta } from '@/lib/post-types';
 import PostLayout from '@/components/PostLayout';
+import PostCard from '@/components/PostCard';
 
 export const metadata: PostMeta = {
   title: "Revenant Hollow Never Stopped Being Alive",
@@ -58,6 +58,8 @@ export default function Post() {
         That observation isn&apos;t the reason I&apos;m picking up Revenant Hollow again. It&apos;s just the most recent of several signals telling me what I already knew underneath. This project never stopped being alive in me. It went quiet for a few years for reasons I&apos;ll get to. It never went away.
       </p>
 
+      <PostCard slug="everything-compounds-now" />
+
       <h2 className="text-2xl font-bold mb-4 mt-8 text-[#00ff00]">A Friend&apos;s Question</h2>
 
       <p className="mb-4 leading-relaxed">
@@ -105,6 +107,8 @@ export default function Post() {
         A few weeks after that conversation I went and looked at the actual numbers on what I&apos;d been posting and how it was performing. Not the warm-fuzzy version. The real version. I&apos;ve been gathering data on all the content I publish across every channel for a while now, partly because I&apos;ve been building a market-intelligence layer on top of my own work to find overlap between what I want to do and what people are actually paying for. The shape of what I found surprised me.
       </p>
 
+      <PostCard slug="over-automation-is-the-new-over-engineering" />
+
       <p className="mb-4 leading-relaxed">
         The stuff I was working on years ago for my own projects, with no marketing push and no recent activity, was getting more views and more engagement than the new content I was publishing about technologies I&apos;m currently being paid to work on. It&apos;s nothing mind-blowing. Honestly, the numbers are actually tiny. The shape is what matters: dormant content from a tabled project quietly pacing live content from active client work.
       </p>
@@ -134,7 +138,13 @@ export default function Post() {
       <h2 className="text-2xl font-bold mb-4 mt-8 text-[#00ff00]">I Already Wrote the Long Version of This Once</h2>
 
       <p className="mb-4 leading-relaxed">
-        I wrote the long-form technical pitch for Revenant Hollow back in 2024. It covers the AR ghost rendering, the facade-wall nodes, the augmented-reality sports complex it eventually scales into, and the matrix-pod observation about why this matters in the first place. The piece is <Link href="/blog/revenant-hollow-integrating-technology-into-location-based-horror-experiences" className="text-[#00ff00] underline">here</Link>. I&apos;m not going to recap it. The thesis hasn&apos;t changed. What&apos;s changed is everything around it, and that&apos;s what the rest of this post is about.
+        I wrote the long-form technical pitch for Revenant Hollow back in 2024. It covers the AR ghost rendering, the facade-wall nodes, the augmented-reality sports complex it eventually scales into, and the matrix-pod observation about why this matters in the first place. I&apos;m not going to recap it.
+      </p>
+
+      <PostCard slug="revenant-hollow-integrating-technology-into-location-based-horror-experiences" />
+
+      <p className="mb-4 leading-relaxed">
+        The thesis hasn&apos;t changed. What&apos;s changed is everything around it, and that&apos;s what the rest of this post is about.
       </p>
 
       <h2 className="text-2xl font-bold mb-4 mt-8 text-[#00ff00]">What&apos;s Changed Since</h2>
@@ -154,6 +164,12 @@ export default function Post() {
       <p className="mb-4 leading-relaxed">
         For somebody coming back to this work greenfield, that&apos;s not just validation. It&apos;s a runway. The work isn&apos;t &quot;should I build a platform?&quot; anymore. It&apos;s &quot;what do I build on top of the platform someone else has already validated?&quot;
       </p>
+
+      <p className="mb-4 leading-relaxed">
+        And the same instincts have already started spilling sideways into adjacent work. Cemetery management with GPS plotting and AR-assisted grave maintenance. Death-care and AR investor pitches. The location-based-AR ecosystem isn&apos;t just haunted attractions — it&apos;s any place where the physical environment and the digital layer need to be locked together.
+      </p>
+
+      <PostCard slug="cemetery-management-application-gps-mapping-ar-integration-and-autonomous-maintenance-for-funeral-homes" />
 
       <p className="mb-4 leading-relaxed">
         The same week I was looking at that announcement, two more pieces moved into place. Niantic&apos;s Lightship VPS for Web shipped — centimeter-precision AR through a browser, no app install required. And 8th Wall, Niantic&apos;s multi-user WebAR runtime, began its transition off the paid hosted platform. The story there is messier than a clean open-source headline. The engine framework is MIT-licensed, but the SLAM core is a binary-only commercial license, the deeper venue-anchoring pieces stay on Niantic&apos;s paid VPS service, and the broader WebAR community is mid-migration to alternatives like Blippar, Mattercraft, and others. The trajectory is still clear. Infrastructure I would have had to invent in 2020 is becoming buyable, self-hostable, or open in some combination. The conditions for this project are catching up with the project.
@@ -198,6 +214,8 @@ export default function Post() {
       <p className="mb-4 leading-relaxed">
         That&apos;s the actual thesis. The signals just gave it permission to surface again.
       </p>
+
+      <PostCard slug="keep-one-foot-on-the-ground" />
 
       <p className="mb-4 leading-relaxed">
         So that&apos;s what I&apos;m doing now.
