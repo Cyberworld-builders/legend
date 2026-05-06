@@ -14,7 +14,7 @@ export const metadata: PostMeta = {
   topics: ["AI & Automation","Development & Tools"],
   tags: ["flat-files","ai-blogging","generative-seo","coding-ide-repurpose","content-framework"],
   category: "Technology",
-  isFeatured: true,
+  isFeatured: false,
   priority: 8,
 };
 

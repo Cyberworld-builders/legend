@@ -14,7 +14,7 @@ export const metadata: PostMeta = {
   topics: ["AI & Automation","Development & Tools"],
   tags: ["generative-ai","coding-agents","ai-autonomy","human-ai-collaboration","software-frameworks"],
   category: "Technology",
-  isFeatured: true,
+  isFeatured: false,
   priority: 9,
 };
 

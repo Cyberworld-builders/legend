@@ -14,7 +14,7 @@ export const metadata: PostMeta = {
   topics: ["AI & Automation","Career & Professional Development"],
   tags: ["ai-humanity","career-transition","societal-optimism","existential-ai","creative-value"],
   category: "Technology",
-  isFeatured: true,
+  isFeatured: false,
   priority: 9,
 };
 

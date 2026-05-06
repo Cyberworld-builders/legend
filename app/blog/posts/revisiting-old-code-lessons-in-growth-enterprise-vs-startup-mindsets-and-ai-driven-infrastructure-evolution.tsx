@@ -14,7 +14,7 @@ export const metadata: PostMeta = {
   topics: ["Development & Tools","Career & Professional Development"],
   tags: ["infrastructure-as-code","generative-ai","enterprise-startup","devops","code-refactoring"],
   category: "Technology",
-  isFeatured: true,
+  isFeatured: false,
   priority: 8,
 };
 

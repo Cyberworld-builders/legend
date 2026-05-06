@@ -31,7 +31,7 @@ export const metadata: PostMeta = {
     "cross-platform-tracking"
   ],
   category: "AI & Automation",
-  isFeatured: false,
+  isFeatured: true,
   isDraft: false,
   priority: 5,
 };

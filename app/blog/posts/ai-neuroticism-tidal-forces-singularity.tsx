@@ -31,7 +31,7 @@ export const metadata: PostMeta = {
     "ai-singularity",
   ],
   category: "AI & Automation",
-  isFeatured: false,
+  isFeatured: true,
   isDraft: false,
   priority: 5,
 };

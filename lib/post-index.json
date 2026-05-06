@@ -1,7 +1,57 @@
 {
-  "generatedAt": "2026-05-05T16:31:44.908Z",
-  "count": 56,
+  "generatedAt": "2026-05-06T22:54:51.601Z",
+  "count": 57,
   "posts": [
+    {
+      "slug": "revenant-hollow-never-stopped-being-alive",
+      "title": "Revenant Hollow Never Stopped Being Alive",
+      "description": "I tabled this project before the pandemic. Years later, three signals stacked up at once: an old friend's question, dormant YouTube numbers out-pacing my paid work, and the speakers I'd sourced years ago mounted in a haunt I walked through. Then Meow Wolf chose Niantic. Then 8th Wall went open source. Here's why I'm picking it back up.",
+      "publishedDate": "2026-05-06",
+      "modifiedDate": "2026-05-06",
+      "isDraft": false,
+      "isFeatured": true,
+      "priority": 5,
+      "category": "Technology",
+      "series": "Entertainment Technology",
+      "topics": [
+        "AI & Automation",
+        "Development & Tools",
+        "Career & Professional Development"
+      ],
+      "tags": [
+        "revenant-hollow",
+        "location-based-entertainment",
+        "augmented-reality",
+        "spatial-computing",
+        "haunted-attractions",
+        "niantic",
+        "8th-wall",
+        "horror-tech",
+        "practical-effects",
+        "personal-recommit"
+      ],
+      "keywords": [
+        "revenant hollow",
+        "location-based entertainment",
+        "haunted attractions",
+        "augmented reality",
+        "niantic spatial",
+        "8th wall open source",
+        "lightship vps",
+        "spatial computing",
+        "lbe technology",
+        "horror entertainment tech",
+        "meow wolf niantic partnership",
+        "practical effects",
+        "third place renaissance",
+        "arx mortis"
+      ],
+      "canonicalUrl": "https://cyberworldbuilders.com/blog/revenant-hollow-never-stopped-being-alive",
+      "headerImage": "/images/revenant-hollow-never-stopped-being-alive-hero.png",
+      "wordCount": 2295,
+      "fileSize": 17091,
+      "fileModified": "2026-05-06T22:54:04.339Z"
+    },
     {
       "slug": "ai-neuroticism-tidal-forces-singularity",
       "title": "AI Neuroticism and the Tidal Forces of the Singularity",
@@ -9,7 +59,7 @@
       "publishedDate": "2026-05-05",
       "modifiedDate": "2026-05-05",
       "isDraft": false,
-      "isFeatured": false,
+      "isFeatured": true,
       "priority": 5,
       "category": "AI & Automation",
       "series": "",
@@ -39,9 +89,9 @@
       ],
       "canonicalUrl": "https://cyberworldbuilders.com/blog/ai-neuroticism-tidal-forces-singularity",
       "headerImage": "/images/ai-neuroticism-tidal-forces-singularity-hero.png",
-      "wordCount": 2887,
-      "fileSize": 19478,
-      "fileModified": "2026-05-05T16:23:48.157Z"
+      "wordCount": 2924,
+      "fileSize": 19714,
+      "fileModified": "2026-05-06T22:54:37.181Z"
     },
     {
       "slug": "claude-code-in-my-pocket-two-hour-internal-ios-app",
@@ -132,7 +182,7 @@
       "publishedDate": "2026-04-08",
       "modifiedDate": "2026-04-08",
       "isDraft": false,
-      "isFeatured": false,
+      "isFeatured": true,
       "priority": 5,
       "category": "AI & Automation",
       "series": "",
@@ -162,8 +212,8 @@
       "canonicalUrl": "https://cyberworldbuilders.com/blog/over-automation-is-the-new-over-engineering",
       "headerImage": "/images/over-automation-is-the-new-over-engineering-hero.png",
       "wordCount": 2293,
-      "fileSize": 15625,
-      "fileModified": "2026-05-05T01:40:20.768Z"
+      "fileSize": 15624,
+      "fileModified": "2026-05-06T22:54:37.273Z"
     },
     {
       "slug": "why-my-ai-os-survived-anthropics-harness-lockdown",
@@ -1392,7 +1442,7 @@
       "publishedDate": "2025-10-15",
       "modifiedDate": "2026-03-05",
       "isDraft": false,
-      "isFeatured": true,
+      "isFeatured": false,
       "priority": 9,
       "category": "Technology",
       "series": "",
@@ -1423,8 +1473,8 @@
       "canonicalUrl": "https://cyberworldbuilders.com/blog/first-pitch-meeting-reflections-lessons-confidence-and-alignment-in-death-care-and-ar-innovation",
       "headerImage": "/images/first-pitch-meeting-reflections-lessons-confidence-and-alignment-in-death-care-and-ar-innovation-hero.png",
       "wordCount": 688,
-      "fileSize": 5567,
-      "fileModified": "2026-03-13T16:37:56.384Z"
+      "fileSize": 5568,
+      "fileModified": "2026-05-06T22:54:37.157Z"
     },
     {
       "slug": "chatbot-breakthrough-how-openais-web-crawling-validates-generative-seo-for-smarter-site-interactions",
@@ -1433,7 +1483,7 @@
       "publishedDate": "2025-10-04",
       "modifiedDate": "2025-10-04",
       "isDraft": false,
-      "isFeatured": true,
+      "isFeatured": false,
       "priority": 9,
       "category": "Technology",
       "series": "",
@@ -1462,8 +1512,8 @@
       "canonicalUrl": "https://cyberworldbuilders.com/blog/chatbot-breakthrough-how-openais-web-crawling-validates-generative-seo-for-smarter-site-interactions",
       "headerImage": "/images/chatbot-breakthrough-how-openais-web-crawling-validates-generative-seo-for-smarter-site-interactions-hero.png",
       "wordCount": 2387,
-      "fileSize": 17202,
-      "fileModified": "2026-03-13T16:37:56.383Z"
+      "fileSize": 17203,
+      "fileModified": "2026-05-06T22:54:37.106Z"
     },
     {
       "slug": "from-hybrid-intel-trio-to-drum-note-evolving-ai-human-synergy-in-music-collaboration",
@@ -1472,7 +1522,7 @@
       "publishedDate": "2025-10-03",
       "modifiedDate": "2025-10-03",
       "isDraft": false,
-      "isFeatured": true,
+      "isFeatured": false,
       "priority": 9,
       "category": "Technology",
       "series": "",
@@ -1503,8 +1553,8 @@
       "canonicalUrl": "https://cyberworldbuilders.com/blog/from-hybrid-intel-trio-to-drum-note-evolving-ai-human-synergy-in-music-collaboration",
       "headerImage": "/images/from-hybrid-intel-trio-to-drum-note-evolving-ai-human-synergy-in-music-collaboration-hero.png",
       "wordCount": 5328,
-      "fileSize": 33772,
-      "fileModified": "2026-03-13T16:37:56.385Z"
+      "fileSize": 33773,
+      "fileModified": "2026-05-06T22:54:37.051Z"
     },
     {
       "slug": "ai-humanity-and-the-future-career-reflections-and-societal-shifts-in-an-automated-world",
@@ -1513,7 +1563,7 @@
       "publishedDate": "2025-10-01",
       "modifiedDate": "2025-10-01",
       "isDraft": false,
-      "isFeatured": true,
+      "isFeatured": false,
       "priority": 9,
       "category": "Technology",
       "series": "",
@@ -1543,8 +1593,8 @@
       "canonicalUrl": "https://cyberworldbuilders.com/blog/ai-humanity-and-the-future-career-reflections-and-societal-shifts-in-an-automated-world",
       "headerImage": "/images/ai-humanity-and-the-future-career-reflections-and-societal-shifts-in-an-automated-world-hero.png",
       "wordCount": 5077,
-      "fileSize": 32929,
-      "fileModified": "2026-03-13T16:37:56.382Z"
+      "fileSize": 32930,
+      "fileModified": "2026-05-06T22:54:37.013Z"
     },
     {
       "slug": "cemetery-management-application-gps-mapping-ar-integration-and-autonomous-maintenance-for-funeral-homes",
@@ -1593,7 +1643,7 @@
       "publishedDate": "2025-09-25",
       "modifiedDate": "2026-03-05",
       "isDraft": false,
-      "isFeatured": true,
+      "isFeatured": false,
       "priority": 8,
       "category": "Technology",
       "series": "",
@@ -1623,8 +1673,8 @@
       "canonicalUrl": "https://cyberworldbuilders.com/blog/revisiting-old-code-lessons-in-growth-enterprise-vs-startup-mindsets-and-ai-driven-infrastructure-evolution",
       "headerImage": "/images/revisiting-old-code-lessons-in-growth-enterprise-vs-startup-mindsets-and-ai-driven-infrastructure-evolution-hero.png",
       "wordCount": 780,
-      "fileSize": 6544,
-      "fileModified": "2026-03-13T16:37:56.387Z"
+      "fileSize": 6545,
+      "fileModified": "2026-05-06T22:54:36.598Z"
     },
     {
       "slug": "lessons-from-mentors-enterprise-insights-and-personal-reflections-from-urban-dynamics",
@@ -1633,7 +1683,7 @@
       "publishedDate": "2025-09-24",
       "modifiedDate": "2026-03-05",
       "isDraft": false,
-      "isFeatured": true,
+      "isFeatured": false,
       "priority": 8,
       "category": "Career",
       "series": "",
@@ -1663,8 +1713,8 @@
       "canonicalUrl": "https://cyberworldbuilders.com/blog/lessons-from-mentors-enterprise-insights-and-personal-reflections-from-urban-dynamics",
       "headerImage": "/images/lessons-from-mentors-enterprise-insights-and-personal-reflections-from-urban-dynamics-hero.png",
       "wordCount": 1064,
-      "fileSize": 8297,
-      "fileModified": "2026-03-13T16:37:56.385Z"
+      "fileSize": 8298,
+      "fileModified": "2026-05-06T22:54:36.499Z"
     },
     {
       "slug": "building-a-generative-framework-evolving-ai-coding-agents-and-human-ai-collaboration",
@@ -1673,7 +1723,7 @@
       "publishedDate": "2025-09-23",
       "modifiedDate": "2026-03-06",
       "isDraft": false,
-      "isFeatured": true,
+      "isFeatured": false,
       "priority": 9,
       "category": "Technology",
       "series": "",
@@ -1703,8 +1753,8 @@
       "canonicalUrl": "https://cyberworldbuilders.com/blog/building-a-generative-framework-evolving-ai-coding-agents-and-human-ai-collaboration",
       "headerImage": "/images/building-a-generative-framework-evolving-ai-coding-agents-and-human-ai-collaboration-hero.png",
       "wordCount": 1992,
-      "fileSize": 13422,
-      "fileModified": "2026-03-13T16:37:56.382Z"
+      "fileSize": 13423,
+      "fileModified": "2026-05-06T22:54:36.225Z"
     },
     {
       "slug": "the-power-of-flat-files-in-blogging-repurposing-coding-tools-for-content-creation-and-ai-optimization",
@@ -1713,7 +1763,7 @@
       "publishedDate": "2025-09-23",
       "modifiedDate": "2026-03-06",
       "isDraft": false,
-      "isFeatured": true,
+      "isFeatured": false,
       "priority": 8,
       "category": "Technology",
       "series": "",
@@ -1743,8 +1793,8 @@
       "canonicalUrl": "https://cyberworldbuilders.com/blog/the-power-of-flat-files-in-blogging-repurposing-coding-tools-for-content-creation-and-ai-optimization",
       "headerImage": "/images/the-power-of-flat-files-in-blogging-repurposing-coding-tools-for-content-creation-and-ai-optimization-hero.png",
       "wordCount": 1945,
-      "fileSize": 13385,
-      "fileModified": "2026-03-13T16:37:56.388Z"
+      "fileSize": 13386,
+      "fileModified": "2026-05-06T22:54:36.401Z"
     },
     {
       "slug": "troubleshooting-n8n-workflows-integrated-with-supabase-vapi-and-lovable-for-ai-driven-sales-automation",
@@ -2107,7 +2157,7 @@
       "publishedDate": "2024-01-12",
       "modifiedDate": "2025-09-23",
       "isDraft": false,
-      "isFeatured": true,
+      "isFeatured": false,
       "priority": 6,
       "category": "Technology",
       "series": "AI & Automation",
@@ -2145,8 +2195,8 @@
       "canonicalUrl": "https://cyberworldbuilders.com/blog/scaling-novelty-with-an-agentic-blog-bot",
       "headerImage": "/images/scaling-novelty-with-an-agentic-blog-bot-hero.png",
       "wordCount": 1217,
-      "fileSize": 10310,
-      "fileModified": "2026-03-13T16:37:56.387Z"
+      "fileSize": 10311,
+      "fileModified": "2026-05-06T22:54:36.201Z"
     },
     {
       "slug": "building-an-effective-web-presence-for-professional-validation",
@@ -2155,7 +2205,7 @@
       "publishedDate": "2024-01-10",
       "modifiedDate": "2026-03-05",
       "isDraft": false,
-      "isFeatured": true,
+      "isFeatured": false,
       "priority": 8,
       "category": "Career",
       "series": "Professional Development",
@@ -2195,8 +2245,8 @@
       "canonicalUrl": "https://cyberworldbuilders.com/blog/building-an-effective-web-presence-for-professional-validation",
       "headerImage": "/images/building-an-effective-web-presence-for-professional-validation-hero.png",
       "wordCount": 800,
-      "fileSize": 6683,
-      "fileModified": "2026-03-13T16:37:56.382Z"
+      "fileSize": 6684,
+      "fileModified": "2026-05-06T22:54:36.134Z"
     },
     {
       "slug": "transitioning-from-cable-contracting-to-freelance-web-development-a-career-pivot",
@@ -2205,7 +2255,7 @@
       "publishedDate": "2024-01-09",
       "modifiedDate": "2026-03-05",
       "isDraft": false,
-      "isFeatured": true,
+      "isFeatured": false,
       "priority": 1,
       "category": "Career",
       "series": "Career Journey",
@@ -2249,8 +2299,8 @@
       "canonicalUrl": "https://cyberworldbuilders.com/blog/transitioning-from-cable-contracting-to-freelance-web-development-a-career-pivot",
       "headerImage": "/images/transitioning-from-cable-contracting-to-freelance-web-development-a-career-pivot-hero.png",
       "wordCount": 788,
-      "fileSize": 6051,
-      "fileModified": "2026-03-13T16:37:56.388Z"
+      "fileSize": 6052,
+      "fileModified": "2026-05-06T22:54:36.002Z"
     },
     {
       "slug": "early-adventures-in-freelance-web-development-lessons-from-the-wordpress-era",
