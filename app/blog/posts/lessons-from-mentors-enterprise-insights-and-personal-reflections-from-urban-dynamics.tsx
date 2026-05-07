@@ -14,7 +14,7 @@ export const metadata: PostMeta = {
   topics: ["Career & Professional Development","Development & Tools"],
   tags: ["enterprise-devops","mentorship","identity-access-management","startup-enterprise","personal-reflection"],
   category: "Career",
-  isFeatured: true,
+  isFeatured: false,
   priority: 8,
 };
 

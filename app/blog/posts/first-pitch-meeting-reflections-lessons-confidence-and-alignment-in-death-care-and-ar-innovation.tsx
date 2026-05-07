@@ -14,7 +14,7 @@ export const metadata: PostMeta = {
   topics: ["Career & Professional Development","AI & Automation","Entrepreneurship"],
   tags: ["pitch-reflections","death-care-ar","prototyping","investor-strategy","revenant-hollow"],
   category: "Technology",
-  isFeatured: true,
+  isFeatured: false,
   priority: 9,
 };
 

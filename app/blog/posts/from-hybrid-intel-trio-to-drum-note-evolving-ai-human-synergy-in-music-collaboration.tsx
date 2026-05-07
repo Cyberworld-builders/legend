@@ -14,7 +14,7 @@ export const metadata: PostMeta = {
   topics: ["AI & Automation","Development & Tools","Marketing & Business"],
   tags: ["AI-creativity","music-AI","human-AI-collaboration","RLHF-in-recommendations","session-musician"],
   category: "Technology",
-  isFeatured: true,
+  isFeatured: false,
   priority: 9,
 };
 

@@ -15,7 +15,7 @@ export const metadata: PostMeta = {
   tags: ["web-presence","professional-branding","SEO","freelancing","digital-marketing","content-strategy","networking","personal-brand","career-development","online-validation"],
   series: "Professional Development",
   category: "Career",
-  isFeatured: true,
+  isFeatured: false,
   priority: 8,
 };
 

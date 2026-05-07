@@ -15,7 +15,7 @@ export const metadata: PostMeta = {
   tags: ["AI","blog-bot","content-creation","automation","digital-legacy","creativity","AI-agents","content-strategy","personal-branding","technology","innovation"],
   series: "AI & Automation",
   category: "Technology",
-  isFeatured: true,
+  isFeatured: false,
   priority: 6,
 };
 

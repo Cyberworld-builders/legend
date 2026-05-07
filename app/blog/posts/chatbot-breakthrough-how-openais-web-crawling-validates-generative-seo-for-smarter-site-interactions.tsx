@@ -14,7 +14,7 @@ export const metadata: PostMeta = {
   topics: ["AI & Automation","Development & Tools"],
   tags: ["AI-chatbot","generative-search","web-optimization","RAG-implementation","SEO-strategy"],
   category: "Technology",
-  isFeatured: true,
+  isFeatured: false,
   priority: 9,
 };
 

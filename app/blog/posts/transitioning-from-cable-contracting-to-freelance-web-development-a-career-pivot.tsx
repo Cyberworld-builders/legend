@@ -15,7 +15,7 @@ export const metadata: PostMeta = {
   tags: ["career-transition","cable-contracting","freelance","web-development","misclassification","charter-communications","upwork","wordpress","PHP","MySQL","self-learning","global-market","career-pivot","manual-labor","programming"],
   series: "Career Journey",
   category: "Career",
-  isFeatured: true,
+  isFeatured: false,
   priority: 1,
 };
 
