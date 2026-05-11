@@ -84,12 +84,15 @@ export default function ServicesIndexContent() {
               Tell us what you&apos;re trying to solve. We&apos;ll figure out which combination
               of services gets you there fastest.
             </p>
+            {/* email_off opts out of Cloudflare's email obfuscation, which otherwise rewrites mailto links to /cdn-cgi/l/email-protection — a page Cloudflare serves without a meta description, flagged by SEO crawlers. */}
+            <span dangerouslySetInnerHTML={{ __html: '<!--email_off-->' }} />
             <a
               href="mailto:contact@cyberworldbuilders.com"
               className="inline-block px-8 py-4 bg-[#00ff00] text-[#1a1a1a] font-bold rounded-lg hover:bg-[#00cc00] transition-colors text-lg"
             >
               Start a Conversation
             </a>
+            <span dangerouslySetInnerHTML={{ __html: '<!--/email_off-->' }} />
           </div>
         </section>
       </main>

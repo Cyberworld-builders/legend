@@ -95,9 +95,12 @@ export default function PrivacyPolicy() {
               <h2 className="text-xl font-bold text-[#00ff00] mb-3">Contact</h2>
               <p>
                 For privacy-related questions or requests, contact us at{' '}
+                {/* email_off opts out of Cloudflare's email obfuscation, which otherwise rewrites mailto links to /cdn-cgi/l/email-protection — a page Cloudflare serves without a meta description, flagged by SEO crawlers. */}
+                <span dangerouslySetInnerHTML={{ __html: '<!--email_off-->' }} />
                 <a href="mailto:contact@cyberworldbuilders.com" className="text-[#00ff00] underline">
                   contact@cyberworldbuilders.com
-                </a>.
+                </a>
+                <span dangerouslySetInnerHTML={{ __html: '<!--/email_off-->' }} />.
               </p>
             </section>
           </div>

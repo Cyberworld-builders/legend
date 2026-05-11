@@ -29,12 +29,15 @@ export default function SiteFooter() {
             <p className="text-sm font-bold text-[#00ff00] uppercase tracking-widest mb-4">Connect</p>
             <SocialLinks />
             <p className="mt-4 text-sm text-[#00ff00]/60">
+              {/* email_off opts out of Cloudflare's email obfuscation, which otherwise rewrites mailto links to /cdn-cgi/l/email-protection — a page Cloudflare serves without a meta description, flagged by SEO crawlers. */}
+              <span dangerouslySetInnerHTML={{ __html: '<!--email_off-->' }} />
               <a
                 href="mailto:contact@cyberworldbuilders.com"
                 className="hover:text-[#00ff00] transition-colors"
               >
                 contact@cyberworldbuilders.com
               </a>
+              <span dangerouslySetInnerHTML={{ __html: '<!--/email_off-->' }} />
             </p>
           </div>
         </div>
