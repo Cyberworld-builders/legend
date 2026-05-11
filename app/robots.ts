@@ -20,7 +20,7 @@ export default function robots(): MetadataRoute.Robots {
           'cohere-ai',
         ],
         allow: '/',
-        disallow: ['/admin/', '/api/'],
+        disallow: ['/admin/', '/api/', '/cdn-cgi/'],
       },
     ],
     sitemap: 'https://cyberworldbuilders.com/sitemap.xml',

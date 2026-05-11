@@ -35,7 +35,7 @@ export default function PostCard({ slug }: PostCardProps) {
         <div className="relative flex-shrink-0 w-32 h-20 sm:w-40 sm:h-24 rounded overflow-hidden bg-black">
           <Image
             src={post.headerImage}
-            alt=""
+            alt={post.title}
             fill
             className="object-cover"
             sizes="(max-width: 640px) 128px, 160px"
