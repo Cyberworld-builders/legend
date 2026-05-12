@@ -8,12 +8,12 @@
     "publishedDate": "2026-03-08"
   },
   {
-    "slug": "claude-code-in-my-pocket-two-hour-internal-ios-app",
-    "title": "Claude Code in My Pocket: A Two-Hour Internal iOS App",
-    "description": "Two-hour build, no App Store, Claude Code in my pocket through a VPN. Why I'm building internal tools instead of shipping products.",
-    "headerImage": "/images/claude-code-in-my-pocket-two-hour-internal-ios-app-hero.png",
-    "category": "Development & Tools",
-    "publishedDate": "2026-04-16"
+    "slug": "revenant-hollow-never-stopped-being-alive",
+    "title": "Revenant Hollow Never Stopped Being Alive",
+    "description": "I tabled this project before the pandemic. Years later, three signals stacked up at once: an old friend's question, dormant YouTube numbers out-pacing my paid work, and the speakers I'd sourced years ago mounted in a haunt I walked through. Then Meow Wolf chose Niantic. Then 8th Wall went open source. Here's why I'm picking it back up.",
+    "headerImage": "/images/revenant-hollow-never-stopped-being-alive-hero.png",
+    "category": "Technology",
+    "publishedDate": "2026-05-06"
   },
   {
     "slug": "upwork-automation-strategy-insights",
@@ -24,12 +24,12 @@
     "publishedDate": "2026-03-08"
   },
   {
-    "slug": "show-up-with-the-solution-already-built",
-    "title": "Show Up With the Solution Already Built",
-    "description": "How AI agents changed my Upwork fixed-price strategy from career worst to competitive advantage. Build first, pitch second, post the demo either way.",
-    "headerImage": "/images/show-up-with-the-solution-already-built-hero.png",
-    "category": "Career & Professional Development",
-    "publishedDate": "2026-04-09"
+    "slug": "ai-neuroticism-tidal-forces-singularity",
+    "title": "AI Neuroticism and the Tidal Forces of the Singularity",
+    "description": "It's not the singularity that spaghettifies you. It's the tidal forces \u2014 the differential rate of change that's tearing engineers and founders apart. Here's how to step out of the hype-vs-trolls feedback loop.",
+    "headerImage": "/images/ai-neuroticism-tidal-forces-singularity-hero.png",
+    "category": "AI & Automation",
+    "publishedDate": "2026-05-05"
   },
   {
     "slug": "stop-nickel-and-diming-ai-tools-go-all-in",
@@ -40,6 +40,14 @@
     "publishedDate": "2026-03-07"
   },
   {
+    "slug": "claude-code-in-my-pocket-two-hour-internal-ios-app",
+    "title": "Claude Code in My Pocket: A Two-Hour Internal iOS App",
+    "description": "Two-hour build, no App Store, Claude Code in my pocket through a VPN. Why I'm building internal tools instead of shipping products.",
+    "headerImage": "/images/claude-code-in-my-pocket-two-hour-internal-ios-app-hero.png",
+    "category": "Development & Tools",
+    "publishedDate": "2026-04-16"
+  },
+  {
     "slug": "over-automation-is-the-new-over-engineering",
     "title": "Over-Automation Is the New Over-Engineering",
     "description": "Why the smartest AI strategy is knowing where to keep humans in the loop. From social posting friction to browser scraping, lessons from building a cross-platform content analytics system.",
@@ -48,27 +56,19 @@
     "publishedDate": "2026-04-08"
   },
   {
-    "slug": "first-pitch-meeting-reflections-lessons-confidence-and-alignment-in-death-care-and-ar-innovation",
-    "title": "First Pitch Meeting Reflections: Lessons, Confidence, and Alignment in Death Care and AR Innovation",
-    "description": "Reflections on my first investor pitch meeting, its unexpected value as a forcing function for prototyping, and the alignment of death care solutions with augmented reality (AR) location-based experiences, reinforcing confidence to pursue the vision independently.",
-    "headerImage": "/images/first-pitch-meeting-reflections-lessons-confidence-and-alignment-in-death-care-and-ar-innovation-hero.png",
+    "slug": "cemetery-management-application-gps-mapping-ar-integration-and-autonomous-maintenance-for-funeral-homes",
+    "title": "Cemetery Management Application: GPS Mapping, AR Integration, and Autonomous Maintenance for Funeral Homes",
+    "description": "Exploring the development of a custom SaaS cemetery management app with GPS grave plotting, AR-assisted maintenance, and autonomous drone/UGV patrols, tying into Revenant Hollow's location-based AR ecosystem.",
+    "headerImage": "/images/cemetery-management-application-gps-mapping-ar-integration-and-autonomous-maintenance-for-funeral-homes-hero.png",
     "category": "Technology",
-    "publishedDate": "2025-10-15"
+    "publishedDate": "2025-09-28"
   },
   {
-    "slug": "chatbot-breakthrough-how-openais-web-crawling-validates-generative-seo-for-smarter-site-interactions",
-    "title": "Chatbot Breakthrough: How OpenAI's Web Crawling Validates Generative SEO for Smarter Site Interactions",
-    "description": "Uncovering the power of simple LangChain chatbots enhanced by OpenAI's training data, turning basic prompts into accurate, linked responses\u2014proving the value of generative search optimization for blogs.",
-    "headerImage": "/images/chatbot-breakthrough-how-openais-web-crawling-validates-generative-seo-for-smarter-site-interactions-hero.png",
+    "slug": "revenant-hollow-integrating-technology-into-location-based-horror-experiences",
+    "title": "Revenant Hollow: Integrating Technology into Location-Based Horror Experiences",
+    "description": "An interactive, location-based entertainment experience that incorporates mixed reality, IoT, and automation to enhance theatrical horror attractions and seasonal Halloween markets.",
+    "headerImage": "/images/revenant-hollow-integrating-technology-into-location-based-horror-experiences-hero.png",
     "category": "Technology",
-    "publishedDate": "2025-10-04"
-  },
-  {
-    "slug": "from-hybrid-intel-trio-to-drum-note-evolving-ai-human-synergy-in-music-collaboration",
-    "title": "From Hybrid Intel Trio to Drum Note: Evolving AI-Human Synergy in Music Collaboration",
-    "description": "Tracing the evolution of AI-music ideas from Pandora's lessons in RLHF to BotBand and Drum Note, exploring optimal human-AI collaboration in creativity, relationships, and education for meaningful alignment.",
-    "headerImage": "/images/from-hybrid-intel-trio-to-drum-note-evolving-ai-human-synergy-in-music-collaboration-hero.png",
-    "category": "Technology",
-    "publishedDate": "2025-10-03"
+    "publishedDate": "2024-01-15"
   }
 ]
