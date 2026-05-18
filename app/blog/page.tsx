@@ -176,13 +176,14 @@ export default async function BlogIndex({ searchParams }: BlogIndexProps) {
         </div>
       )}
 
-      {/* CollectionPage Schema with freshness signals */}
+      {/* Blog schema with embedded BlogPosting entries — gives crawlers explicit
+          BlogPosting markup on the listing page in addition to per-post pages. */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
-            "@type": "CollectionPage",
+            "@type": "Blog",
             name: tagFilter
               ? `Posts tagged with "${tagFilter}" - CyberWorld Builders Blog`
               : "Blog — Real Engineering, Not AI Fluff | CyberWorld Builders",
@@ -201,8 +202,29 @@ export default async function BlogIndex({ searchParams }: BlogIndexProps) {
             publisher: {
               "@type": "Organization",
               name: "CyberWorld Builders",
-              logo: { "@type": "ImageObject", url: "https://cyberworldbuilders.com/images/logo.png" },
+              logo: { "@type": "ImageObject", url: "https://cyberworldbuilders.com/images/logo.png", width: 250, height: 250 },
             },
+            blogPost: posts.map((p) => {
+              const headerImage = p.headerImage && p.headerImage.trim() !== ''
+                ? (p.headerImage.startsWith('http') ? p.headerImage : `https://cyberworldbuilders.com${p.headerImage}`)
+                : 'https://cyberworldbuilders.com/images/logo.png';
+              return {
+                "@type": "BlogPosting",
+                headline: p.title,
+                description: p.description,
+                url: `https://cyberworldbuilders.com/blog/${p.slug}`,
+                mainEntityOfPage: { "@type": "WebPage", "@id": `https://cyberworldbuilders.com/blog/${p.slug}` },
+                datePublished: p.mtime.toISOString(),
+                dateModified: new Date(p.modifiedDate || p.mtime.toISOString()).toISOString(),
+                image: { "@type": "ImageObject", url: headerImage, width: 1200, height: 630 },
+                author: { "@type": "Person", name: "Jay Long", url: "https://cyberworldbuilders.com" },
+                publisher: {
+                  "@type": "Organization",
+                  name: "CyberWorld Builders",
+                  logo: { "@type": "ImageObject", url: "https://cyberworldbuilders.com/images/logo.png", width: 250, height: 250 },
+                },
+              };
+            }),
             mainEntity: {
               "@type": "ItemList",
               numberOfItems: allPosts.length,
