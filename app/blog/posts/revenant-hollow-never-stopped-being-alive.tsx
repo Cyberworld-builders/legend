@@ -94,7 +94,9 @@ export default function Post() {
         <img
           src="/images/revenant-hollow-arduino-node-prototype.png"
           alt="A node prototype on a workbench: Arduino, breadboard, jumper wires, glowing blue LED"
-          className="w-full max-w-md mx-auto rounded"
+          width={793}
+          height={900}
+          className="w-full max-w-md mx-auto rounded h-auto"
         />
         <figcaption className="text-center text-sm text-gray-400 mt-2">
           A node prototype from years back. Still on the workbench.
@@ -215,7 +217,9 @@ export default function Post() {
         <img
           src="/images/revenant-hollow-haunt-fog-night.png"
           alt="Night-time haunt environment: a dimly lit structure with heavy fog drifting under a single warm overhead light"
-          className="w-full max-w-md mx-auto rounded"
+          width={510}
+          height={900}
+          className="w-full max-w-md mx-auto rounded h-auto"
         />
         <figcaption className="text-center text-sm text-gray-400 mt-2">
           The work doesn&apos;t live online. It lives outside, after dark, in the fog.
