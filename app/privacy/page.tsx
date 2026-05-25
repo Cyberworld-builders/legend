@@ -95,9 +95,11 @@ export default function PrivacyPolicy() {
               <h2 className="text-xl font-bold text-[#00ff00] mb-3">Contact</h2>
               <p>
                 For privacy-related questions or requests, contact us at{' '}
+                <span dangerouslySetInnerHTML={{ __html: '<!--email_off-->' }} />
                 <a href="mailto:contact@cyberworldbuilders.com" className="text-[#00ff00] underline">
                   contact@cyberworldbuilders.com
-                </a>.
+                </a>
+                <span dangerouslySetInnerHTML={{ __html: '<!--/email_off-->' }} />.
               </p>
             </section>
           </div>
