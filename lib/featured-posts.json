@@ -1,11 +1,27 @@
 [
   {
+    "slug": "one-week-claude-code-publishing-pipeline",
+    "title": "One Week with Claude Code: Building an AI-Powered Publishing Pipeline",
+    "description": "After seven days of building with Claude Code and my AI assistant Gus, I shipped an end-to-end blog pipeline, an SEO auditor, and a chatbot \u2014 most of it while cleaning my office.",
+    "headerImage": "/images/one-week-claude-code-publishing-pipeline-hero.png",
+    "category": "AI & Automation",
+    "publishedDate": "2026-03-08"
+  },
+  {
     "slug": "revenant-hollow-never-stopped-being-alive",
     "title": "Revenant Hollow Never Stopped Being Alive",
     "description": "I tabled this project before the pandemic. Years later, three signals stacked up at once: an old friend's question, dormant YouTube numbers out-pacing my paid work, and the speakers I'd sourced years ago mounted in a haunt I walked through. Then Meow Wolf chose Niantic. Then 8th Wall went open source. Here's why I'm picking it back up.",
     "headerImage": "/images/revenant-hollow-never-stopped-being-alive-hero.png",
     "category": "Technology",
     "publishedDate": "2026-05-06"
+  },
+  {
+    "slug": "upwork-automation-strategy-insights",
+    "title": "What Crawling Upwork Every Day Taught Me About Where to Go Next",
+    "description": "How automating Upwork job searches with an AI agent revealed gaps in my skills, validated my business strategy, and surfaced a hosting opportunity I should have seen coming.",
+    "headerImage": "/images/upwork-automation-strategy-insights-hero.png",
+    "category": "Business & Marketing",
+    "publishedDate": "2026-03-08"
   },
   {
     "slug": "ai-neuroticism-tidal-forces-singularity",
@@ -16,20 +32,20 @@
     "publishedDate": "2026-05-05"
   },
   {
+    "slug": "stop-nickel-and-diming-ai-tools-go-all-in",
+    "title": "Stop Nickel-and-Diming Your AI Tools and Go All In",
+    "description": "How a desperate deal with a bad client led to a Claude Pro Max subscription that changed everything. Why spreading across cheap AI subscriptions is holding you back, and what happens when you commit.",
+    "headerImage": "/images/stop-nickel-and-diming-ai-tools-go-all-in-hero.png",
+    "category": "AI & Automation",
+    "publishedDate": "2026-03-07"
+  },
+  {
     "slug": "claude-code-in-my-pocket-two-hour-internal-ios-app",
     "title": "Claude Code in My Pocket: A Two-Hour Internal iOS App",
     "description": "Two-hour build, no App Store, Claude Code in my pocket through a VPN. Why I'm building internal tools instead of shipping products.",
     "headerImage": "/images/claude-code-in-my-pocket-two-hour-internal-ios-app-hero.png",
     "category": "Development & Tools",
     "publishedDate": "2026-04-16"
-  },
-  {
-    "slug": "show-up-with-the-solution-already-built",
-    "title": "Show Up With the Solution Already Built",
-    "description": "How AI agents changed my Upwork fixed-price strategy from career worst to competitive advantage. Build first, pitch second, post the demo either way.",
-    "headerImage": "/images/show-up-with-the-solution-already-built-hero.png",
-    "category": "Career & Professional Development",
-    "publishedDate": "2026-04-09"
   },
   {
     "slug": "over-automation-is-the-new-over-engineering",
@@ -40,11 +56,19 @@
     "publishedDate": "2026-04-08"
   },
   {
-    "slug": "why-my-ai-os-survived-anthropics-harness-lockdown",
-    "title": "Why My AI OS Survived Anthropic's Harness Lockdown",
-    "description": "Anthropic cut off third-party harness access to Claude Code subscriptions. My custom AI agent setup kept running. Here's why the architecture held up, and where it's still vulnerable.",
-    "headerImage": "/images/why-my-ai-os-survived-anthropics-harness-lockdown-hero.png",
-    "category": "AI & Automation",
-    "publishedDate": "2026-04-06"
+    "slug": "cemetery-management-application-gps-mapping-ar-integration-and-autonomous-maintenance-for-funeral-homes",
+    "title": "Cemetery Management Application: GPS Mapping, AR Integration, and Autonomous Maintenance for Funeral Homes",
+    "description": "Exploring the development of a custom SaaS cemetery management app with GPS grave plotting, AR-assisted maintenance, and autonomous drone/UGV patrols, tying into Revenant Hollow's location-based AR ecosystem.",
+    "headerImage": "/images/cemetery-management-application-gps-mapping-ar-integration-and-autonomous-maintenance-for-funeral-homes-hero.png",
+    "category": "Technology",
+    "publishedDate": "2025-09-28"
+  },
+  {
+    "slug": "revenant-hollow-integrating-technology-into-location-based-horror-experiences",
+    "title": "Revenant Hollow: Integrating Technology into Location-Based Horror Experiences",
+    "description": "An interactive, location-based entertainment experience that incorporates mixed reality, IoT, and automation to enhance theatrical horror attractions and seasonal Halloween markets.",
+    "headerImage": "/images/revenant-hollow-integrating-technology-into-location-based-horror-experiences-hero.png",
+    "category": "Technology",
+    "publishedDate": "2024-01-15"
   }
 ]
