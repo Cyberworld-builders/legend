@@ -1,7 +1,36 @@
 {
-  "generatedAt": "2026-05-06T22:54:51.601Z",
-  "count": 57,
+  "generatedAt": "2026-08-09T02:27:48.427995Z",
+  "count": 58,
   "posts": [
+    {
+      "slug": "feature-test",
+      "title": "Feature Test",
+      "description": "A brief exploration of the voice recording feature and its potential.",
+      "publishedDate": "2026-08-09",
+      "modifiedDate": "2026-08-09",
+      "isDraft": false,
+      "isFeatured": false,
+      "priority": 5,
+      "category": "Technology",
+      "series": "",
+      "topics": [
+        "AI & Automation"
+      ],
+      "tags": [
+        "voice-memos",
+        "transcripts-memory"
+      ],
+      "keywords": [
+        "voice recording",
+        "testing",
+        "feature test"
+      ],
+      "canonicalUrl": "https://cyberworldbuilders.com/blog/feature-test",
+      "headerImage": "",
+      "wordCount": 64,
+      "fileSize": 1577,
+      "fileModified": "2026-08-09T02:27:48.427454Z"
+    },
     {
       "slug": "revenant-hollow-never-stopped-being-alive",
       "title": "Revenant Hollow Never Stopped Being Alive",
@@ -55,7 +84,7 @@
     {
       "slug": "ai-neuroticism-tidal-forces-singularity",
       "title": "AI Neuroticism and the Tidal Forces of the Singularity",
-      "description": "It's not the singularity that spaghettifies you. It's the tidal forces — the differential rate of change that's tearing engineers and founders apart. Here's how to step out of the hype-vs-trolls feedback loop.",
+      "description": "It's not the singularity that spaghettifies you. It's the tidal forces \u2014 the differential rate of change that's tearing engineers and founders apart. Here's how to step out of the hype-vs-trolls feedback loop.",
       "publishedDate": "2026-05-05",
       "modifiedDate": "2026-05-05",
       "isDraft": false,
@@ -385,7 +414,7 @@
     {
       "slug": "saved-client-5k-aws-ai-agents",
       "title": "I Saved a Client $5K/Year on AWS in 2 Hours",
-      "description": "How AI agents turned years of backlogged cloud optimization ideas into real savings on Redshift and Aurora — and what I'm doing with the headroom.",
+      "description": "How AI agents turned years of backlogged cloud optimization ideas into real savings on Redshift and Aurora \u2014 and what I'm doing with the headroom.",
       "publishedDate": "2026-03-31",
       "modifiedDate": "2026-03-31",
       "isDraft": false,
@@ -468,7 +497,7 @@
     {
       "slug": "ai-revealed-tech-debt-security-in-an-hour",
       "title": "AI Revealed Our Tech Debt, So I Fixed My Security in an Hour",
-      "description": "WireGuard VPN, Keycloak zero trust, and OIDC across every service — deployed in one hour with Claude. A wake-up call on the tech debt AI is exposing.",
+      "description": "WireGuard VPN, Keycloak zero trust, and OIDC across every service \u2014 deployed in one hour with Claude. A wake-up call on the tech debt AI is exposing.",
       "publishedDate": "2026-03-26",
       "modifiedDate": "2026-03-26",
       "isDraft": false,
@@ -511,7 +540,7 @@
     {
       "slug": "software-engineers-got-disrupted-first",
       "title": "Software Engineers Got Disrupted First",
-      "description": "A software engineer who survived multiple waves of AI disruption shares what each wave actually looked like from the inside — and why the things you've been suppressing might be your biggest asset.",
+      "description": "A software engineer who survived multiple waves of AI disruption shares what each wave actually looked like from the inside \u2014 and why the things you've been suppressing might be your biggest asset.",
       "publishedDate": "2026-03-24",
       "modifiedDate": "2026-03-24",
       "isDraft": false,
@@ -715,7 +744,7 @@
     {
       "slug": "agent-specialists-changed-how-i-build-software",
       "title": "Agent Specialists Changed How I Build Software",
-      "description": "How loading design and QA skills into coding agents created expert teammates I couldn't afford to hire — and why the human role is shifting to generalist.",
+      "description": "How loading design and QA skills into coding agents created expert teammates I couldn't afford to hire \u2014 and why the human role is shifting to generalist.",
       "publishedDate": "2026-03-18",
       "modifiedDate": "2026-03-18",
       "isDraft": false,
@@ -757,7 +786,7 @@
     {
       "slug": "keep-one-foot-on-the-ground",
       "title": "Keep One Foot on the Ground",
-      "description": "When AI can reverse-engineer your SaaS from a spec and flood the internet with optimized content, what's your moat? Balance short-term hustle with long-term purpose — and evolve daily.",
+      "description": "When AI can reverse-engineer your SaaS from a spec and flood the internet with optimized content, what's your moat? Balance short-term hustle with long-term purpose \u2014 and evolve daily.",
       "publishedDate": "2026-03-14",
       "modifiedDate": "2026-03-14",
       "isDraft": false,
@@ -961,7 +990,7 @@
     {
       "slug": "everything-compounds-now",
       "title": "Everything Compounds Now",
-      "description": "A day of shipping an agent dashboard, an email-to-pull-request pipeline, GEO audits, and tech trend scanning — all while building Legos and folding laundry. The difference between talking about ideas and executing them is shrinking to zero.",
+      "description": "A day of shipping an agent dashboard, an email-to-pull-request pipeline, GEO audits, and tech trend scanning \u2014 all while building Legos and folding laundry. The difference between talking about ideas and executing them is shrinking to zero.",
       "publishedDate": "2026-03-09",
       "modifiedDate": "2026-03-09",
       "isDraft": false,
@@ -1005,7 +1034,7 @@
     {
       "slug": "one-week-claude-code-publishing-pipeline",
       "title": "One Week with Claude Code: Building an AI-Powered Publishing Pipeline",
-      "description": "After seven days of building with Claude Code and my AI assistant Gus, I shipped an end-to-end blog pipeline, an SEO auditor, and a chatbot — most of it while cleaning my office.",
+      "description": "After seven days of building with Claude Code and my AI assistant Gus, I shipped an end-to-end blog pipeline, an SEO auditor, and a chatbot \u2014 most of it while cleaning my office.",
       "publishedDate": "2026-03-08",
       "modifiedDate": "2026-03-08",
       "isDraft": false,
@@ -1093,7 +1122,7 @@
     {
       "slug": "where-im-going-next",
       "title": "Where I'm Going Next",
-      "description": "After building out the blog pipeline and SEO automations, here's the roadmap for CyberWorld — from generative search optimization to a unified dashboard to a three-tier service model that makes traditional SaaS obsolete.",
+      "description": "After building out the blog pipeline and SEO automations, here's the roadmap for CyberWorld \u2014 from generative search optimization to a unified dashboard to a three-tier service model that makes traditional SaaS obsolete.",
       "publishedDate": "2026-03-08",
       "modifiedDate": "2026-03-08",
       "isDraft": false,
@@ -1267,7 +1296,7 @@
     {
       "slug": "finding-my-pitch-digital-marketing-engineering-brick-and-mortar",
       "title": "Finding My Pitch: Digital Marketing, Engineering, and the Brick-and-Mortar Play",
-      "description": "Working through how to position CyberWorld Builders for small businesses — leading with digital marketing, backing it up with real engineering chops, and keeping the SaaS dream alive on the back burner.",
+      "description": "Working through how to position CyberWorld Builders for small businesses \u2014 leading with digital marketing, backing it up with real engineering chops, and keeping the SaaS dream alive on the back burner.",
       "publishedDate": "2026-03-07",
       "modifiedDate": "2026-03-07",
       "isDraft": false,
@@ -1309,7 +1338,7 @@
     {
       "slug": "from-zapier-to-n8n-automation-practice",
       "title": "From Zapier to n8n: Why I'm Building an Automation Practice",
-      "description": "How a Bitbucket pipeline hack years ago led me to build automation consulting into my business — and why knowing n8n matters even if it's not the future.",
+      "description": "How a Bitbucket pipeline hack years ago led me to build automation consulting into my business \u2014 and why knowing n8n matters even if it's not the future.",
       "publishedDate": "2026-03-07",
       "modifiedDate": "2026-03-07",
       "isDraft": false,
@@ -1479,7 +1508,7 @@
     {
       "slug": "chatbot-breakthrough-how-openais-web-crawling-validates-generative-seo-for-smarter-site-interactions",
       "title": "Chatbot Breakthrough: How OpenAI's Web Crawling Validates Generative SEO for Smarter Site Interactions",
-      "description": "Uncovering the power of simple LangChain chatbots enhanced by OpenAI's training data, turning basic prompts into accurate, linked responses—proving the value of generative search optimization for blogs.",
+      "description": "Uncovering the power of simple LangChain chatbots enhanced by OpenAI's training data, turning basic prompts into accurate, linked responses\u2014proving the value of generative search optimization for blogs.",
       "publishedDate": "2025-10-04",
       "modifiedDate": "2025-10-04",
       "isDraft": false,
