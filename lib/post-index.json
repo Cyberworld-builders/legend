@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-08-09T14:43:19.506584Z",
+  "generatedAt": "2026-08-09T14:45:44.443146Z",
   "count": 58,
   "posts": [
     {
       "slug": "comment-workflow-living-document-layer",
-      "title": "Comment workflow / Living document layer",
-      "description": "Comment workflow / Living document layer",
+      "title": "Comment Workflow and the Living Document Layer",
+      "description": "Jay on moving comments off raw transcripts into a living-document layer agents can keep updating.",
       "publishedDate": "2026-08-09",
       "modifiedDate": "2026-08-09",
       "isDraft": false,
@@ -14,15 +14,26 @@
       "category": "Technology",
       "series": "",
       "topics": [
-        "AI & Automation"
+        "AI & Automation",
+        "Development & Tools"
       ],
-      "tags": [],
-      "keywords": [],
+      "tags": [
+        "living-documents",
+        "comment-workflow",
+        "cyberworld",
+        "agent-workflow"
+      ],
+      "keywords": [
+        "living documents",
+        "comment workflow",
+        "knowledge base",
+        "cyber app"
+      ],
       "canonicalUrl": "https://cyberworldbuilders.com/blog/comment-workflow-living-document-layer",
       "headerImage": "",
-      "wordCount": 548,
-      "fileSize": 6254,
-      "fileModified": "2026-08-09T14:43:19.491235Z"
+      "wordCount": 286,
+      "fileSize": 3649,
+      "fileModified": "2026-08-09T14:45:44.442725Z"
     },
     {
       "slug": "revenant-hollow-never-stopped-being-alive",
