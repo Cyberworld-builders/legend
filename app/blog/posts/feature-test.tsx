@@ -18,7 +18,7 @@ export const metadata: PostMeta = {
   tags: ["voice-memos", "transcripts-memory"],
   series: "",
   category: "Technology",
-  isDraft: true,
+  isDraft: false,
   isFeatured: false,
   priority: 5,
 };
