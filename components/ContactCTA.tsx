@@ -1,17 +1,4 @@
-'use client';
-
-import { useState } from 'react';
-import ContactForm from './ContactForm';
-import { trackEvent } from '@/lib/tracking';
-
 export default function ContactCTA() {
-  const [showForm, setShowForm] = useState(false);
-
-  const handleOpenForm = () => {
-    trackEvent('cta_click', { cta: 'contact_start' });
-    setShowForm(true);
-  };
-
   return (
     <section id="contact" className="py-16 bg-[#0a0a0a]">
       <div className="max-w-2xl mx-auto px-4">
@@ -25,23 +12,17 @@ export default function ContactCTA() {
           </p>
         </div>
 
-        {showForm ? (
-          <div className="bg-[#1a1a1a] border border-[#00ff00]/20 rounded-lg p-6">
-            <ContactForm onSuccess={() => setShowForm(false)} />
-          </div>
-        ) : (
-          <div className="text-center">
-            <button
-              onClick={handleOpenForm}
-              className="px-8 py-4 bg-[#00ff00] text-[#1a1a1a] font-bold text-lg rounded-lg hover:bg-[#00cc00] transition-colors"
-            >
-              Start a Conversation
-            </button>
-            <p className="mt-4 text-sm text-[#00ff00]/50">
-              No commitment required. Just exploring is fine.
-            </p>
-          </div>
-        )}
+        <div className="text-center">
+          <a
+            href="mailto:contact@cyberworldbuilders.com?subject=Project%20inquiry"
+            className="inline-block px-8 py-4 bg-[#00ff00] text-[#1a1a1a] font-bold text-lg rounded-lg hover:bg-[#00cc00] transition-colors"
+          >
+            Email contact@cyberworldbuilders.com
+          </a>
+          <p className="mt-4 text-sm text-[#00ff00]/50">
+            No commitment required. Just exploring is fine.
+          </p>
+        </div>
       </div>
     </section>
   );

@@ -1,5 +1,17 @@
 # CLAUDE.md - CyberWorld Builders Website
 
+> **⚠️ TEARDOWN NOTICE (2026-09-02).** The database, AI chat widget, lead
+> capture, and behavior-tracking subsystems were removed. The site is now a
+> **static Next.js blog + marketing page**. Google Analytics (gtag) and Vercel
+> Analytics are retained. A full `pg_dump` of the old Supabase project
+> (`wjvybacdbveptaitfnei`) was taken before removal and lives outside the repo
+> in `backups/` (gitignored). The Supabase project itself is being shut down
+> separately. Everything below this notice describing Supabase, `/admin`, the
+> chat widget, lead forms, `/api/{chat,track,leads,admin,automation}`, n8n, or
+> Upstash is **historical** — that code is gone from `main` and recoverable
+> only via git history (pre-`chore/teardown-db-chat-leads-tracking`). This all
+> gets rebuilt from scratch at the next content-creation ramp-up.
+
 ## Project Overview
 
 **cyberworldbuilders.com** is a marketing and content website for CyberWorld Builders, Inc., a software engineering and consulting company. The site features:
