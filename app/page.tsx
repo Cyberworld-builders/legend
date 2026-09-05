@@ -7,7 +7,6 @@ import FeaturedCarousel from '../components/FeaturedCarousel';
 import AboutSection from '../components/AboutSection';
 import ReviewsSection from '../components/ReviewsSection';
 import ContactCTA from '../components/ContactCTA';
-import ClientShell from '../components/ClientShell';
 import { getFeaturedPosts } from '../lib/post-metadata';
 
 const featuredPosts = getFeaturedPosts();
@@ -25,11 +24,6 @@ export default function Home() {
     <div className="relative min-h-screen">
       {/* Page Background */}
       <PageBackground opacity={15} fullWidth={true} />
-
-      {/* Scroll & behavior tracking (client-only) */}
-      <Suspense fallback={null}>
-        <ClientShell />
-      </Suspense>
 
       {/* Content with higher z-index */}
       <main className="relative z-10">

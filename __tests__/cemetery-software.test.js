@@ -109,18 +109,6 @@ describe('Cemetery Software Landing Page', () => {
     test('should import Breadcrumb', () => {
       expect(contentFile).toContain("from '@/components/Breadcrumb'");
     });
-
-    test('should import ContactForm', () => {
-      expect(contentFile).toContain("from '@/components/ContactForm'");
-    });
-
-    test('should import ScrollTracker dynamically', () => {
-      expect(contentFile).toContain("import('@/components/ScrollTracker')");
-    });
-
-    test('should import TurnstileField', () => {
-      expect(contentFile).toContain("from '@/components/TurnstileField'");
-    });
   });
 
   describe('Required Sections', () => {
@@ -157,36 +145,17 @@ describe('Cemetery Software Landing Page', () => {
     test('should have contact section', () => {
       expect(contentFile).toContain('id="contact"');
     });
-
-    test('should track all sections in ScrollTracker', () => {
-      const sections = ['hero', 'problem', 'features', 'demo', 'why-us', 'faq', 'contact'];
-      sections.forEach((section) => {
-        expect(contentFile).toContain(`'${section}'`);
-      });
-    });
   });
 
-  describe('Lead Capture', () => {
+  describe('Contact CTA', () => {
     let contentFile;
 
     beforeAll(() => {
       contentFile = fs.readFileSync(CONTENT_PATH, 'utf8');
     });
 
-    test('should have email input in hero', () => {
-      expect(contentFile).toContain('type="email"');
-    });
-
-    test('should submit to leads API', () => {
-      expect(contentFile).toContain('/api/leads/submit');
-    });
-
-    test('should track hero email CTA events', () => {
-      expect(contentFile).toContain('cemetery_hero_email');
-    });
-
-    test('should track demo CTA click', () => {
-      expect(contentFile).toContain('cemetery_demo');
+    test('should have a mailto contact link', () => {
+      expect(contentFile).toContain('mailto:contact@cyberworldbuilders.com');
     });
   });
 

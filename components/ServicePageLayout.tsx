@@ -1,18 +1,12 @@
 'use client';
 
 import { useState } from 'react';
-import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import Image from 'next/image';
 import { LucideIcon, ArrowRight } from 'lucide-react';
 import PageBackground from '@/components/PageBackground';
 import Breadcrumb from '@/components/Breadcrumb';
-import ContactForm from '@/components/ContactForm';
 import ServiceCard from '@/components/ServiceCard';
-
-const ScrollTracker = dynamic(() => import('@/components/ScrollTracker'), {
-  ssr: false,
-});
 
 interface BreadcrumbItem {
   label: string;
@@ -61,17 +55,6 @@ interface ServicePageLayoutProps {
   contactSubtitle: string;
   extraSection?: React.ReactNode;
 }
-
-const TRACKED_SECTIONS = [
-  'hero',
-  'pain-points',
-  'features',
-  'sub-services',
-  'blog-posts',
-  'why-us',
-  'faq',
-  'contact',
-];
 
 function ScanlineDivider() {
   return (
@@ -126,7 +109,6 @@ export default function ServicePageLayout({
   return (
     <div className="relative min-h-screen">
       <PageBackground opacity={15} fullWidth={true} />
-      <ScrollTracker sections={TRACKED_SECTIONS} />
 
       <script
         type="application/ld+json"
@@ -398,7 +380,14 @@ export default function ServicePageLayout({
             <p className="text-[#00ff00]/70 text-center mb-8">
               {contactSubtitle}
             </p>
-            <ContactForm />
+            <div className="text-center">
+              <a
+                href="mailto:contact@cyberworldbuilders.com?subject=Project%20inquiry"
+                className="inline-block px-8 py-4 bg-[#00ff00] text-[#1a1a1a] font-bold text-lg rounded-lg hover:bg-[#00cc00] transition-colors"
+              >
+                Email contact@cyberworldbuilders.com
+              </a>
+            </div>
           </div>
         </section>
       </main>

@@ -2,7 +2,7 @@
 
 import { useEffect } from 'react';
 
-// gtag type is declared in lib/tracking.ts
+// gtag type is declared in components/GoogleAnalytics.tsx
 
 export default function PerformanceMonitor() {
   useEffect(() => {
