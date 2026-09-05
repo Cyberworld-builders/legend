@@ -1,14 +1,9 @@
 'use client';
 
-import dynamic from 'next/dynamic';
 import { TrendingUp, Workflow, Code2 } from 'lucide-react';
 import PageBackground from '@/components/PageBackground';
 import Breadcrumb from '@/components/Breadcrumb';
 import ServiceCard from '@/components/ServiceCard';
-
-const ScrollTracker = dynamic(() => import('@/components/ScrollTracker'), {
-  ssr: false,
-});
 
 const SERVICES = [
   {
@@ -44,7 +39,6 @@ export default function ServicesIndexContent() {
   return (
     <div className="relative min-h-screen">
       <PageBackground opacity={15} fullWidth={true} />
-      <ScrollTracker sections={['hero', 'services', 'cta']} />
 
       <main className="relative z-10">
         <section id="hero" className="py-16 md:py-24">

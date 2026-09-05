@@ -1,7 +1,6 @@
 'use client';
 
-import { useState, useCallback } from 'react';
-import dynamic from 'next/dynamic';
+import { useState } from 'react';
 import Link from 'next/link';
 import {
   FileWarning,
@@ -20,23 +19,6 @@ import {
 } from 'lucide-react';
 import PageBackground from '@/components/PageBackground';
 import Breadcrumb from '@/components/Breadcrumb';
-import ContactForm from '@/components/ContactForm';
-import TurnstileField from '@/components/TurnstileField';
-import { trackEvent } from '@/lib/tracking';
-
-const ScrollTracker = dynamic(() => import('@/components/ScrollTracker'), {
-  ssr: false,
-});
-
-const TRACKED_SECTIONS = [
-  'hero',
-  'problem',
-  'features',
-  'demo',
-  'why-us',
-  'faq',
-  'contact',
-];
 
 const PAIN_POINTS = [
   {
@@ -177,59 +159,7 @@ const faqSchema = {
 };
 
 export default function CemeteryContent() {
-  const [email, setEmail] = useState('');
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
-  const [emailError, setEmailError] = useState('');
-  const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
   const [openFaqItems, setOpenFaqItems] = useState<Set<number>>(new Set());
-
-  const handleTurnstileVerify = useCallback(
-    (token: string) => setTurnstileToken(token),
-    []
-  );
-  const handleTurnstileExpire = useCallback(
-    () => setTurnstileToken(null),
-    []
-  );
-
-  const needsTurnstile = Boolean(process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY);
-  const canSubmit = !needsTurnstile || turnstileToken;
-
-  const handleEmailSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    if (!canSubmit) return;
-    setIsSubmitting(true);
-    setEmailError('');
-
-    trackEvent('cta_click', { cta: 'cemetery_hero_email' });
-
-    try {
-      const payload: Record<string, unknown> = { email };
-      if (turnstileToken) payload.turnstileToken = turnstileToken;
-
-      const res = await fetch('/api/leads/submit', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload),
-      });
-
-      if (!res.ok) {
-        const data = await res.json();
-        throw new Error(data.error || 'Submission failed');
-      }
-
-      setSubmitted(true);
-      setEmail('');
-      trackEvent('lead_submit', { cta: 'cemetery_hero_email' });
-    } catch (err) {
-      setEmailError(
-        err instanceof Error ? err.message : 'Something went wrong'
-      );
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
 
   const toggleFaq = (index: number) => {
     const next = new Set(openFaqItems);
@@ -244,7 +174,6 @@ export default function CemeteryContent() {
   return (
     <div className="relative min-h-screen">
       <PageBackground opacity={15} fullWidth={true} />
-      <ScrollTracker sections={TRACKED_SECTIONS} />
 
       <script
         type="application/ld+json"
@@ -273,43 +202,13 @@ export default function CemeteryContent() {
               for how cemeteries actually operate.
             </p>
 
-            <div className="max-w-md mx-auto mb-6">
-              {submitted ? (
-                <div className="text-[#00ff00] font-semibold py-3">
-                  Thanks! We&apos;ll be in touch soon.
-                </div>
-              ) : (
-                <form
-                  onSubmit={handleEmailSubmit}
-                  className="flex flex-col gap-2"
-                >
-                  <div className="flex gap-2">
-                    <input
-                      type="email"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      required
-                      aria-label="Email address"
-                      placeholder="Enter your email"
-                      className="flex-1 px-4 py-3 bg-[#1a1a1a] border border-[#00ff00]/30 rounded-lg text-[#00ff00] placeholder-[#00ff00]/50 focus:border-[#00ff00] focus:ring-1 focus:ring-[#00ff00] outline-none transition"
-                    />
-                    <button
-                      type="submit"
-                      disabled={isSubmitting || !canSubmit}
-                      className="px-6 py-3 bg-[#00ff00] text-[#1a1a1a] font-bold rounded-lg hover:bg-[#00cc00] transition-colors disabled:opacity-50 whitespace-nowrap"
-                    >
-                      {isSubmitting ? '...' : "Let's Talk"}
-                    </button>
-                  </div>
-                  <TurnstileField
-                    onVerify={handleTurnstileVerify}
-                    onExpire={handleTurnstileExpire}
-                  />
-                </form>
-              )}
-              {emailError && (
-                <p className="text-red-400 text-sm mt-2">{emailError}</p>
-              )}
+            <div className="mb-6">
+              <a
+                href="mailto:contact@cyberworldbuilders.com?subject=Cemetery%20software%20inquiry"
+                className="inline-block px-6 py-3 bg-[#00ff00] text-[#1a1a1a] font-bold rounded-lg hover:bg-[#00cc00] transition-colors"
+              >
+                Let&apos;s Talk
+              </a>
             </div>
 
             <p className="text-sm text-[#00ff00]/60">
@@ -388,9 +287,6 @@ export default function CemeteryContent() {
                 href="https://eternaguard.cyberworldbuilders.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={() =>
-                  trackEvent('cta_click', { cta: 'cemetery_demo' })
-                }
                 className="px-8 py-4 bg-[#00ff00] text-[#1a1a1a] font-bold rounded-lg hover:bg-[#00cc00] transition-colors text-lg"
               >
                 Launch Demo
@@ -492,7 +388,14 @@ export default function CemeteryContent() {
               Tell us about your operation and we&apos;ll show you what&apos;s
               possible.
             </p>
-            <ContactForm />
+            <div className="text-center">
+              <a
+                href="mailto:contact@cyberworldbuilders.com?subject=Cemetery%20software%20inquiry"
+                className="inline-block px-8 py-4 bg-[#00ff00] text-[#1a1a1a] font-bold text-lg rounded-lg hover:bg-[#00cc00] transition-colors"
+              >
+                Email contact@cyberworldbuilders.com
+              </a>
+            </div>
           </div>
         </section>
       </main>
