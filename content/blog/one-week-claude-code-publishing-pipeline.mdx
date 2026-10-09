@@ -1,0 +1,87 @@
+---
+title: "One Week with Claude Code: Building an AI-Powered Publishing Pipeline"
+description: After seven days of building with Claude Code and my AI assistant Gus, I shipped an end-to-end blog pipeline, an SEO auditor, and a chatbot — most of it while cleaning my office.
+slug: one-week-claude-code-publishing-pipeline
+publishedDate: "2026-03-08"
+modifiedDate: "2026-03-08"
+headerImage: /images/one-week-claude-code-publishing-pipeline-hero.png
+socialImage: /images/one-week-claude-code-publishing-pipeline-hero.png
+canonicalUrl: https://cyberworldbuilders.com/blog/one-week-claude-code-publishing-pipeline
+category: AI & Automation
+topics:
+  - AI & Automation
+  - Development & Tools
+  - Business & Marketing
+tags:
+  - claude-code
+  - ai-assistant
+  - blog-automation
+  - seo
+  - chatbot
+  - voice-dna
+  - dall-e
+  - vercel
+  - supabase
+  - next-js
+keywords:
+  - claude code
+  - ai assistant
+  - blog pipeline
+  - seo automation
+  - voice transcripts
+  - gus
+  - ai publishing
+  - chatbot
+  - dall-e
+  - vercel
+isFeatured: false
+priority: 5
+---
+
+## Seven Days In
+
+I've spent probably the last two years trying to see what I could get AI to do. Even the first time I got ChatGPT or Cursor to generate a shell command for me, or to auto-complete a tiny block of code, that was an exciting time because you could see where it was going. But where we're at now with agents and skills and proactive heartbeats — it really does feel like an AI employee at the company. A brilliant engineer, even.
+
+This is about day seven of me using Claude Code for everything, and it is unbelievable what I've been able to achieve. Some of the stuff I've done in a single day — and not even a full day of heads-down coding. A lot of what I've been doing is turning on voice-to-text mode on my computer, cleaning my office and bathroom, and saying "press return key" over and over again because I just don't have any disagreements with what it's doing. I almost feel like I'm in the way.
+
+## When You Stop Taking Notes
+
+I usually keep a notepad with all this notation for tracking what I'm doing and what time it is. It helps me maximize productivity, retrace my steps, remember my thought process, and context-switch back into something I left off on. I've got an alarm that goes off on the hour and I'll draw a little clock. When I look down and see a lot of clocks and not a lot of notes, I know it's time to either switch context or start writing checklists. Something about dragging a pen over paper really locks in the knowledge.
+
+But I got in such a tight flow with Gus — my AI assistant powered by Claude Code — that I completely forgot about my notepad. Part of the reason is that Gus has his own memory system. It's based on the OpenClaw memory system, which is really just Claude Code's memory system with a SQLite database to help index across files. You could think of the memory files as gray matter, clusters of related information, and the SQLite database adds the white matter that connects the different clumps. That's not a perfect analogy because there's no processing happening in the database itself, but it all comes to life when the model loads that context alongside the skills I've been building.
+
+## Skills Replace MCP Servers
+
+The skills are a combination of community-maintained stuff — English skills, SEO skills, front-end developer skills — which are really just markdown files that explain rules and context to the model. It's retrieval augmented generation. It's RAG. But when you build your own skills on top of that, it starts replacing the need for MCP servers entirely. Most of my skills are Python-based. Every time I add one, it interfaces with APIs and runs various scripted tasks. It's a combination of markdown plain-text prompting and Python scripting, and it's really remarkable what comes out of that.
+
+## The Blog Pipeline, End to End
+
+I've talked about doing this for over a year, and I just did it today. It wasn't even my whole day. It was just part of the day because I shipped so many different things.
+
+I now have the ability to record voice memos, grab the transcript that the memo app generates, and dump it into my website's admin area. The admin has a page for CRUD on transcripts — one tap to copy the transcript, one tap to paste it into a form field, hit one button, and it saves. I don't have to do anything else from there.
+
+The next time the heartbeat runs — I've got it set for once an hour right now, might move it to twice a day eventually — the transcript bot picks up the new entry and processes it. My next action after dropping a transcript is to wait for a Telegram message with a link to a pull request. Vercel also sends me an email that a PR is ready. That pull request is the draft of a blog article, because all my blog articles are in code now. There's no database whatsoever. A pull request is essentially a blog article draft, and merging the PR triggers the deployment. Deployment is publishing.
+
+The English skills are where it gets good. It cleans up the transcript, strips out filler content and vocal tics, removes repeated ideas, organizes my words, and formats everything with proper headings. It's basically a blog editor. There are two skills that matter most here. Stop Slop strips out the red flags of AI-generated content — the words and patterns that make something feel obviously machine-written. Voice DNA is the really cool one. It has used all my transcripts and about 30 published articles to profile my voice. The more I publish, the more it learns how I sound. It uses that profile as a prompt in the editing pipeline and updates over time as it gathers more samples. If it's processing my actual words, it genuinely sounds like me. I would claim these words.
+
+## Hero Images and Social Meta
+
+After the pipeline was working, I came back and added header image generation. The hero image for every blog article gets generated through DALL-E — about four cents an image through OpenAI. Every generated image has the CyberWorld style with that green, Matrix-y, DOS-green, cyberpunk sort of feel so it belongs on the site. The image is semi-photorealistic, largely abstract and stylized, with loose relevance to the article content. It takes the title and the generated tags to build the prompt.
+
+I also added social meta, so when you share a post on social media, the platform can render the proper blog preview with the generated header image. It adds the image to the front matter for both the blog header and the social media meta, then opens the pull request. After dumping a transcript, I just come back and approve a PR. Unless there's something terrible in there — and I do catch things sometimes. One example is rZNjN, something I invented with a weird techie name and strange notation. I had to make a custom rule so the pipeline spells it correctly every time.
+
+## SEO Auditing on the Same Pattern
+
+I applied that exact same pattern to SEO auditing. I now have an SEO auditor reverse-engineered from premium services like Search Atlas and Semrush. Semrush has functionality worth paying for because of their intensive keyword research — there's only so much you can get straight from Google. But you can get a lot from Google. The SEO skills I built are based on community-published skills, best practices from digital marketing developers who've been doing SEO for years sharing their tricks, official Google recommendations, PageSpeed Insights, Google Analytics, Google Search Console, Lighthouse — everything you can get for free between publicly published expert conversations and official documentation from the heavy hitters.
+
+I've got two versions. One runs daily and catches day-to-day things with page speed, schema, formatting — it scans the site every day and gives recommendations. When it's done, it creates a GitHub issue ticket with all the recommendations, so all I have to do is view the ticket, check out a branch, and have Claude perform the updates and open a pull request. I'm about an hour away from plugging that in exactly the same way the blog pipeline works — fully automated.
+
+It also sends me a daily email with links to reports for all the sites I'm tracking. Onboarding a new site means setting up Google Analytics and Search Console credentials, running one command, and it gets added to the same schedule and the same report. I can manage multiple sites with ease without putting any real time into it. I wake up, click on my SEO report, and if nothing looks obviously wrong, I hit merge and it deploys. Seconds. It happens while I'm sleeping, and I approve it over coffee.
+
+## The Chatbot Upgrade
+
+The CyberWorld chatbot used to be one RAG prompt wrapping a simple GPT API call. Now it's powered by Gus. I set up a completely separate channel with a lot of guardrails — no cross-talk between channels, and all it can do is have conversations about the blog and the site. The reason it's powerful that it's Gus and not just any API key is that even though I've limited it to blog content and site content, it has Gus's skills and memory behind it.
+
+I took the expanded lead capture form and put it into the chat. While people are chatting with the bot, it funnels them into filling out form fields by asking questions organically. It gives them answers from the blog generously, but every few messages it works in a question that maps to a lead capture field. And now I get a Telegram message when someone is online and asking questions. I get information about what they're asking, and I have the ability to jump in, message with them, and tell them I'm online — give me your email or phone and I'll call you back immediately.
+
+There's so much I could drill down into on every one of these things, but that's a solid overview of what seven days with Claude Code looks like when you stop fighting the tools and start building with them. Really exciting times.

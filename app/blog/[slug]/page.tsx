@@ -15,8 +15,8 @@ interface BlogPostProps {
   }>;
 }
 
-// SSG + ISR: pre-render at build, revalidate every hour
-export const revalidate = 3600;
+// Fully static: every post is pre-rendered at build; unknown slugs 404.
+export const dynamicParams = false;
 
 export async function generateMetadata({ params }: BlogPostProps): Promise<Metadata> {
   const { slug } = await params;

@@ -1,0 +1,101 @@
+---
+title: Troubleshooting n8n Workflows Integrated with Supabase, Vapi, and Lovable for AI-Driven Sales Automation
+description: A real-time troubleshooting guide for complex AI-driven sales automation systems using n8n workflows, Supabase database, Vapi voice AI, and Lovable frontend. Covers foreign key errors, data loss recovery, and system stability issues.
+slug: troubleshooting-n8n-workflows-integrated-with-supabase-vapi-and-lovable-for-ai-driven-sales-automation
+publishedDate: "2024-01-20"
+modifiedDate: "2026-03-05"
+headerImage: /images/troubleshooting-n8n-workflows-integrated-with-supabase-vapi-and-lovable-for-ai-driven-sales-automation-hero.png
+socialImage: /images/troubleshooting-n8n-workflows-integrated-with-supabase-vapi-and-lovable-for-ai-driven-sales-automation-hero.png
+canonicalUrl: https://cyberworldbuilders.com/blog/troubleshooting-n8n-workflows-integrated-with-supabase-vapi-and-lovable-for-ai-driven-sales-automation
+category: Development
+series: Technical Troubleshooting
+topics:
+  - Development & Tools
+  - AI & Automation
+tags:
+  - n8n
+  - supabase
+  - vapi
+  - lovable
+  - automation
+  - troubleshooting
+  - database
+  - AI
+  - sales
+  - workflow
+  - debugging
+  - system-recovery
+keywords:
+  - n8n
+  - supabase
+  - vapi
+  - lovable
+  - AI automation
+  - sales automation
+  - workflow troubleshooting
+  - database errors
+  - foreign key constraints
+  - voice AI
+  - no-code
+  - low-code
+  - system recovery
+  - data loss
+  - automation debugging
+priority: 5
+---
+
+I had a client session last night that I'm still chewing on. We haven't solved the problem yet, and I'll probably do a follow-up once we reach resolution. But I'm hoping I can work some of it out just by talking through it, and this will be a good review for when I jump back into the troubleshooting effort.
+
+The stack is n8n, Supabase, Lovable for the frontend, and Vapi for AI voice calls. The app itself is fairly simple. The Supabase database isn't super complex either. Really just a handful of tables with a few relations, though some of them have an extraordinary number of columns. Where most of the complexity lives is in the n8n automation workflows. That's where the magic happens. That's the secret sauce. And naturally, it's the one thing that's not version controlled.
+
+## What the System Actually Does
+
+The app is related to lead capture, but it's not lead capture. You bring your own leads to it. Its superpower is that it uses the Vapi API, which is powered by Twilio, to send voice calls out and basically automate steps in the sales process.
+
+Vapi has a list of assistants, and each assistant has a different role in the sales pipeline with a different set of prompts. You start by feeding it leads you already suspect are good. Wherever your lead capture funnel comes from, you're not trying to call up a bunch of people who might not even be interested. You've already got your leads, and you start feeding them into the system.
+
+The system makes an initial call to gather basic information. Then the next assistant moves things along one step at a time. So if someone says something like "I may be interested in selling, but not for another six months," the system would reach out again in about four months to follow up early. But if the assistant parses that they're really motivated and may be open to hearing offers, that's going to call them back much sooner. Each assistant determines which assistant to hand it off to next. Every bit of this is in an n8n automation workflow, and each step reaches out to the Supabase backend where all the data is persisted. Most of the AI reasoning is within the Vapi models, so each agent does reasoning on the call based on the conversation.
+
+I want to make a note here. I run into a lot of people who use solutions like n8n. I've never seen them take it this far without moving to something else. The most popular thing I see people move to is render.com, or they just build their own SaaS product and start managing their own infrastructure on AWS or whatever. They usually don't let the complexity of their n8n workflows get this large.
+
+## The Catastrophic Failure
+
+About two weeks ago, they started experiencing reliability issues. Things got a little unstable. Then in the process of fixing those bugs, making it more reliable, and continuing to add features, the system had a catastrophic failure a few days ago. They lost all of their data.
+
+It seems like they rolled back some kind of database structure change, and when a column was deleted, it wiped the entire lead table and several other tables. Now a lot of the workflows are throwing errors.
+
+The particular error we've run into is a foreign key constraint violation. Obviously related to losing all those records, since there were relations that don't exist anymore. But we manually recreated them and we're still getting the foreign key constraint error. I was really tired last night and I just had to stop because I felt like we were spinning tires.
+
+So I need to answer a question: what are the different scenarios that cause foreign key constraint violations, and how does that apply here? It could be trying to query a record that doesn't exist, or trying to create one that already exists. What I want to do is find the exact query in that error message, whether it's an insert or update, because that'll give me insight into what's causing the error. But the node in the automation workflow that's throwing the error, we don't have access to the code behind it. So I'm not sure exactly what it's doing.
+
+## The Logging Problem
+
+Finding logs has been a real struggle. n8n actually has relatively decent logs. With every workflow run, you can see the messages, the output, any errors along the way, and you can easily copy that and paste it over. I'm pretty sure if we know what we're doing, we can find logs in Supabase too.
+
+Lovable is a different story. I don't see a straightforward way to access the raw logs. You're at the mercy of asking the Lovable agent what the logs say, and you're dependent on its interpretation of the raw log data. You don't actually get to view it yourself. That's a real problem when you're debugging a production failure.
+
+## The Version Control Elephant
+
+The elephant in the room is that the automation workflows are the biggest, most complex, most important part of the system, and they are just drag-and-drop stitched together with no version control. We can roll back and sync up all of our React code, the Lovable frontend, and the Supabase database. We can reconcile these all day long and fix drift. But if they don't match up to what our n8n automation workflows are doing, if they don't stay in sync with that part of the system, then it really doesn't matter at all.
+
+It doesn't matter if we find the most recently stable state of the frontend and backend if our automation workflows are out of sync in terms of compatibility.
+
+## Supabase Migrations and the Emerging Custom Backend
+
+I actually learned a lot by checking out the codebase and working with the Cursor agent to review the commit history and analyze all the migrations. A lot of the migrations are being managed in Supabase migrations, which is probably smart. If you're using Supabase, you're already going to have authentication, you're already going to have required tables that are just part of using the product. So you might as well manage the whole thing there.
+
+I saw functions in the codebase and I saw migrations in the codebase. I also see migrations in Supabase. I need to go compare them and answer the question: does the TypeScript codebase account for all of the migrations?
+
+What's happening here is there's a custom backend sort of emerging. You could think of Supabase as a dependency, kind of like if you're working in Python and you use FastAPI, or you're in PHP using Laravel, or you've got WordPress with custom plugins. Supabase gives you auth, Postgres, and all kinds of tools to get your scaffolding started. Then as things grow in complexity, you start adding functions, and each function has a migration because it needs new database structure. Before you know it, you've got a whole custom backend built around a Supabase core. And then the question emerges: do we need to break off?
+
+## The Plan
+
+I've got two ideas worth proposing.
+
+First, the short-term fix for the failing nodes: take the steps where things are failing and reverse engineer that node into a Supabase function. Then we control all the code in the function. We could make a custom n8n node that calls the function so we can actually get into the code logic and see exactly what it's doing. Not only do we get full control as engineers over the logic being executed, but that gives our Lovable agent the ability to gain more insight into problems when they come up.
+
+Second, the longer-term version control problem: start copying all of the workflow JSONs on a regular basis, maybe as a daily or weekly task, to keep them backed up and version controlled. Even if that's a manual process at first that requires a human to actually think to do it and act. Over time, as we move more code into custom nodes and Supabase functions, the need for automating those backups might go away.
+
+There's also the question of getting n8n into the same connected environment that Lovable already has. Right now, Lovable has a connection to GitHub and a connection to Supabase, so it can use context from those when answering questions or doing work. But it doesn't have a similar connection to the n8n instance. Whether that means setting up tools in an MCP server or finding a way to deploy n8n where Lovable can reach it, I don't know yet. But that's the gap.
+
+I'm going to propose all of this when I jump back in. Should have a pretty good update today.

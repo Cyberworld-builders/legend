@@ -14,9 +14,14 @@ console.log('🔍 Starting tag validation...');
 
 async function validateTags() {
   try {
-    // Load the post index
-    const postIndexPath = path.join(process.cwd(), 'lib', 'post-index.json');
-    const postIndex = JSON.parse(fs.readFileSync(postIndexPath, 'utf8'));
+    // Load post frontmatter from content/blog
+    const matter = require('gray-matter');
+    const postsDir = path.join(process.cwd(), 'content', 'blog');
+    const postIndex = {
+      posts: fs.readdirSync(postsDir)
+        .filter(file => file.endsWith('.mdx'))
+        .map(file => matter(fs.readFileSync(path.join(postsDir, file), 'utf8')).data),
+    };
     
     // Collect all unique tags and keywords
     const allTags = new Set();
