@@ -32,35 +32,29 @@ describe('Build Validation', () => {
   });
 
   describe('Blog Posts', () => {
-    test('should have blog posts directory', () => {
-      const postsDir = path.join('app', 'blog', 'posts');
-      expect(fs.existsSync(postsDir)).toBe(true);
+    test('should have blog content directory', () => {
+      expect(fs.existsSync(path.join('content', 'blog'))).toBe(true);
     });
 
-    test('should have blog post TSX files', () => {
-      const postsDir = path.join('app', 'blog', 'posts');
-      const files = fs.readdirSync(postsDir);
-      const tsxFiles = files.filter(file => file.endsWith('.tsx'));
-      expect(tsxFiles.length).toBeGreaterThan(0);
-    });
-
-    test('should have post-index.json', () => {
-      expect(fs.existsSync('lib/post-index.json')).toBe(true);
-    });
-
-    test('post-index.json should have posts', () => {
-      const index = JSON.parse(fs.readFileSync('lib/post-index.json', 'utf8'));
-      expect(index.posts.length).toBeGreaterThan(0);
+    test('every post should have valid frontmatter matching its filename', () => {
+      const matter = require('gray-matter');
+      const dir = path.join('content', 'blog');
+      const files = fs.readdirSync(dir).filter(file => file.endsWith('.mdx'));
+      expect(files.length).toBeGreaterThan(0);
+      for (const file of files) {
+        const { data, content } = matter(fs.readFileSync(path.join(dir, file), 'utf8'));
+        for (const key of ['title', 'description', 'slug', 'publishedDate']) {
+          expect([file, key, Boolean(data[key])]).toEqual([file, key, true]);
+        }
+        expect([file, data.slug]).toEqual([file, file.replace(/\.mdx$/, '')]);
+        expect([file, content.trim().length > 0]).toEqual([file, true]);
+      }
     });
   });
 
   describe('Components', () => {
     test('should have PageBackground component', () => {
       expect(fs.existsSync('components/PageBackground.tsx')).toBe(true);
-    });
-
-    test('should have PostLayout component', () => {
-      expect(fs.existsSync('components/PostLayout.tsx')).toBe(true);
     });
 
     test('should have TopicClusters component', () => {
@@ -128,18 +122,4 @@ describe('Build Validation', () => {
     });
   });
 
-  describe('Blog Post Metadata', () => {
-    test('blog post files should export metadata', () => {
-      const postsDir = path.join('app', 'blog', 'posts');
-      const files = fs.readdirSync(postsDir).filter(f => f.endsWith('.tsx'));
-
-      files.forEach(file => {
-        const content = fs.readFileSync(path.join(postsDir, file), 'utf8');
-        expect(content).toContain('export const metadata: PostMeta');
-        expect(content).toContain('title:');
-        expect(content).toContain('description:');
-        expect(content).toContain('export default function Post');
-      });
-    });
-  });
 });

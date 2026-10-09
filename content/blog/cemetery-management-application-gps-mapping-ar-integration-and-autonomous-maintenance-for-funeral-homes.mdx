@@ -1,0 +1,71 @@
+---
+title: "Cemetery Management Application: GPS Mapping, AR Integration, and Autonomous Maintenance for Funeral Homes"
+description: Exploring the development of a custom SaaS cemetery management app with GPS grave plotting, AR-assisted maintenance, and autonomous drone/UGV patrols, tying into Revenant Hollow's location-based AR ecosystem.
+slug: cemetery-management-application-gps-mapping-ar-integration-and-autonomous-maintenance-for-funeral-homes
+publishedDate: "2025-09-28"
+modifiedDate: "2026-03-05"
+headerImage: /images/cemetery-management-application-gps-mapping-ar-integration-and-autonomous-maintenance-for-funeral-homes-hero.png
+socialImage: /images/cemetery-management-application-gps-mapping-ar-integration-and-autonomous-maintenance-for-funeral-homes-hero.png
+canonicalUrl: https://cyberworldbuilders.com/blog/cemetery-management-application-gps-mapping-ar-integration-and-autonomous-maintenance-for-funeral-homes
+category: Technology
+topics:
+  - Development & Tools
+  - AI & Automation
+tags:
+  - cemetery-app
+  - gps-mapping
+  - ar-maintenance
+  - autonomous-drones
+  - revenant-hollow
+keywords:
+  - cemetery management software
+  - GPS grave mapping
+  - AR cemetery maintenance
+  - autonomous mowers
+  - drone cemetery patrols
+  - UGV terrain mapping
+  - funeral home CRM
+  - Revenant Hollow
+  - location-based AR
+  - mixed reality experiences
+isFeatured: true
+priority: 8
+---
+
+This is an unexpected one. I've been talking a lot lately about location-based experiences and mixed reality, and this idea comes from the same technology space as Revenant Hollow and the augmented reality sports complex. But it started with mowing grass at a cemetery.
+
+My wife is apprenticing at Marshall Memorial Funeral Home in Albertville, and they need website work. Most of what they need is digital marketing stuff: website, sales funnels, lead capture, social dashboards, SEO, blogging. Second nature for me. Old-school skills, basically a CRM with industry-specific features bolted on.
+
+But Marshall Memorial is a hybrid. They're a funeral home that also operates several cemeteries. Usually those are separate businesses. Cemeteries are city-owned, church-owned, or public. For-profit ones sell burial plots and markers. Very few businesses combine both under one roof, and that's where it gets interesting from a software perspective.
+
+## No One Builds for the Hybrid
+
+They need a SaaS product, and no vendor handles both sides well. Products exist for cemeteries. Products exist for funeral homes. But the integration between them is terrible. Vendors either downplay the other side, dismiss it, or suggest hacky workarounds. The features need real nuance for each domain, and nobody's doing that work.
+
+## GPS Mapping and Grave Tracking
+
+What really caught my attention is the cemetery management side. GPS-based grave tracking, plot mapping, virtual management, interment rights. There's an internal tool for staff and contractors, and then a public-facing app for visitor navigation.
+
+This is where it connects to my other projects. Mapping geographical locations to virtual space is the same foundational tech behind Revenant Hollow's location-based experiences. The fact that I'm now looking at a real business with a real need for exactly this kind of mapping is serendipitous.
+
+## Mowing Graves and Getting Ideas
+
+This summer I helped out with cemetery maintenance. Mowing, equipment repairs. Part of it was just wanting to refresh my mechanical skills as an AI hedge. Diversify beyond web dev. I've got past experience with diesels and heavy equipment, and it felt good to use that again.
+
+While I was out there mowing, I started thinking about how tech could improve maintenance. Plot the markers so the mower operator knows where to level off. Avoid dulling blades on uneven markers, avoid damaging the markers themselves. That was my idea, and now everyone wants it.
+
+You start with the gardens. Each cemetery section has a name, like Christus or Last Supper. Map the boundaries and centers of each garden for basic navigation. The MVP is simple: an app that tells you if you're in the right garden and directs you to where you need to be.
+
+## From Phone GPS to Drones to AR Headsets
+
+Data collection starts with your phone. Grab lat/long/altitude readings to establish baselines, then render a map showing your position and directions. Iterate from there. Add individual plots. Address the topography problem, because cemetery terrain curves and dips. Straight coordinates don't always map cleanly to curved ground. Might need non-Euclidean geometry, or you take shortcuts by pulling from the legal descriptions that already exist for each plot.
+
+Then you bring in image data. Drones running aerial routes, or UGVs (unmanned ground vehicles) running ground-level tracks. Make them autonomous with docking stations to charge between runs. Each pass captures the current state of the grounds, and you compare it to the last capture like version control. Trees changed. Vases knocked over. Garbage. Grass height. You set tolerances for each of those, and when something crosses a threshold, the system generates a work order automatically.
+
+The AR piece is where I really started nerding out. Picture an Oculus headset with passthrough mode while you're mowing. Red warnings and directional arrows pop up for obstacles. Descriptions like "uneven marker ahead, six inches above grade." The system could analyze visitor patterns, upcoming burials, and terrain data to prioritize routes and generate daily to-do lists. It could even estimate efficiency gains, like telling you that leveling a specific cluster of markers would reduce mowing time by some percentage.
+
+And then there's autonomous mowing. Off-the-shelf robotic mowers already exist. Feed them the app's mapping data for paths and obstacle avoidance. Humans handle the detail work and exceptions. The robots handle the acres of open ground.
+
+The UGVs pulling double duty is interesting too. Same ground-level perspective as the robotic mowers, but their primary job is monitoring and image capture. Two different machines working from the same spatial data.
+
+I'll get into the marketing and CRM side another time. This is the core framework for the cemetery maintenance app, and it's the piece I'm most excited to build.

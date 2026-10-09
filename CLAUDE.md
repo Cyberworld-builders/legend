@@ -11,6 +11,10 @@
 > Upstash is **historical** — that code is gone from `main` and recoverable
 > only via git history (pre-`chore/teardown-db-v2`). This all gets rebuilt from
 > scratch at the next content-creation ramp-up.
+>
+> **Blog posts (2026-10-09):** posts are MDX files in `content/blog/` — see
+> `docs/blog-post-publishing.md`. Descriptions below of markdown→TSX
+> generation, `app/blog/posts/`, and `post-index.json` are obsolete.
 
 ## Project Overview
 

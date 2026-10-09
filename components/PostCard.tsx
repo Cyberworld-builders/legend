@@ -1,22 +1,13 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import postIndex from '@/lib/post-index.json';
-
-interface IndexedPost {
-  slug: string;
-  title: string;
-  description: string;
-  headerImage?: string;
-  publishedDate?: string;
-}
+import { getAllPosts } from '@/lib/post-metadata';
 
 interface PostCardProps {
   slug: string;
 }
 
 export default function PostCard({ slug }: PostCardProps) {
-  const posts = (postIndex as { posts: IndexedPost[] }).posts;
-  const post = posts.find((p) => p.slug === slug);
+  const post = getAllPosts().find((p) => p.slug === slug);
 
   if (!post) {
     return (

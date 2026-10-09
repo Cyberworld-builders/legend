@@ -1,0 +1,113 @@
+---
+title: "Claude Code in My Pocket: A Two-Hour Internal iOS App"
+description: Two-hour build, no App Store, Claude Code in my pocket through a VPN. Why I'm building internal tools instead of shipping products.
+slug: claude-code-in-my-pocket-two-hour-internal-ios-app
+publishedDate: "2026-04-16"
+modifiedDate: "2026-04-16"
+headerImage: /images/claude-code-in-my-pocket-two-hour-internal-ios-app-hero.png
+socialImage: /images/claude-code-in-my-pocket-two-hour-internal-ios-app-hero.png
+canonicalUrl: https://cyberworldbuilders.com/blog/claude-code-in-my-pocket-two-hour-internal-ios-app
+category: Development & Tools
+topics:
+  - Development & Tools
+  - AI & Automation
+tags:
+  - native-ios-app
+  - claude-code
+  - internal-tools
+  - ai-agent-automation
+  - wireguard-vpn
+  - tools-not-products
+  - vibe-coding
+  - mobile-development
+keywords:
+  - native iOS app without App Store
+  - Claude Code mobile terminal
+  - internal tools vs products
+  - WireGuard VPN private app
+  - Keycloak OIDC authentication
+  - Whisper transcription timestamps
+  - AI agent operating system
+  - vibe coding native app
+isFeatured: false
+isDraft: false
+priority: 5
+---
+
+## Too Weird to Live, Too Rare to Die
+
+I'm recording this voice memo from inside an app I built yesterday. The app isn't in the App Store. It won't ever be. That's the whole point.
+
+To steal a line from Hunter S. Thompson: this is a high-powered mutant of some kind never even intended for mass production. Too weird to live and too rare to die. I needed a tool for me. Maybe for a small team someday. No reason to drag it through Apple's review queue, register my LLC as an iOS developer, or package it as a product. (I think I already did the developer thing years ago. Doesn't matter. Not shipping this.)
+
+This is not a product. It's a tool. That distinction is the whole story.
+
+## What Happens When You Skip the App Store?
+
+Two hours. That's how long this took, in two phases of about an hour each. The whole stack:
+
+- Native iOS app (I did not touch a line of Swift, I just prompted Claude)
+- Python FastAPI backend
+- Postgres database
+- Whisper transcription running on my own hardware
+- Traefik config for SSL
+- Keycloak auth with OIDC
+- All of it gated behind my WireGuard VPN
+
+A year ago, maybe less, most of what I just described had no reason to exist. It didn't make sense to build it. To justify the hundred-thousand-plus in development, plus the matching ad spend you'd need to recoup, you had to aim at hundreds of thousands of users. Which meant multi-tenancy. Which meant public APIs. Which meant cost-optimized cloud architecture, elastic scaling, self-healing services, the whole deal.
+
+This app has maybe one user. Me. It runs on an old PC workstation I decommissioned years ago when I gave up my multi-monitor habit and switched to a Mac. That box was sitting there like a paperweight. Turns out it has enough horsepower to run everything I just listed, because nobody's hammering it except me.
+
+Quick aside on the multi-monitor thing. I had four monitors plus a little Raspberry Pi touchscreen above my keyboard. It looked like a Terry Gilliam film. The Brazil of monitors. I was the guy selling ducts. Then I got onto Mac spaces and never looked back. You haven't experienced true freedom until you give up four monitors for one laptop and some gestures. Anyway.
+
+## Claude Code in My Pocket
+
+Here's the killer feature: I put a terminal emulator in the app and wired up SSH credentials. Claude Code. In my pocket. Through the VPN. Gated behind Keycloak with MFA and biometrics.
+
+The authentication flow on my phone is actually faster than on my Mac. One tap to copy the MFA code, flip apps, one tap to paste, Face ID. I'm in.
+
+First thing I did after shipping it was fix a bug in my blog pipeline where the classifier was miscategorizing a post. Too trigger-happy flagging things as personal when they were company content. I pulled my phone out, connected to the VPN, authenticated through Keycloak, opened Claude Code, and fixed it. From my pocket.
+
+The reason I built this is because I kept hitting the same wall in Telegram. My personal AI assistant runs on Claude, and I kept wanting it to do more. Every time I expanded what it could do, I had to grant another permission. And it started to feel nasty. It was never going to be what I really needed remotely. I was always going to want more. I was always going to be less comfortable granting it.
+
+So I stopped playing that game and built a terminal emulator instead.
+
+## The Accidental Reading Tool
+
+I didn't mean to build this next part. I needed the voice memo feature for myself because the stock iOS Voice Memos app had just enough friction to bug me. (That's the new normal: any time you feel friction, you can almost will it out of existence in plain text, and your agents will dismantle it in minutes.)
+
+Whisper gives back timestamps for every word. When Claude was building the playback UI, it suggested: since we have per-word timestamps, let's highlight each word as it's spoken during playback. Just for polish. Just so it looked clean.
+
+Then I was having a conversation with my five-year-old son. He's barely learning to read and write. His imagination, his vocabulary, his ability to talk about ideas. All of it miles ahead of what he can put on paper. I've been trying to figure out how to bridge that gap, and right as I'm turning it over in my head, I realize: I just built the bridge.
+
+He taps one button. It records. He taps again. It stops. The server transcribes it. Then he plays it back and watches each word light up as he hears himself saying it. He still has the ability to speak the ideas. Now he can see them.
+
+Parents out there should think about this. You hesitate to put technology in your kid's hands because of predators, scammers, garbage content, and algorithmic rot. Fair. But this whole app runs on a VPN, hitting services I control, gated with auth I configured. You could build a personalized app that is exactly what your child needs to learn and communicate. Nothing more. There's nothing stopping you anymore. That's the part I keep trying to drive home.
+
+## Why Did This Workflow Emerge Now?
+
+This happened in stages, and I only noticed it after the fact.
+
+I used to live in Cursor. Then I started keeping one Cursor window open on my hardest client project and running two or three terminal instances of Claude Code on other projects. I'd flip over, prompt one along, flip back.
+
+Then I noticed I wasn't really looking at code in Cursor anymore. I'd just tell Claude to open a pull request, and I'd review it in the GitHub app. On my phone. While making coffee.
+
+So the IDE was already sliding out of the picture. Most of the work was happening in terminals. Code review was already on my phone. The only piece left was the terminal itself. And I already had a VPN. I already had Keycloak gating Grafana, Traefik, Kasm workspaces, and everything else I care about. Adding one more realm for the app was trivial.
+
+At that point it was obvious. Move the terminal to the phone. Gate it the same way. Ship it.
+
+## Tools, Not Products
+
+After I finished the terminal app in a little over an hour, I was grinning like an idiot. I didn't want to stop. Voice Memos had that bit of friction. What would it take to add a voice memo feature right here? Authentication was already wired. Traefik was already doing SSL. I just needed to add endpoints, plug in Whisper, add a table to Postgres. Another hour. Done.
+
+Here's the mantra. Learn it: this is not a product. It's a tool.
+
+I did not ship to the App Store. I did not expose a public API. I did not roll a new auth system. I did not multi-tenant anything. I did not optimize for elastic scale. I did not write marketing copy. I did not onboard a single user besides me.
+
+Which means I also did not spend a hundred thousand dollars. I did not spend six months. I did not compromise a single feature for the sake of a user I don't have.
+
+Here's where it goes next. Eventually you won't even be building tools for your team. You'll be writing specifications, and each team member's agent will build them the tools they need. You'll still build some tools yourself. But the ratio flips. More spec-writing, less tool-building.
+
+For now, I've got Claude Code in my pocket, a voice recorder that transcribes with word-level timestamps, a VPN that makes all of it private, and an old workstation collecting dust no more. Two hours of work. No App Store. No product.
+
+Just a tool. For me.

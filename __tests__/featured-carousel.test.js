@@ -131,24 +131,20 @@ describe('Featured Carousel', () => {
 
   describe('Post Index', () => {
     test('post-metadata.ts should include headerImage in PostIndexEntry', () => {
-      const source = fs.readFileSync('lib/post-metadata.ts', 'utf8');
+      const source = fs.readFileSync('lib/post-metadata.tsx', 'utf8');
       expect(source).toContain('headerImage');
     });
 
     test('post-metadata.ts should export getFeaturedPosts', () => {
-      const source = fs.readFileSync('lib/post-metadata.ts', 'utf8');
+      const source = fs.readFileSync('lib/post-metadata.tsx', 'utf8');
       expect(source).toContain('getFeaturedPosts');
     });
 
     test('post-metadata.ts should import featured-posts.json', () => {
-      const source = fs.readFileSync('lib/post-metadata.ts', 'utf8');
+      const source = fs.readFileSync('lib/post-metadata.tsx', 'utf8');
       expect(source).toContain("featured-posts.json");
     });
 
-    test('post index generator should extract headerImage', () => {
-      const source = fs.readFileSync('scripts/generate-post-index-new.js', 'utf8');
-      expect(source).toContain('headerImage');
-    });
   });
 
   describe('No Database Dependencies', () => {

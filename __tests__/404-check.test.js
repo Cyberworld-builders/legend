@@ -41,12 +41,12 @@ describe('404 Check - All Expected Pages', () => {
     
     beforeAll(() => {
       try {
-        const postsDir = path.join(__dirname, '../app/blog/posts/markdown');
+        const postsDir = path.join(__dirname, '../content/blog');
         const files = fs.readdirSync(postsDir);
         allPosts = files
-          .filter(file => file.endsWith('.md'))
+          .filter(file => file.endsWith('.mdx'))
           .map(file => ({
-            slug: file.replace('.md', ''),
+            slug: file.replace('.mdx', ''),
             file: file
           }));
       } catch (error) {
@@ -81,12 +81,12 @@ describe('404 Check - All Expected Pages', () => {
     
     beforeAll(() => {
       try {
-        const postsDir = path.join(__dirname, '../app/blog/posts/markdown');
+        const postsDir = path.join(__dirname, '../content/blog');
         const files = fs.readdirSync(postsDir);
         allTags = new Set();
         
         files.forEach(file => {
-          if (file.endsWith('.md')) {
+          if (file.endsWith('.mdx')) {
             const filePath = path.join(postsDir, file);
             const content = fs.readFileSync(filePath, 'utf8');
             
