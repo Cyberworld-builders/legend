@@ -4,8 +4,8 @@ description: Browser AR surprised me with how much it can do, but as an experien
 slug: occult-artifact-ar-wrapper-puzzle-fun
 publishedDate: '2026-10-09'
 modifiedDate: '2026-10-09'
-headerImage: /images/occult-artifact-ar-wrapper-puzzle-fun-hero.png
-socialImage: /images/occult-artifact-ar-wrapper-puzzle-fun-hero.png
+headerImage: /images/occult-artifact-ar-wrapper-puzzle-fun-hero.jpg
+socialImage: /images/occult-artifact-ar-wrapper-puzzle-fun-hero.jpg
 canonicalUrl: https://cyberworldbuilders.com/blog/occult-artifact-ar-wrapper-puzzle-fun
 category: Technology
 series: Entertainment Technology
@@ -29,14 +29,16 @@ keywords:
 - puzzle design
 - deterministic tools
 - ghost in the machine
-isFeatured: false
+isFeatured: true
 isDraft: false
 priority: 5
 ---
 
 The new game work I've been doing is all in the browser so far, and that's the part that surprised me. The first proof of concept is Ghost Hunter: a mobile web app where you walk around with your phone and ghosts show up over the camera feed. Camera, GPS, AR tracking, all in a browser tab. It runs in Safari on an iPhone and Chrome on Android. No app store, no native build, no developer account.
 
-Part of why that works is that 8th Wall's engine is open source now, and it does its own tracking on the camera feed instead of waiting on browser support that iOS never shipped. Back in May I wrote that the SLAM core was still binary-only. That turned out to be stale. The whole engine is open, and the only things that went away with Niantic's hosted platform were the hosted extras.
+The first night I tested it, I was out in my yard trying to find a ghost. I'd already had the radius cut down to under 20 meters so I could test without leaving the property. I got on its trail, and as soon as I crossed 6 meters, it disappeared, and I still hadn't seen the thing. So I had it flash up on a timer just so I could see what I was looking for. It was a Pac-Man ghost. Perfect placeholder. The bigger lesson was that GPS is the wrong tool for the last few meters. Once the ghost shows up, it needs to get pinned in space by the phone's own camera and motion tracking, the way the good AR apps keep an object anchored even when you look away. That's what pointed me at 8th Wall.
+
+Part of why this all works in a browser is that 8th Wall's engine is open source now, and it does its own tracking on the camera feed instead of waiting on browser support that iOS never shipped. Back in May I wrote that the SLAM core was still binary-only. That turned out to be stale. The whole engine is open, and the only things that went away with Niantic's hosted platform were the hosted extras.
 
 <PostCard slug="revenant-hollow-never-stopped-being-alive" />
 
@@ -64,9 +66,21 @@ I want to be able to sit down with a technical person and show them this isn't j
 
 I've already named how this fails. It looks cool, it feels cool, and then the satisfying part burns up. Right now the only lever I've been pulling to keep it interesting is more confusing math, and that's the loop I want to break. Short burst of reward, then boredom, then more math as the patch. That's the defect.
 
-Here's what the puzzle actually is today. You work an artifact made of geometric pieces: plates that slide, a ring, a pair of seals. Each configuration has a state where everything agrees, and when you hit it, the piece seats itself with a chime and the artifact opens up a little further. Further in, the marks disappear and you're working from readings, and eventually two plates are coupled so that one stone answers in two places at once.
+Here's what the puzzle actually is today. It starts as a carved stone cube you can turn in your hands. Focus the inscription and you're working one face of it: plates that slide, a ring, a pair of seals.
+
+<Figure src="/images/occult-artifact-ar-wrapper-puzzle-fun-first-lesson.jpg" alt="The working face of the artifact: a stone plate with a sliding rune and a row of marks, under the prompt 'Slide the stone rune to its matching mark.'" caption="The first lesson. Slide the stone rune to its matching mark." />
+
+Each configuration has a state where everything agrees, and when you hit it, the piece seats itself with a chime and the artifact opens up a little further. Further in, the marks disappear and you're working from readings, and eventually two plates are coupled so that one stone answers in two places at once.
+
+<Figure src="/images/occult-artifact-ar-wrapper-puzzle-fun-inner-fold.jpg" alt="The inner fold: outer plates have parted to expose a diamond mechanism with an unmarked sliding plate and a glowing gem." caption="Four configurations in, the plates part. No mark on this one. Slide until the light goes still." />
 
 The plan for the opening levels is mostly about the order things show up in. Open right on a live plate and its mark instead of making you pick an action first. Give the device one job early on: point at the piece you're working and tell you closer, further, or aligned. The phase numbers and the coupling matrix move behind an optional terminal you can open if you want the real math. And before a stone ever answers in two places, show you two stones that each answer in only one.
+
+The device is where the two games meet. Ghost Hunter's interface is supposed to look like homebrew gear built out of a VCR repair shop's parts, because in the Scary Prankster canon the guy who owns the tape store ends up building paranormal investigation tech. The artifact's analyzer is that same bench equipment, wrapped around the stone.
+
+<Figure src="/images/occult-artifact-ar-wrapper-puzzle-fun-analyzer.jpg" alt="The bench analyzer wrapped around the artifact: a battered instrument labeled Local Society Authorized Equipment, showing gem scan contours over the inner mechanism and a terminal reading PHASE [0 3] and COUPLING [[1 1] [0 1]] MOD 5." caption="The bench analyzer mid-solve. The upper reading is already quiet, but only because the lower plate is cancelling it." />
+
+For the technical folks, here's the Easter egg as it runs today. Every piece has a position on a small loop, and its error is just `(position − target) mod m`, where m is the size of the loop. Zero means agreement, and the piece seats. The final pair runs through the matrix `[[1, 1], [0, 1]] mod 5`, so the lower stone shows up in both readings and the upper stone only in its own. The determinant is 1, so it's invertible mod 5, which means two quiet readings really do mean both stones are home. One quiet reading alone can be cancellation, and that's exactly the moment in the screenshot above. The contour drawings on the device are stylized, not a physics simulation. The rules underneath them are real.
 
 That's the Easter egg idea showing up in the design. It's also the bigger fight. I'm tempted to just rip the hyperdimensional system out, and that temptation is kind of heartbreaking, because I don't want to lose it. What I want instead is one simple, tiny, reusable piece of it. Tones go in, geometries come out, and the player configures an artifact that plays off the connections between planes. If one case of that is digestible to an arbitrary person, the rest of the effort can go into making the puzzles satisfying. Updates aren't the hard part.
 
