@@ -1,5 +1,13 @@
 [
   {
+    "slug": "occult-artifact-ar-wrapper-puzzle-fun",
+    "title": "The AR Is the Wrapper. The Puzzle Has to Be the Fun.",
+    "description": "Browser AR surprised me with how much it can do, but as an experience it's a novelty. The occult artifact puzzle is where the fun has to come from, and piling on more math isn't how I'm going to keep it there.",
+    "headerImage": "/images/occult-artifact-ar-wrapper-puzzle-fun-hero.jpg",
+    "category": "Technology",
+    "publishedDate": "2026-10-09"
+  },
+  {
     "slug": "one-week-claude-code-publishing-pipeline",
     "title": "One Week with Claude Code: Building an AI-Powered Publishing Pipeline",
     "description": "After seven days of building with Claude Code and my AI assistant Gus, I shipped an end-to-end blog pipeline, an SEO auditor, and a chatbot \u2014 most of it while cleaning my office.",

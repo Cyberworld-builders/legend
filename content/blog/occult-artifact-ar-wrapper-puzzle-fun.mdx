@@ -1,0 +1,105 @@
+---
+title: The AR Is the Wrapper. The Puzzle Has to Be the Fun.
+description: Browser AR surprised me with how much it can do, but as an experience it's a novelty. The occult artifact puzzle is where the fun has to come from, and piling on more math isn't how I'm going to keep it there.
+slug: occult-artifact-ar-wrapper-puzzle-fun
+publishedDate: '2026-10-09'
+modifiedDate: '2026-10-09'
+headerImage: /images/occult-artifact-ar-wrapper-puzzle-fun-hero.jpg
+socialImage: /images/occult-artifact-ar-wrapper-puzzle-fun-hero.jpg
+canonicalUrl: https://cyberworldbuilders.com/blog/occult-artifact-ar-wrapper-puzzle-fun
+category: Technology
+series: Entertainment Technology
+topics:
+- Development & Tools
+- AI & Automation
+tags:
+- occult-artifact
+- augmented-reality
+- 8th-wall
+- game-design
+- puzzle-design
+- revenant-hollow
+- scary-prankster
+keywords:
+- occult artifact puzzle
+- browser augmented reality
+- 8th wall open source
+- web ar ios safari
+- game design retention
+- puzzle design
+- deterministic tools
+- ghost in the machine
+isFeatured: true
+isDraft: false
+priority: 5
+---
+
+The new game work I've been doing is all in the browser so far, and that's the part that surprised me. The first proof of concept is Ghost Hunter: a mobile web app where you walk around with your phone and ghosts show up over the camera feed. Camera, GPS, AR tracking, all in a browser tab. It runs in Safari on an iPhone and Chrome on Android. No app store, no native build, no developer account.
+
+The first night I tested it, I was out in my yard trying to find a ghost. I'd already had the radius cut down to under 20 meters so I could test without leaving the property. I got on its trail, and as soon as I crossed 6 meters, it disappeared, and I still hadn't seen the thing. So I had it flash up on a timer just so I could see what I was looking for. It was a Pac-Man ghost. Perfect placeholder. The bigger lesson was that GPS is the wrong tool for the last few meters. Once the ghost shows up, it needs to get pinned in space by the phone's own camera and motion tracking, the way the good AR apps keep an object anchored even when you look away. That's what pointed me at 8th Wall.
+
+Part of why this all works in a browser is that 8th Wall's engine is open source now, and it does its own tracking on the camera feed instead of waiting on browser support that iOS never shipped. Back in May I wrote that the SLAM core was still binary-only. That turned out to be stale. The whole engine is open, and the only things that went away with Niantic's hosted platform were the hosted extras.
+
+<PostCard slug="revenant-hollow-never-stopped-being-alive" />
+
+So the AR works. But the thing I think I need to dig into the most isn't the AR. It's the math behind the occult artifact puzzle.
+
+## The AR is a wrapper
+
+A few days before I recorded the memo this post comes from, I'd already started saying this out loud. Ghost Hunter proved real things. The tech direction is sound, and it's probably fun eventually. But right now its whole reason for you to keep playing rests on two things that don't exist yet: a community of people playing it, and stories worth chasing. I don't have time to build the tech, the story, and the marketing all at once. And even if community and story show up later, they're a reason to engage, not the thing that makes it fun.
+
+We need to own that what we're building here is a game. It may be other things too, but I'm not going to cop out on the game elements.
+
+That's how I think about the AR and the puzzle now: two efforts that converge into one thing. As engineering, the AR is exciting. It's fun to build, and it matters to me that we can say exactly what we proved and what the discovery was. As a user experience, though, it's a novelty. You look at it once, you say "that's cool," and then it dies. There's nothing that brings you back. Where it works is as a wrapper around the occult artifact puzzle. The puzzle is the first place I expect real fun to show up.
+
+That doesn't mean the wrapper is throwaway. The whole thing, wrapper included, might still grow into a real game. Making the AR an experience in its own right would take a lot of work, and I'm putting that off on purpose.
+
+## Math I don't fully understand yet
+
+I've been reading the mathematical documentation for the puzzle, and I don't understand it yet. I might have to study it, maybe even take a course in some of the concepts, before I really grasp it. What I do think is that it did exactly what I asked it to do.
+
+The way I read it, it found ways to use the frequencies of tones you can play while you interact with the device, and mapped those frequencies, and the fields they make, onto the geometric shapes they form. Then it used that as a vehicle for hyperdimensional ghost spaces. I think it did that with real math. The more I read, the more I think there's something special in there to lean into, and the potential could be pretty extraordinary.
+
+I want to be able to sit down with a technical person and show them this isn't just clever science fiction. That's a different goal from what the player sees, though. So the open question for me is where the math maps onto the human experience and the actual game. How much should a player see? My gut says very little. The rest can be an Easter egg for anyone who wants the engineering conversation.
+
+## More math is not a retention mechanic
+
+I've already named how this fails. It looks cool, it feels cool, and then the satisfying part burns up. Right now the only lever I've been pulling to keep it interesting is more confusing math, and that's the loop I want to break. Short burst of reward, then boredom, then more math as the patch. That's the defect.
+
+Here's what the puzzle actually is today. It starts as a carved stone cube you can turn in your hands. Focus the inscription and you're working one face of it: plates that slide, a ring, a pair of seals.
+
+<Figure src="/images/occult-artifact-ar-wrapper-puzzle-fun-first-lesson.jpg" alt="The working face of the artifact: a stone plate with a sliding rune and a row of marks, under the prompt 'Slide the stone rune to its matching mark.'" caption="The first lesson. Slide the stone rune to its matching mark." />
+
+Each configuration has a state where everything agrees, and when you hit it, the piece seats itself with a chime and the artifact opens up a little further. Further in, the marks disappear and you're working from readings, and eventually two plates are coupled so that one stone answers in two places at once.
+
+<Figure src="/images/occult-artifact-ar-wrapper-puzzle-fun-inner-fold.jpg" alt="The inner fold: outer plates have parted to expose a diamond mechanism with an unmarked sliding plate and a glowing gem." caption="Four configurations in, the plates part. No mark on this one. Slide until the light goes still." />
+
+The plan for the opening levels is mostly about the order things show up in. Open right on a live plate and its mark instead of making you pick an action first. Give the device one job early on: point at the piece you're working and tell you closer, further, or aligned. The phase numbers and the coupling matrix move behind an optional terminal you can open if you want the real math. And before a stone ever answers in two places, show you two stones that each answer in only one.
+
+The device is where the two games meet. Ghost Hunter's interface is supposed to look like homebrew gear built out of a VCR repair shop's parts, because in the Scary Prankster canon the guy who owns the tape store ends up building paranormal investigation tech. The artifact's analyzer is that same bench equipment, wrapped around the stone.
+
+<Figure src="/images/occult-artifact-ar-wrapper-puzzle-fun-analyzer.jpg" alt="The bench analyzer wrapped around the artifact: a battered instrument labeled Local Society Authorized Equipment, showing gem scan contours over the inner mechanism and a terminal reading PHASE [0 3] and COUPLING [[1 1] [0 1]] MOD 5." caption="The bench analyzer mid-solve. The upper reading is already quiet, but only because the lower plate is cancelling it." />
+
+For the technical folks, here's the Easter egg as it runs today. Every piece has a position on a small loop, and its error is just `(position − target) mod m`, where m is the size of the loop. Zero means agreement, and the piece seats. The final pair runs through the matrix `[[1, 1], [0, 1]] mod 5`, so the lower stone shows up in both readings and the upper stone only in its own. The determinant is 1, so it's invertible mod 5, which means two quiet readings really do mean both stones are home. One quiet reading alone can be cancellation, and that's exactly the moment in the screenshot above. The contour drawings on the device are stylized, not a physics simulation. The rules underneath them are real.
+
+That's the Easter egg idea showing up in the design. It's also the bigger fight. I'm tempted to just rip the hyperdimensional system out, and that temptation is kind of heartbreaking, because I don't want to lose it. What I want instead is one simple, tiny, reusable piece of it. Tones go in, geometries come out, and the player configures an artifact that plays off the connections between planes. If one case of that is digestible to an arbitrary person, the rest of the effort can go into making the puzzles satisfying. Updates aren't the hard part.
+
+One thought on why the current version is hard: it might be trying to jump from 2D straight to hyperspace and skipping 3D entirely. That's a maybe, not a plan.
+
+## The machine in the story works the way I work
+
+Inside the fiction, there's a device that reads and analyzes the tones and augments the operator. It's a different object from the artifact itself. The artifact was built by something greater than whoever is holding the device.
+
+When I thought about how that device should feel smart, I reached for the pattern I use every day now. I ask a bot to chew through documentation, search, and spot patterns that used to take a trained analyst days of Python and a web UI. Sometimes it writes a little script. Sometimes it already knows. And under all of that is what I think is the real unlock: use the model to build a lot of powerful deterministic tools, then spend a tiny amount of reasoning picking which tool to use. That choice is all the tokens it needed.
+
+Before models could write code, a pile of deterministic scripts could feel like an intelligence, but it was sleight of hand, and changing it meant committing new code. I want the machine in the game to land that same feeling on purpose. Programming it is mapping out ancient configurations.
+
+The setting is still the 1990s, with some liberties, so a bot-like helper can exist there. At some point I want the ghost in the machine question in the room. Is the machine's grasp of the tones and the geometries just really good code, or is something alive in the box? And maybe the bigger question underneath is whether intelligence is just that kind of configuration.
+
+## It has to be fun in my hands
+
+I'm not going to design fun by guessing what someone else will like from data. I know turn-based random encounters are a huge, popular genre. They pull me out of the journey every time. A random battle in Final Fantasy VII used to do exactly that to me, in a game I was only finishing because the story was good. What I want is the Zelda feeling: if something meets you, it's there in the place, not a roll of the dice. So I'm building the real-time alternative I'd actually want to keep playing.
+
+There are two rules I'm holding myself to. I won't bolt on a story stop to rescue a dull stretch, and I won't drop a confusing puzzle on someone who came for the story. The fix has to feel smooth, clean, and organic. There's a ton of lore waiting in the wings, and it stays there until it's earned.
+
+The story side of this lives with Scary Prankster. This side is the build. The plan from here is simple: keep executing, keep trying different things, and keep going until the fun is real in my own hands.
