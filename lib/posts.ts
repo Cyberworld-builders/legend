@@ -16,7 +16,7 @@ export interface PostSource {
   wordCount: number;
 }
 
-const STRING_FIELDS = ['title', 'description', 'slug', 'publishedDate', 'modifiedDate', 'canonicalUrl', 'socialImage', 'headerImage', 'series', 'category', 'language'] as const;
+const STRING_FIELDS = ['title', 'description', 'slug', 'publishedDate', 'modifiedDate', 'canonicalUrl', 'socialImage', 'socialImageAlt', 'headerImage', 'series', 'category', 'language'] as const;
 const LIST_FIELDS = ['keywords', 'topics', 'tags'] as const;
 const BOOLEAN_FIELDS = ['isDraft', 'isFeatured'] as const;
 const REQUIRED_FIELDS = ['title', 'description', 'slug', 'publishedDate'] as const;

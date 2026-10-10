@@ -5,7 +5,8 @@ export default function robots(): MetadataRoute.Robots {
     rules: [
       {
         userAgent: '*',
-        allow: '/',
+        // /api/og renders fallback social cards; X's crawler honors robots.txt.
+        allow: ['/', '/api/og'],
         disallow: ['/admin/', '/api/', '/cdn-cgi/', '/forgot-password', '/reset-password'],
       },
       {
