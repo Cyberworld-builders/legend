@@ -56,8 +56,8 @@ export async function generateMetadata({ params }: BlogPostProps): Promise<Metad
       description,
       url,
       type: 'article',
-      publishedTime: metadata.publishedDate,
-      modifiedTime: metadata.modifiedDate,
+      publishedTime: publishInstant(metadata.publishedDate),
+      modifiedTime: publishInstant(metadata.modifiedDate),
       authors: [metadata.author?.name || 'Jay Long'],
       siteName: 'CyberWorld Builders',
       images: [ogImage],
@@ -72,6 +72,14 @@ export async function generateMetadata({ params }: BlogPostProps): Promise<Metad
     },
     alternates: { canonical: url },
   };
+}
+
+/** Date-only frontmatter means midnight UTC, which is the previous evening across the
+ * Americas (LinkedIn showed Oct 10 posts as Oct 9, 7 PM). Noon UTC is the same calendar
+ * day for almost every viewer. */
+function publishInstant(date?: string) {
+  if (!date) return undefined;
+  return /^\d{4}-\d{2}-\d{2}$/.test(date) ? `${date}T12:00:00Z` : date;
 }
 
 function socialCardUrl(slug: string, socialImage?: string, headerImage?: string) {
@@ -210,8 +218,8 @@ export default async function BlogPost({ params }: BlogPostProps) {
                 name: "CyberWorld Builders",
                 logo: { "@type": "ImageObject", url: "https://cyberworldbuilders.com/images/logo.png", width: 250, height: 250 },
               },
-              datePublished: new Date(metadata.publishedDate).toISOString(),
-              dateModified: new Date(metadata.modifiedDate || metadata.publishedDate).toISOString(),
+              datePublished: publishInstant(metadata.publishedDate),
+              dateModified: publishInstant(metadata.modifiedDate || metadata.publishedDate),
               mainEntityOfPage: { "@type": "WebPage", "@id": metadata.canonicalUrl || `https://cyberworldbuilders.com/blog/${slug}` },
               url: metadata.canonicalUrl || `https://cyberworldbuilders.com/blog/${slug}`,
               articleSection: metadata.category || "Technology",
