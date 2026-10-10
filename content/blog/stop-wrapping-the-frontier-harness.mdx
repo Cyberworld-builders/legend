@@ -1,0 +1,114 @@
+---
+title: Stop Wrapping the Frontier Harness
+description: My AI assistant started as an OpenClaw-style harness on an old M1 Mac. Six months later it's an executive productivity tunnel on Omarchy, and the biggest lesson was to get out of the frontier harness's way instead of layering more constraints on top of it.
+slug: stop-wrapping-the-frontier-harness
+publishedDate: '2026-10-10'
+modifiedDate: '2026-10-10'
+headerImage: /images/stop-wrapping-the-frontier-harness-hero-screen.jpg
+socialImage: /images/stop-wrapping-the-frontier-harness-hero-screen.jpg
+canonicalUrl: https://cyberworldbuilders.com/blog/stop-wrapping-the-frontier-harness
+category: Technology
+series: The Executive Productivity Tunnel
+topics:
+- AI & Automation
+- Development & Tools
+tags:
+- gusclaw
+- agent-harness
+- claude-code
+- codex
+- omarchy
+- herdr
+- context-engineering
+- executive-productivity-tunnel
+keywords:
+- agent harness
+- frontier harness
+- custom ai harness
+- openclaw alternative
+- claude code codex grok
+- omarchy linux agents
+- context management
+- ai operating system
+isFeatured: false
+isDraft: false
+priority: 5
+---
+
+Everybody's talking about harnesses right now. Which harness, whose harness, how to build your own, how to bolt more tools and rules and memory onto the one you've got. I spent the first half of this year building one. It was called GusClaw, it ran on an old M1 MacBook Air, and it was my take on the OpenClaw idea: a personal AI agent with its own machine, its own accounts, and a pile of automations running around the clock.
+
+It doesn't run anymore. What replaced it is something I've been calling the executive productivity tunnel, and it runs on a Linux box with Omarchy. The difference between the two isn't the feature list. GusClaw was me trying to build a harness. The tunnel is me getting out of the way of the harnesses the frontier labs already ship.
+
+I think that shift is the whole story, so it's the thesis for this first post in what's going to be a series.
+
+## GusClaw was an OpenClaw-style operation on a Mac
+
+Back in the first wave of OpenClaw, everybody was loading up Mac Minis. I had an old M1 laying around, so I wiped it, gave Gus his own Google account, and started building. By the time I shut it down, the M1 was running five background services that kept themselves alive. There was the OpenClaw gateway. There was a Python bot that did a little of everything: a Telegram interface, a chat API, social scrapers for Facebook, LinkedIn, Upwork, and YouTube, and a heartbeat scheduler for daily SEO scans, Upwork scans, and the transcript pipeline. Then the observatory dashboard I wrote about back in March, a Cloudflare tunnel, and a watchdog to relaunch everything when it fell over.
+
+I was watching the OpenClaw repo and the Claude Code skills spec the whole time, cherry-picking what I wanted. I thought I was failing if I didn't keep parity. My agent kept telling me we weren't keeping parity and that was fine. When Anthropic cut third-party harnesses off from Claude subscriptions in April, my setup kept working, because it never sat between me and Anthropic. It called `claude -p` on my own login.
+
+<PostCard slug="why-my-ai-os-survived-anthropics-harness-lockdown" />
+
+I got lucky there, and I said so at the time. But the bigger problem with GusClaw wasn't policy. It was macOS. There's always something you need to look at, something you need to click on, something you need to type in. There's a GUI in every workflow, and that makes it really hard to automate fully and dependably. In hindsight the Mac choice was driven by the Mac Mini hype, and a lot of that hype was non-developer entrepreneurs trying to replace their developers with AI. A Mac beat Windows for this. Linux in some flavor would have been far better from the start.
+
+## Shut it all down, then rebuild what we miss
+
+On September 5th I had all of it shut down. Nothing deleted, every launch agent just disabled, all the code and databases left where they were. The rule was simple: stand up a new version of whatever we miss, as we recognize its value from its absence.
+
+The new home was Predator, an old Acer gaming laptop that had been sitting idle since March. I almost started with a complete rewrite, and one of the first things I wanted to change was to decouple the parent agent from the hardware. Giving an agent its own machine and its own accounts made sense when there weren't good ways to handle safety, but it's not even a great way to limit blast radius if you're actually worried about a malicious or incompetent intelligence. It reminds me of the move to zero trust. People had a false sense of security behind their VPN and got lazy with their trust boundaries.
+
+What I wanted instead was a machine I could grab and use like any other development box, that also happens to have a personal assistant sitting on it orchestrating teams of agents while I'm focused on other things.
+
+So I put Omarchy on it. That's DHH's Arch Linux setup, and the thing that sold me was that it's Linux. On an OS level, the agent shouldn't need manual human action from eyeballs and meat sticks. I can tell an agent what I want the machine to do and it can just do it. Omarchy 4 leans into that on purpose. It ships about ten coding agent CLIs as launchers, lets you pick a default, and when a process crashes it offers to hand the core dump to your agent. That's not hypothetical. This morning it handed my agent three crashes from the same keyring daemon, each with a pointer to a skill file explaining how to investigate it.
+
+The install itself was a two-day fight with the bootloader, which I'll admit is funny given that the whole point of Omarchy was to not adopt Arch Linux as a hacker muscle battle scar. The fix turned out to be flipping the firmware from legacy BIOS to UEFI and running the stock installer with all the defaults. Every problem we hit came from trying to steer the installer instead of letting it do what it was built to do.
+
+That turned out to be the lesson for the whole project.
+
+## What the tunnel actually is
+
+Here's the setup today, as plainly as I can put it.
+
+Predator runs herdr, a terminal multiplexer built for coding agents. Each of my workrooms gets one named pane with an executive agent in it: one for CyberWorld, one for Scary Prankster, and one for each client project. Each pane is Claude Code, Codex, or Grok, whichever I've picked from a toggle that day. The pane is the executive. The harness is replaceable.
+
+Every room has a short standing brief (`AGENTS.md`) and a worklog. The harness reads those on startup and that's how a fresh Codex picks up where a Claude session left off. The durable memory lives in RevBorg, an API I built for what I call rev-docs: living markdown documents with comments and tags, plus the transcripts of my voice memos. Windmill runs the deterministic jobs, like day logs and the harness swap. Basecamp is the async front door. I can `@gus` from my phone and a small loop delivers it to the pane and posts the reply. The live front door is a workspace web app with the terminal, the rev-docs, and a scratchpad on one page.
+
+<Figure src="/images/stop-wrapping-the-frontier-harness-architecture.png" alt="Architecture diagram of the executive productivity tunnel: Jay reaches executives through Basecamp and a workspace web app; herdr on Predator runs one executive pane per room, each running Claude Code, Codex, or Grok; RevBorg holds rev-docs and transcripts; Windmill runs deterministic jobs; the M4 runs Ollama." caption="The tunnel today. The executives in herdr are stock Claude Code, Codex, or Grok. Everything else either feeds them context or keeps what they produce." />
+
+The name came out of the day I moved the web app's dev server onto Predator, right next to the executives: we are on the verge of sending all work through the workspace tunnel. That's basically what happened. I didn't expect it to get adopted so quickly, even if it's just me on my own LAN.
+
+Notice what isn't on that list. There's no agent loop of my own. No custom tool-calling layer, no prompt router, no memory sub-agent that runs every turn. Claude Code, Codex, and Grok do the agent part. They're very good at it, and they get better every few weeks without me doing anything.
+
+<Figure src="/images/stop-wrapping-the-frontier-harness-workspace.jpg" alt="Screenshot of the CyberWorld workroom: the series plan rev-doc open on the left, the CyberWorld executive terminal on the right showing its report on this post and Jay's reply, the scratchpad and Record button below." caption="This is the real screen inside the hero image. The CyberWorld room with the plan for this series open, and the executive on the right reporting the first draft of this post, then my reply. Client rooms are renamed Northwind, Initech, and Globex." />
+
+## Get out of the frontier harness's way
+
+Back in September, when we were designing the context system, I wrote this down and I still think it's the most important thing about the project:
+
+> We're not forcing deterministic tools. We're leaning into context management improvement, which is a different concept altogether. We're not hacking how agents do their job, we're hacking how they retrieve and load and dump context.
+
+There's a lot of buzz in the community about custom harnesses making agent performance worse, not better, as the models improve. The tunnel is basically a move in response to that. I had the same instinct about my own design ideas. When I was sketching out a networking-style way to package context, with headers on chunks like frames on a packet, I caught myself: apply that metaphor too rigidly and you crush the magic of the inference baked into the weights. It's like replacing the brain of an above-average intelligent human with a wad of Cat5 wire and some Netgear routers.
+
+I'm not the only one who's landed here. Browser Use [ripped out its own wrappers](https://browser-use.com/posts/bitter-lesson-agent-harnesses) in April and gave the model raw browser access plus the ability to edit its own helper code. Their line is "Don't wrap the LLM. Don't wrap its tools either." Philipp Schmid [points out](https://www.philschmid.de/agent-harness-2026) that Manus refactored their harness five times in six months to remove rigid assumptions. Han Lee calls the harness [hidden technical debt](https://leehanchung.github.io/blogs/2026/05/08/hidden-technical-debt-agent-harness/): structure you need for today's models that should come out as easily as it went in.
+
+The other direction is real too, and it's popular. OpenClaw is a persistent gateway wired into a dozen messaging apps, with a marketplace of skills. Hermes from Nous Research [writes its own skills](https://parallel.ai/articles/openclaw-vs-nousresearch-hermes) after it finishes a hard task and refines them over time. Those are serious projects and I get the appeal, because GusClaw was the same appeal. But they own the agent loop. That puts them in competition with the vendor's harness, both on features and on access, and access is exactly what got cut off in April.
+
+So here's where I put my layers. Everything I build sits around the frontier harness, never inside it. On the way in it's context: the room brief, the worklog, the rev-docs I send it. On the way out it's records: rev-docs, comments, PRs, day logs. Scheduling and repeatable work go to Windmill as plain scripts. When a harness needs a new ability, it gets a deterministic tool it can call, like a script, a CLI, or a skill file, and the model spends a tiny bit of reasoning picking which tool to use. Even the OS met me halfway on that. Omarchy's crash handler doesn't diagnose anything. It hands the agent a core dump and a markdown file and gets out of the way.
+
+## The honest version
+
+This isn't clean. It's powerful, but it's a mess, and I'd be lying if I said otherwise.
+
+The first time I tried to automate harness rotation, it rotated Claude out to Codex because Claude's reply about a Docker permission error contained the words "usage limit" and tripped my regex. Rotation has been manual ever since. Later, a Claude executive came back from a reload with no idea the shared rev-doc API existed, while Codex in the same pane had kept its context. The fix wasn't more harness. It was one shared, harness-agnostic brief that every room's `AGENTS.md` points to, so whichever model shows up reads the same thing.
+
+There are real single points of failure too. One server holds identity, data, and monitoring. One laptop on wifi holds every executive. And there's one operator. A lot of my tools are really just prompts that depend on an executive knowing its environment, with absolute paths and device names baked into memories. I've already started a discovery doc on what a break-glass copy in the cloud would look like, and I expect it to turn up more technical debt than I'd like.
+
+But none of those problems are the kind that get worse when a new model ships. They're plumbing problems, and the agents are very good at plumbing.
+
+## Where this series goes
+
+GusClaw evolved into the executive productivity tunnel, and I suspect the tunnel will evolve into something else before long. I'm going to walk through the pieces one at a time: running the same executive on three different harnesses, how rev-docs and comments became the shared memory, Basecamp and the browser as two front doors, why Windmill does the hands-on work, and what happens when it breaks.
+
+<Figure src="/images/stop-wrapping-the-frontier-harness-mobile.jpg" alt="Two phone screenshots: the CyberWorld workroom on mobile with the executive terminal, and the voice recorder eight seconds into a memo." caption="The same room on a phone, and the voice recorder eight seconds into a memo. The audio uploads to RevBorg and comes back as a transcript." />
+
+I'm also going to record a walkthrough, long and rambling, the way I actually work, and let the publishing pipeline cut it down. That's the whole idea. The frontier keeps getting smarter on its own. My job is to make sure it walks into the room with the right context, and then step aside.
