@@ -1,5 +1,13 @@
 [
   {
+    "slug": "stop-wrapping-the-frontier-harness",
+    "title": "Stop Wrapping the Frontier Harness",
+    "description": "My AI assistant started as an OpenClaw-style harness on an old M1 Mac. Six months later it's an executive productivity tunnel on Omarchy, and the biggest lesson was to get out of the frontier harness's way instead of layering more constraints on top of it.",
+    "headerImage": "/images/stop-wrapping-the-frontier-harness-hero-screen.jpg",
+    "category": "Technology",
+    "publishedDate": "2026-10-10"
+  },
+  {
     "slug": "occult-artifact-ar-wrapper-puzzle-fun",
     "title": "The AR Is the Wrapper. The Puzzle Has to Be the Fun.",
     "description": "Browser AR surprised me with how much it can do, but as an experience it's a novelty. The occult artifact puzzle is where the fun has to come from, and piling on more math isn't how I'm going to keep it there.",
