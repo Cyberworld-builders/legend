@@ -4,6 +4,8 @@ description: Browser AR surprised me with how much it can do, but as an experien
 slug: occult-artifact-ar-wrapper-puzzle-fun
 publishedDate: '2026-10-09'
 modifiedDate: '2026-10-09'
+headerImage: /images/occult-artifact-ar-wrapper-puzzle-fun-hero.png
+socialImage: /images/occult-artifact-ar-wrapper-puzzle-fun-hero.png
 canonicalUrl: https://cyberworldbuilders.com/blog/occult-artifact-ar-wrapper-puzzle-fun
 category: Technology
 series: Entertainment Technology
@@ -16,11 +18,13 @@ tags:
 - 8th-wall
 - game-design
 - puzzle-design
+- revenant-hollow
 - scary-prankster
 keywords:
 - occult artifact puzzle
 - browser augmented reality
-- 8th wall
+- 8th wall open source
+- web ar ios safari
 - game design retention
 - puzzle design
 - deterministic tools
@@ -30,15 +34,21 @@ isDraft: false
 priority: 5
 ---
 
-The new game work I've been doing is all in the browser so far, and that's the part that surprised me. I knew web apps had come a long way, but I didn't expect this much. What 8th Wall can do right in a browser tab is the kind of thing I want to explore a lot more.
+The new game work I've been doing is all in the browser so far, and that's the part that surprised me. The first proof of concept is Ghost Hunter: a mobile web app where you walk around with your phone and ghosts show up over the camera feed. Camera, GPS, AR tracking, all in a browser tab. It runs in Safari on an iPhone and Chrome on Android. No app store, no native build, no developer account.
 
-But the thing I think I need to dig into the most isn't the AR. It's the math behind the occult artifact puzzle.
+Part of why that works is that 8th Wall's engine is open source now, and it does its own tracking on the camera feed instead of waiting on browser support that iOS never shipped. Back in May I wrote that the SLAM core was still binary-only. That turned out to be stale. The whole engine is open, and the only things that went away with Niantic's hosted platform were the hosted extras.
+
+<PostCard slug="revenant-hollow-never-stopped-being-alive" />
+
+So the AR works. But the thing I think I need to dig into the most isn't the AR. It's the math behind the occult artifact puzzle.
 
 ## The AR is a wrapper
 
-I think of the augmented reality and the puzzle as two separate efforts that converge into one thing. As engineering, the AR is exciting. It's fun to build, and it matters to me that we can say exactly what we proved and what the discovery was.
+A few days before I recorded the memo this post comes from, I'd already started saying this out loud. Ghost Hunter proved real things. The tech direction is sound, and it's probably fun eventually. But right now its whole reason for you to keep playing rests on two things that don't exist yet: a community of people playing it, and stories worth chasing. I don't have time to build the tech, the story, and the marketing all at once. And even if community and story show up later, they're a reason to engage, not the thing that makes it fun.
 
-As a user experience, though, it's a novelty. You look at it once and then it dies. There's nothing that brings you back, and honestly nothing about it is actually fun. Where it works is as a wrapper around the occult artifact puzzle. The puzzle is the first place I expect real fun to show up, and that's the experience I'm trying to hammer out right now.
+We need to own that what we're building here is a game. It may be other things too, but I'm not going to cop out on the game elements.
+
+That's how I think about the AR and the puzzle now: two efforts that converge into one thing. As engineering, the AR is exciting. It's fun to build, and it matters to me that we can say exactly what we proved and what the discovery was. As a user experience, though, it's a novelty. You look at it once, you say "that's cool," and then it dies. There's nothing that brings you back. Where it works is as a wrapper around the occult artifact puzzle. The puzzle is the first place I expect real fun to show up.
 
 That doesn't mean the wrapper is throwaway. The whole thing, wrapper included, might still grow into a real game. Making the AR an experience in its own right would take a lot of work, and I'm putting that off on purpose.
 
@@ -54,7 +64,11 @@ I want to be able to sit down with a technical person and show them this isn't j
 
 I've already named how this fails. It looks cool, it feels cool, and then the satisfying part burns up. Right now the only lever I've been pulling to keep it interesting is more confusing math, and that's the loop I want to break. Short burst of reward, then boredom, then more math as the patch. That's the defect.
 
-I'm tempted to just rip the hyperdimensional system out, and that temptation is kind of heartbreaking, because I don't want to lose it. What I want instead is one simple, tiny, reusable piece of it. Tones go in, geometries come out, and the player configures an artifact whose tones and geometries play off the connections between planes. If I can make one case of that digestible to an arbitrary person, the rest of the effort can go into making the puzzles satisfying. Updates aren't the hard part.
+Here's what the puzzle actually is today. You work an artifact made of geometric pieces: plates that slide, a ring, a pair of seals. Each configuration has a state where everything agrees, and when you hit it, the piece seats itself with a chime and the artifact opens up a little further. Further in, the marks disappear and you're working from readings, and eventually two plates are coupled so that one stone answers in two places at once.
+
+The plan for the opening levels is mostly about the order things show up in. Open right on a live plate and its mark instead of making you pick an action first. Give the device one job early on: point at the piece you're working and tell you closer, further, or aligned. The phase numbers and the coupling matrix move behind an optional terminal you can open if you want the real math. And before a stone ever answers in two places, show you two stones that each answer in only one.
+
+That's the Easter egg idea showing up in the design. It's also the bigger fight. I'm tempted to just rip the hyperdimensional system out, and that temptation is kind of heartbreaking, because I don't want to lose it. What I want instead is one simple, tiny, reusable piece of it. Tones go in, geometries come out, and the player configures an artifact that plays off the connections between planes. If one case of that is digestible to an arbitrary person, the rest of the effort can go into making the puzzles satisfying. Updates aren't the hard part.
 
 One thought on why the current version is hard: it might be trying to jump from 2D straight to hyperspace and skipping 3D entirely. That's a maybe, not a plan.
 
@@ -66,11 +80,11 @@ When I thought about how that device should feel smart, I reached for the patter
 
 Before models could write code, a pile of deterministic scripts could feel like an intelligence, but it was sleight of hand, and changing it meant committing new code. I want the machine in the game to land that same feeling on purpose. Programming it is mapping out ancient configurations.
 
-The setting is still the 1990s, with some liberties, so a bot-like helper can exist there. At some point I want the ghost in the machine question in the room. Is the machine's grasp of the tones and the geometries just really good code, or is something alive in the box? One character will argue the first. The technologist will argue the second. And maybe the bigger question underneath is whether intelligence is just that kind of configuration.
+The setting is still the 1990s, with some liberties, so a bot-like helper can exist there. At some point I want the ghost in the machine question in the room. Is the machine's grasp of the tones and the geometries just really good code, or is something alive in the box? And maybe the bigger question underneath is whether intelligence is just that kind of configuration.
 
 ## It has to be fun in my hands
 
-I'm not going to design fun by guessing what someone else will like from data. I know turn-based random encounters are a huge, popular genre. They pull me out of the journey every time. So I'm building the real-time alternative I'd actually want to keep playing.
+I'm not going to design fun by guessing what someone else will like from data. I know turn-based random encounters are a huge, popular genre. They pull me out of the journey every time. A random battle in Final Fantasy VII used to do exactly that to me, in a game I was only finishing because the story was good. What I want is the Zelda feeling: if something meets you, it's there in the place, not a roll of the dice. So I'm building the real-time alternative I'd actually want to keep playing.
 
 There are two rules I'm holding myself to. I won't bolt on a story stop to rescue a dull stretch, and I won't drop a confusing puzzle on someone who came for the story. The fix has to feel smooth, clean, and organic. There's a ton of lore waiting in the wings, and it stays there until it's earned.
 
