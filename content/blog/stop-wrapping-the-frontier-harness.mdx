@@ -4,8 +4,8 @@ description: My AI assistant started as an OpenClaw-style harness on an old M1 M
 slug: stop-wrapping-the-frontier-harness
 publishedDate: '2026-10-10'
 modifiedDate: '2026-10-10'
-headerImage: /images/stop-wrapping-the-frontier-harness-hero.jpg
-socialImage: /images/stop-wrapping-the-frontier-harness-hero.jpg
+headerImage: /images/stop-wrapping-the-frontier-harness-hero-screen.jpg
+socialImage: /images/stop-wrapping-the-frontier-harness-hero-screen.jpg
 canonicalUrl: https://cyberworldbuilders.com/blog/stop-wrapping-the-frontier-harness
 category: Technology
 series: The Executive Productivity Tunnel
@@ -73,9 +73,13 @@ Predator runs herdr, a terminal multiplexer built for coding agents. Each of my 
 
 Every room has a short standing brief (`AGENTS.md`) and a worklog. The harness reads those on startup and that's how a fresh Codex picks up where a Claude session left off. The durable memory lives in RevBorg, an API I built for what I call rev-docs: living markdown documents with comments and tags, plus the transcripts of my voice memos. Windmill runs the deterministic jobs, like day logs and the harness swap. Basecamp is the async front door. I can `@gus` from my phone and a small loop delivers it to the pane and posts the reply. The live front door is a workspace web app with the terminal, the rev-docs, and a scratchpad on one page.
 
+<Figure src="/images/stop-wrapping-the-frontier-harness-architecture.png" alt="Architecture diagram of the executive productivity tunnel: Jay reaches executives through Basecamp and a workspace web app; herdr on Predator runs one executive pane per room, each running Claude Code, Codex, or Grok; RevBorg holds rev-docs and transcripts; Windmill runs deterministic jobs; the M4 runs Ollama." caption="The tunnel today. The executives in herdr are stock Claude Code, Codex, or Grok. Everything else either feeds them context or keeps what they produce." />
+
 The name came out of the day I moved the web app's dev server onto Predator, right next to the executives: we are on the verge of sending all work through the workspace tunnel. That's basically what happened. I didn't expect it to get adopted so quickly, even if it's just me on my own LAN.
 
 Notice what isn't on that list. There's no agent loop of my own. No custom tool-calling layer, no prompt router, no memory sub-agent that runs every turn. Claude Code, Codex, and Grok do the agent part. They're very good at it, and they get better every few weeks without me doing anything.
+
+<Figure src="/images/stop-wrapping-the-frontier-harness-workspace.jpg" alt="Screenshot of the CyberWorld workroom: the series plan rev-doc open on the left, the CyberWorld executive terminal on the right showing its report on this post and Jay's reply, the scratchpad and Record button below." caption="This is the real screen inside the hero image. The CyberWorld room with the plan for this series open, and the executive on the right reporting the first draft of this post, then my reply. Client rooms are renamed Northwind, Initech, and Globex." />
 
 ## Get out of the frontier harness's way
 
@@ -104,5 +108,7 @@ But none of those problems are the kind that get worse when a new model ships. T
 ## Where this series goes
 
 GusClaw evolved into the executive productivity tunnel, and I suspect the tunnel will evolve into something else before long. I'm going to walk through the pieces one at a time: running the same executive on three different harnesses, how rev-docs and comments became the shared memory, Basecamp and the browser as two front doors, why Windmill does the hands-on work, and what happens when it breaks.
+
+<Figure src="/images/stop-wrapping-the-frontier-harness-mobile.jpg" alt="Two phone screenshots: the CyberWorld workroom on mobile with the executive terminal, and the voice recorder eight seconds into a memo." caption="The same room on a phone, and the voice recorder eight seconds into a memo. The audio uploads to RevBorg and comes back as a transcript." />
 
 I'm also going to record a walkthrough, long and rambling, the way I actually work, and let the publishing pipeline cut it down. That's the whole idea. The frontier keeps getting smarter on its own. My job is to make sure it walks into the room with the right context, and then step aside.
