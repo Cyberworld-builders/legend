@@ -7,6 +7,7 @@ export interface PostMeta {
   keywords?: string[];
   canonicalUrl?: string;
   socialImage?: string;
+  socialImageAlt?: string;
   headerImage?: string;
   topics?: string[];
   tags?: string[];

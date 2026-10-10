@@ -7,6 +7,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { getPostBySlug, getAllPosts } from '@/lib/post-metadata';
 import { slugifyTag } from '@/lib/tag-utils';
+import { publicImageInfo } from '@/lib/image-size';
 import type { Metadata } from 'next';
 
 interface BlogPostProps {
@@ -33,10 +34,18 @@ export async function generateMetadata({ params }: BlogPostProps): Promise<Metad
   const ogParams = new URLSearchParams({ title });
   if (description) ogParams.set('description', description);
   const dynamicOgImage = `https://cyberworldbuilders.com/api/og?${ogParams.toString()}`;
-  const headerImageUrl = metadata.headerImage?.trim()
-    ? `https://cyberworldbuilders.com${metadata.headerImage}`
-    : null;
-  const socialImage = metadata.socialImage?.trim() || headerImageUrl || dynamicOgImage;
+  // Social card: the generated 1200x630 <slug>-og.jpg (made from socialImage or the hero by
+  // revborg-api scripts/blog/og-image.py), else socialImage, else the hero.
+  // /api/og is a last resort only; robots.txt allows /api/og so X can fetch it.
+  const cardPath = [`/images/${slug}-og.jpg`, metadata.socialImage, metadata.headerImage]
+    .map(p => p?.trim())
+    .find(p => p && publicImageInfo(p));
+  const cardInfo = cardPath ? publicImageInfo(cardPath) : null;
+  const socialImage = cardPath ? `https://cyberworldbuilders.com${cardPath}` : dynamicOgImage;
+  const socialImageAlt = metadata.socialImageAlt?.trim() || title;
+  const ogImage = cardInfo
+    ? { url: socialImage, width: cardInfo.width, height: cardInfo.height, type: cardInfo.type, alt: socialImageAlt }
+    : { url: socialImage, width: 1200, height: 630, alt: socialImageAlt };
 
   return {
     title,
@@ -51,16 +60,25 @@ export async function generateMetadata({ params }: BlogPostProps): Promise<Metad
       modifiedTime: metadata.modifiedDate,
       authors: [metadata.author?.name || 'Jay Long'],
       siteName: 'CyberWorld Builders',
-      images: [{ url: socialImage, width: 1200, height: 630, alt: title }],
+      images: [ogImage],
     },
     twitter: {
       card: 'summary_large_image',
+      site: '@cyberbuilders',
+      creator: '@cyberbuilders',
       title,
       description,
-      images: [socialImage],
+      images: [{ url: socialImage, alt: socialImageAlt }],
     },
     alternates: { canonical: url },
   };
+}
+
+function socialCardUrl(slug: string, socialImage?: string, headerImage?: string) {
+  const found = [`/images/${slug}-og.jpg`, socialImage, headerImage]
+    .map(p => p?.trim())
+    .find(p => p && publicImageInfo(p));
+  return found ? `https://cyberworldbuilders.com${found}` : 'https://cyberworldbuilders.com/images/logo.png';
 }
 
 export async function generateStaticParams() {
@@ -174,7 +192,7 @@ export default async function BlogPost({ params }: BlogPostProps) {
               "@type": "BlogPosting",
               headline: title,
               description,
-              image: metadata.socialImage || "https://cyberworldbuilders.com/images/logo.png",
+              image: socialCardUrl(slug, metadata.socialImage, metadata.headerImage),
               author: {
                 "@type": "Person",
                 name: "Jay Long",
