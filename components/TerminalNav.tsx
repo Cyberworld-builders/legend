@@ -8,7 +8,6 @@ const NAV_ITEMS = [
   { label: 'home', href: '/' },
   { label: 'services', href: '/services' },
   { label: 'blog', href: '/blog' },
-  { label: 'cemetery-software', href: '/cemetery-software' },
   { label: 'contact', href: '/#contact' },
 ];
 
