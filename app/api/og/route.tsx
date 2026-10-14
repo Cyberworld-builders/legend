@@ -6,7 +6,7 @@ export const runtime = 'edge';
 export async function GET(request: NextRequest) {
   const { searchParams } = request.nextUrl;
   const title = searchParams.get('title') || 'CyberWorld Builders';
-  const description = searchParams.get('description') || '';
+  const description = searchParams.get('description') || 'A personal technology workshop for useful systems and unusual ideas.';
 
   return new ImageResponse(
     (
@@ -48,7 +48,7 @@ export async function GET(request: NextRequest) {
               opacity: 0.6,
             }}
           >
-            {'>'} cyberworldbuilders.com/blog
+            {'>'} cyberworldbuilders.com
           </div>
 
           {/* Title */}
@@ -111,7 +111,7 @@ export async function GET(request: NextRequest) {
               fontSize: '18px',
             }}
           >
-            Jay Long — Software Engineer & Founder
+          Jay Long · CyberWorld Builders
           </div>
         </div>
       </div>
