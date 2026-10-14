@@ -5,10 +5,9 @@ import Link from 'next/link';
 import { Menu, X } from 'lucide-react';
 
 const NAV_ITEMS = [
-  { label: 'home', href: '/' },
-  { label: 'services', href: '/services' },
-  { label: 'blog', href: '/blog' },
-  { label: 'contact', href: '/#contact' },
+  { label: 'workbench', href: '/#workbench' },
+  { label: 'field notes', href: '/blog' },
+  { label: 'about', href: '/#about' },
 ];
 
 export default function TerminalNav() {
