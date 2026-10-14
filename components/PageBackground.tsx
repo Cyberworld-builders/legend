@@ -12,8 +12,8 @@ export default function PageBackground({
   fullWidth = false
 }: PageBackgroundProps) {
   const containerClass = fullWidth 
-    ? `fixed inset-0 z-0 ${className}` 
-    : `absolute inset-0 z-0 ${className}`;
+    ? `pointer-events-none fixed inset-0 z-0 ${className}` 
+    : `pointer-events-none absolute inset-0 z-0 ${className}`;
     
   return (
     <div className={containerClass} style={{ opacity: opacity / 100 }}>
