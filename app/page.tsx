@@ -115,7 +115,7 @@ export default function Home() {
 
         <section className="mx-auto grid max-w-6xl gap-10 px-5 py-16 md:grid-cols-[.7fr_1.3fr] md:px-8 md:py-20">
           <div>
-            <p className="font-mono text-xs uppercase tracking-[.2em] text-[#00ff00]/60">A note on the shape of this</p>
+            <p className="font-mono text-xs uppercase tracking-[.2em] text-[#00ff00]/60">Why this exists</p>
             <h2 className="mt-3 text-2xl font-semibold leading-tight text-[#e8f0e8] md:text-3xl">I don’t need every interest to become a business.</h2>
           </div>
           <p className="text-base leading-8 text-[#aeb7ae]">
