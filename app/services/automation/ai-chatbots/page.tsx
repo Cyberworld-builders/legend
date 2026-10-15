@@ -13,6 +13,10 @@ export const metadata: Metadata = {
     'RAG chatbot',
     'website chatbot',
   ],
+  robots: {
+    index: false,
+    follow: true,
+  },
   alternates: {
     canonical: 'https://cyberworldbuilders.com/services/automation/ai-chatbots',
   },

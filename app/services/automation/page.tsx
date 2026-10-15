@@ -13,6 +13,10 @@ export const metadata: Metadata = {
     'n8n automation',
     'workflow automation',
   ],
+  robots: {
+    index: false,
+    follow: true,
+  },
   alternates: {
     canonical: 'https://cyberworldbuilders.com/services/automation',
   },

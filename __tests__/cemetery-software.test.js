@@ -223,17 +223,10 @@ describe('Cemetery Software Landing Page', () => {
   });
 
   describe('Sitemap Entry', () => {
-    test('sitemap should include cemetery-software', () => {
+    test('cemetery-software should be excluded from sitemap (noindex legacy page)', () => {
       const sitemapContent = fs.readFileSync('app/sitemap.ts', 'utf8');
-      expect(sitemapContent).toContain('/cemetery-software');
-    });
-
-    test('sitemap should have priority 0.9 for cemetery page', () => {
-      const sitemapContent = fs.readFileSync('app/sitemap.ts', 'utf8');
-      const cemeterySection = sitemapContent.substring(
-        sitemapContent.indexOf('cemetery-software')
-      );
-      expect(cemeterySection).toContain('0.9');
+      expect(sitemapContent).not.toContain("url: `${baseUrl}/cemetery-software`");
+      expect(sitemapContent).toContain('Legacy service pages');
     });
   });
 });

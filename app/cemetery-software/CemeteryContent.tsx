@@ -19,6 +19,7 @@ import {
 } from 'lucide-react';
 import PageBackground from '@/components/PageBackground';
 import Breadcrumb from '@/components/Breadcrumb';
+import LegacyServiceNotice from '@/components/LegacyServiceNotice';
 
 const PAIN_POINTS = [
   {
@@ -181,6 +182,10 @@ export default function CemeteryContent() {
       />
 
       <main className="relative z-10">
+        <div className="pt-4">
+          <LegacyServiceNotice />
+        </div>
+
         {/* Hero */}
         <section id="hero" className="py-16 md:py-24">
           <div className="max-w-4xl mx-auto px-4">

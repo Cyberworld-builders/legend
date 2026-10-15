@@ -13,6 +13,10 @@ export const metadata: Metadata = {
     'AI overview optimization',
     'E-E-A-T signals',
   ],
+  robots: {
+    index: false,
+    follow: true,
+  },
   alternates: {
     canonical: 'https://cyberworldbuilders.com/services/digital-marketing/geo-optimization',
   },

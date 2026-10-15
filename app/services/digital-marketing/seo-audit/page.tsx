@@ -13,6 +13,10 @@ export const metadata: Metadata = {
     'technical SEO monitoring',
     'schema validation',
   ],
+  robots: {
+    index: false,
+    follow: true,
+  },
   alternates: {
     canonical: 'https://cyberworldbuilders.com/services/digital-marketing/seo-audit',
   },

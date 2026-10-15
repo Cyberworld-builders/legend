@@ -13,6 +13,10 @@ export const metadata: Metadata = {
     'grave locator',
     'memorial park software',
   ],
+  robots: {
+    index: false,
+    follow: true,
+  },
   alternates: {
     canonical: 'https://cyberworldbuilders.com/cemetery-software',
   },
