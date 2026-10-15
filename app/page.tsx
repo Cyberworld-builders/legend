@@ -138,7 +138,7 @@ export default function Home() {
               {notes.map((post, index) => (
                 <Link key={post.slug} href={`/blog/${post.slug}`} className={`group grid overflow-hidden border border-white/10 bg-[#0b0e0b] transition-colors hover:border-[#00ff00]/40 ${index === 0 ? 'md:col-span-2 md:grid-cols-[1.1fr_.9fr]' : ''}`}>
                   <div className={`relative min-h-48 ${index === 0 ? 'md:min-h-72' : ''}`}>
-                    {post.headerImage ? <Image src={post.headerImage} alt="" fill sizes={index === 0 ? '(max-width: 768px) 100vw, 60vw' : '(max-width: 768px) 100vw, 45vw'} className="object-cover opacity-80 transition-opacity group-hover:opacity-100" /> : null}
+                    {post.headerImage ? <Image src={post.headerImage} alt={`Hero image for ${post.title}`} fill sizes={index === 0 ? '(max-width: 768px) 100vw, 60vw' : '(max-width: 768px) 100vw, 45vw'} className="object-cover opacity-80 transition-opacity group-hover:opacity-100" /> : null}
                   </div>
                   <div className="flex flex-col justify-center p-5 md:p-7">
                     <p className="font-mono text-xs text-[#00ff00]/60">{post.category} <span className="px-2 text-[#657065]">/</span> {dateLabel(post.publishedDate)}</p>
@@ -154,7 +154,7 @@ export default function Home() {
         </section>
 
         <section id="about" className="mx-auto max-w-4xl px-5 py-16 text-center md:px-8 md:py-24">
-          <Image src="/images/logo.png" alt="" width={48} height={48} className="mx-auto mb-5 opacity-70" />
+          <Image src="/images/logo.png" alt="CyberWorld Builders logo" width={48} height={48} className="mx-auto mb-5 opacity-70" />
           <p className="font-mono text-xs uppercase tracking-[.2em] text-[#00ff00]/55">About this place</p>
           <h2 className="mt-3 text-2xl font-semibold text-[#e8f0e8] md:text-3xl">CyberWorld Builders is the name on the workshop door.</h2>
           <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-[#9da69d]">
