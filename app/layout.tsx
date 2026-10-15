@@ -53,7 +53,12 @@ export const metadata: Metadata = {
     apple: [{ url: '/icons/apple-touch-icon.png', sizes: '180x180', type: 'image/png' }],
   },
   manifest: '/manifest.json',
-  alternates: { canonical: 'https://cyberworldbuilders.com' },
+  alternates: {
+    canonical: 'https://cyberworldbuilders.com',
+    types: {
+      'application/rss+xml': 'https://cyberworldbuilders.com/feed.xml',
+    },
+  },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

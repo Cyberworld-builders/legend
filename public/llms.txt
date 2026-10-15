@@ -19,6 +19,7 @@ Current coordinates:
 - Field notes (all posts): https://cyberworldbuilders.com/blog
 - Tags: https://cyberworldbuilders.com/blog/tags
 - Sitemap: https://cyberworldbuilders.com/sitemap.xml
+- RSS feed: https://cyberworldbuilders.com/feed.xml (also available at /rss.xml)
 
 ## Representative recent field notes
 - [Stop Wrapping the Frontier Harness](https://cyberworldbuilders.com/blog/stop-wrapping-the-frontier-harness) (2026-10-10): from an OpenClaw-style harness on an old M1 Mac to an executive productivity tunnel on Omarchy; get out of the frontier harness's way.
