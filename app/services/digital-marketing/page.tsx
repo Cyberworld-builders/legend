@@ -13,6 +13,10 @@ export const metadata: Metadata = {
     'automated SEO audit',
     'content pipeline automation',
   ],
+  robots: {
+    index: false,
+    follow: true,
+  },
   alternates: {
     canonical: 'https://cyberworldbuilders.com/services/digital-marketing',
   },

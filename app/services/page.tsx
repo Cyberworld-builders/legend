@@ -12,6 +12,10 @@ export const metadata: Metadata = {
     'SaaS development',
     'business automation',
   ],
+  robots: {
+    index: false,
+    follow: true,
+  },
   alternates: {
     canonical: 'https://cyberworldbuilders.com/services',
   },

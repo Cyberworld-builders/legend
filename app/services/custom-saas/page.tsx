@@ -13,6 +13,10 @@ export const metadata: Metadata = {
     'full-stack development',
     'web application development',
   ],
+  robots: {
+    index: false,
+    follow: true,
+  },
   alternates: {
     canonical: 'https://cyberworldbuilders.com/services/custom-saas',
   },

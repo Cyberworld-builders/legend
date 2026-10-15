@@ -13,6 +13,10 @@ export const metadata: Metadata = {
     'AI agent services',
     'multi-step AI reasoning',
   ],
+  robots: {
+    index: false,
+    follow: true,
+  },
   alternates: {
     canonical: 'https://cyberworldbuilders.com/services/automation/ai-agents',
   },

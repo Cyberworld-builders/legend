@@ -13,6 +13,10 @@ export const metadata: Metadata = {
     'automated publishing',
     'social media distribution',
   ],
+  robots: {
+    index: false,
+    follow: true,
+  },
   alternates: {
     canonical: 'https://cyberworldbuilders.com/services/digital-marketing/content-pipeline',
   },

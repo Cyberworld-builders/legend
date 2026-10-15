@@ -13,6 +13,10 @@ export const metadata: Metadata = {
     'startup MVP',
     'minimum viable product',
   ],
+  robots: {
+    index: false,
+    follow: true,
+  },
   alternates: {
     canonical: 'https://cyberworldbuilders.com/services/custom-saas/mvp-development',
   },

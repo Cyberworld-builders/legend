@@ -4,6 +4,7 @@ import { TrendingUp, Workflow, Code2 } from 'lucide-react';
 import PageBackground from '@/components/PageBackground';
 import Breadcrumb from '@/components/Breadcrumb';
 import ServiceCard from '@/components/ServiceCard';
+import LegacyServiceNotice from '@/components/LegacyServiceNotice';
 
 const SERVICES = [
   {
@@ -41,6 +42,10 @@ export default function ServicesIndexContent() {
       <PageBackground opacity={15} fullWidth={true} />
 
       <main className="relative z-10">
+        <div className="pt-4">
+          <LegacyServiceNotice />
+        </div>
+
         <section id="hero" className="py-16 md:py-24">
           <div className="max-w-4xl mx-auto px-4">
             <Breadcrumb

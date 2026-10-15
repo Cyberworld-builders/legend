@@ -13,6 +13,10 @@ export const metadata: Metadata = {
     'Next.js App Router',
     'Supabase development',
   ],
+  robots: {
+    index: false,
+    follow: true,
+  },
   alternates: {
     canonical: 'https://cyberworldbuilders.com/services/custom-saas/nextjs-apps',
   },

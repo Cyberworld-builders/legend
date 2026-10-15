@@ -13,6 +13,10 @@ export const metadata: Metadata = {
     'business process automation',
     'visual workflow builder',
   ],
+  robots: {
+    index: false,
+    follow: true,
+  },
   alternates: {
     canonical: 'https://cyberworldbuilders.com/services/automation/n8n-workflows',
   },
