@@ -35,16 +35,16 @@ export async function generateMetadata({
   }
 
   return {
-    title: 'Blog — Real Engineering, Not AI Fluff',
-    description: 'Dispatches from building production software with AI agents, automating SEO pipelines, and running a one-person dev shop. Written by a human who ships.',
+    title: 'Field Notes — Useful Systems, Unusual Ideas',
+    description: 'Field notes from an independent technology workshop: agent systems and human–AI collaboration, creative media tools, and immersive experiences, written as the work happens.',
     openGraph: {
-      title: 'Blog — Real Engineering, Not AI Fluff | CyberWorld Builders',
-      description: 'Dispatches from building production software with AI agents, automating SEO pipelines, and running a one-person dev shop. Written by a human who ships.',
+      title: 'Field Notes — Useful Systems, Unusual Ideas | CyberWorld Builders',
+      description: 'Field notes from an independent technology workshop: agent systems and human–AI collaboration, creative media tools, and immersive experiences, written as the work happens.',
       url: canonical,
       type: 'website',
       siteName: 'CyberWorld Builders',
       images: [
-        { url: 'https://cyberworldbuilders.com/images/social-card.png', width: 1200, height: 630, alt: 'CyberWorld Builders Blog' },
+        { url: 'https://cyberworldbuilders.com/images/social-card.png', width: 1200, height: 630, alt: 'CyberWorld Builders Field Notes' },
         { url: 'https://cyberworldbuilders.com/images/logo.png', width: 1200, height: 630, alt: 'CyberWorld Builders Logo' },
       ],
     },
@@ -52,8 +52,8 @@ export async function generateMetadata({
       card: 'summary_large_image',
       site: '@cyberbuilders',
       creator: '@cyberbuilders',
-      title: 'Blog — Real Engineering, Not AI Fluff | CyberWorld Builders',
-      description: 'Dispatches from building production software with AI agents, automating SEO pipelines, and running a one-person dev shop. Written by a human who ships.',
+      title: 'Field Notes — Useful Systems, Unusual Ideas | CyberWorld Builders',
+      description: 'Field notes from an independent technology workshop: agent systems and human–AI collaboration, creative media tools, and immersive experiences, written as the work happens.',
     },
     alternates: { canonical },
   };
@@ -138,7 +138,7 @@ export default async function BlogIndex({ searchParams }: BlogIndexProps) {
         <Breadcrumb 
           items={[
             { label: 'Home', href: '/' },
-            { label: 'Blog' }
+            { label: 'Field Notes' }
           ]} 
         />
       </div>
@@ -147,7 +147,7 @@ export default async function BlogIndex({ searchParams }: BlogIndexProps) {
         {tagFilter ? (
           <>Posts tagged with &ldquo;{tagFilter}&rdquo;</>
         ) : (
-          'Blog'
+          'Field Notes'
         )}
       </h1>
 
@@ -185,10 +185,10 @@ export default async function BlogIndex({ searchParams }: BlogIndexProps) {
             "@type": "CollectionPage",
             name: tagFilter
               ? `Posts tagged with "${tagFilter}" - CyberWorld Builders Blog`
-              : "Blog — Real Engineering, Not AI Fluff | CyberWorld Builders",
+              : "Field Notes — Useful Systems, Unusual Ideas | CyberWorld Builders",
             description: tagFilter
               ? `Browse blog posts tagged with "${tagFilter}".`
-              : "Dispatches from building production software with AI agents, automating SEO pipelines, and running a one-person dev shop.",
+              : "Field notes from an independent technology workshop: agent systems and human–AI collaboration, creative media tools, and immersive experiences, written as the work happens.",
             url: tagFilter
               ? `https://cyberworldbuilders.com/blog?tag=${encodeURIComponent(tagFilter)}`
               : "https://cyberworldbuilders.com/blog",
