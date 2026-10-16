@@ -1,12 +1,13 @@
 import { notFound } from 'next/navigation';
 import Breadcrumb from '@/components/Breadcrumb';
-import RelatedPosts from '@/components/RelatedPosts';
+import RelatedFieldNotes from '@/components/RelatedFieldNotes';
 import SocialShare from '@/components/SocialShare';
 import PageBackground from '@/components/PageBackground';
 import Link from 'next/link';
 import Image from 'next/image';
 import { getPostBySlug, getAllPosts } from '@/lib/post-metadata';
 import { slugifyTag } from '@/lib/tag-utils';
+import { getRelatedPosts } from '@/lib/related-posts';
 import { publicImageInfo } from '@/lib/image-size';
 import type { Metadata } from 'next';
 
@@ -106,21 +107,11 @@ export default async function BlogPost({ params }: BlogPostProps) {
 
   // Build allPosts list for related posts and navigation
   const allPostEntries = getAllPosts();
-  const allPosts = allPostEntries.map(p => ({
-    slug: p.slug,
-    title: p.title,
-    mtime: new Date(p.modifiedDate || p.publishedDate),
-    metadata: {
-      topics: p.topics,
-      tags: p.tags,
-      category: p.category,
-    },
-    headerImage: p.headerImage || '',
-  }));
+  const relatedPosts = getRelatedPosts(slug, allPostEntries, 3);
 
-  const currentIndex = allPosts.findIndex(p => p.slug === slug);
-  const prevPost = currentIndex > 0 ? allPosts[currentIndex - 1] : null;
-  const nextPost = currentIndex < allPosts.length - 1 ? allPosts[currentIndex + 1] : null;
+  const currentIndex = allPostEntries.findIndex(p => p.slug === slug);
+  const prevPost = currentIndex > 0 ? allPostEntries[currentIndex - 1] : null;
+  const nextPost = currentIndex < allPostEntries.length - 1 ? allPostEntries[currentIndex + 1] : null;
 
   return (
     <div className="min-h-screen flex flex-col items-center py-8 relative">
@@ -266,9 +257,9 @@ export default async function BlogPost({ params }: BlogPostProps) {
           />
         </div>
 
-        {/* Related Posts */}
+        {/* Related field notes */}
         <div className="w-full max-w-3xl">
-          <RelatedPosts currentSlug={slug} allPosts={allPosts} />
+          <RelatedFieldNotes posts={relatedPosts} />
         </div>
 
         {/* Post Navigation */}
