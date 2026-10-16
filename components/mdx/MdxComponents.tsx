@@ -1,4 +1,5 @@
 import type { ComponentPropsWithoutRef } from 'react';
+import Image from 'next/image';
 import PostCard from '@/components/PostCard';
 
 /**
@@ -9,8 +10,14 @@ import PostCard from '@/components/PostCard';
 function Figure({ src, alt, caption }: { src: string; alt: string; caption?: string }) {
   return (
     <figure className="my-8">
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src={src} alt={alt} className="w-full max-w-md mx-auto rounded" />
+      <Image
+        src={src}
+        alt={alt}
+        width={800}
+        height={600}
+        className="w-full max-w-md mx-auto rounded h-auto"
+        sizes="(max-width: 768px) 100vw, 448px"
+      />
       {caption && <figcaption className="text-center text-sm text-gray-400 mt-2">{caption}</figcaption>}
     </figure>
   );
