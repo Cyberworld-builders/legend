@@ -72,9 +72,17 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
             __html: JSON.stringify({
               '@context': 'https://schema.org',
               '@type': 'Organization',
+              '@id': 'https://cyberworldbuilders.com/#organization',
               name: 'CyberWorld Builders',
               url: 'https://cyberworldbuilders.com',
-              logo: 'https://cyberworldbuilders.com/images/logo.png',
+              logo: {
+                '@type': 'ImageObject',
+                '@id': 'https://cyberworldbuilders.com/#logo',
+                url: 'https://cyberworldbuilders.com/images/logo.png',
+                width: 250,
+                height: 250,
+                caption: 'CyberWorld Builders',
+              },
               description: siteDescription,
               founder: { '@type': 'Person', name: 'Jay Long', url: 'https://cyberworldbuilders.com' },
               sameAs: [
@@ -82,6 +90,21 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
                 'https://youtube.com/@cyberbuilders',
                 'https://x.com/cyberbuilders',
               ],
+            }),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'WebSite',
+              '@id': 'https://cyberworldbuilders.com/#website',
+              url: 'https://cyberworldbuilders.com',
+              name: 'CyberWorld Builders',
+              description: siteDescription,
+              publisher: { '@id': 'https://cyberworldbuilders.com/#organization' },
+              inLanguage: 'en-US',
             }),
           }}
         />

@@ -198,6 +198,7 @@ export default async function BlogPost({ params }: BlogPostProps) {
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "BlogPosting",
+              "@id": metadata.canonicalUrl || `https://cyberworldbuilders.com/blog/${slug}`,
               headline: title,
               description,
               image: socialCardUrl(slug, metadata.socialImage, metadata.headerImage),
@@ -209,12 +210,11 @@ export default async function BlogPost({ params }: BlogPostProps) {
                   "https://github.com/CyberWorld-builders",
                   "https://youtube.com/@cyberbuilders",
                   "https://x.com/cyberbuilders",
-                  "https://www.facebook.com/cyberworldbuilders",
-                  "https://www.upwork.com/freelancers/jaylongcyberworld",
                 ],
               },
               publisher: {
                 "@type": "Organization",
+                "@id": "https://cyberworldbuilders.com/#organization",
                 name: "CyberWorld Builders",
                 logo: { "@type": "ImageObject", url: "https://cyberworldbuilders.com/images/logo.png", width: 250, height: 250 },
               },
@@ -223,7 +223,7 @@ export default async function BlogPost({ params }: BlogPostProps) {
               mainEntityOfPage: { "@type": "WebPage", "@id": metadata.canonicalUrl || `https://cyberworldbuilders.com/blog/${slug}` },
               url: metadata.canonicalUrl || `https://cyberworldbuilders.com/blog/${slug}`,
               articleSection: metadata.category || "Technology",
-              keywords: metadata.keywords || [],
+              keywords: [...new Set([...(metadata.keywords || []), ...(metadata.tags || [])])],
               inLanguage: metadata.language || "en-US",
             }),
           }}
