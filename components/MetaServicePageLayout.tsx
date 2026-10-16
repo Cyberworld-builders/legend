@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { LucideIcon, ArrowRight } from 'lucide-react';
 import PageBackground from '@/components/PageBackground';
 import Breadcrumb from '@/components/Breadcrumb';
+import LegacyServiceNotice from '@/components/LegacyServiceNotice';
 
 interface BreadcrumbItem {
   label: string;
@@ -108,6 +109,10 @@ export default function MetaServicePageLayout({
       />
 
       <main className="relative z-10">
+        <div className="pt-4">
+          <LegacyServiceNotice />
+        </div>
+
         {/* Hero — image as atmospheric backdrop */}
         <section id="hero" className="relative overflow-hidden">
           {heroImage && (
