@@ -61,6 +61,10 @@ export const pillars: PillarConfig[] = [
       'n8n-inside-ai-agent-team',
       'three-terminals-zero-myth',
       'building-a-generative-framework-evolving-ai-coding-agents-and-human-ai-collaboration',
+      'keep-one-foot-on-the-ground',
+      'show-up-with-the-solution-already-built',
+      'code-first-n8n-custom-nodes-automation-workflow',
+      'the-power-of-flat-files-in-blogging-repurposing-coding-tools-for-content-creation-and-ai-optimization',
     ],
   },
   {
