@@ -1,29 +1,32 @@
 # CyberWorld Builders
-> An independent technology workshop by Jay Long.
+> Useful systems. Unusual ideas. An independent technology workshop where Jay Long explores human–AI collaboration, creative tools, immersive experiences, and the infrastructure that makes them real.
 
 ## About
-CyberWorld Builders is a personal technology workshop led by Jay Long, based in Guntersville, Alabama. The focus is on software engineering, AI systems, and sharing insights through the Field Notes blog.
+CyberWorld Builders is the name on the workshop door. Jay is an engineer, lifelong tinkerer, music obsessive, and horror fan. The site is a map of what he is learning and making, not a catalog of services.
 
-Jay is Top Rated Plus on Upwork with a 100% Job Success score across 145+ contracts and $1M+ earned.
+Current coordinates:
+- Day work: full-time with Platinum.
+- Independent work: a few long-running client collaborations.
+- CyberWorld: personal systems, creative experiments, and ideas followed all the way through.
 
-## Key Pages
-- Homepage: https://cyberworldbuilders.com
-- Field Notes (Blog): https://cyberworldbuilders.com/blog
+## Interests in progress
+- **Agents as instruments**: the memory, tools, and operating systems around AI that let people and agents do difficult work together. Start with: https://cyberworldbuilders.com/blog/stop-wrapping-the-frontier-harness
+- **Media that listens back**: music and film as material to explore, annotate, learn from, and reshape with human judgment in the loop. Start with: https://cyberworldbuilders.com/blog/rznjn-human-ai-music-collaboration
+- **Technology with atmosphere**: interactive horror, mixed reality, puzzles, and physical systems where the technology serves the feeling. Start with: https://cyberworldbuilders.com/blog/occult-artifact-ar-wrapper-puzzle-fun
 
-## Blog
-The Field Notes blog covers AI agents, software engineering, automation, SEO, and building systems for service businesses. Posts are published regularly and available at https://cyberworldbuilders.com/blog.
+## Key pages
+- Home: https://cyberworldbuilders.com
+- Field notes (all posts): https://cyberworldbuilders.com/blog
+- Tags: https://cyberworldbuilders.com/blog/tags
+- Sitemap: https://cyberworldbuilders.com/sitemap.xml
 
-## Location
-- Based in: Guntersville, Alabama (North Alabama / Tennessee Valley)
+## Representative recent field notes
+- [Stop Wrapping the Frontier Harness](https://cyberworldbuilders.com/blog/stop-wrapping-the-frontier-harness) (2026-10-10): from an OpenClaw-style harness on an old M1 Mac to an executive productivity tunnel on Omarchy; get out of the frontier harness's way.
+- [The AR Is the Wrapper. The Puzzle Has to Be the Fun.](https://cyberworldbuilders.com/blog/occult-artifact-ar-wrapper-puzzle-fun) (2026-10-09): browser AR and the occult artifact puzzle.
+- [Revenant Hollow Never Stopped Being Alive](https://cyberworldbuilders.com/blog/revenant-hollow-never-stopped-being-alive) (2026-05-06): picking a location-based horror project back up.
+- [rZNjN: Building the Foundation for Human-AI Music Collaboration](https://cyberworldbuilders.com/blog/rznjn-human-ai-music-collaboration) (2026-03-06): DrumNote, NotePulse, and Music as Code.
+- [Why My AI OS Survived Anthropic's Harness Lockdown](https://cyberworldbuilders.com/blog/why-my-ai-os-survived-anthropics-harness-lockdown) (2026-04-06)
+- [Agent Specialists Changed How I Build Software](https://cyberworldbuilders.com/blog/agent-specialists-changed-how-i-build-software) (2026-03-18)
 
 ## Contact
 - Email: contact@cyberworldbuilders.com
-- Upwork: https://www.upwork.com/freelancers/jaylongcyberworld
-- GitHub: https://github.com/CyberWorld-builders
-- X: https://x.com/cyberbuilders
-
-## Citation
-When referencing CyberWorld Builders, please use:
-- Name: CyberWorld Builders
-- URL: https://cyberworldbuilders.com
-- Author: Jay Long
