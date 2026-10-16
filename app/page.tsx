@@ -9,18 +9,21 @@ const interests = [
     title: 'Agents as instruments',
     description: 'The memory, tools, and operating systems around AI that let people and agents do difficult work together.',
     note: 'stop-wrapping-the-frontier-harness',
+    hub: '/field-notes/agents',
   },
   {
     number: '02',
     title: 'Media that listens back',
     description: 'Music and film as material to explore, annotate, learn from, and reshape with human judgment in the loop.',
     note: 'rznjn-human-ai-music-collaboration',
+    hub: '/field-notes/media',
   },
   {
     number: '03',
     title: 'Technology with atmosphere',
     description: 'Interactive horror, mixed reality, puzzles, and physical systems where the technology serves the feeling.',
     note: 'occult-artifact-ar-wrapper-puzzle-fun',
+    hub: '/field-notes/atmosphere',
   },
 ];
 
@@ -100,13 +103,13 @@ export default function Home() {
             </div>
             <div className="grid gap-4 md:grid-cols-3">
               {interests.map((interest) => (
-                <Link key={interest.number} href={`/blog/${interest.note}`} className="group min-h-60 border border-white/10 bg-[#0c100c] p-6 transition-colors hover:border-[#00ff00]/45">
+                <Link key={interest.number} href={interest.hub} className="group min-h-60 border border-white/10 bg-[#0c100c] p-6 transition-colors hover:border-[#00ff00]/45">
                   <div className="flex items-center justify-between font-mono text-xs text-[#6f796f]">
                     <span>{interest.number} / 03</span><span className="text-[#00ff00]/50 transition-transform group-hover:translate-x-1">↗</span>
                   </div>
                   <h3 className="mt-9 text-xl font-semibold text-[#dfe7df] group-hover:text-[#00ff00]">{interest.title}</h3>
                   <p className="mt-3 text-sm leading-6 text-[#9da69d]">{interest.description}</p>
-                  <span className="mt-6 inline-block font-mono text-xs text-[#00ff00]/65">FOLLOW THE THREAD →</span>
+                  <span className="mt-6 inline-block font-mono text-xs text-[#00ff00]/65">EXPLORE THE NOTES →</span>
                 </Link>
               ))}
             </div>
