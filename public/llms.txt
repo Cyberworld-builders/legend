@@ -10,13 +10,16 @@ Current coordinates:
 - CyberWorld: personal systems, creative experiments, and ideas followed all the way through.
 
 ## Interests in progress
-- **Agents as instruments**: the memory, tools, and operating systems around AI that let people and agents do difficult work together. Start with: https://cyberworldbuilders.com/blog/stop-wrapping-the-frontier-harness
-- **Media that listens back**: music and film as material to explore, annotate, learn from, and reshape with human judgment in the loop. Start with: https://cyberworldbuilders.com/blog/rznjn-human-ai-music-collaboration
-- **Technology with atmosphere**: interactive horror, mixed reality, puzzles, and physical systems where the technology serves the feeling. Start with: https://cyberworldbuilders.com/blog/occult-artifact-ar-wrapper-puzzle-fun
+- **Agents as instruments**: the memory, tools, and operating systems around AI that let people and agents do difficult work together. Hub: https://cyberworldbuilders.com/field-notes/agents
+- **Media that listens back**: music and film as material to explore, annotate, learn from, and reshape with human judgment in the loop. Hub: https://cyberworldbuilders.com/field-notes/media
+- **Technology with atmosphere**: interactive horror, mixed reality, puzzles, and physical systems where the technology serves the feeling. Hub: https://cyberworldbuilders.com/field-notes/atmosphere
 
 ## Key pages
 - Home: https://cyberworldbuilders.com
 - Field notes (all posts): https://cyberworldbuilders.com/blog
+- Agents hub: https://cyberworldbuilders.com/field-notes/agents
+- Media hub: https://cyberworldbuilders.com/field-notes/media
+- Atmosphere hub: https://cyberworldbuilders.com/field-notes/atmosphere
 - Tags: https://cyberworldbuilders.com/blog/tags
 - Sitemap: https://cyberworldbuilders.com/sitemap.xml
 - RSS feed: https://cyberworldbuilders.com/feed.xml (also available at /rss.xml)
